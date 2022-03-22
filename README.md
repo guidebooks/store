@@ -1,2 +1,3 @@
-# store
-The home for importable Guidebooks
+# The Guidebook Store
+
+The home for importable Guidebooks.
