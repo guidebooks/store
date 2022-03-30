@@ -5,8 +5,8 @@ layout:
     2: right
     default: wizard
 imports:
-    - ../kubernetes/kubectl.md
-    - kn.md
+    - ../../../kubernetes/kubectl.md
+    - ../../kn.md
 wizard:
     steps:
         - name: Install required tools

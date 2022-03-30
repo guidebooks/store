@@ -1,5 +1,5 @@
 ---
-title: Install the kn CLI
+title: Install kn
 codeblocks:
     - match: ^brew install kn$
       validate: kn version
@@ -18,6 +18,8 @@ codeblocks:
     - match: ^docker run --rm -v "$HOME/.kube/config:/root/.kube/config" gcr.io/knative-releases/knative.dev/client/cmd/kn:latest service list$
       validate: $? -e 0 && exit 0 \|\| exit 1
 ---
+
+# Install the `kn` CLI
 
 The Knative CLI (`kn`) provides a quick and easy interface for creating Knative resources, such as Knative Services and Event Sources, without the need to create or modify YAML files directly.
 
