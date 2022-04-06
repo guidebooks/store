@@ -74,7 +74,7 @@ To get a local deployment of Knative, run the `quickstart` plugin:
 
 === "On kind"
 
-    1. Install Knative and Kubernetes on a local Docker daemon by running:
+    You may choose to install Knative and Kubernetes on a local Docker daemon via [KinD](https://kind.sigs.k8s.io/).
 
         :import{../../../../kubernetes/kind.md}
 
@@ -84,7 +84,7 @@ To get a local deployment of Knative, run the `quickstart` plugin:
 
 === "On minikube"
 
-    1. Install Knative and Kubernetes in a minikube instance by running:
+    You may choose to install Knative and Kubernetes in a [minikube](https://minikube.sigs.k8s.io/) instance.
 
         :import{../../../../kubernetes/minikube.md}
 
