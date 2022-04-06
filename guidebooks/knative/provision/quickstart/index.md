@@ -52,7 +52,12 @@ codeblocks:
 
 ---
 
---8<-- "https://raw.githubusercontent.com/mra-ruiz/docs/guidebooks/docs/getting-started/README.md"
+# Install Knative on KinD or minikube
+
+This solution gives you a quick way to install
+[Knative](https://knative.dev) on your local machine. You may choose
+to install Knative on either [KinD](https://kind.sigs.k8s.io/) or
+[minikube](https://minikube.sigs.k8s.io/).
 
 ---
 
