@@ -1,14 +1,12 @@
 ---
 layout: wizard
+imports:
+    - ../../../kubernetes/kubectl.md
 ---
 
 # Installing Knative Serving using YAML files
 
 This topic describes how to install Knative Serving by applying YAML files using the `kubectl` CLI.
-
----
-
---8<-- "snippets/prerequisites.md"
 
 ---
 
@@ -61,12 +59,9 @@ To install the Knative Serving component:
 ---
 
 <!-- These are snippets from the docs/snippets directory -->
-<!-- {% include "dns.md" %}
-{% include "real-dns-yaml.md" %}
-{% include "temporary-dns.md" %} -->
---8<-- "https://raw.githubusercontent.com/mra-ruiz/docs/guidebooks/docs/snippets/dns.md"
---8<-- "https://raw.githubusercontent.com/mra-ruiz/docs/guidebooks/docs/snippets/real-dns-yaml.md"
---8<-- "https://raw.githubusercontent.com/mra-ruiz/docs/guidebooks/docs/snippets/temporary-dns.md"
+---8<-- "https://raw.githubusercontent.com/mra-ruiz/docs/guidebooks/docs/snippets/dns.md"
+---8<-- "https://raw.githubusercontent.com/mra-ruiz/docs/guidebooks/docs/snippets/real-dns-yaml.md"
+---8<-- "https://raw.githubusercontent.com/mra-ruiz/docs/guidebooks/docs/snippets/temporary-dns.md"
 
 ---
 
