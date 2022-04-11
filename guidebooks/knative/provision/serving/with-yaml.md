@@ -19,13 +19,13 @@ To install the Knative Serving component:
 1. Install the required custom resources by running the command:
 
     ```bash
-    kubectl apply -f {{ artifact(repo="serving",file="serving-crds.yaml")}}
+    kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.3.1/serving-crds.yaml
     ```
 
 1. Install the core components of Knative Serving by running the command:
 
     ```bash
-    kubectl apply -f {{ artifact(repo="serving",file="serving-core.yaml")}}
+    kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.3.1/serving-core.yaml
     ```
 
     !!! info
