@@ -2,7 +2,7 @@
 title: Installing Knative Eventing using YAML files
 layout: wizard
 imports:
-    - ../../../kubernetes/kubectl.md
+    - ../../../../kubernetes/kubectl.md
 ---
 
 # Installing Knative Eventing using YAML files
@@ -64,6 +64,8 @@ Follow the procedure for the Channel of your choice:
 
 === "Google Cloud Pub/Sub Channel"
 
+    [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) allows services to communicate asynchronously, with latencies on the order of 100 milliseconds.
+
     * Install the Google Cloud Pub/Sub Channel by running the command:
 
         ```bash
@@ -78,6 +80,8 @@ Follow the procedure for the Channel of your choice:
 
 === "In-Memory (standalone)"
 
+    Install an in-memory implementation of Channel.
+
     !!! warning
         This simple standalone implementation runs in-memory and is not suitable for production use cases.
 
@@ -88,6 +92,8 @@ Follow the procedure for the Channel of your choice:
         ```
 
 === "NATS Channel"
+
+    NATS Streaming channels are beta-quality Channels that are backed by [NATS Streaming](https://github.com/nats-io/nats-streaming-server).
 
     1. [Install NATS Streaming for Kubernetes](https://github.com/knative-sandbox/eventing-natss/tree/main/config).
 
@@ -216,6 +222,8 @@ The following tabs expand to show instructions for installing each Eventing exte
 
 === "Apache Kafka Sink"
 
+    Use a sink [connector](https://docs.confluent.io/home/connect/self-managed/kafka_connectors.html) to pull data into Apache Kafka.
+
     1. Install the Kafka controller by running the command:
 
         ```bash
@@ -232,6 +240,7 @@ The following tabs expand to show instructions for installing each Eventing exte
 
 === "Sugar Controller"
 
+    Knative Eventing [Sugar Controller](https://knative.dev/docs/eventing/sugar/) will react to special labels and annotations to produce or control eventing resources in a cluster or namespace.
     <!-- Unclear when this feature came in -->
 
     1. Install the Eventing Sugar Controller by running the command:
@@ -278,6 +287,8 @@ The following tabs expand to show instructions for installing each Eventing exte
 
 === "Apache Kafka Source"
 
+    Use a source [connector](https://docs.confluent.io/home/connect/self-managed/kafka_connectors.html) to push data from Apache Kafka.
+
     * Install the Apache Kafka Source by running the command:
 
         ```bash
@@ -288,6 +299,8 @@ The following tabs expand to show instructions for installing each Eventing exte
 
 
 === "GCP Sources"
+
+    Use this to enable easy configuration and consumption of [Google Cloud Platform](https://cloud.google.com/) events and services.
 
     * Install the GCP Sources by running the command:
 
@@ -307,6 +320,8 @@ The following tabs expand to show instructions for installing each Eventing exte
 
 === "Apache CouchDB Source"
 
+    Use this to push data from [Apache CouchDB](https://couchdb.apache.org/).
+
     * Install the Apache CouchDB Source by running the command:
 
         ```bash
@@ -316,6 +331,8 @@ The following tabs expand to show instructions for installing each Eventing exte
     To learn more, read the [Apache CouchDB source](https://github.com/knative-sandbox/eventing-couchdb/blob/main/source/README.md) documentation.
 
 === "VMware Sources and Bindings"
+
+    A Knative compatible Event Source for VMware events, e.g. VMware vSphere including a Binding to easily access the vSphere API from Kubernetes objects, e.g. a Job.
 
     * Install VMware Sources and Bindings by running the command:
 
