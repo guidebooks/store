@@ -2,7 +2,7 @@
 title: Installing Knative Serving using YAML files
 layout: wizard
 imports:
-    - ../../../kubernetes/kubectl.md
+    - ../../../../kubernetes/kubectl.md
 ---
 
 # Installing Knative Serving using YAML files
