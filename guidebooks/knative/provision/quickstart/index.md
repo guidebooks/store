@@ -30,7 +30,7 @@ codeblocks:
       validate: kn quickstart --help
     # Validation for step 3: Run the knative quickstart plugin
     - match: ^kn quickstart kind$
-      validate: \(kubectl cluster-info --context kind-knative\) && exit 0 \|\| exit 1
+      validate: kubectl cluster-info --context kind-knative
     - match: ^kn quickstart minikube$
       validate: minikube profile list
     - match: ^minikube tunnel --profile knative$
