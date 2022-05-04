@@ -2,7 +2,7 @@
 imports:
     - ./login.md
 codeblocks:
-    - match: .*
+    - match: ibmcloud resource groups
       validate: ibmcloud target | grep 'Resource group:' | cut -d ':' -f2 | sed -e 's/^[[:space:]]*//' | grep -qv 'No resource group targeted'
 ---
 
