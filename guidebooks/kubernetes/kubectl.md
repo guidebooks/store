@@ -10,6 +10,9 @@ Runs commands against Kubernetes clusters. You can use `kubectl` to deploy appli
     Download the latest release with the command:
 
     ```bash
+    ---
+    validate: which kubectl
+    ---
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     ```
 
@@ -34,7 +37,7 @@ Runs commands against Kubernetes clusters. You can use `kubectl` to deploy appli
         
         ```bash
         ---
-        validate: brew info kubectl
+        validate: which kubectl
         ---
         brew install kubectl 
         ```
@@ -45,11 +48,17 @@ Runs commands against Kubernetes clusters. You can use `kubectl` to deploy appli
 
         === "Intel"
             ```bash
+            ---
+            validate: which kubectl
+            ---
             curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/amd64/kubectl.sha256"
             ```
             
         === "Apple Silicon"
             ```bash
+            ---
+            validate: which kubectl
+            ---
             curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl.sha256"
             ```
 
@@ -59,6 +68,9 @@ Runs commands against Kubernetes clusters. You can use `kubectl` to deploy appli
             For example, to download version v1.23.0 on Intel macOS, type:
 
             ```bash
+            ---
+            validate: which kubectl
+            ---
             curl -LO "https://dl.k8s.io/release/v1.23.0/bin/darwin/amd64/kubectl"
             And for macOS on Apple Silicon, type:
 
