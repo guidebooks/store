@@ -5,9 +5,11 @@ imports:
 
 # IBM Cloud CodeEngine: Select a Project
 
-A project is a grouping of Code Engine entities such as applications,
-jobs, and builds. Projects are used to manage resources and provide
-access to its entities.
+A project is a grouping of [Code
+Engine](https://cloud.ibm.com/docs/codeengine) entities such as
+[applications, jobs, and
+builds](https://cloud.ibm.com/docs/codeengine?topic=codeengine-about#terminology). Projects
+are used to manage resources and provide access to its entities.
 
 === "expand(ibmcloud ce project list  -o json | jq -r '.[] | select(.state = \"active\").name')"
 
