@@ -1,9 +1,10 @@
 ---
 imports:
     - ../target.md
+    - ../cli/plugins/ce.md
 ---
 
-# IBM Cloud CodeEngine: Select a Project
+# IBM Cloud Code Engine: Select a Project
 
 A project is a grouping of [Code
 Engine](https://cloud.ibm.com/docs/codeengine) entities such as
@@ -11,7 +12,7 @@ Engine](https://cloud.ibm.com/docs/codeengine) entities such as
 builds](https://cloud.ibm.com/docs/codeengine?topic=codeengine-about#terminology). Projects
 are used to manage resources and provide access to its entities.
 
-=== "expand(ibmcloud ce project list  -o json | jq -r '.[] | select(.state = \"active\").name')"
+=== "expand(ibmcloud ce project list  -o json | jq -r '.[] | select(.state == \"active\").name')"
 
     ```shell
     ---
