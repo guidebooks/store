@@ -1,5 +1,4 @@
 ---
-validate: ibmcloud target | grep 'Resource group:' | cut -d ':' -f2 | sed -e 's/^[[:space:]]*//' | grep -qv 'No resource group targeted'
 imports:
     - ./login.md
 ---
@@ -13,7 +12,7 @@ Cloud](https://www.ibm.com/cloud) operations against a selected
 === "expand(ibmcloud resource groups | grep ACTIVE | cut -d ' ' -f1)"
     ```shell
     ---
-    validate: "[ \"$(ibmcloud target | grep 'Resource group:' | cut -d ':' -f2 | sed -e 's/^[[:space:]]*//')\" = \"$choice\" ]"
+    validate: ibmcloud target | grep 'Resource group:' | cut -d ':' -f2 | sed -e 's/^[[:space:]]*//' | grep -qv 'No resource group targeted'
     ---
     ibmcloud target -g "${choice}"
     ```
