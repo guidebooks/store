@@ -1,6 +1,7 @@
 ---
 imports:
     - ./login.md
+    - ./region.md
 ---
 
 # IBM Cloud: Target a Resource Group
