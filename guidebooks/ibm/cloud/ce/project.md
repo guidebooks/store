@@ -16,6 +16,9 @@ are used to manage resources and provide access to its entities.
 
     You may create a fresh Code Engine project.
     ```shell
+    ---
+    validate: ibmcloud ce project current
+    ---
     ibmcloud ce project create --name myproject-${uuid}
     ```
 
