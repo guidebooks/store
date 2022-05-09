@@ -3,7 +3,7 @@ imports:
     - ../ibmcloud.md
 ---
 
-# Install the IBM CLoud Cloud Object Storage CLI Plugin
+# Install the IBM Cloud Cloud Object Storage CLI Plugin
 
 The installation command in this tutorial installs the latest stand-alone IBM Cloud CLI Cloud Object Storage plugin version available.
 
