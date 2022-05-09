@@ -23,6 +23,6 @@ information that is used each time that the job is run.
 
     ```shell
     ibmcloud ce jobrun submit --image icr.io/codeengine/firstjob --name helloworld-${uuid}
-    sleep 1
+    sleep 3
     ibmcloud ce jobrun logs -f --jobrun helloworld-${uuid}
     ```
