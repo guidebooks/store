@@ -1,7 +1,7 @@
 ---
 imports:
-    - ../../../python/conda/install.md
-    - ../../ray/install/index.md
+    - ../../../../python/conda/install.md
+    - ../../../ray/install/index.md
 ---
 
 # Distributed Language Modeling with BERT
@@ -17,3 +17,16 @@ validate: conda env list | grep ml.codeflare.training.bert
 conda env create --name ml.codeflare.training.bert -f https://raw.githubusercontent.com/guidebooks/store/main/guidebooks/ml/codeflare/training/bert/raybert_environment.yml
 ```
 
+## Run it
+
+```shell
+---
+validate: [ -f ray-bert-vanilla.py ]
+---
+curl -LO https://raw.githubusercontent.com/guidebooks/store/main/guidebooks/ml/codeflare/tr\
+aining/bert/ray-bert-vanilla.py
+```
+
+```shell
+conda run -n ml.codeflare.training.bert python -u ray-bert-vanilla.py
+```
