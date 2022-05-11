@@ -21,12 +21,12 @@ conda env create --name ml.codeflare.training.bert -f https://raw.githubusercont
 
 ```shell
 ---
-validate: [ -f ray-bert-vanilla.py ]
+validate: "[ -f ray-bert-vanilla.py ]"
 ---
-curl -LO https://raw.githubusercontent.com/guidebooks/store/main/guidebooks/ml/codeflare/tr\
-aining/bert/ray-bert-vanilla.py
+curl -LO https://raw.githubusercontent.com/guidebooks/store/main/guidebooks/ml/codeflare/training/bert/ray-bert-vanilla.py
 ```
 
 ```shell
-conda run -n ml.codeflare.training.bert python -u ray-bert-vanilla.py
+conda activate ml.codeflare.training.bert
+python -u ray-bert-vanilla.py
 ```
