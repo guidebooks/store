@@ -1,3 +1,8 @@
+---
+imports:
+    - ../../../util/jq.md
+---
+
 # Set up Authorization for your IBM Cloud Object Storage Instance
 
 ## Choose a Service Key

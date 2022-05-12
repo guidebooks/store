@@ -1,5 +1,6 @@
 ---
 imports:
+    - ../../../util/jq.md
     - ../target.md
     - ../cli/plugins/ce.md
 ---
