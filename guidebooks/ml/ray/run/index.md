@@ -5,15 +5,8 @@ imports:
 
 # Run a Ray Job
 
-=== "Hello world"
-    ```python
-    import ray
-    ray.init()
+=== "Example: Using Ray Tasks to Parallelize a Function"
+    --8<-- "examples/parallelizing-functions.md"
 
-    @ray.remote
-    def f(x):
-        return x * x
-
-    futures = [f.remote(i) for i in range(4)]
-    print(ray.get(futures)) # [0, 1, 4, 9]
-    ```
+=== "Example: Using Ray Actors to Parallelize a Class"
+    --8<-- "examples/parallelizing-classes.md"
