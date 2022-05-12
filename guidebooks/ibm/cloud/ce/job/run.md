@@ -1,6 +1,6 @@
 ---
 imports:
-    - ../cli/plugins/ce.md
+    - ../../cli/plugins/ce.md
     - ../project.md
 ---
 
