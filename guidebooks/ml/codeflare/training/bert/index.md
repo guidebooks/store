@@ -14,7 +14,7 @@ This demo contains code for pre-training a bare-bones BERT model on the Masked L
 ---
 validate: conda env list | grep ml.codeflare.training.bert
 ---
-conda env create --name ml.codeflare.training.bert -f https://raw.githubusercontent.com/guidebooks/store/main/guidebooks/ml/codeflare/training/bert/raybert_environment.yml
+conda env create --name ml.codeflare.training.bert -f https://raw.githubusercontent.com/guidebooks/store/main/guidebooks/ml/codeflare/training/bert/raybert_environment_relaxed.txt
 ```
 
 ## Run it
