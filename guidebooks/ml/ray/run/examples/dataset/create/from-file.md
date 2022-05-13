@@ -1,3 +1,8 @@
+---
+imports:
+    - ../../../../../../python/pip/pyarrow.md
+---
+
 Datasets can be created from files on local disk or remote datasources
 such as S3. Any filesystem [supported by
 pyarrow](http://arrow.apache.org/docs/python/generated/pyarrow.fs.FileSystem.html)
