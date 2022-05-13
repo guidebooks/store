@@ -6,7 +6,7 @@ To get started with Ray Data, you will need to install a library.
 
 ```shell
 ---
-validate: pip show dask
+validate: python3 -c "import ray; ray.data"
 ---
 pip install "ray[data]" dask
 ```
