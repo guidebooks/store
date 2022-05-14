@@ -8,7 +8,7 @@
 
         ```shell
         ---
-        validate: python3 -c "import ray"
+        validate: madwizard-python-package-installed ray
         ---
         pip install -U ray
         ```
