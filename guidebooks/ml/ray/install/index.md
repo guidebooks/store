@@ -8,7 +8,7 @@
 
         ```shell
         ---
-        validate: pip show ray
+        validate: python3 -c "import ray"
         ---
         pip install -U ray
         ```

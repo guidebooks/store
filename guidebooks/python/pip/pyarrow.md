@@ -16,7 +16,7 @@ based on the C++ implementation of Arrow.
 
 ```shell
 ---
-validate: pip show pyarrow
+validate: python3 -c "import pyarrow"
 ---
 pip install pyarrow
 ```
