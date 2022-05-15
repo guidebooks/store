@@ -1,11 +1,11 @@
 ---
 imports:
-    - ../../../data.md
+    - ../../data.md
 ---
 
 # Creating and Transforming Datasets
 
---8<-- "../../../glossary/dataset.md"
+--8<-- "../../glossary/dataset.md"
 
 === "New Dataset from Range"
     --8<-- "create/from-range.md"
