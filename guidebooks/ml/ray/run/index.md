@@ -5,4 +5,5 @@ imports:
 
 # Run a Ray Job
 
---8<-- "examples/index.md"
+--8<-- "core/index.md"
+--8<-- "data/index.md"
