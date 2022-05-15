@@ -1,5 +1,6 @@
 ---
 imports:
+    - ../../../../../../python/pip/tqdm.md
     - ../../../../../../python/pip/pyarrow.md
 ---
 
