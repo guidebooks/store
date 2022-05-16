@@ -7,3 +7,4 @@ imports:
 
 --8<-- "core/index.md"
 --8<-- "data/index.md"
+--8<-- "train/index.md"
