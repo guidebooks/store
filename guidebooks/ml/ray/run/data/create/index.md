@@ -1,6 +1,6 @@
 ---
 imports:
-    - ../../install/data.md
+    - ../../../install/data.md
 ---
 
 # Creating and Transforming Datasets
