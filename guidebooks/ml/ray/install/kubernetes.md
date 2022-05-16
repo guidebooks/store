@@ -11,7 +11,7 @@ This will install Ray on a Kubernetes context of your choosing.
 
 ```shell
 ---
-validate: kubectl get rayclusters
+validate: kubectl get rayclusters | grep -v 'No resources'
 ---
 helm -n ray install example-cluster --create-namespace https://github.com/ray-project/ray/tree/master/deploy/charts/ray/
 kubectl wait --for=condition=available --all rayclusters
