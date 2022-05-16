@@ -14,8 +14,8 @@ To get started with Ray Serve, you will need to install a library.
 
 ```shell
 ---
-validate: madwizard-python-package-installed ray[tune]
+validate: madwizard-python-package-installed ray[serve]
 ---
-pip install "ray[tune]"
+pip install "ray[serve]"
 ```
 
