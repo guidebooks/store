@@ -5,7 +5,7 @@ iterable with `tqdm(iterable)`, and you're done!
 
 ```shell
 ---
-validate: madwizard-python-package-installed tqdm
+validate: pip-show tqdm
 ---
 pip install tqdm
 ```

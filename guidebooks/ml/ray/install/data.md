@@ -6,7 +6,7 @@ To get started with Ray Data, you will need to install a library.
 
 ```shell
 ---
-validate: madwizard-python-package-installed ray[data]
+validate: pip-show ray[data]
 ---
 pip install "ray[data]" dask
 ```

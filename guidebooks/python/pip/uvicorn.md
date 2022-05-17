@@ -2,7 +2,7 @@
 
 ```shell
 ---
-validate: madwizard-python-package-installed uvicorn
+validate: pip-show uvicorn
 ---
 pip install uvicorn
 ```

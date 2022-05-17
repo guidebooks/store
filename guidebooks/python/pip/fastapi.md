@@ -2,7 +2,7 @@
 
 ```shell
 ---
-validate: madwizard-python-package-installed fastapi
+validate: pip-show fastapi
 ---
 pip install fastapi
 ```

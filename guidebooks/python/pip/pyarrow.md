@@ -16,7 +16,7 @@ based on the C++ implementation of Arrow.
 
 ```shell
 ---
-validate: madwizard-python-package-installed pyarrow
+validate: pip-show pyarrow
 ---
 pip install pyarrow
 ```

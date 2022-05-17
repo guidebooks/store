@@ -14,7 +14,7 @@ experimentation:
 
 ```shell
 ---
-validate: madwizard-python-package-installed tensorboard
+validate: pip-show tensorboard
 ---
 pip install --user tensorboard
 ```

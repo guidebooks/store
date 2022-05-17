@@ -2,7 +2,7 @@
 
 ```shell
 ---
-validate: madwizard-python-package-installed sklearn
+validate: pip-show sklearn
 ---
 pip install scikit-learn
 ```

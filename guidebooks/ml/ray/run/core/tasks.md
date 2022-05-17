@@ -8,6 +8,9 @@ future, a so-called Ray object reference, that you can then fetch with
 `ray.get`.
 
 ```python
+---
+exec: ray-submit
+---
 import ray
 ray.init()
 

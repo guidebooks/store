@@ -5,6 +5,9 @@ either plain Python objects (schema is a Python type), or
 Arrow](https://arrow.apache.org/docs/python/api/datatypes.html)).
 
 ```python
+---
+exec: ray-submit
+---
 import ray
 
 # Create a Dataset of Python objects.
