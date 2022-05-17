@@ -19,6 +19,9 @@ operation is finished. Datasets also supports `.filter()` and
 `.flat_map()`.
 
 ```python
+---
+exec: ray-submit
+---
 import ray
 import pandas as pd
 import dask.dataframe as dd

@@ -1,6 +1,6 @@
-# Install Ray
+# Pick a Ray Target
 
-=== "Local Install"
+=== "Run Locally"
     This will install Ray on your laptop.
     
     === "Intel"
@@ -8,7 +8,7 @@
 
         ```shell
         ---
-        validate: madwizard-python-package-installed ray
+        validate: pip-show ray
         ---
         pip install -U ray
         ```
@@ -28,7 +28,14 @@
         pip install ray
         ```
         
-        hello
+    ```shell
+    ray stop
+    ray start --head
+    ```
+    
+    ```shell
+    export RAY_ADDRESS=http://127.0.0.1:8265
+    ```
 
-=== "Kubernetes Install"
+=== "Run on a Kubernetes Cluster"
     --8<-- "kubernetes.md"

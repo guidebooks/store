@@ -8,6 +8,9 @@ imports:
 --8<-- "../../../glossary/serve.md"
 
 ```python
+---
+exec: ray-submit
+---
 # This example runs serves a [scikit-learn](https://scikit-learn.org/) gradient boosting classifier.
 
 import requests

@@ -2,7 +2,7 @@
 
 ```shell
 ---
-validate: madwizard-python-package-installed tabulate
+validate: pip-show tabulate
 ---
 pip install tabulate
 ```

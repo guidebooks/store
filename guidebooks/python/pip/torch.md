@@ -6,7 +6,7 @@ production deployment.
 
 ```shell
 ---
-validate: madwizard-python-package-installed torch
+validate: pip-show torch
 ---
 pip install torch
 ```

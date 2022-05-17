@@ -9,6 +9,9 @@ imports:
 --8<-- "../../../glossary/tune.md"
 
 ```python
+---
+exec: ray-submit
+---
 # This example runs a small grid search with an iterative training function.
 from ray import tune
 

@@ -8,6 +8,9 @@ imports:
 This example shows how you can use Ray Train with PyTorch.
 
 ```python
+---
+exec: ray-submit
+---
 # First, set up your dataset and model.
 --8<-- "nn.py"
 

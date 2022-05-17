@@ -2,7 +2,7 @@
 
 ```shell
 ---
-validate: madwizard-python-package-installed aiorwlock
+validate: pip-show aiorwlock
 ---
 pip install aiorwlock
 ```

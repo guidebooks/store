@@ -11,7 +11,7 @@ To get started with Ray Tune, you will need to install a library.
 
 ```shell
 ---
-validate: madwizard-python-package-installed ray[tune]
+validate: pip-show ray[tune]
 ---
 pip install "ray[tune]"
 ```
