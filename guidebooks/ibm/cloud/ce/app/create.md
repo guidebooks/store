@@ -25,7 +25,7 @@ The application scales to zero when not in use. An application runs your code to
     ```
 
     ```shell
-    export ce_resource_=hello-${uuid}
+    export ce_resource=hello-${uuid}
     ```
 
     ```shell
