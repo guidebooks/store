@@ -17,7 +17,7 @@ information that is used each time that the job is run.
 
 ## Choose an existing job or run a new job
 
-=== "expand(ibmcloud ce jobrun list -o json | jq -r '.[] | .metadata.name')"
+=== "expand(ibmcloud ce job list -o json | jq -r '.[] | .metadata.name')"
 
     ```shell
     export ce_resource=${choice}
