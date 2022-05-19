@@ -1,6 +1,6 @@
 ---
 imports:
-    - ../install/index.md
+    - ../start/index.md
 ---
 
 # Run a Ray Job
