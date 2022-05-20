@@ -1,7 +1,7 @@
 ---
 imports:
     - ../../../../python/conda/install.md
-    - ../../../ray/install/index.md
+    - ../../../ray/start/index.md
 ---
 
 # Distributed Language Modeling with BERT
