@@ -1,5 +1,6 @@
 ---
 imports:
+    - ../../../start/index.md
     - ../../../../../../python/pip/tqdm.md
     - ../../../../../../python/pip/pyarrow.md
 ---
@@ -20,7 +21,7 @@ operation is finished. Datasets also supports `.filter()` and
 
 ```python
 ---
-exec: ray-submit
+exec: ray-submit --job-id ${uuid} --no-wait
 ---
 import ray
 import pandas as pd

@@ -1,5 +1,6 @@
 ---
 imports:
+    - ../../../start/index.md
     - ../../../install/serve.md
 ---
 
@@ -9,7 +10,7 @@ imports:
 
 ```python
 ---
-exec: ray-submit
+exec: ray-submit --job-id ${uuid} --no-wait
 ---
 # This example runs serves a [scikit-learn](https://scikit-learn.org/) gradient boosting classifier.
 
@@ -50,4 +51,8 @@ sample_request_input = {"vector": [1.2, 1.0, 1.1, 0.9]}
 response = requests.get(
     "http://localhost:8000/iris", json=sample_request_input)
 print(response.text)
+```
+
+```shell
+ray job logs -f ${uuid} 2> /dev/null
 ```
