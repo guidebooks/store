@@ -30,3 +30,7 @@ print(ray.get(futures)) # [0, 1, 4, 9]
 In the above code block we defined some Ray Tasks. While these are
 great for stateless operations, sometimes you must maintain the state
 of your application. You can do that with Ray Actors.
+
+```shell
+ray job logs -f ${uuid} 2> /dev/null
+```
