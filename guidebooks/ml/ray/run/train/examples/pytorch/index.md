@@ -1,5 +1,6 @@
 ---
 imports:
+    - ../../../../start/index.md
     - ../../../../../../python/pip/torch.md
 ---
 
@@ -9,7 +10,7 @@ This example shows how you can use Ray Train with PyTorch.
 
 ```python
 ---
-exec: ray-submit
+exec: ray-submit --job-id ${uuid} --no-wait
 ---
 # First, set up your dataset and model.
 --8<-- "nn.py"

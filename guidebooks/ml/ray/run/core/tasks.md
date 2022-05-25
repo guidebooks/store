@@ -1,3 +1,8 @@
+---
+imports:
+    - ../../start/index.md
+---
+
 # Ray Core: Parallelizing Functions with Ray Tasks
 
 First, you import Ray and and initialize it with `ray.init()`. Then
@@ -9,7 +14,7 @@ future, a so-called Ray object reference, that you can then fetch with
 
 ```python
 ---
-exec: ray-submit
+exec: ray-submit --job-id ${uuid} --no-wait
 ---
 import ray
 ray.init()

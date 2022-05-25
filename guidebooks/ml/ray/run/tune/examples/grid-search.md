@@ -1,5 +1,6 @@
 ---
 imports:
+    - ../../../start/index.md
     - ../../../install/tune.md
 ---
 
@@ -9,7 +10,7 @@ imports:
 
 ```python
 ---
-exec: ray-submit
+exec: ray-submit --job-id ${uuid} --no-wait
 ---
 # This example runs a small grid search with an iterative training function.
 from ray import tune
@@ -29,4 +30,8 @@ search_space = {
 # 3. Start a Tune run and print the best result.
 analysis = tune.run(objective, config=search_space)
 print(analysis.get_best_config(metric="score", mode="min"))
+```
+
+```shell
+ray job logs -f ${uuid} 2>& /dev/null
 ```

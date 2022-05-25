@@ -1,3 +1,8 @@
+---
+imports:
+    - ../../../start/index.md
+---
+
 Get started by creating Datasets from synthetic data using
 `ray.data.range()` and `ray.data.from_items()`. Datasets can hold
 either plain Python objects (schema is a Python type), or
@@ -6,7 +11,7 @@ Arrow](https://arrow.apache.org/docs/python/api/datatypes.html)).
 
 ```python
 ---
-exec: ray-submit
+exec: ray-submit --job-id ${uuid} --no-wait
 ---
 import ray
 
