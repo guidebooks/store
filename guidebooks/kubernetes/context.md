@@ -1,11 +1,15 @@
 ---
 imports:
-    - ../kubectl.md
+    - ./kubectl.md
 ---
 
 # Choose a Kubernetes context
 
 === "expand(kubectl config get-contexts -o name)"
     ```shell
-    kubectl config set-context "${choice}"
+    kubectl config use-context "${choice}"
+    ```
+    
+    ```shell
+    export KUBE_CONTEXT="${choice}"
     ```
