@@ -1,6 +1,7 @@
 ---
 imports:
     - ../../start/index.md
+    - ../../../../util/jobid.md
 ---
 
 # Ray Core: Parallelizing Classes with Ray Actors
@@ -9,7 +10,7 @@ Ray provides actors to allow you to parallelize an instance of a class in Python
 
 ```python
 ---
-exec: ray-submit --job-id ${uuid} --no-wait
+exec: ray-submit --job-id ${JOB_ID} --no-wait
 ---
 import ray
 ray.init() # Only call this once.
@@ -31,7 +32,4 @@ futures = [c.read.remote() for c in counters]
 print(ray.get(futures)) # [1, 1, 1, 1]
 ```
 
-```shell
-while true; do if [ "$(ray job status ${uuid} >& /dev/null && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
-ray job logs -f ${uuid} 2> /dev/null
-```
+--8<-- "../logs.md"

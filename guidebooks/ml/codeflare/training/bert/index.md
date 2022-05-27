@@ -2,6 +2,7 @@
 imports:
     - ../../../ray/hacks/openshift/uid-range.md
     - ../../../ray/start/index.md
+    - ../../../../util/jobid.md
     - ../../../../python/pip/torch.md
 ---
 
@@ -15,19 +16,10 @@ Submit the job.
 
 ```python
 ---
-exec: ray-submit --job-id ${uuid} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --gpus ${NUM_GPUS-1}
+exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --gpus ${NUM_GPUS-1}
 ---
 --8<-- "ray-bert-vanilla.py"
 ```
 
-Wait for the job to flow through into the system.
+--8<-- "../../../ray/run/logs.md"
 
-```shell
-while true; do if [ "$(ray job status ${uuid} >& /dev/null && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
-```
-
-And then stream out the logs.
-
-```shell
-ray job logs -f ${uuid} 2> /dev/null
-```
