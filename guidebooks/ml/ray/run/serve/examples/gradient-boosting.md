@@ -2,6 +2,7 @@
 imports:
     - ../../../start/index.md
     - ../../../install/serve.md
+    - ../../../../../util/jobid.md
 ---
 
 # Serve: Scalable Model Serving
@@ -10,7 +11,7 @@ imports:
 
 ```python
 ---
-exec: ray-submit --job-id ${uuid} --no-wait
+exec: ray-submit --job-id ${JOB_ID} --no-wait
 ---
 # This example runs serves a [scikit-learn](https://scikit-learn.org/) gradient boosting classifier.
 
@@ -53,6 +54,4 @@ response = requests.get(
 print(response.text)
 ```
 
-```shell
-ray job logs -f ${uuid} 2> /dev/null
-```
+--8<-- "../../logs.md"

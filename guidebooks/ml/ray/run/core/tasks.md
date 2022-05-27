@@ -1,6 +1,7 @@
 ---
 imports:
     - ../../start/index.md
+    - ../../../../util/jobid.md
 ---
 
 # Ray Core: Parallelizing Functions with Ray Tasks
@@ -14,7 +15,7 @@ future, a so-called Ray object reference, that you can then fetch with
 
 ```python
 ---
-exec: ray-submit --job-id ${uuid} --no-wait
+exec: ray-submit --job-id ${JOB_ID} --no-wait
 ---
 import ray
 ray.init()
@@ -31,7 +32,5 @@ In the above code block we defined some Ray Tasks. While these are
 great for stateless operations, sometimes you must maintain the state
 of your application. You can do that with Ray Actors.
 
-```shell
-while true; do if [ "$(ray job status ${uuid} >& /dev/null && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
-ray job logs -f ${uuid} 2> /dev/null
-```
+--8<-- "../logs.md"
+
