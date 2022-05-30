@@ -24,11 +24,18 @@ git sparse-checkout init --cone >& /dev/null
 git sparse-checkout set deploy/charts/ray >& /dev/null
 if [ "${NUM_GPUS}" != 0 ]; then RAY_IMAGE=rayproject/ray-ml:nightly-gpu; else RAY_IMAGE=rayproject/ray:latest; fi
 
-echo "$(tput setaf 4)Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)minWorkers=$(tput setaf 5)${MIN_WORKERS-2} $(tput setaf 4)maxWorkers=$(tput setaf 5)${MAX_WORKERS-3} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE}$(tput sgr0)"
+echo "$(tput setaf 4)Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)minWorkers=$(tput setaf 5)${MIN_WORKERS-2} $(tput setaf 4)maxWorkers=$(tput setaf 5)${MAX_WORKERS-3} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4)context=$(tput setaf 5)${KUBE_CONTEXT} $(tput setaf 4)namespace=$(tput setaf 5)${RAY_KUBE_NS}$(tput sgr0)"
 
 helm -n ${RAY_KUBE_NS} upgrade --install --wait --timeout 30m mycluster --create-namespace deploy/charts/ray --set podTypes.rayWorkerType.CPU=${NUM_CPUS-1} --set podTypes.rayWorkerType.GPU=${NUM_GPUS-1} --set podTypes.rayHeadType.memory=${HEAD_MEMORY-1Gi} --set podTypes.rayWorkerType.memory=${WORKER_MEMORY-1Gi} --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-2} --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-3} --set image=${RAY_IMAGE}
+```
 
-kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l cluster.ray.io/component=mycluster-ray-head --for=condition=Ready --timeout=600s
+## Wait for Ray Head Node
+
+```shell
+while true; do
+    kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l cluster.ray.io/component=mycluster-ray-head --for=condition=Ready --timeout=600s | grep -v 'no matching resources' && break
+    sleep 1
+done
 ```
 
 ## The name of the Ray Kubernetes Service
@@ -71,5 +78,8 @@ while true; do if [ -f /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME} ] && [ "$(cat 
 ## Wait for at least one Worker to be Ready
 
 ```shell
-kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l ray-user-node-type=rayWorkerType --for=condition=Ready --timeout=600s
+while true; do
+    kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l ray-user-node-type=rayWorkerType --for=condition=Ready --timeout=600s && break
+    sleep 1
+done
 ```
