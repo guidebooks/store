@@ -10,12 +10,12 @@
     export NUM_GPUS=${choice}
     ```
 
-=== "Minimum Workers [default: 2]"
+=== "Minimum Workers [default: 1]"
     ```shell
     export MIN_WORKERS=${choice}
     ```
 
-=== "Maximum Workers [default: 3]"
+=== "Maximum Workers [default: 2]"
     ```shell
     export MAX_WORKERS=${choice}
     ```
