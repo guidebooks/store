@@ -21,7 +21,9 @@ ray.init(address="auto")
 import argparse
 
 parser = argparse.ArgumentParser(description='BERT on WikiText-103 with Ray Train for OPC')
-parser.add_argument('--gpus', type=int, default=1, help='Number of gpus to use for training')
+parser.add_argument('--num_workers', type=int, default=1, help='Number of workers to use for training')
+parser.add_argument('--use-gpu', dest='use_gpu', default=True, action='store_true', help='Whether to use GPUs for the training')
+parser.add_argument('--no-use-gpu', dest='use_gpu', action='store_false', help='Whether to use GPUs for the training')
 parser.add_argument('--gpu_size', type=int, default=16, help='GPU memory size in gigabytes')
 parser.add_argument('--num_epochs', type=int, default=5, help='Number of passes over the dataset')
 parser.add_argument('--datapath', type=str, default='/home/ray/bert/', help='Absolute path to dataset directory')
@@ -212,7 +214,7 @@ def train_func(config):
                                     "weight_decay": .01},
                                    {"params":[p for n,p in model.named_parameters() if n not in decayers],
                                     "weight_decay": 0}],
-                                  lr=2.5e-5*(2*math.sqrt(args.gpus*args.gpu_size/16)-1)) # a compromise between linear and
+                                  lr=2.5e-5*(2*math.sqrt(args.num_workers*args.gpu_size/16)-1)) # a compromise between linear and
                                                                                          # sqrt scaling. May break for gpus>16
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, len(train_loader)*num_epochs)
 
@@ -228,7 +230,7 @@ def train_func(config):
             pred = model(inp)
             loss = loss_fn(pred.view(-1,pred.size(-1)), labels.view(-1))
             loss.backward()
-            nn.utils.clip_grad_norm_(model.parameters(),1/math.sqrt(args.gpus*args.gpu_size/16))
+            nn.utils.clip_grad_norm_(model.parameters(),1/math.sqrt(args.num_workers*args.gpu_size/16))
             optimizer.step()
             scheduler.step()
             losstracker += loss.item()
@@ -258,7 +260,7 @@ def train_func(config):
 # DO THE THING!
 
 start = time.time()
-trainer = Trainer(backend="torch", num_workers=args.gpus, use_gpu=True,
+trainer = Trainer(backend="torch", num_workers=args.num_workers, use_gpu=args.use_gpu,
                   logdir=args.modelpath)
 trainer.start()
 states = trainer.run(train_func, config={"data":wikiset})

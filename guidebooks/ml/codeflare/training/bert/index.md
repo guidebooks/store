@@ -14,9 +14,31 @@ This demo contains code for pre-training a bare-bones BERT model on the Masked L
 
 Submit the job.
 
+=== "Use GPUs"
+    Select this if your system has Nvidia GPUs that can be used to accelerate the job.
+
+    ```shell
+    export GPU_OPTION="--use-gpu"
+    ```
+
+    ```shell
+    export NUM_WORKERS=${NUM_GPUS-1}
+    ```
+
+=== "Don't use GPUs"
+    Otherwise, the training will run much more slowly, using your CPUs.
+
+    ```shell
+    export GPU_OPTION="--no-use-gpu"
+    ```
+    
+    ```shell
+    export NUM_WORKERS=${NUM_CPUS-1}
+    ```
+
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --gpus ${NUM_GPUS-1}
+exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --num_workers ${NUM_WORKERS} ${GPU_OPTION}
 ---
 --8<-- "ray-bert-vanilla.py"
 ```
