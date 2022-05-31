@@ -29,11 +29,17 @@ echo "$(tput setaf 4)Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} 
 helm -n ${RAY_KUBE_NS} upgrade --install --wait --timeout 30m mycluster --create-namespace deploy/charts/ray --set podTypes.rayWorkerType.CPU=${NUM_CPUS-1} --set podTypes.rayWorkerType.GPU=${NUM_GPUS-1} --set podTypes.rayHeadType.memory=${HEAD_MEMORY-1Gi} --set podTypes.rayWorkerType.memory=${WORKER_MEMORY-1Gi} --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-2} --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-3} --set image=${RAY_IMAGE}
 ```
 
+## Stream out Events from the Ray Head Node
+
+```shell
+kubectl get events -n ray --watch &
+```
+
 ## Wait for Ray Head Node
 
 ```shell
 while true; do
-    kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l cluster.ray.io/component=mycluster-ray-head --for=condition=Ready --timeout=600s | grep -v 'no matching resources' && break
+    kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l ray-user-node-type=rayHeadType --for=condition=Ready --timeout=600s | grep -v 'no matching resources' && break
     sleep 1
 done
 ```
@@ -79,7 +85,7 @@ while true; do if [ -f /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME} ] && [ "$(cat 
 
 ```shell
 while true; do
-    kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l ray-user-node-type=rayWorkerType --for=condition=Ready --timeout=600s && break
+    kubectl --context ${KUBE_CONTEXT} wait pod -n ${RAY_KUBE_NS} -l ray-user-node-type=rayWorkerType --for=condition=Ready --timeout=600s | grep -v 'no matching resources' && break
     sleep 1
 done
 ```
