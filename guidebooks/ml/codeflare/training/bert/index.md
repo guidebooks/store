@@ -2,6 +2,7 @@
 imports:
     - ../../../ray/hacks/openshift/uid-range.md
     - ../../../ray/start/index.md
+    - ../../../ray/start/gpus.md
     - ../../../../util/jobid.md
     - ../../../../python/pip/torch.md
 ---
@@ -13,28 +14,6 @@ This demo contains code for pre-training a bare-bones BERT model on the Masked L
 ## Run it
 
 Submit the job.
-
-=== "Use GPUs"
-    Select this if your system has Nvidia GPUs that can be used to accelerate the job.
-
-    ```shell
-    export GPU_OPTION="--use-gpu"
-    ```
-
-    ```shell
-    export NUM_WORKERS=${NUM_GPUS-1}
-    ```
-
-=== "Don't use GPUs"
-    Otherwise, the training will run much more slowly, using your CPUs.
-
-    ```shell
-    export GPU_OPTION="--no-use-gpu"
-    ```
-    
-    ```shell
-    export NUM_WORKERS=${NUM_CPUS-1}
-    ```
 
 ```python
 ---

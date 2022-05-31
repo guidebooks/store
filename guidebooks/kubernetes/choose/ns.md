@@ -8,7 +8,7 @@ imports:
 
 === "expand(kubectl --context ${KUBE_CONTEXT} get ns -o name | grep -Ev 'openshift|kube-' | sed 's#namespace/##')"
     ```shell
-    export RAY_KUBE_NS=${choice}
+    export KUBE_NS=${choice}
     ```
 
 === "Create a namespace"
@@ -17,6 +17,6 @@ imports:
     ```
     
     ```shell
-    export RAY_KUBE_NS=madns
+    export KUBE_NS=madns
     ```
     

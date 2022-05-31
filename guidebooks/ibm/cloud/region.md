@@ -18,3 +18,7 @@ Cloud](https://www.ibm.com/cloud) operations against a selected
     ---
     ibmcloud target -r "${choice}"
     ```
+    
+    ```shell
+    export IBM_CLOUD_REGION=${choice}
+    ```

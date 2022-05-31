@@ -13,8 +13,14 @@ imports:
     ```
     
     ```shell
-    export COS_HMAC_ACCESS_KEY_ID=$(ibmcloud resource service-keys --output json | jq -r '.[] | select(.name = "${choice}") | .credentials.cos_hmac_keys.access_key_id')
-    export COS_HMAC_SECRET_ACCESS_KEY=$(ibmcloud resource service-keys --output json | jq -r '.[] | select(.name = "${choice}") | .credentials.cos_hmac_keys.secret_access_key')
-    cat ~/.bluemix/plugins/cloud-object-storage/config.json | jq ".AccessKeyID = \"${COS_HMAC_ACCESS_KEY_ID}\" | .SecretAccessKey = \"${COS_HMAC_SECRET_ACCESS_KEY}\"" > /tmp/config.json
+    export S3_ACCESS_KEY_ID=$(ibmcloud resource service-keys --output json | jq -r '.[] | select(.name = "${choice}") | .credentials.cos_hmac_keys.access_key_id')
+    ```
+    
+    ```shell
+    export S3_SECRET_ACCESS_KEY=$(ibmcloud resource service-keys --output json | jq -r '.[] | select(.name = "${choice}") | .credentials.cos_hmac_keys.secret_access_key')
+    ```
+
+    ```shell
+    cat ~/.bluemix/plugins/cloud-object-storage/config.json | jq ".AccessKeyID = \"${S3_ACCESS_KEY_ID}\" | .SecretAccessKey = \"${S3_SECRET_ACCESS_KEY}\"" > /tmp/config.json
     cp ~/.bluemix/plugins/cloud-object-storage/config.json ~/.bluemix/plugins/cloud-object-storage/config.json.bak && mv /tmp/config.json ~/.bluemix/plugins/cloud-object-storage/config.json
     ```
