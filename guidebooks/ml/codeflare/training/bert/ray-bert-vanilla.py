@@ -251,7 +251,14 @@ def train_func(config):
                 loss = loss_fn(pred.view(-1,pred.size(-1)), labels.view(-1))
             losstracker += loss.item()
         model.train()
-        print("Epoch %d: validation loss is %.2f"%(epoch, losstracker/len(val_loader)))
+        # print("Epoch %d: validation loss is %.2f"%(epoch, losstracker/len(val_loader)))
+
+        template = 'Epoch {}, Loss: {}, Accuracy: {}, Test Loss: {}, Test Accuracy: {}'
+        print (template.format(epoch+1,
+                               losstracker/len(val_loader),
+                               0,
+                               0,
+                               0))
 
     return model.cpu().state_dict() if train.world_rank()==0 else None # Avoid duplicating models
         

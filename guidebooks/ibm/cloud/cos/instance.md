@@ -12,6 +12,10 @@ imports:
 
     ## Choose a Plan
 
+    ```shell
+    export S3_SERVICE=madcos-${uuid}
+    ```
+
     === "Lite"
         Storage up to 25 GB/month
         Up to 2,000 Class A (PUT, COPY, POST, and LIST) requests per month
@@ -21,14 +25,14 @@ imports:
         Applies to aggregate total across all storage bucket classes
 
         ```shell
-        ibmcloud resource service-instance-create madcos-${uuid} cloud-object-storage Lite global
+        ibmcloud resource service-instance-create ${S3_SERVICE} cloud-object-storage Lite global
         ```
 
     === "Standard"
         There is no minimum fee, so you pay only for what you use.
 
         ```shell
-        ibmcloud resource service-instance-create madcos-${uuid} cloud-object-storage Standard global
+        ibmcloud resource service-instance-create ${S3_SERVICE} cloud-object-storage Standard global
         ```
 
 
@@ -36,5 +40,23 @@ imports:
     ```shell
     ibmcloud cos config crn --crn $(ibmcloud resource service-instances  --output json | jq -r '.[] | select(.name|test("${choice}")) | .crn')
     ```
+    
+    ```shell
+    export S3_SERVICE=${choice}
+    ```
+
+## S3 Endpoints
+
+Access your data via this HTTP endpoint.
+
+```shell
+export S3_ENDPOINT="s3.${IBM_CLOUD_REGION}.cloud-object-storage.appdomain.cloud."
+```
+
+For intra-cloud data fetches, you can use the lower-cost "direct" endpoint.
+
+```shell
+export S3_DIRECT_ENDPOINT="s3.direct.${IBM_CLOUD_REGION}.cloud-object-storage.appdomain.cloud."
+```
 
 --8<-- "_auth.md"
