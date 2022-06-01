@@ -5,6 +5,11 @@ imports:
 
 # Choose an S3 Object
 
-```
-export S3_OBJECT=roberta-main
-```
+=== "expand([ -n "$MC_CONFIG_DIR" ] && mc -q --config-dir ${MC_CONFIG_DIR} ls ${S3_FILEPATH} | awk '{print $NF}')"
+    ```shell
+    export S3_OBJECT="${choice}"
+    ```
+
+    ```shell
+    export S3_FILEPATH="${S3_FILEPATH}/${choice}"
+    ```
