@@ -26,7 +26,7 @@ validate: X=$(kubectl --context ${KUBE_CONTEXT} get raycluster mycluster -n ${KU
 echo "$(tput setaf 4)Cloning ray repo$(tput sgr0)"
 T=$(mktemp -d)
 cd $T
-git clone --filter=tree:0 --depth 1 --sparse git@github.com:ray-project/ray.git >& /dev/null
+git clone --filter=tree:0 --depth 1 --sparse https://github.com/ray-project/ray.git >& /dev/null
 cd ray
 git sparse-checkout init --cone >& /dev/null
 git sparse-checkout set deploy/charts/ray >& /dev/null
