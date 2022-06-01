@@ -1,8 +1,8 @@
 ---
 imports:
-    - ../../../ray/hacks/openshift/uid-range.md
     - ../../../ray/start/index.md
     - ../../../ray/start/gpus.md
+    - ../../../ray/hacks/openshift/uid-range.md
     - ../../../../util/jobid.md
     - ../../../../python/pip/torch.md
 ---
