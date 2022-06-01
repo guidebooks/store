@@ -50,13 +50,13 @@ imports:
 Access your data via this HTTP endpoint.
 
 ```shell
-export S3_ENDPOINT="s3.${IBM_CLOUD_REGION}.cloud-object-storage.appdomain.cloud."
+export S3_ENDPOINT="https://s3.${IBM_CLOUD_REGION}.cloud-object-storage.appdomain.cloud."
 ```
 
 For intra-cloud data fetches, you can use the lower-cost "direct" endpoint.
 
 ```shell
-export S3_DIRECT_ENDPOINT="s3.direct.${IBM_CLOUD_REGION}.cloud-object-storage.appdomain.cloud."
+export S3_DIRECT_ENDPOINT="https://s3.direct.${IBM_CLOUD_REGION}.cloud-object-storage.appdomain.cloud."
 ```
 
 --8<-- "_auth.md"
