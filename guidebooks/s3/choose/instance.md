@@ -10,4 +10,4 @@
     echo S3_PROVIDER=ibm
     ```
 
-    :import{../ibm/cloud/cos/instance.md}
+    :import{../../ibm/cloud/cos/instance.md}
