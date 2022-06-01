@@ -1,9 +1,9 @@
 ---
 imports:
     - ./overrides.md
-    - ../../../ray/hacks/openshift/uid-range.md
     - ../../../ray/start/index.md
     - ../../../ray/start/gpus.md
+    - ../../../ray/hacks/openshift/uid-range.md
     - ../../../../util/jobid.md
     - ../../../../s3/choose/instance.md
     - ../../../../s3/choose/object.md
@@ -23,26 +23,6 @@ The General Language Understanding Evaluation (GLUE) benchmark is a collection o
 ## Run it
 
 Submit the job.
-
-```shell
-export S3_ACCESS_KEY_ID=
-```
-
-```shell
-export S3_SECRET_ACCESS_KEY=
-```
-
-```shell
-export S3_ENDPOINT=https://s3.amazonaws.com
-```
-
-```shell
-export S3_BUCKET=codeflare-ai
-```
-
-```shell
-export S3_OBJECT=roberta-base
-```
 
 ```shell
 export WANDB_CONFIG_DIR=/tmp
