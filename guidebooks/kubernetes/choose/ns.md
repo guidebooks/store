@@ -6,7 +6,7 @@ imports:
 
 # Target Kubernetes Namespace for Ray Cluster
 
-=== "expand(kubectl --context ${KUBE_CONTEXT} get ns -o name | grep -Ev 'openshift|kube-' | sed 's#namespace/##')"
+=== "expand(kubectl --context ${KUBE_CONTEXT} get ns -o name | grep -Ev 'openshift|kube-' | sed 's#namespace/##', Kubernetes namespaces)"
     ```shell
     export KUBE_NS=${choice}
     ```

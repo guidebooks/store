@@ -20,7 +20,7 @@ are used to manage resources and provide access to its entities.
     ibmcloud ce project create --name myproject-${uuid}
     ```
 
-=== "expand(ibmcloud ce project list  -o json | jq -r '.[] | select(.state == \"active\").name')"
+=== "expand(ibmcloud ce project list  -o json | jq -r '.[] | select(.state == \"active\").name', Code Engine Projects)"
 
     ```shell
     ---

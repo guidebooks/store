@@ -7,7 +7,7 @@ imports:
 
 ## Choose a Service Key
 
-=== "expand(ibmcloud resource service-keys --output json | jq -r '.[] | select((.crn|test(\"cloud-object-storage\")) and (.credentials|.cos_hmac_keys)) | .name')"
+=== "expand(ibmcloud resource service-keys --output json | jq -r '.[] | select((.crn|test(\"cloud-object-storage\")) and (.credentials|.cos_hmac_keys)) | .name', IBM Cloud Object Storage Service Keys)"
     ```shell
     ibmcloud cos config auth --method HMAC
     ```
