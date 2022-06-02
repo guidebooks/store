@@ -36,7 +36,7 @@ imports:
         ```
 
 
-=== "expand(ibmcloud resource service-instances  --output json | jq -r '.[] | select(.crn|test(\"cloud-object-storage\")) | .name')"
+=== "expand(ibmcloud resource service-instances  --output json | jq -r '.[] | select(.crn|test(\"cloud-object-storage\")) | .name', IBM Cloud Object Storage Service Instances)"
     ```shell
     ibmcloud cos config crn --crn $(ibmcloud resource service-instances  --output json | jq -r '.[] | select(.name|test("${choice}")) | .crn')
     ```

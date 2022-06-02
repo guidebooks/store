@@ -10,7 +10,7 @@ This guidebook helps you with targeting your [IBM
 Cloud](https://www.ibm.com/cloud) operations against a selected
 [region](https://www.ibm.com/cloud/data-centers).
 
-=== "expand(ibmcloud regions --output json | jq -r '.[] | .Name')"
+=== "expand(ibmcloud regions --output json | jq -r '.[] | .Name', IBM Cloud Regions)"
 
     ```shell
     ---

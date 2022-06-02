@@ -12,7 +12,7 @@ The application scales to zero when not in use. An application runs your code to
 
 ## Choose an existing app or create new app
 
-=== "expand(ibmcloud ce app list -o json | jq -r '.items[] | .metadata.name')"
+=== "expand(ibmcloud ce app list -o json | jq -r '.items[] | .metadata.name', Code Engine Applications)"
 
     ```shell
     export ce_resource=${choice}
