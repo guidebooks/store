@@ -92,8 +92,12 @@ while true; do if [ -f /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME} ] && [ "$(cat 
 ## Wait for at least one Worker to be Ready
 
 ```shell
+export KUBE_POD_LABEL_SELECTOR=ray-user-node-type=rayWorkerType
+```
+
+```shell
 while true; do
-    kubectl --context ${KUBE_CONTEXT} wait pod -n ${KUBE_NS} -l ray-user-node-type=rayWorkerType --for=condition=Ready --timeout=600s | grep -v 'no matching resources' && break || echo "Waiting for Ray Worker nodes"
+    kubectl --context ${KUBE_CONTEXT} wait pod -n ${KUBE_NS} -l ${KUBE_POD_LABEL_SELECTOR} --for=condition=Ready --timeout=600s | grep -v 'no matching resources' && break || echo "Waiting for Ray Worker nodes"
     sleep 1
 done
 ```
