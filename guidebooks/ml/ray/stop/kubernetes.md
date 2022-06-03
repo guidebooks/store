@@ -14,14 +14,21 @@ First, we need to delete the cluster resource, to make sure finalizers
 are processed properly.
 
 ```shell
-kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} delete raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} || exit 0
+kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} delete raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} --wait=false || exit 0
 ```
 
 ## Clear out potentially stuck finalizers
 
+=== "Force Stop? (Y/N) [default="N"]"
+    ```shell
+    export FORCE_STEP=${choice}
+    ```
+
 ```shell
-sleep 2
-kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} patch raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -p '{"metadata":{"finalizers":null}}' --type=merge 2> /dev/null || exit 0
+if [ "$FORCE_STOP" = "Y" ]; then
+    echo "Patching finalizer"
+    kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} patch raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -p '{"metadata":{"finalizers":null}}' --type=merge 2> /dev/null || exit 0
+fi
 ```
 
 ## Delete Cluster
