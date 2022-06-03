@@ -21,7 +21,7 @@ kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} delete raycluster ${RAY_KUBE_CLU
 
 ```shell
 sleep 2
-kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} patch raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -p '{"metadata":{"finalizers":null}}' --type=merge
+kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} patch raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -p '{"metadata":{"finalizers":null}}' --type=merge 2> /dev/null || exit 0
 ```
 
 ## Delete Cluster
