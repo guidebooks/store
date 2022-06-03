@@ -58,10 +58,6 @@ done
 export RAY_KUBE_CLUSTER_NAME=mycluster
 ```
 
-```shell
-export RAY_KUBE_SERVICE=service/mycluster-ray-head
-```
-
 ## The local port to use for `ray` operations
 
 Here, we try to avoid using the default port for a local Ray instance.
@@ -80,14 +76,7 @@ echo "RAY_KUBE_PORT=$RAY_KUBE_PORT"
 echo "RAY_ADDRESS=$RAY_ADDRESS"
 ```
 
-## Start up a Kubernetes port-forward to the cluster
-
-```shell
-PID=$(ps aux | grep -v grep | grep 'port-forward service/mycluster-ray-head' | awk '{print $2}')
-[ -n "$PID" ] && kill $(ps aux | grep -v grep | grep 'port-forward service/mycluster-ray-head' | awk '{print $2}')
-kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} port-forward $RAY_KUBE_SERVICE $RAY_KUBE_PORT:8265 > /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME} &
-while true; do if [ -f /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME} ] && [ "$(cat /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME} | grep -q 'Forwarding from' && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
-```
+--8<-- "./kubernetes/port-forward.md"
 
 ## Wait for at least one Worker to be Ready
 
