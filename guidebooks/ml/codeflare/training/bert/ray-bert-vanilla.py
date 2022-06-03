@@ -5,10 +5,12 @@ import torch.nn as nn
 import math
 import torch.nn.functional as F
 import time
+import pathlib
 
 import requests
 from io import BytesIO
-from os.path import exists
+from os.path import exists, join
+from os import environ
 import torch.utils.data as data
 torch.manual_seed(42)
 torch.cuda.manual_seed_all(42)
@@ -16,23 +18,28 @@ torch.cuda.manual_seed_all(42)
 import ray
 import ray.train as train
 from ray.train import Trainer
-ray.init(address="auto")
+
+import tensorflow.summary as summary
 
 import argparse
 
-parser = argparse.ArgumentParser(description='BERT on WikiText-103 with Ray Train for OPC')
+parser = argparse.ArgumentParser(description='BERT on WikiText-103 with Ray Train for OPC (now with TensorBoard!)')
 parser.add_argument('--num_workers', type=int, default=1, help='Number of workers to use for training')
-parser.add_argument('--use-gpu', dest='use_gpu', default=True, action='store_true', help='Whether to use GPUs for the training')
-parser.add_argument('--no-use-gpu', dest='use_gpu', action='store_false', help='Whether to use GPUs for the training')
 parser.add_argument('--gpu_size', type=int, default=16, help='GPU memory size in gigabytes')
 parser.add_argument('--num_epochs', type=int, default=5, help='Number of passes over the dataset')
 parser.add_argument('--datapath', type=str, default='/home/ray/bert/', help='Absolute path to dataset directory')
-parser.add_argument('--modelpath', type=str, default='/home/ray/bert/', help='Absolute path to model save location')
+parser.add_argument('--modelpath', type=str, default='/home/ray/bert/', help='Absolute path to model save location. Must be accessible to head node.')
+parser.add_argument('--logpath', type=str, default='/home/ray/bert/', help='Absolute path to log save location. Must be accessible to each worker node.')
 args = parser.parse_args()
 
+# Create the tensorboard log directory structure in advance, so that
+# any remote rsyncs won't try to fetch from a non-existent directory
+pathlib.Path(args.logpath).mkdir(parents=True, exist_ok=True)
+print(f"Logging tensorboard to {args.logpath}")
+
+ray.init(address="auto")
+
 # For now, changing other hyperparameters will require changing the hardcoded constants in the code below
-
-
 
 # Fetch pre-tokenized dataset
 
@@ -137,9 +144,9 @@ class BertEncoder(nn.Module):
     def encode(self, inp):
         return self.process(inp)
 
-    def forward(self, inp):
+    def forward(self, inp, inds):
         embeds = self.embed(inp)
-        preds = self.process(embeds)
+        preds = self.process(embeds).view(-1,self.d)[inds]
         preds = preds.matmul(self.embedlayer.t()) + self.outbias
         return preds
 
@@ -168,7 +175,7 @@ def rand_mask(x, prob):
 # MLM-specific masking logic, following HuggingFace
 def mask_off(inp,labels,token,vsize):
     mask_out = rand_mask(inp,.15)
-    labels[~mask_out] = -100
+    labels[~mask_out] = -100 # PyTorch's default [IGNORE] index
     mask_in = rand_mask(inp,.8)&mask_out
     inp[mask_in] = token
     mask_rand = rand_mask(inp,.5)&mask_out&~mask_in
@@ -185,11 +192,14 @@ def get_parameter_names(model, ignore):
     return result
 
 
-
 # Training loop
 
 def train_func(config):
     dataset = config["data"]
+
+    # Create a tensorboard writer. use args.logpath/jobid, if we have a jobid
+    tb_logpath = join(args.logpath, f'tb_gpu_{train.world_rank()}')
+    writer = summary.create_file_writer(tb_logpath)
 
     # Model
     model = BertEncoder(vocab=150000)
@@ -199,13 +209,15 @@ def train_func(config):
     loss_fn = torch.nn.CrossEntropyLoss()
 
     # Data
+    bsize = int(64*args.gpu_size/16)
     masktoken = dataset["key"].index("[MASK]") #tokenizer.encode("[MASK]")[1]
     train_loader = data.DataLoader(MLM_Dataset(torch.LongTensor(dataset["train"]), dataset["key"], masktoken),
-                                   batch_size=int(20*args.gpu_size/16), shuffle=True)
+                                   batch_size=bsize, shuffle=True)
     val_loader = data.DataLoader(MLM_Dataset(torch.LongTensor(dataset["validation"]), dataset["key"], masktoken),
-                                 batch_size=int(20*args.gpu_size/16), shuffle=False)
+                                 batch_size=bsize, shuffle=False)
     train_loader = train.torch.prepare_data_loader(train_loader)
     val_loader = train.torch.prepare_data_loader(val_loader)
+    print(f"Effective batch size is {bsize*train.world_size()}")
 
     # Optimizers
     num_epochs = args.num_epochs
@@ -214,31 +226,36 @@ def train_func(config):
                                     "weight_decay": .01},
                                    {"params":[p for n,p in model.named_parameters() if n not in decayers],
                                     "weight_decay": 0}],
-                                  lr=2.5e-5*(2*math.sqrt(args.num_workers*args.gpu_size/16)-1)) # a compromise between linear and
+                                  lr=5e-5*(2*math.sqrt(args.num_workers*args.gpu_size/16)-1)) # a compromise between linear and
                                                                                          # sqrt scaling. May break for gpus>16
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, len(train_loader)*num_epochs)
 
     # Train
     print("Beginning training!")
+    tb_step = 0
     for epoch in range(num_epochs):
         losstracker = 0
         trackertracker = 0
         start = time.time()
         for it, (inp, labels) in enumerate(train_loader):
 
+            inds = torch.nonzero(labels.view(-1)+100).squeeze(1) # -100 is the [IGNORE] index
             optimizer.zero_grad()
-            pred = model(inp)
-            loss = loss_fn(pred.view(-1,pred.size(-1)), labels.view(-1))
+            pred = model(inp, inds)
+            loss = loss_fn(pred, labels.view(-1)[inds])
             loss.backward()
-            nn.utils.clip_grad_norm_(model.parameters(),1/math.sqrt(args.num_workers*args.gpu_size/16))
+            nn.utils.clip_grad_norm_(model.parameters(),1/math.sqrt(4*args.num_workers*args.gpu_size/16))
             optimizer.step()
             scheduler.step()
             losstracker += loss.item()
             trackertracker += 1
 
-            if it%(len(train_loader)//10) == 0 and it!=0:
+            if it%(len(train_loader)//10) == len(train_loader)//10 - 1:
                 print("Iteration %d/%d of epoch %d/%d reached: train loss is %.2f (%.2f sec/iter)"%
                       (it+1,len(train_loader),epoch+1,num_epochs,losstracker/trackertracker,(time.time()-start)/trackertracker))
+                with writer.as_default():
+                    summary.scalar("Train_loss_gpu_"+str(train.world_rank()), losstracker/trackertracker, step = tb_step)
+                tb_step += 1
                 losstracker = 0
                 trackertracker = 0
                 start = time.time()
@@ -247,18 +264,14 @@ def train_func(config):
         losstracker = 0
         for inp, labels in val_loader:
             with torch.no_grad():
-                pred = model(inp)
-                loss = loss_fn(pred.view(-1,pred.size(-1)), labels.view(-1))
+                inds = torch.nonzero(labels.view(-1)+100).squeeze(1)
+                pred = model(inp, inds)
+                loss = loss_fn(pred, labels.view(-1)[inds])
             losstracker += loss.item()
         model.train()
-        # print("Epoch %d: validation loss is %.2f"%(epoch, losstracker/len(val_loader)))
-
-        template = 'Epoch {}, Loss: {}, Accuracy: {}, Test Loss: {}, Test Accuracy: {}'
-        print (template.format(epoch+1,
-                               losstracker/len(val_loader),
-                               0,
-                               0,
-                               0))
+        print("Epoch %d: validation loss is %.2f"%(epoch+1, losstracker/len(val_loader)))
+        with writer.as_default():
+            summary.scalar("Val_loss_gpu_"+str(train.world_rank()), losstracker/len(val_loader), step = tb_step)
 
     return model.cpu().state_dict() if train.world_rank()==0 else None # Avoid duplicating models
         
@@ -267,8 +280,9 @@ def train_func(config):
 # DO THE THING!
 
 start = time.time()
-trainer = Trainer(backend="torch", num_workers=args.num_workers, use_gpu=args.use_gpu,
-                  logdir=args.modelpath)
+num_gpus = int(environ.get("NUM_GPUS")) if "NUM_GPUS" in environ else 0
+trainer = Trainer(backend="torch", num_workers=args.num_workers, use_gpu=num_gpus > 0,
+                  logdir=args.logpath)
 trainer.start()
 states = trainer.run(train_func, config={"data":wikiset})
 for state in states: # Pick out the single non-duplicated model

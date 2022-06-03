@@ -2,7 +2,6 @@
 imports:
     - ../../../ray/hacks/openshift/uid-range.md
     - ../../../ray/start/index.md
-    - ../../../ray/start/gpus.md
     - ../../../../util/jobid.md
     - ../../../../s3/choose/instance.md
     - ../../../../s3/create/kubernetes/secret-if-needed.md

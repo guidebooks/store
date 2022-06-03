@@ -2,7 +2,6 @@
 imports:
     - ./overrides.md
     - ../../../ray/start/index.md
-    - ../../../ray/start/gpus.md
     - ../../../ray/hacks/openshift/uid-range.md
     - ../../../../util/jobid.md
     - ../../../../s3/choose/instance.md

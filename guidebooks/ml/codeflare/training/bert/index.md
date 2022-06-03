@@ -1,10 +1,10 @@
 ---
 imports:
     - ../../../ray/start/index.md
-    - ../../../ray/start/gpus.md
     - ../../../ray/hacks/openshift/uid-range.md
     - ../../../../util/jobid.md
     - ../../../../python/pip/torch.md
+    - ../../../../python/pip/tensorflow.md
 ---
 
 # Distributed Language Modeling with BERT
@@ -15,12 +15,22 @@ This demo contains code for pre-training a bare-bones BERT model on the Masked L
 
 Submit the job.
 
+```shell
+export JOB_NAME=BERT
+```
+
+```shell
+export TB_LOGDIR=/tmp/tensorboard/${JOB_ID}
+```
+
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --num_workers ${NUM_WORKERS} ${GPU_OPTION}
+exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --logpath ${TB_LOGDIR} --num_workers ${NUM_GPUs-${NUM_CPUS}} ${GPU_OPTION}
 ---
 --8<-- "ray-bert-vanilla.py"
 ```
 
---8<-- "../../../ray/run/logs.md"
+--8<-- "../../../tensorflow/tensorboard/rsync.md"
+--8<-- "../../../tensorflow/tensorboard/run.md"
 
+--8<-- "../../../ray/run/logs.md"
