@@ -11,6 +11,8 @@ imports:
 
 This will install Ray on a Kubernetes context of your choosing.
 
+--8<-- "../hacks/openshift/uid-range.md"
+
 ### Stream out Events from the Ray Head Node
 
 ```shell.async
