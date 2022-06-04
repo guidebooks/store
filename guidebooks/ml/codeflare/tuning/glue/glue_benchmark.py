@@ -169,7 +169,7 @@ def Fetch_data_to_local_dir(logger,dataRefs,key):
 # Two log streams are created: a debug level stream to stdout and an info level to file
 # The results are packed into a python hashmap and returned
 
-@ray.remote(num_gpus=1)
+@ray.remote(num_gpus=int(os.environ.get("NUM_GPUS")) if "NUM_GPUS" in os.environ else 0)
 def Process_task(dataRefs,bucket,model,gluedata,task,seed,LR,savemodel):
   # clean and recreate result directory
   resultdir = ResultDir(model,task,seed,LR)
