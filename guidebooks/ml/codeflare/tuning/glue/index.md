@@ -2,11 +2,9 @@
 imports:
     - ./overrides.md
     - ../../../ray/start/index.md
-    - ../../../ray/hacks/openshift/uid-range.md
     - ../../../../util/jobid.md
     - ../../../../s3/choose/instance.md
     - ../../../../s3/choose/object.md
-    - ../../../../python/pip/boto3.md
 ---
 
 <!--    - ../../../../s3/create/kubernetes/secret-if-needed.md -->
@@ -18,6 +16,22 @@ The General Language Understanding Evaluation (GLUE) benchmark is a collection o
 - A benchmark of nine sentence- or sentence-pair language understanding tasks built on established existing datasets and selected to cover a diverse range of dataset sizes, text genres, and degrees of difficulty,
 - A diagnostic dataset designed to evaluate and analyze model performance with respect to a wide range of linguistic phenomena found in natural language, and
 - A public leaderboard for tracking performance on the benchmark and a dashboard for visualizing the performance of models on the diagnostic set.
+
+## Install Python Packages
+
+```shell
+---
+exec: pip-install
+---
+--8<-- "./pip.txt"
+```
+
+```shell
+---
+exec: conda-install
+---
+--8<-- "./conda.txt"
+```
 
 ## Run it
 
