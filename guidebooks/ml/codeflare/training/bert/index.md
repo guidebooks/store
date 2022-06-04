@@ -1,7 +1,6 @@
 ---
 imports:
     - ../../../ray/start/index.md
-    - ../../../ray/hacks/openshift/uid-range.md
     - ../../../../util/jobid.md
     - ../../../../python/pip/torch.md
     - ../../../../python/pip/tensorflow.md
