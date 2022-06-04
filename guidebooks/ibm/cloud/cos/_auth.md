@@ -8,9 +8,11 @@ imports:
 ## Choose a Service Key
 
 === "expand(ibmcloud resource service-keys --output json | jq -r '.[] | select((.crn|test(\"cloud-object-storage\")) and (.credentials|.cos_hmac_keys)) | .name', IBM Cloud Object Storage Service Keys)"
+    <!--
     ```shell
     ibmcloud cos config auth --method HMAC
     ```
+    -->
     
     ```shell
     export S3_ACCESS_KEY_ID=$(ibmcloud resource service-keys --output json | jq -r '.[] | select(.name = "${choice}") | .credentials.cos_hmac_keys.access_key_id')
