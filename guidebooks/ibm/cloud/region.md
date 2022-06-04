@@ -13,9 +13,6 @@ Cloud](https://www.ibm.com/cloud) operations against a selected
 === "expand(ibmcloud regions --output json | jq -r '.[] | .Name', IBM Cloud Regions)"
 
     ```shell
-    ---
-    validate: true
-    ---
     ibmcloud target -r "${choice}"
     ```
     

@@ -2,6 +2,7 @@
 imports:
     - ../../../util/jq.md
     - ../target.md
+    - ../region.md
     - ../cli/plugins/cos.md
 ---
 
