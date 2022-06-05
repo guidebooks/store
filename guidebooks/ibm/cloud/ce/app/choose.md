@@ -28,4 +28,4 @@ The application scales to zero when not in use. An application runs your code to
 
 === "Create a new application"
 
-    :import{create.md}
+    :import{./create.md}
