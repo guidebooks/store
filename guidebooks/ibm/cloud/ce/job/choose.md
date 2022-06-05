@@ -33,4 +33,4 @@ information that is used each time that the job is run.
 
 === "Run a new job"
 
-    :import{run.md}
+    :import{./run.md}
