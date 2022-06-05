@@ -1,6 +1,6 @@
 ---
 imports:
-    - instance.md
+    - ./instance.md
 ---
 
 --8<-- "./_auth.md"
