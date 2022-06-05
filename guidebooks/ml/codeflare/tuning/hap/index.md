@@ -21,7 +21,7 @@ Submit the job.
 ---
 exec: ray-submit --job-id ${JOB_ID} --no-wait -- -s 1 -e 4 -b ${S3_BUCKET} -d ${S3_OBJECT} -v
 ---
---8<-- "hap_benchmark.py"
+--8<-- "./hap_benchmark.py"
 ```
 
 --8<-- "../../../ray/run/logs.md"

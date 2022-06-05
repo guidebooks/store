@@ -55,7 +55,7 @@ To install the Knative Serving component:
 
 ---
 
---8<-- "snippets/install-networking-layer.md"
+--8<-- "./snippets/install-networking-layer.md"
 
 ---
 
@@ -66,4 +66,4 @@ To install the Knative Serving component:
 
 ---
 
---8<-- "snippets/install-serving-extensions.md"
+--8<-- "./snippets/install-serving-extensions.md"

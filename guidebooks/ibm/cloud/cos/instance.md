@@ -60,4 +60,4 @@ For intra-cloud data fetches, you can use the lower-cost "direct" endpoint.
 export S3_DIRECT_ENDPOINT="https://s3.direct.${IBM_CLOUD_REGION}.cloud-object-storage.appdomain.cloud"
 ```
 
---8<-- "_auth.md"
+--8<-- "./_auth.md"
