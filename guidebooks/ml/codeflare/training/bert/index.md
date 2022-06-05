@@ -1,9 +1,9 @@
 ---
 imports:
-    - ../../../ray/start/index.md
-    - ../../../../util/jobid.md
-    - ../../../../python/pip/torch.md
-    - ../../../../python/pip/tensorflow.md
+    - ml/ray/start
+    - util/jobid
+    - python/pip/torch
+    - python/pip/tensorflow
 ---
 
 # Distributed Language Modeling with BERT
@@ -24,12 +24,12 @@ export TB_LOGDIR=/tmp/tensorboard/${JOB_ID}
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --logpath ${TB_LOGDIR} --num_workers ${NUM_GPUs-${NUM_CPUS}} ${GPU_OPTION}
+exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --logpath ${TB_LOGDIR} --num_workers ${NUM_GPUs-${NUM_CPUS-1}} ${GPU_OPTION}
 ---
---8<-- "ray-bert-vanilla.py"
+--8<-- "./ray-bert-vanilla.py"
 ```
 
---8<-- "../../../tensorflow/tensorboard/rsync.md"
---8<-- "../../../tensorflow/tensorboard/run.md"
+--8<-- "ml/tensorflow/tensorboard/rsync"
+--8<-- "ml/tensorflow/tensorboard/run"
 
---8<-- "../../../ray/run/logs.md"
+--8<-- "ml/ray/run/logs"

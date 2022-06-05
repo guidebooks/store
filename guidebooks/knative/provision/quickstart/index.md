@@ -63,6 +63,6 @@ to install Knative on either [kind](https://kind.sigs.k8s.io/) or
 
 # Install required tools
 
---8<-- "quickstart.md"
+--8<-- "./quickstart.md"
 
-<!-- --8<-- "clean-up.md" -->
+<!-- --8<-- "./clean-up.md" -->

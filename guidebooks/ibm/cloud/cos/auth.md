@@ -3,4 +3,4 @@ imports:
     - instance.md
 ---
 
---8<-- "_auth.md"
+--8<-- "./_auth.md"

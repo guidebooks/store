@@ -1,7 +1,7 @@
 ---
 imports:
-    - ../../start/index.md
-    - ../../../../util/jobid.md
+    - ml/ray/start
+    - util/jobid
 ---
 
 # Ray Core: Parallelizing Functions with Ray Tasks
@@ -32,5 +32,5 @@ In the above code block we defined some Ray Tasks. While these are
 great for stateless operations, sometimes you must maintain the state
 of your application. You can do that with Ray Actors.
 
---8<-- "../logs.md"
+--8<-- "ml/ray/run/logs"
 
