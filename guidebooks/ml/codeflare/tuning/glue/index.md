@@ -26,13 +26,6 @@ exec: pip-install
 --8<-- "./pip.txt"
 ```
 
-```shell
----
-exec: conda-install
----
---8<-- "./conda.txt"
-```
-
 ## Run it
 
 Submit the job.
