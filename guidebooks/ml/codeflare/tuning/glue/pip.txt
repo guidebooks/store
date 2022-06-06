@@ -1,2 +1,6 @@
 boto3
 ray[default]
+ray_lightning
+pytorch_lightning
+torchvision
+transformers=3.0.2

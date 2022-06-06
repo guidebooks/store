@@ -189,8 +189,8 @@ def Process_task(dataRefs,bucket,model,gluedata,task,seed,LR,savemodel):
   # print node and GPU IDs
   node_id = str(ray.get_runtime_context().node_id)
   GPU_id = str(ray.get_gpu_ids())
-  logger.info("Node ID: {node_id}")
-  logger.info("GPU IDs: {GPU_id}")
+  logger.info(f"Node ID: {node_id}")
+  logger.info(f"GPU IDs: {GPU_id}")
 
   # Reuse local glue data directory or try to create it
   if not os.path.isdir('./'+gluedata):
