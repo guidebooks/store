@@ -19,13 +19,8 @@ kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} delete raycluster ${RAY_KUBE_CLU
 
 ## Clear out potentially stuck finalizers
 
-=== "Force Stop? (Y/N) [default="N"]"
-    ```shell
-    export FORCE_STEP=${choice}
-    ```
-
 ```shell
-if [ "$FORCE_STOP" = "Y" ]; then
+if [ -z "$NOFORCE_STOP" ]; then
     echo "Patching finalizer"
     kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} patch raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -p '{"metadata":{"finalizers":null}}' --type=merge 2> /dev/null || exit 0
 fi
