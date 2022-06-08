@@ -5,6 +5,10 @@ export MC_CONFIG_DIR=$(mktemp -d)
 ```
 
 ```shell
+echo "$MC_CONFIG_DIR"
+```
+
+```shell
 cat << EOF > ${MC_CONFIG_DIR}/config.json
 {
   "version": "10",
