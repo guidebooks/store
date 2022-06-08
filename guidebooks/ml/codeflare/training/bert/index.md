@@ -1,6 +1,7 @@
 ---
 imports:
     - ml/ray/start
+    - ml/ray/run/logs-in-s3
     - util/jobid
 ---
 
@@ -14,7 +15,7 @@ This demo contains code for pre-training a bare-bones BERT model on the Masked L
 ---
 exec: pip-install
 ---
---8<-- "./pip.txt"
+--8<-- "./requirements.txt"
 ```
 
 ## Run it
