@@ -35,7 +35,7 @@ git sparse-checkout set deploy/charts/ray >& /dev/null
 
 if [ -z "${RAY_IMAGE}" ]; then
     if [ "${NUM_GPUS}" != 0 ]
-    then RAY_IMAGE=rayproject/ray-ml:nightly-gpu
+    then RAY_IMAGE=rayproject/ray-ml:1.12.2-py37-gpu
     else RAY_IMAGE=rayproject/ray:latest
     fi
 fi
