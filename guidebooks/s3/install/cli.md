@@ -21,13 +21,16 @@
     
     === "ARM"
         ```shell
+        ---
+        validate: which mc
+        ---
         echo "Not yet supported" && exit 1
         ```
 
 === "Windows"
     ```shell
     ---
-    validate: which aws
+    validate: which mc
     ---
     curl -LO https://dl.min.io/client/mc/release/windows-amd64/mc.exe
     echo "TODO" && exit 1
