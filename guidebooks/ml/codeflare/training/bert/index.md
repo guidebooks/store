@@ -1,7 +1,6 @@
 ---
 imports:
     - ml/ray/start
-    - ml/ray/run/logs-in-s3
     - util/jobid
 ---
 
