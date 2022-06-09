@@ -1,9 +1,9 @@
 ---
 imports:
-    - ../../../kubernetes/kubectl.md
-    - ../../../kubernetes/helm3.md
-    - ../../../kubernetes/context.md
-    - ../../../kubernetes/choose/ns.md
+    - kubernetes/kubectl
+    - kubernetes/helm3
+    - kubernetes/context
+    - kubernetes/choose/ns
     - ./resources.md
 ---
 
