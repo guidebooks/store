@@ -1,3 +1,9 @@
+---
+imports:
+    - kubernetes/context
+    - kubernetes/choose/ns
+---
+
 ## Start up a Kubernetes port-forward to the cluster
 
 Kill any previously running port-forward. TODO: this does not allow multiple independent jobs.
@@ -17,5 +23,9 @@ kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} port-forward service/${RAY_KUBE_
 Wait for the port forwarder to become active.
 
 ```shell
-while true; do if [ -f /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME-my-cluster} ] && [ "$(cat /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME-mycluster} | grep -q 'Forwarding from' && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
+while true; do if [ -f /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME-mycluster} ] && [ "$(cat /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME-mycluster} | grep -q 'Forwarding from' && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
+```
+
+```shell
+if [ -n "$WAIT" ]; then sleep 100000; fi
 ```
