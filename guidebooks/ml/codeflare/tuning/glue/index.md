@@ -1,6 +1,5 @@
 ---
 imports:
-    - ./overrides.md
     - ml/ray/start
     - util/jobid
     - ./choose-model.md
