@@ -1,7 +1,15 @@
 # Running Ray Locally
 
 This will install Ray on your laptop.
-    
+
+```shell
+export RAY_ADDRESS=http://127.0.0.1:8265
+```
+
+```shell
+export PIP_LOCAL=true
+```
+
 === "Intel"
     If you are running on x86/Intel hardware.
 
@@ -32,6 +40,3 @@ ray stop
 ray start --head
 ```
     
-```shell
-export RAY_ADDRESS=http://127.0.0.1:8265
-```

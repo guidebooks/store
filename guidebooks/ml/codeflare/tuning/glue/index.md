@@ -3,8 +3,8 @@ imports:
     - ./overrides.md
     - ml/ray/start
     - util/jobid
-    - s3/choose/instance
-    - s3/choose/object
+    - ./choose-model.md
+    - ./choose-glue-data.md
 ---
 
 <!--    - ../../../../s3/create/kubernetes/secret-if-needed.md -->
@@ -40,7 +40,7 @@ export WANDB_DISABLED=true
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait -- -v -b ${S3_BUCKET} -m ${S3_OBJECT} -t WNLI -M -s 40 41 42 43
+exec: ray-submit --job-id ${JOB_ID} --no-wait -- -v -b ${S3_BUCKET} -m ${S3_OBJECTMODEL} -g ${S3_OBJECTGLUEDATA} -t WNLI -M -s 40 41 42 43
 ---
 --8<-- "./glue_benchmark.py"
 ```

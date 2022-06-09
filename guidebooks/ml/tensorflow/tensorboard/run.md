@@ -12,7 +12,7 @@ export TB_OUT=$(mktemp)
 ```
 
 ```shell.async
-python3 -m tensorboard.main --window_title "Tensorboard ${JOB_NAME-${JOB_ID}}" --load_fast false --logdir "${TB_LOCAL_LOGDIR}" 2>&1 | tee "${TB_OUT}"
+python3 -m tensorboard.main --window_title "Tensorboard ${JOB_NAME-${JOB_ID}}" --logdir "${TB_LOGDIR}" 2>&1 | tee "${TB_OUT}"
 ```
 
 We'll need to capture the port, which we do via the `TB_OUT`

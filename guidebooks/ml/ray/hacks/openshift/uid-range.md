@@ -20,9 +20,9 @@ by default ([reference](https://access.redhat.com/solutions/2801791)).
     ```shell
     ---
     validate: |
-      [ $(kubectl get ns ${KUBE_NS} -o json | jq -r '.metadata.annotations."openshift.io/sa.scc.uid-range"') = "1000/10000" ]
+      [ -n "${KUBE_CONTEXT}" ] && [ -n "${KUBE_NS}" ] && [ $(kubectl get ns ${KUBE_NS} --context ${KUBE_CONTEXT} -o json | jq -r '.metadata.annotations."openshift.io/sa.scc.uid-range"') = "1000/10000" ]
     ---
-    kubectl annotate namespace ${KUBE_NS} --overwrite openshift.io/sa.scc.uid-range=1000/10000
+    kubectl annotate namespace ${KUBE_NS} --context ${KUBE_CONTEXT} --overwrite openshift.io/sa.scc.uid-range=1000/10000
     ```
 
     Not changing the UID can cause permissions problems when the Ray
