@@ -22,6 +22,7 @@ from ray.train import Trainer
 import tensorflow.summary as summary
 
 import argparse
+import importlib
 
 parser = argparse.ArgumentParser(description='BERT on WikiText-103 with Ray Train for OPC (now with TensorBoard!)')
 parser.add_argument('--num_workers', type=int, default=1, help='Number of workers to use for training')
@@ -30,12 +31,13 @@ parser.add_argument('--num_epochs', type=int, default=5, help='Number of passes 
 parser.add_argument('--datapath', type=str, default='/home/ray/bert/', help='Absolute path to dataset directory')
 parser.add_argument('--modelpath', type=str, default='/home/ray/bert/', help='Absolute path to model save location. Must be accessible to head node.')
 parser.add_argument('--logpath', type=str, default='/home/ray/bert/', help='Absolute path to log save location. Must be accessible to each worker node.')
+parser.add_argument('--tblogpath', type=str, default='/home/ray/bert/', help='Absolute path to tensorboard log location. Must be accessible to each worker node.')
 args = parser.parse_args()
 
 # Create the tensorboard log directory structure in advance, so that
 # any remote rsyncs won't try to fetch from a non-existent directory
-pathlib.Path(args.logpath).mkdir(parents=True, exist_ok=True)
-print(f"Logging tensorboard to {args.logpath}")
+#pathlib.Path(args.logpath).mkdir(parents=True, exist_ok=True)
+print(f"Logging tensorboard to {args.tblogpath}")
 
 ray.init(address="auto")
 
@@ -198,7 +200,8 @@ def train_func(config):
     dataset = config["data"]
 
     # Create a tensorboard writer. use args.logpath/jobid, if we have a jobid
-    tb_logpath = join(args.logpath, f'tb_gpu_{train.world_rank()}')
+    tfio = importlib.import_module("tensorflow_io")
+    tb_logpath = join(args.tblogpath, f'gpu_{train.world_rank()}/')
     writer = summary.create_file_writer(tb_logpath)
 
     # Model

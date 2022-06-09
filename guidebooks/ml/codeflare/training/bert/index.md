@@ -1,6 +1,7 @@
 ---
 imports:
     - ml/ray/start
+    - ml/ray/run/logs-in-s3.md
     - util/jobid
 ---
 
@@ -26,17 +27,15 @@ export JOB_NAME=BERT
 ```
 
 ```shell
-export TB_LOGDIR=/tmp/tensorboard/${JOB_ID}
+export TB_LOGDIR="s3://${S3_BUCKETRAYLOGS}/codeflare/${JOB_ID}/"
 ```
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --logpath ${TB_LOGDIR} --num_workers ${NUM_GPUs-${NUM_CPUS-1}} ${GPU_OPTION}
+exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --logpath /tmp/ --tblogpath "${TB_LOGDIR}" --num_workers ${NUM_GPUs-${NUM_CPUS-1}} ${GPU_OPTION}
 ---
 --8<-- "./ray-bert-vanilla.py"
 ```
 
---8<-- "ml/tensorflow/tensorboard/rsync"
 --8<-- "ml/tensorflow/tensorboard/run"
-
 --8<-- "ml/ray/run/logs"
