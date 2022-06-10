@@ -1,0 +1,4 @@
+=== "separator"
+    ```shell
+    echo nothing
+    ```
