@@ -16,7 +16,7 @@ This will install Ray on a Kubernetes context of your choosing.
 ### Stream out Events from the Ray Head Node
 
 ```shell.async
-kubectl get events --context ${KUBE_CONTEXT} -n ${KUBE_NS} --watch-only
+kubectl get events --context ${KUBE_CONTEXT} -n ${KUBE_NS} --watch-only | tee "${STREAMCONSUMER_EVENTS}kubernetes.txt"
 ```
 
 ### Use Helm to create the Ray Cluster
