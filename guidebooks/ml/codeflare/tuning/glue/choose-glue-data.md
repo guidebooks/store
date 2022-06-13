@@ -1,7 +1,6 @@
 ---
 imports:
-    - s3/choose/instance
-    - s3/choose/bucket
+    - ./choose-bucket.md
     - path: s3/choose/_object.md
       group: Choose your Glue Data File
       env:

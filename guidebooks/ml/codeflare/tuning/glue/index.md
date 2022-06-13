@@ -1,7 +1,8 @@
 ---
 imports:
-    - ml/ray/start
     - util/jobid
+    - ml/codeflare/job/log/init/s3.md
+    - ml/ray/start
     - ./choose-model.md
     - ./choose-glue-data.md
 ---

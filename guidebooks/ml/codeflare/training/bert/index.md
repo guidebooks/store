@@ -1,8 +1,8 @@
 ---
 imports:
-    - ml/ray/start
-    - ml/ray/run/logs-in-s3.md
     - util/jobid
+    - ml/codeflare/job/log/init/s3.md
+    - ml/ray/start
 ---
 
 # Distributed Language Modeling with BERT
@@ -27,7 +27,7 @@ export JOB_NAME=BERT
 ```
 
 ```shell
-export TB_LOGDIR="s3://${S3_BUCKETRAYLOGS}/codeflare/${JOB_ID}/"
+export TB_LOGDIR="${CODEFLARE_LOGDIR_URI}/tensorboard/"
 ```
 
 ```python
