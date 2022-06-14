@@ -27,7 +27,7 @@ export JOB_NAME=BERT
 ```
 
 ```shell
-export TB_LOGDIR="${CODEFLARE_LOGDIR_URI}/tensorboard/"
+export TB_LOGDIR="${LOGDIR_URI}/tensorboard/"
 ```
 
 ```python
