@@ -18,8 +18,11 @@ while true; do if [ "$(ray job status ${JOB_ID} >& /dev/null && echo 1 || echo 0
 Then stream out the logs.
 
 ```shell
-echo "👉 $(tput setaf 6)Logs will be stored in this local staging directory: $(tput bold)${CODEFLARE_LOGDIR_STAGE}$(tput sgr0)"
-echo "👉 $(tput setaf 6)Logs will also be stored in s3: $(tput bold)${CODEFLARE_LOGDIR_URI}$(tput sgr0)"
+if [ -n "${CODEFLARE_LOGDIR_STAGE}" ]; then
+  echo
+  echo "👉 $(tput setaf 6)Logs will be stored in this local staging directory: $(tput bold)${CODEFLARE_LOGDIR_STAGE}$(tput sgr0)"
+  echo "👉 $(tput setaf 6)Logs will also be stored in s3: $(tput bold)${CODEFLARE_LOGDIR_URI}$(tput sgr0)"
+fi
 ```
 
 ```shell
