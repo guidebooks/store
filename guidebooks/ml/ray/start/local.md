@@ -37,6 +37,6 @@ export PIP_LOCAL=true
         
 ```shell
 ray stop
-ray start --head
+ray start --head --disable-usage-stats 
 ```
     
