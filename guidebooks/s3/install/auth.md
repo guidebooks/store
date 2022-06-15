@@ -1,11 +1,12 @@
+---
+validate: |
+  [ -n "${MC_CONFIG_DIR}" ] && [ -f "${MC_CONFIG_DIR}/config.json" ]
+---
+
 # Initialize the minio client config file
 
 ```shell
 export MC_CONFIG_DIR=$(mktemp -d)
-```
-
-```shell
-echo "$MC_CONFIG_DIR"
 ```
 
 ```shell
