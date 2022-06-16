@@ -24,7 +24,7 @@ kubectl get events --context ${KUBE_CONTEXT} -n ${KUBE_NS} --watch-only | tee "$
 ```shell
 ---
 validate: |
-  if [ -n "${KUBE_CONTEXT}" ] && [ -n "${KUBE_NS}" ]; then X=$(kubectl --context ${KUBE_CONTEXT} get raycluster mycluster -n ${KUBE_NS} -o json); echo "$X" | grep -v 'No resources' && [ $(echo "$X" | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .podConfig.spec.containers[0].resources.requests.cpu') = ${NUM_CPUS-1} ]; fi
+  if [ -n "${KUBE_CONTEXT}" ] && [ -n "${KUBE_NS}" ]; then X=$(kubectl --context ${KUBE_CONTEXT} get raycluster mycluster -n ${KUBE_NS} -o json 2>&1); echo "$X" | grep -v 'No resources' && echo "$X" | grep -v 'not found' && [ $(echo "$X" | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .podConfig.spec.containers[0].resources.requests.cpu') = ${NUM_CPUS-1} ]; else exit 1; fi
 ---
 echo "$(tput setaf 4)Cloning ray repo$(tput sgr0)"
 T=$(mktemp -d)
