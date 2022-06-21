@@ -5,6 +5,7 @@ imports:
 
 # Stream out Ray Job Logs
 
+--8<-- "./pod-stats.md"
 --8<-- "./node-stats.md"
 --8<-- "./gpu-utilization.md"
 
