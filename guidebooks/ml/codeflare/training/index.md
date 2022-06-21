@@ -5,5 +5,7 @@ The process of training an ML model involves providing an ML algorithm
 from. The term ML model refers to the model artifact that is created
 by the training process.
 
+## Which training application do you want to run?
+
 === "BERT"
     --8<-- "./bert"
