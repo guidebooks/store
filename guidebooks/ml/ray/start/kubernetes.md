@@ -24,7 +24,11 @@ kubectl get events --context ${KUBE_CONTEXT} -n ${KUBE_NS} --watch-only | tee "$
 This defines the base docker image we will use for the ray head and worker nodes.
 
 ```shell
-export RAY_IMAGE=${RAY_IMAGE-$([ $NUM_GPUS = 0 ] && echo rayproject/ray:1.12.2-py37 || echo rayproject/ray-ml:1.12.2-py37-gpu)}
+export RAY_OPERATOR_IMAGE=${RAY_OPERATOR_IMAGE-rayproject/ray:1.13.0-py37}
+```
+
+```shell
+export RAY_IMAGE=${RAY_IMAGE-$([ $NUM_GPUS = 0 ] && echo rayproject/ray:1.13.0-py37 || echo rayproject/ray-ml:1.13.0-py37-gpu)}
 ```
 
 A staging directory for the clone of the Ray Helm chart.
