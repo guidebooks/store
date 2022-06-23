@@ -49,6 +49,10 @@ A Kubernetes label selector that can be used to query for workers.
 export KUBE_POD_LABEL_SELECTOR=ray-user-node-type=rayWorkerType
 ```
 
+```shell
+export KUBE_PODFULL_LABEL_SELECTOR=ray-node-type
+```
+
 --8<-- "./kubernetes/install-via-helm.md"
 
 ## Wait for Ray Head Node
