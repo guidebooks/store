@@ -27,9 +27,6 @@ if [ -n "${LOGDIR_STAGE}" ]; then
 fi
 ```
 
-```shell
---8<-- "./logs.sh"
-```
 
 --8<-- "./logs-websocat.md"
 

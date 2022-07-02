@@ -12,3 +12,6 @@ machine-learning logic.
 
 === "Fine Tuning"
     --8<-- "./tuning"
+
+=== "Initial setup"
+    --8<-- "./setup"

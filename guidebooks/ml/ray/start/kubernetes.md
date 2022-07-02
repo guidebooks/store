@@ -1,7 +1,6 @@
 ---
 imports:
-    - kubernetes/kubectl
-    - kubernetes/helm3
+
     - kubernetes/context
     - kubernetes/choose/ns
     - ./resources.md

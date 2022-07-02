@@ -15,5 +15,5 @@ echo "$(tput setaf 4)Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} 
 
 sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' deploy/charts/ray/templates/*.yaml
 
-helm --kube-context ${KUBE_CONTEXT} -n ${KUBE_NS} upgrade --install --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} --create-namespace deploy/charts/ray --set podTypes.rayWorkerType.CPU=${NUM_CPUS-1} --set podTypes.rayWorkerType.GPU=${NUM_GPUS-1} --set podTypes.rayHeadType.memory=${HEAD_MEMORY-1Gi} --set podTypes.rayWorkerType.memory=${WORKER_MEMORY-1Gi} --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-2} --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-3} --set image=${RAY_IMAGE} --set operatorImage=${RAY_OPERATOR_IMAGE}
+helm --kube-context ${KUBE_CONTEXT} -n ${KUBE_NS} upgrade --install --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} --create-namespace deploy/charts/ray --set podTypes.rayWorkerType.CPU=${NUM_CPUS-1} --set podTypes.rayWorkerType.GPU=${NUM_GPUS-1} --set podTypes.rayHeadType.memory=${HEAD_MEMORY-1Gi} --set podTypes.rayWorkerType.memory=${WORKER_MEMORY-1Gi} --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-2} --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-3} --set image=${RAY_IMAGE} --set operatorImage=${RAY_OPERATOR_IMAGE} --set namespacedOperator=true --set operatorNamespace=${KUBE_NS}
 ```
