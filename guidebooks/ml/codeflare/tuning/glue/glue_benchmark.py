@@ -96,13 +96,15 @@ class DataRefs:
     if key in self.state:
       if self.state[key] == 'Cached':
         return self.refs[key]
-    print(f"  try to get {key} from s3")
+    print(f"  Data: try remote get {key} from s3")
     try:
       dataobject = self.client.get_object(Bucket=self.bucket, Key=key)
       data = dataobject['Body'].read()
-      print(f"  try to put {key} data into plasma")
+      print(f"  Data: done remote get {key} from s3")
+      print(f"  Data: try cache put {key} into plasma")
       self.refs[key] = ray.put(data)
       self.state[key] = 'Cached'
+      print(f"  Data: done cache put {key} data into plasma")
       return self.refs[key]
     except Exception as e:
       print("Unable to retrieve/put object contents: {0}\n\n".format(e))
@@ -136,6 +138,8 @@ def Fetch_data_to_local_dir(logger,dataRefs,key):
     return False
   try:
     time_start = time.time()
+    st = datetime.datetime.fromtimestamp(time_start).strftime('%Y-%m-%d %H:%M:%S')
+    logger.info(f"{st} Data: try cache get {key}")
     ref = ray.get(dataRefs.Get_dataref.remote(key))
     if ref == None:
       logger.warning(f"Could not get {key} data reference from data actor")
@@ -144,18 +148,20 @@ def Fetch_data_to_local_dir(logger,dataRefs,key):
     dataset = ray.get(ref)
     time_done = time.time()
     st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
-    logger.info(f"{st} getting data length={len(dataset)} took {time_done-time_start:.2f}s")
+    logger.info(f"{st} Data: done cache get {key} length={len(dataset)} took {time_done-time_start:.2f}s")
     tmpdata = f"/tmp/{key}.tgz"
     f = open(tmpdata, "wb")
     f.write(dataset)
     f.close
+
+    logger.info(f"{st} Data: try unpack {key} tarfile")
     time_start = time.time()
     file = tarfile.open(tmpdata)
     file.extractall('./')
     file.close()
     time_done = time.time()
     st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
-    logger.info(f"{st} unpacking {key} tarfile took {time_done-time_start:.2f}s")
+    logger.info(f"{st} Data: done unpack {key} tarfile took {time_done-time_start:.2f}s")
     return True
 
   except Exception as e:
