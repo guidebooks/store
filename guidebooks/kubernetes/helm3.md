@@ -20,11 +20,14 @@ This guide shows how to install the Helm CLI. Helm can be installed either from 
         ```
 
 === "Linux"
+    In a docker container, the `$<(...)` magic may not work. "$/dev/fd/63: No such file or directory".
     ```shell
     ---
     validate: which helm
     ---
-    bash $<(curl -L https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3)
+    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+    chmod 700 get_helm.sh
+    ./get_helm.sh
     ```
 
 === "Windows"
