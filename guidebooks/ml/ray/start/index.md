@@ -1,3 +1,8 @@
+---
+imports:
+    - ml/ray/install/cli
+---
+
 # Pick a Ray Target
 
 === "Run Locally"
