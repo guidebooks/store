@@ -16,5 +16,5 @@
     ---
     validate: which jq
     ---
-    apt update && apt -y install jq
+    sudo apt update && sudo apt -y install jq
     ```
