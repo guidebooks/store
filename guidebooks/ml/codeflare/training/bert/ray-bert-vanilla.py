@@ -51,7 +51,7 @@ ray.init(address="auto", log_to_driver=args.verbose)
 dpath = args.datapath+'wikitext-v103-tokenized.pth'
 pid = getpid()
 ip = socket.gethostbyname(socket.gethostname())
-loghead = f"(Head pid={pid} ip={ip})"
+loghead = f"(Head pid={pid}, ip={ip})"
 if not exists(dpath):
     st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
     print(f"{loghead} {st} Data: try remote get Retrieving tokenized dataset from Box...")
