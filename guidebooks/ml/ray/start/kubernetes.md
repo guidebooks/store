@@ -4,7 +4,8 @@ imports:
     - kubernetes/helm3
     - kubernetes/context
     - kubernetes/choose/ns
-    - ./resources.md
+    - ./kubernetes/label-selectors
+    - ./resources
 ---
 
 # Install Ray on a Kubernetes Cluster
@@ -43,16 +44,6 @@ The name of the Ray Kubernetes Service:
 export RAY_KUBE_CLUSTER_NAME=mycluster
 ```
 
-A Kubernetes label selector that can be used to query for workers.
-
-```shell
-export KUBE_POD_LABEL_SELECTOR=ray-user-node-type=rayWorkerType
-```
-
-```shell
-export KUBE_PODFULL_LABEL_SELECTOR=ray-node-type
-```
-
 --8<-- "./kubernetes/install-via-helm.md"
 
 ## Wait for Ray Head Node
@@ -64,21 +55,7 @@ while true; do
 done
 ```
 
-## The local port to use for `ray` operations
-
-Here, we try to avoid using the default port for a local Ray instance.
-
-```shell
-export RAY_KUBE_PORT=8266
-```
-
-## The URL to use for `ray` operations
-
-```shell
-export RAY_ADDRESS="http://127.0.0.1:$RAY_KUBE_PORT"
-```
-
---8<-- "./kubernetes/port-forward.md"
+:import{ml/ray/cluster/kubernetes}
 
 ## Wait for at least one Worker to be Ready
 

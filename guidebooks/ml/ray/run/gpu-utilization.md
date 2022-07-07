@@ -1,3 +1,8 @@
+---
+imports:
+    - ml/ray/start/kubernetes/label-selectors.md
+---
+
 # Stream GPU Utilization Metrics
 
 We use some bash hacking to `kubectl exec` into each pod that
