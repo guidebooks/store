@@ -5,9 +5,17 @@ imports:
 
 # Stream out Ray Job Logs
 
+We will stream out a suite of data, including resource utilization metrics and job logs.
+
+## Stream Resource Metrics
+
 --8<-- "./pod-stats.md"
 --8<-- "./node-stats.md"
 --8<-- "./gpu-utilization.md"
+
+## Capture Job Definition
+
+--8<-- "./job-definition.md"
 
 ## Stream Ray Job Logs
 
