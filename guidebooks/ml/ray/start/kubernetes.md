@@ -50,12 +50,12 @@ export RAY_KUBE_CLUSTER_NAME=mycluster
 
 ```shell
 while true; do
-    kubectl --context ${KUBE_CONTEXT} wait pod -n ${KUBE_NS} -l ray-user-node-type=rayHeadType --for=condition=Ready --timeout=600s | grep -v 'no matching resources' > /dev/null && break || echo "Waiting for Ray Head node"
+    kubectl --context ${KUBE_CONTEXT} wait pod -n ${KUBE_NS} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} --for=condition=Ready --timeout=600s | grep -v 'no matching resources' > /dev/null && break || echo "Waiting for Ray Head node"
     sleep 1
 done
 ```
 
-:import{ml/ray/cluster/kubernetes}
+--8<-- "ml/ray/cluster/kubernetes"
 
 ## Wait for at least one Worker to be Ready
 
