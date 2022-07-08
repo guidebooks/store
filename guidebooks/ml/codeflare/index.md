@@ -1,14 +1,22 @@
 # Project Codeflare
 
-Welcome to
-[CodeFlare](https://research.ibm.com/blog/codeflare-ml-experiments),
-tooling to drastically reduce time to set up, run, and scale
-machine-learning logic.
+--8<-- "./welcome.md"
 
-## What kind of application do you want to run?
+## What do you want to do today?
 
-=== "Training"
-    --8<-- "./training"
+=== "Start a new Run"
+    --8<-- "./run.md"
+    
+=== "Connect Dashboard to an existing Run"
+    I would like to visualize the resource consumption, status, and logs of a run in progress.
+    ```shell
+    codeflare db -a
+    ```
 
-=== "Fine Tuning"
-    --8<-- "./tuning"
+=== "Boot up a Cloud Computer"
+    I want to configure and boot up a Cloud Computer.
+    :import{ml/ray/start/kubernetes}
+
+=== "Shut down a Cloud Computer"
+    I want to save money, and take one of my Cloud Computers offline.
+    :import{ml/ray/stop/kubernetes}
