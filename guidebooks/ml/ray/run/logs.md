@@ -35,9 +35,26 @@ if [ -n "${LOGDIR_STAGE}" ]; then
 fi
 ```
 
+Only one of these two will operate --- if you look into each, you will
+see that they are guarded either by `$STREAMCONSUMER_LOGS` not being
+defined, or being defined, respectively. The former case streams just
+to the console. This can use `ray job logs -f` directly. The latter
+case handles streaming the output somewhere, such as to a file (and
+possibly to the console, too, via `tee`).
+
+It turns out that the `ray` CLI does some sort of batching that makes
+consuming streaming output from that file "batchy". Instead, we use
+[`websocat`](https://github.com/vi/websocat) to talk directly to the
+Ray API; for log following, this is a websocket protocol, hence the
+need for an additional tool. Sigh.
+
+### Logs just to console
+
 ```shell
 --8<-- "./logs.sh"
 ```
+
+### Logs to a file (and possibly the console, too)
 
 --8<-- "./logs-websocat.md"
 
