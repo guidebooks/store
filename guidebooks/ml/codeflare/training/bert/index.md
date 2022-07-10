@@ -32,7 +32,7 @@ export TB_LOGDIR="${LOGDIR_URI}/tensorboard/"
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait -- --datapath /tmp/ --modelpath /tmp/ --logpath /tmp/ --tblogpath "${TB_LOGDIR}" --num_workers ${NUM_GPUs-${NUM_CPUS-1}} ${GPU_OPTION}
+exec: ray-submit --job-id ${JOB_ID} --no-wait -- -v --datapath /tmp/ --modelpath /tmp/ --logpath /tmp/ --tblogpath "${TB_LOGDIR}" --num_workers ${NUM_GPUs-${NUM_CPUS-1}} ${GPU_OPTION}
 ---
 --8<-- "./ray-bert-vanilla.py"
 ```

@@ -6,11 +6,13 @@ import math
 import torch.nn.functional as F
 import time
 import pathlib
+import datetime
+import socket
 
 import requests
 from io import BytesIO
 from os.path import exists, join
-from os import environ
+from os import environ, getpid
 import torch.utils.data as data
 torch.manual_seed(42)
 torch.cuda.manual_seed_all(42)
@@ -32,6 +34,7 @@ parser.add_argument('--datapath', type=str, default='/home/ray/bert/', help='Abs
 parser.add_argument('--modelpath', type=str, default='/home/ray/bert/', help='Absolute path to model save location. Must be accessible to head node.')
 parser.add_argument('--logpath', type=str, default='/home/ray/bert/', help='Absolute path to log save location. Must be accessible to each worker node.')
 parser.add_argument('--tblogpath', type=str, default='/home/ray/bert/', help='Absolute path to tensorboard log location. Must be accessible to each worker node.')
+parser.add_argument('-v',"--verbose", action='store_true',help="show remote consoles (Default=False)")
 args = parser.parse_args()
 
 # Create the tensorboard log directory structure in advance, so that
@@ -39,23 +42,34 @@ args = parser.parse_args()
 #pathlib.Path(args.logpath).mkdir(parents=True, exist_ok=True)
 print(f"Logging tensorboard to {args.tblogpath}")
 
-ray.init(address="auto")
+ray.init(address="auto", log_to_driver=args.verbose)
 
 # For now, changing other hyperparameters will require changing the hardcoded constants in the code below
 
 # Fetch pre-tokenized dataset
 
 dpath = args.datapath+'wikitext-v103-tokenized.pth'
+pid = getpid()
+ip = socket.gethostbyname(socket.gethostname())
+loghead = f"(Head pid={pid}, ip={ip})"
 if not exists(dpath):
-    print("Retrieving tokenized dataset from Box...")
+    st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+    print(f"{loghead} {st} Data: try remote get Retrieving tokenized dataset from Box...")
     url = 'https://ibm.box.com/shared/static/foiewtjjleqn9koiy5531evma8nfhvj9.pth'
     wikiset = BytesIO(requests.get(url).content)
     wikiset = torch.load(wikiset)
+    st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+    print(f"{loghead} {st} Data: done remote get Dataset retrieved!")
+    print(f"{loghead} {st} Data: try cache put saving to disk")
     torch.save(wikiset, dpath)
+    st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+    print(f"{loghead} {st} Data: done cache put saving to disk")
 else:
-    print("Retrieving tokenized dataset locally...")
+    st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+    print(f"{loghead} {st} Data: try cache get Retrieving tokenized dataset locally...")
     wikiset = torch.load(dpath)
-print("Dataset retrieved!")
+    st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+    print(f"{loghead} {st} Data: done cache get Retrieving tokenized dataset locally...")
 
 
 

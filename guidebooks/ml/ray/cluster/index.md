@@ -5,8 +5,8 @@ imports:
 
 # Pick a Ray Target
 
-=== "Run Locally"
+=== "My Cluster is Running Locally"
     --8<-- "./local.md"
 
-=== "Run on a Kubernetes Cluster"
+=== "My Cluster is Running on Kubernetes"
     --8<-- "./kubernetes.md"

@@ -10,3 +10,11 @@
     ---
     brew install jq
     ```
+
+=== "Linux"
+    ```shell
+    ---
+    validate: which jq
+    ---
+    sudo apt update && sudo apt -y install jq
+    ```

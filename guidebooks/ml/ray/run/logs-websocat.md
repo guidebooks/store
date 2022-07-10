@@ -5,12 +5,25 @@ pipeline operators. See
 https://discuss.ray.io/t/ray-job-logs-follow-does-not-cooperate-with-unix-pipes/6489
 
 ```shell.async
-WS_ADDRESS=$(echo ${RAY_ADDRESS} | sed 's/^http/ws/')
-websocat --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail | vector --config /Users/apollo/work/research/cil/opensource/ray-template-repo/vector.toml
+if [ -n "${STREAMCONSUMER_LOGS}" ]; then
+    WS_ADDRESS=$(echo ${RAY_ADDRESS} | sed 's/^http/ws/')
+
+    if [ -z "$QUIET_CONSOLE" ]; then
+        websocat --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail | tee "${STREAMCONSUMER_LOGS}job.txt"
+    else
+        websocat -B 524288 --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > "${STREAMCONSUMER_LOGS}job.txt"
+    fi
+fi
 ```
 
-<!--using this to track if the job is done-->
+Oof, missing `ray job wait`... This is a simplisitic and wasteful way
+to do the same. See
+https://discuss.ray.io/t/feature-request-cli-command-ray-job-wait/6492
 
 ```shell
-ray job logs -f ${JOB_ID} >& /dev/null
+if [ -n "${STREAMCONSUMER_LOGS}" ]; then
+    if [ -z "$NO_WAIT" ]; then
+        ray job logs -f ${JOB_ID} >& /dev/null
+    fi
+fi
 ```
