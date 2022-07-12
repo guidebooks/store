@@ -1,3 +1,5 @@
+if [ -z "$KUBE_CONTEXT" ] || [ -z "$KUBE_NS" ]; then exit; fi
+
 # staggered starts
 sleep 0.$(shuf -i 10000-11000 -n1)
 
