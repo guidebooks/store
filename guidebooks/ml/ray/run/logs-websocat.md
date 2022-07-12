@@ -6,7 +6,7 @@ https://discuss.ray.io/t/ray-job-logs-follow-does-not-cooperate-with-unix-pipes/
 
 ```shell.async
 if [ -n "${STREAMCONSUMER_LOGS}" ]; then
-    WS_ADDRESS=$(echo ${RAY_ADDRESS} | sed 's/^http/ws/')
+    WS_ADDRESS=$(echo ${KUI_RAY_ADDRESS} | sed 's/^http/ws/')
 
     if [ -z "$QUIET_CONSOLE" ]; then
         websocat --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail | tee "${STREAMCONSUMER_LOGS}job.txt"
