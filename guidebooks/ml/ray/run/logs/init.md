@@ -3,7 +3,7 @@
 Local staging directory for the logs. Note that on macOS, the `mktemp`
 command behaves a bit differently w.r.t. the template argument.
 ```shell
-export LOGDIR_STAGE="${LOGDIR_STAGE-$GUIDEBOOK_PROFILE_DATA_PATH}/${JOB_ID}"
+export LOGDIR_STAGE="${LOGDIR_STAGE-$GUIDEBOOK_PROFILE_DATA_PATH}/jobs/${JOB_ID}"
 ```
 
 Ensure the staging directory exists.
