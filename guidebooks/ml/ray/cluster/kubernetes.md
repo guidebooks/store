@@ -15,8 +15,8 @@ export RAY_KUBE_PORT=${RAY_KUBE_PORT-$(shuf -i 8266-9999 -n1)}
 ## The URL to use for `ray` operations
 
 Note: set this after bringing up the port-forward, because the
-RAY_ADDRESS is not valid until the port forward is up.
+KUI_RAY_ADDRESS is not valid until the port forward is up.
 
 ```shell
-export RAY_ADDRESS="http://127.0.0.1:$RAY_KUBE_PORT"
+export KUI_RAY_ADDRESS="http://127.0.0.1:$RAY_KUBE_PORT"
 ```

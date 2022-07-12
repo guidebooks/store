@@ -7,5 +7,5 @@ export RAY_KUBE_PORT=${RAY_KUBE_PORT-8265}
 ```
 
 ```shell
-export RAY_ADDRESS=http://127.0.0.1:${RAY_KUBE_PORT}
+export KUI_RAY_ADDRESS=http://127.0.0.1:${RAY_KUBE_PORT}
 ```
