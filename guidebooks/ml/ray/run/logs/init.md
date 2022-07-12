@@ -6,6 +6,11 @@ command behaves a bit differently w.r.t. the template argument.
 export LOGDIR_STAGE="${LOGDIR_STAGE-$GUIDEBOOK_PROFILE_DATA_PATH}/${JOB_ID}"
 ```
 
+Ensure the staging directory exists.
+```shell
+mkdir -p "$LOGDIR_STAGE"
+```
+
 Store the job id in the stage.
 ```shell
 echo ${JOB_ID} > "${LOGDIR_STAGE}/jobid.txt"
