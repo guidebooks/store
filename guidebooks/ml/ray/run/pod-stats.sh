@@ -1,3 +1,5 @@
+if [ -z "$KUBE_CONTEXT" ] || [ -z "$KUBE_NS" ]; then exit; fi
+
 while true; do
     sleep 10
 

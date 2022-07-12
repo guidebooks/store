@@ -36,7 +36,5 @@ export PIP_LOCAL=true
     ```
         
 ```shell
-ray stop
-ray start --head --disable-usage-stats 
+curl $RAY_ADDRESS/api/cluster_status >& /dev/null || ray start --head --disable-usage-stats 
 ```
-    
