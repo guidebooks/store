@@ -4,7 +4,7 @@
 ---
 validate: which ray
 ---
-pip install -U ray ray['default']
+pip install -U "ray[default]"
 ```
 
 ```shell
