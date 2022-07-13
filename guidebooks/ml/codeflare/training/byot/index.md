@@ -1,9 +1,8 @@
 ---
 imports:
     - util/jobid
-    #- ml/codeflare/job/log/init/s3.md
-    -  ./working-directory.md
-    -  ./base-ray-image.md
+    - ./working-directory.md
+    - ./base-ray-image.md
     - ml/ray/start
 ---
 
@@ -21,7 +20,7 @@ export JOB_NAME=BYOT
 
 ```shell
 ---
-exec: ray job submit  --job-id ${JOB_ID} --no-wait --runtime-env  ${CUSTOM_WORKING_DIR}/runtime-env-yaml.yaml --working-dir ${CUSTOM_WORKING_DIR} --address ${RAY_ADDRESS}  -- python main.py 
+exec: ray job submit  --job-id ${JOB_ID} --no-wait --runtime-env  ${CUSTOM_WORKING_DIR}/runtime-env.yaml --working-dir ${CUSTOM_WORKING_DIR} --address ${RAY_ADDRESS}  -- python main.py 
 ---
 ```
 

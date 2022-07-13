@@ -1,6 +1,7 @@
 ---
 imports:
-
+    - kubernetes/kubectl
+    - kubernetes/helm3
     - kubernetes/context
     - kubernetes/choose/ns
     - ./kubernetes/label-selectors
