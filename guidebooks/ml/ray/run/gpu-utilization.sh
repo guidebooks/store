@@ -1,3 +1,5 @@
+if [ -z "$KUBE_CONTEXT" ] || [ -z "$KUBE_NS" ]; then exit; fi
+
 if [ $(uname) = "Darwin" ]; then export REPLSIZE="-S5000"; fi
 
 if [ -z "$QUIET_CONSOLE" ]; then

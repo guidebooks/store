@@ -1,6 +1,7 @@
 ---
 imports:
     - ml/ray/start
+    - ml/ray/run/logs/init
 ---
 
 # Run a Ray Job
