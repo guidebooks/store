@@ -1,3 +1,8 @@
+---
+imports:
+    - util/shuf
+---
+
 # Settings for a Kubernetes Ray Cluster
 
 Choose this option if your Ray Cluster is running on Kubernetes.
