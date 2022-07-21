@@ -9,4 +9,4 @@ imports:
     --8<-- "./local.md"
 
 === "My Cluster is Running on Kubernetes"
-    --8<-- "./kubernetes.md"
+    --8<-- "./kubernetes/index.md"
