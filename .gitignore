@@ -1,9 +1,13 @@
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-
 # emacs
 *~
 \#*\#
 .\#*
+
+dist
+.log
+node_modules
+*.tgz
+.parcel-cache
+
+# mirrored guidebook store
+store

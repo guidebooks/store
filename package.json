@@ -1,0 +1,20 @@
+{
+  "name": "store",
+  "version": "1.0.0",
+  "description": "The home for importable Guidebooks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd test && npm ci && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starpit/store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starpit/store/issues"
+  },
+  "homepage": "https://github.com/starpit/store#readme"
+}
