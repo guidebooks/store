@@ -1,40 +1,19 @@
----
-imports:
-    - kubernetes/context
-    - kubernetes/choose/ns
----
+# Start up a Kubernetes port-forwards to the cluster
 
-# Start up a Kubernetes port-forward to the cluster
+In order to facilitate communication from one's personal computer to
+the Kubernetes services, we set up a number of Kubernetes
+[port-forwards](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
 
-## Clean up existing port forward
+--8<-- "./port-forward/ray"
+--8<-- "./port-forward/mlflow"
 
-Kill any previously running port-forward. TODO: this does not allow multiple independent jobs.
+## Wait, if requested
 
-```shell
-export EXISTING_PORTFORWARD_PID=$(ps aux | grep -v grep | grep "port-forward service/${RAY_KUBE_CLUSTER_NAME-mycluster}-ray-head" | awk '{print $2}')
-```
-
-## Kill existing port forward
-
-```shell
----
-validate: |
-  [ -z "$EXISTING_PORTFORWARD_PID" ]
----
-kill $EXISTING_PORTFORWARD_PID || exit 0
-```
-
-## Launch a new port forwarder
-
-```shell.async
-kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} port-forward service/${RAY_KUBE_CLUSTER_NAME-mycluster}-ray-head ${RAY_KUBE_PORT-8266}:8265 > /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME-mycluster}
-```
-
-## Wait for the port forwarder to become active
-
-```shell
-while true; do if [ -f /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME-mycluster} ] && [ "$(cat /tmp/port-forward-${RAY_KUBE_CLUSTER_NAME-mycluster} | grep -q 'Forwarding from' && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
-```
+In some debugging cases it might be useful to wait for a bit. TODO:
+this really should be wait, if we are executing this as a top-level
+guidebook. That is, if the user only wants to set up the port
+forwarding, then we shouldn't exit. This is the hack for now: set
+`WAIT=true` when running this guidebook in this scenarios.
 
 ```shell
 if [ -n "$WAIT" ]; then sleep 100000; fi
