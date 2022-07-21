@@ -12,6 +12,12 @@ imports:
 export RAY_MAX_WORKERS=$(kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .maxWorkers')
 ```
 
+Emit the initial state
+```shell
+echo "head    0/1"
+echo "workers 0/${RAY_MAX_WORKERS-1}"
+```
+
 ```shell
 kubectl get pod \
   --context ${KUBE_CONTEXT} -n ${KUBE_NS} \
