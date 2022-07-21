@@ -32,6 +32,9 @@ if [ -n "${LOGDIR_STAGE}" ]; then
   echo
   echo "👉 $(tput setaf 6)Logs will be stored in this local staging directory: $(tput bold)${LOGDIR_STAGE}$(tput sgr0)"
   echo "👉 $(tput setaf 6)Logs will also be stored in s3: $(tput bold)${LOGDIR_URI}$(tput sgr0)"
+  if [ -n "${MLFLOW_PORT}" ]; then
+    echo "👉 $(tput setaf 6)MLFlow URL: $(tput bold)http://localhost:${MLFLOW_PORT}$(tput sgr0)"
+  fi
 fi
 ```
 
