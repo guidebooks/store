@@ -5,7 +5,6 @@ the Kubernetes services, we set up a number of Kubernetes
 [port-forwards](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
 
 --8<-- "./port-forward/ray"
---8<-- "./port-forward/mlflow"
 
 ## Wait, if requested
 
