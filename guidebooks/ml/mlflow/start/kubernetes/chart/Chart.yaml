@@ -1,0 +1,10 @@
+apiVersion: v2
+name: mlflow
+description: A Helm chart for deployments of MLFlow on Kubernetes.
+type: application
+
+# Chart version.
+version: 0.1.0
+
+# MLFlow version.
+appVersion: "latest"
