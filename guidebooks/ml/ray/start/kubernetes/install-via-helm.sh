@@ -1,6 +1,6 @@
 cd $HELM_CLONE_TEMPDIR
 
-git clone --filter=tree:0 --depth 1 --sparse https://github.com/guidebooks/ray.git >& /dev/null && \
+git clone --filter=tree:0 --depth 1 --sparse https://github.com/ray-project/ray.git >& /dev/null && \
     cd ray && \
     git sparse-checkout init --cone >& /dev/null && \
     git sparse-checkout set deploy/charts/ray >& /dev/null
