@@ -13,5 +13,4 @@ by the training process.
 === "BYOT"
     --8<-- "./byot"
 
-=== "MLFlow Example"
-    --8<-- "./mlflow"
+--8<-- "./demos"

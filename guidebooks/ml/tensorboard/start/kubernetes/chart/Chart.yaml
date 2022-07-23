@@ -1,0 +1,10 @@
+apiVersion: v2
+name: tensorboard
+description: A Helm chart for deployments of Tensorboard on Kubernetes.
+type: application
+
+# Chart version.
+version: 0.1.0
+
+# Tensorboard version.
+appVersion: "latest"
