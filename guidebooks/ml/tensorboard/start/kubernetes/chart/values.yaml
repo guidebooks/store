@@ -1,0 +1,8 @@
+port: 9080
+s3:
+  bucket: tensorboard
+  endpoint: https://s3.amazonaws.com
+  secret:
+    name: tensorboard-s3-secret
+    AWS_ACCESS_KEY_ID: mykey
+    AWS_SECRET_ACCESS_KEY: mysecret

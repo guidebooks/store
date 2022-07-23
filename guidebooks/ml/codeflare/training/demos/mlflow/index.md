@@ -6,9 +6,9 @@ imports:
     - ml/ray/start
 ---
 
-# Simple Training Example that uses MLFlow
+# Simple Training Demo that uses MLFlow
 
-Trains an MNIST digit recognizer using PyTorch Lightning, and uses
+Trains an [MNIST](https://en.wikipedia.org/wiki/MNIST_database) digit recognizer using PyTorch Lightning, and uses
 Mlflow to log metrics, params and artifacts.
 
 ## Install Python Packages
@@ -25,7 +25,7 @@ exec: pip-install
 Submit the job.
 
 ```shell
-export JOB_NAME=MLFlowExample
+export JOB_NAME=MLFlowDemo
 ```
 
 ```python
