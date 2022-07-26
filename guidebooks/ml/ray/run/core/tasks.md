@@ -1,10 +1,3 @@
----
-imports:
-    - util/jobid
-    - ml/ray/run/logs/init
-    - ml/ray/start
----
-
 # Ray Core: Parallelizing Functions with Ray Tasks
 
 First, you import Ray and and initialize it with `ray.init()`. Then
