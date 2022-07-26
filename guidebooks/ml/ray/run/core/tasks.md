@@ -1,7 +1,8 @@
 ---
 imports:
-    - ml/ray/start
     - util/jobid
+    - ml/ray/run/logs/init
+    - ml/ray/start
 ---
 
 # Ray Core: Parallelizing Functions with Ray Tasks
@@ -18,7 +19,7 @@ future, a so-called Ray object reference, that you can then fetch with
 exec: ray-submit --job-id ${JOB_ID} --no-wait
 ---
 import ray
-ray.init()
+ray.init(address="auto")
 
 @ray.remote
 def f(x):

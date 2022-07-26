@@ -1,8 +1,6 @@
 ---
 imports:
-    - ../../../start/index.md
     - ../../../install/tune.md
-    - ../../../../../util/jobid.md
 ---
 
 # Tune: Hypermarameter Tuning at Scale
