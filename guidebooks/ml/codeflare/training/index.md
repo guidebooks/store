@@ -12,3 +12,5 @@ by the training process.
 
 === "BYOT"
     --8<-- "./byot"
+
+--8<-- "./demos"

@@ -24,7 +24,9 @@ kubectl get pod \
   -l ray-cluster-name=${RAY_KUBE_CLUSTER_NAME-mycluster} \
   --watch --no-headers \
   -o custom-columns=NAME:.metadata.name,TYPE:.metadata.labels.ray-node-type,STATUS:.status.phase \
-  | awk -v MAX_WORKERS=${RAY_MAX_WORKERS-$(kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .maxWorkers')} '$2=="head" { if ($3=="Running") readyHead="1/1"; else readyHead="0/1"; print "head   ", readyHead; fflush(); } $2=="worker" { if ($3=="Running") { if (ready[$1]!=1) { ready[$1]=1; nReadyWorkers++; } } else if (ready[$1]=1) { nReadyWorkers--; if (nReadyWorkers < 0) nReadyWorkers = 0; ready[$1]=0 } { print "workers", nReadyWorkers "/" MAX_WORKERS; fflush(); } }'
+  | awk -v MAX_WORKERS=${RAY_MAX_WORKERS-0} '\
+  --8<-- "./is-ready.awk"
+  '
 ```
 
 Until your cluster is not provisioned, you should expect no

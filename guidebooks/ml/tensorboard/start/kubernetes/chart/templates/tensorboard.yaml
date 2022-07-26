@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tensorboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: tensorboard
+      operation: monitoring
+  template:
+    metadata:
+      labels:
+        component: tensorboard
+        operation: monitoring
+    spec:
+      # serviceAccountName: ray-operator-serviceaccount
+      containers:
+      - name: tensorboard-server
+#        imagePullPolicy: IfNotPresent
+#        image: ghcr.io/project-codeflare/tensorboard
+        image: starpit/tensorboard
+        command: ["tensorboard"]
+        args: ["--host=0.0.0.0", "--logdir={{ .Values.s3.bucket }}", "--port={{ .Values.port }}"]
+        env:
+        - name: TENSORBOARD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: TB_PORT
+          value: "{{ .Values.port }}"
+        - name: TB_LOGDIR
+          value: "s3://{{ .Values.s3.bucket }}"
+        - name: S3_ENDPOINT
+          value: {{ .Values.s3.endpoint }}
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              key:  AWS_ACCESS_KEY_ID
+              name: {{ .Values.s3.secret.name }}
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              key:  AWS_SECRET_ACCESS_KEY
+              name: {{ .Values.s3.secret.name }}
+        resources:
+          requests:
+            cpu: 1
+            memory: 2Gi
+            #ephemeral-storage: 1Gi
+          limits:
+            memory: 4Gi
+            cpu: 2
+        ports:
+          - name: http
+            containerPort: {{ .Values.port }}
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tensorboard-service
+spec:
+  selector:
+    component: tensorboard
+    operation: monitoring
+  ports:
+  - name: tensorboard
+    protocol: TCP
+    port: {{ .Values.port }}
+    targetPort: http

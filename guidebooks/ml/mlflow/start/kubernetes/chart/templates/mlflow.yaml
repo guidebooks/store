@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: mlflow
+      operation: monitoring
+  template:
+    metadata:
+      labels:
+        component: mlflow
+        operation: monitoring
+    spec:
+      # serviceAccountName: ray-operator-serviceaccount
+      containers:
+      - name: mlflow-server
+        imagePullPolicy: IfNotPresent
+        image: guidebooks/mlflow
+        command: ["mlflow"]
+        args: ["server", "--default-artifact-root", "s3://{{ .Values.s3.bucket }}", "--backend-store-uri", "/mnt/mlflow-disk", "--host", "0.0.0.0", "--port=9080"]
+        env:
+        - name: MLFLOW_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: MLFLOW_S3_ENDPOINT_URL
+          value: {{ .Values.s3.endpoint }}
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              key:  AWS_ACCESS_KEY_ID
+              name: {{ .Values.s3.secret.name }}
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              key:  AWS_SECRET_ACCESS_KEY
+              name: {{ .Values.s3.secret.name }}
+        resources:
+          requests:
+            cpu: 1
+            memory: 2Gi
+            #ephemeral-storage: 1Gi
+          limits:
+            memory: 4Gi
+            cpu: 2
+        ports:
+          - name: http
+            containerPort: 9080
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+        volumeMounts:
+        - mountPath: /mnt/mlflow-disk
+          name: mlflow-disk
+      volumes:
+      - name: mlflow-disk
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlflow-service
+spec:
+  selector:
+    component: mlflow
+    operation: monitoring
+  ports:
+  - name: mlflow
+    protocol: TCP
+    port: 9080
+    targetPort: http
