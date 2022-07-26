@@ -1,9 +1,3 @@
----
-imports:
-    - ../../start/index.md
-    - ../../../../util/jobid.md
----
-
 # Ray Core: Parallelizing Classes with Ray Actors
 
 Ray provides actors to allow you to parallelize an instance of a class in Python or Java. When you instantiate a class that is a Ray actor, Ray will start a remote instance of that class in the cluster. This actor can then execute remote method calls and maintain its own internal state.

@@ -1,7 +1,5 @@
 ---
 imports:
-    - ../../../../start/index.md
-    - ../../../../../../util/jobid.md
     - ../../../../../../python/pip/torch.md
 ---
 
