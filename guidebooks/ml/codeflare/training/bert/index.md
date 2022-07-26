@@ -37,5 +37,4 @@ exec: ray-submit --job-id ${JOB_ID} --no-wait -- -v --datapath /tmp/ --modelpath
 --8<-- "./ray-bert-vanilla.py"
 ```
 
---8<-- "ml/tensorflow/tensorboard/run"
 --8<-- "ml/ray/run/logs"
