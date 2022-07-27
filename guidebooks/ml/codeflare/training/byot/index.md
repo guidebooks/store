@@ -7,21 +7,21 @@ imports:
     - ml/ray/start
 ---
 
-# Bring Your Own Training
+# Bring Your Own Code
 
-This path provides a way for you to run your own custom training on a remote ray cluster.
+This path provides a way for you to run your own custom code on a remote ray cluster.
 
 ## Run it
 
 Submit the job.
 
 ```shell
-export JOB_NAME=BYOT
+export JOB_NAME=BYOC
 ```
 
 ```shell
 ---
-exec: ray job submit  --job-id ${JOB_ID} --no-wait --runtime-env  ${CUSTOM_WORKING_DIR}/runtime-env.yaml --working-dir ${CUSTOM_WORKING_DIR} --address ${RAY_ADDRESS}  -- python main.py 
+exec: ray-submit --job-id ${JOB_ID} --no-wait --working-dir=${CUSTOM_WORKING_DIR} --base-image=${RAY_IMAGE} --entrypoint=main.py
 ---
 ```
 

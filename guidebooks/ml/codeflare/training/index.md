@@ -10,7 +10,4 @@ by the training process.
 === "BERT"
     --8<-- "./bert"
 
-=== "BYOT"
-    --8<-- "./byot"
-
 --8<-- "./demos"
