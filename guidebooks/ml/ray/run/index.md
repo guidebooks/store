@@ -6,8 +6,8 @@ imports:
 
 # Run a Ray Job
 
---8<-- ml/ray/core
---8<-- ml/ray/index
---8<-- ml/ray/train
---8<-- ml/ray/tune
---8<-- ml/ray/serve
+--8<-- ml/ray/run/core
+--8<-- ml/ray/run/index
+--8<-- ml/ray/run/train
+--8<-- ml/ray/run/tune
+--8<-- ml/ray/run/serve
