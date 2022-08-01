@@ -1,3 +1,8 @@
+---
+imports:
+    - aws/choose/profile
+---
+
 # AWS Credentials
 
 You may also manually store your AWS credentials in ~/.aws/credentials. The file will look something like
@@ -9,11 +14,15 @@ aws_secret_access_key = yyy
 ```
 
 ```shell
-export S3_ENDPOINT=https://s3.amazonaws.com
+export S3_ENDPOINT_FROM_CONFIG=$(cat ~/.aws/config | awk -v AWS_PROFILE=${AWS_PROFILE-default} '$1 == "[" AWS_PROFILE "]" {on=1} $1 ~ "]" && $1 != "[" AWS_PROFILE "]" {on=0} on==1 && $0 ~ "endpoint_url" {sub(/endpoint_url *= */,""); print $0}')
 ```
 
 ```shell
-export S3_ACCESS_KEY_ID=$(grep aws_access_key_id ~/.aws/credentials | awk -F ' = ' '{ print $2 }')
+export S3_ENDPOINT=${S3_ENDPOINT_FROM_CONFIG-https://s3.amazonaws.com}
+```
+
+```shell
+export S3_ACCESS_KEY_ID=$(cat ~/.aws/credentials | awk -v AWS_PROFILE=${AWS_PROFILE-default} '$1 == "[" AWS_PROFILE "]" {on=1} $1 ~ "]" && $1 != "[" AWS_PROFILE "]" {on=0} on==1 && $0 ~ "aws_access_key_id" {sub(/aws_access_key_id *= */,""); print $0}')
 ```
 
 ```shell
@@ -21,7 +30,7 @@ export AWS_ACCESS_KEY_ID=${S3_ACCESS_KEY_ID}
 ```
 
 ```shell
-export S3_SECRET_ACCESS_KEY=$(grep aws_secret_access_key ~/.aws/credentials | awk -F ' = ' '{ print $2 }')
+export S3_SECRET_ACCESS_KEY=$(cat ~/.aws/credentials | awk -v AWS_PROFILE=${AWS_PROFILE-default} '$1 == "[" AWS_PROFILE "]" {on=1} $1 ~ "]" && $1 != "[" AWS_PROFILE "]" {on=0} on==1 && $0 ~ "aws_secret_access_key" {sub(/aws_secret_access_key *= */,""); print $0}')
 ```
 
 ```shell
