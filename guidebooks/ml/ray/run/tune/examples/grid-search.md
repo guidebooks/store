@@ -1,13 +1,12 @@
 ---
 imports:
-    - ../../../start/index.md
-    - ../../../install/tune.md
-    - ../../../../../util/jobid.md
+    - ml/ray/install/tune.md
+    - util/jobid.md
 ---
 
 # Tune: Hypermarameter Tuning at Scale
 
---8<-- "../../../glossary/tune.md"
+--8<-- "ml/ray/glossary/tune.md"
 
 ```python
 ---
@@ -33,5 +32,5 @@ analysis = tune.run(objective, config=search_space)
 print(analysis.get_best_config(metric="score", mode="min"))
 ```
 
---8<-- "../../logs.md"
+--8<-- "ml/ray/run/logs.md"
 

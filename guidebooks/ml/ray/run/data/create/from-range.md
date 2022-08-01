@@ -1,7 +1,7 @@
 ---
 imports:
-    - ../../../start/index.md
-    - ../../../../../util/jobid.md
+    - ml/ray/start
+    - util/jobid.md
 ---
 
 Get started by creating Datasets from synthetic data using

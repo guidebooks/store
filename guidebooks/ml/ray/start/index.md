@@ -1,6 +1,6 @@
 ---
 imports:
-    - ml/ray/install/cli
+    - ml/ray/install/cli.md
 ---
 
 # Pick a Ray Target

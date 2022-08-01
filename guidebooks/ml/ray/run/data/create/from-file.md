@@ -1,9 +1,9 @@
 ---
 imports:
-    - ../../../start/index.md
-    - ../../../../../util/jobid.md
-    - ../../../../../../python/pip/tqdm.md
-    - ../../../../../../python/pip/pyarrow.md
+    - ml/ray/start
+    - util/jobid.md
+    - python/pip/tqdm.md
+    - python/pip/pyarrow.md
 ---
 
 Datasets can be created from files on local disk or remote datasources

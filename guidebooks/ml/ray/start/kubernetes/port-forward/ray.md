@@ -1,8 +1,8 @@
 ---
 imports:
     - util/shuf
-    - kubernetes/context
-    - kubernetes/choose/ns
+    - kubernetes/context.md
+    - kubernetes/choose/ns.md
 ---
 
 # Port-forward to the Ray API

@@ -16,7 +16,7 @@ export RAY_KUBE_PORT=${RAY_KUBE_PORT-$(shuf -i 8266-9999 -n1)}
 echo "Running exporting ray port: $RAY_KUBE_PORT"
 ```
 
---8<-- "./port-forward/ray.md"
+--8<-- "ml/ray/start/kubernetes/port-forward/ray.md"
 
 
 ## The URL to use for `ray` operations

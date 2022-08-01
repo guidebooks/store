@@ -1,8 +1,8 @@
 ---
 imports:
-    - ../../../start/index.md
-    - ../../../install/serve.md
-    - ../../../../../util/jobid.md
+    - ml/ray/start
+    - ml/ray/install/serve.md
+    - util/jobid.md
 ---
 
 # Serve: Scalable Model Serving
