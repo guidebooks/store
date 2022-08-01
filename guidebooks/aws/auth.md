@@ -22,6 +22,10 @@ export S3_ENDPOINT=${S3_ENDPOINT_FROM_CONFIG-https://s3.amazonaws.com}
 ```
 
 ```shell
+export S3_ENDPOINT_URL=${S3_ENDPOINT}
+```
+
+```shell
 export S3_ACCESS_KEY_ID=$(cat ~/.aws/credentials | awk -v AWS_PROFILE=${AWS_PROFILE-default} '$1 == "[" AWS_PROFILE "]" {on=1} $1 ~ "]" && $1 != "[" AWS_PROFILE "]" {on=0} on==1 && $0 ~ "aws_access_key_id" {sub(/aws_access_key_id *= */,""); print $0}')
 ```
 
