@@ -1,8 +1,4 @@
----
-imports:
-    - ../../start/index.md
-    - ../../../../util/jobid.md
----
+
 
 # Ray Core: Parallelizing Classes with Ray Actors
 

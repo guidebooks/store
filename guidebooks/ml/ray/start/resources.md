@@ -1,11 +1,11 @@
 # Configure your Ray Resource Requirements
 
-=== "Number of CPUs [default: 1]"
+=== "Number of CPUs per worker [default: 1]"
     ```shell
     export NUM_CPUS=${choice}
     ```
     
-=== "Number of GPUs [default: 0]"
+=== "Number of GPUs per worker [default: 0]"
     ```shell
     export NUM_GPUS=${choice}
     ```
@@ -25,7 +25,7 @@
     export WORKER_MEMORY=${choice}
     ```
 
-=== "Head Memory [default: 1Gi]"
+=== "Head Memory [default: 2Gi]"
     ```shell
     export HEAD_MEMORY=${choice}
     ```

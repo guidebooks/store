@@ -13,9 +13,11 @@ Here, we try to avoid using the default port for a local Ray instance.
 
 ```shell
 export RAY_KUBE_PORT=${RAY_KUBE_PORT-$(shuf -i 8266-9999 -n1)}
+echo "Running exporting ray port: $RAY_KUBE_PORT"
 ```
 
---8<-- "ml/ray/start/kubernetes/port-forward.md"
+--8<-- "./port-forward/ray.md"
+
 
 ## The URL to use for `ray` operations
 
@@ -24,4 +26,5 @@ RAY_ADDRESS is not valid until the port forward is up.
 
 ```shell
 export RAY_ADDRESS="http://127.0.0.1:$RAY_KUBE_PORT"
+echo "Running Ray on: $RAY_ADDRESS"
 ```

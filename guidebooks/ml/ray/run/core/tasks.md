@@ -1,8 +1,3 @@
----
-imports:
-    - ml/ray/start
-    - util/jobid
----
 
 # Ray Core: Parallelizing Functions with Ray Tasks
 
@@ -15,7 +10,7 @@ future, a so-called Ray object reference, that you can then fetch with
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID} --no-wait --node-ip-address 10.244.0.8
 ---
 import ray
 ray.init()

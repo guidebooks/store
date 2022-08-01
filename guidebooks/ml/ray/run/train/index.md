@@ -1,3 +1,2 @@
 === "Example: Training Using PyTorch"
-    --8<-- "./examples/pytorch/index.md"
-
+    --8<-- /ml/ray/run/train/examples/pytorch
