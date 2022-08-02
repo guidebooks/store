@@ -50,7 +50,7 @@ export RAY_KUBE_CLUSTER_NAME=mycluster
 
 ```shell
 while true; do
-    kubectl --context ${KUBE_CONTEXT} wait pod -n ${KUBE_NS} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} --for=condition=Ready --timeout=600s | grep -v 'no matching resources' > /dev/null && break || echo "Waiting for Ray Head node"
+    kubectl --context ${KUBE_CONTEXT} get pod -n ${KUBE_NS} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} | grep Running > /dev/null && break || echo "Waiting for Ray Head node"
     sleep 1
 done
 ```
