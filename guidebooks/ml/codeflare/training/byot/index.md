@@ -3,6 +3,7 @@ imports:
     - util/jobid
     - ./working-directory.md
     - ./base-ray-image.md
+    - s3/choose/instance-maybe
     - ml/ray/run/logs/init.md
     - ml/ray/start
 ---
