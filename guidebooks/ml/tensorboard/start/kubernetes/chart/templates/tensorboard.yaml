@@ -19,7 +19,7 @@ spec:
       - name: tensorboard-server
 #        imagePullPolicy: IfNotPresent
 #        image: ghcr.io/project-codeflare/tensorboard
-        image: starpit/tensorboard
+        image: starpit/tensorboard:0.0.1
         command: ["tensorboard"]
         args: ["--host=0.0.0.0", "--logdir={{ .Values.s3.bucket }}", "--port={{ .Values.port }}"]
         env:
