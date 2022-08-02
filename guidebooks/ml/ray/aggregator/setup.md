@@ -1,7 +1,6 @@
 ---
 imports:
     - util/jq
-    - ml/ray/run/choose
 ---
 
 # Log Aggregator Setup
