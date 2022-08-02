@@ -1,9 +1,7 @@
 ---
 imports:
     - ml/ray/run/choose
-    - ./setup.md
-    - ml/ray/run/logs/init
-    - ml/ray/run/logs
+    - ./with-jobid
 ---
 
 # Log Aggregation for Ray Jobs

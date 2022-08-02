@@ -2,9 +2,7 @@
 
 This will install Ray on your laptop.
 
-```shell
-export RAY_ADDRESS=http://127.0.0.1:8265
-```
+--8<-- "../cluster/connect"
 
 ```shell
 export PIP_LOCAL=true
