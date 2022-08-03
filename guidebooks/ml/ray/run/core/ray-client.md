@@ -48,7 +48,7 @@ def wait_for_nodes(expected):
 
 
 def main():
-    wait_for_nodes(3)
+    wait_for_nodes(1)
 
     # Check that objects can be transferred from each node to each other node.
     for i in range(10):
@@ -62,7 +62,14 @@ def main():
 
 
 if __name__ == "__main__":
-    address = os.environ["RAY_ADDRESS"]
-    ray.init(address)   # orig f"ray://127.0.0.1:{LOCAL_PORT}")
+    # address = os.environ["RAY_ADDRESS"]
+
+    # ray client: 
+    # $ kubectl -n ray port-forward service/example-cluster-ray-head 10001:10001
+    # address = 'ray://127.0.0.1:10001'
+
+    address = "ray://127.0.0.1:10001"
+    print(f"Connecting to Ray head node at: {address}")
+    ray.init("ray://127.0.0.1:10001")   # orig f"ray://127.0.0.1:{LOCAL_PORT}")  , _node_ip_address='10.244.0.9'
     main()
 ```

@@ -8,12 +8,16 @@ to run this function remotely. Lastly, you call that function with
 future, a so-called Ray object reference, that you can then fetch with
 `ray.get`.
 
+```shell
+export RAY_ADDRESS='http://10.244.0.8:8265'
+```
+
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait --node-ip-address 10.244.0.8
+exec: ray-submit --job-id ${JOB_ID} --no-wait 
 ---
 import ray
-ray.init()
+ray.init("auto")
 
 @ray.remote
 def f(x):

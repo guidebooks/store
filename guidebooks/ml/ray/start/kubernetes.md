@@ -24,15 +24,9 @@ kubectl get events --context ${KUBE_CONTEXT} -n ${KUBE_NS} --watch-only | tee "$
 
 This defines the base docker image we will use for the ray head and worker nodes.
 
-=== "Select Docker image for Ray Operator [default: rayproject/ray:1.13.0-py37]"
+=== "Select Docker image for Ray Operator [default: rayproject/ray:1.13.0-py39]"
     ```shell
     export RAY_OPERATOR_IMAGE=${choice}
-    ```
-
-### 2nd image here
-
-=== "Select Docker image for Ray Head & Workers. We recommend using the same image. [default: rayproject/ray:1.13.0-py37]"
-    ```shell
     export RAY_IMAGE=${choice}
     ```
 
@@ -50,11 +44,6 @@ export HELM_CLONE_TEMPDIR=$(mktemp -d)
     export RAY_KUBE_CLUSTER_NAME=${choice}
     ```
 
-The name of the Ray Kubernetes Service:
-<!-- 
-```shell
-export RAY_KUBE_CLUSTER_NAME=mycluster
-``` -->
 
 --8<-- "./kubernetes/install-via-helm.md"
 

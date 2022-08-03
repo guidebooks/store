@@ -4,6 +4,7 @@ Choose this option if your Ray Cluster is running on your local machine.
 
 ```shell
 export RAY_KUBE_PORT=${RAY_KUBE_PORT-8265}
+echo "In the LOCAL RAY CLUSTER setting"
 ```
 
 ```shell

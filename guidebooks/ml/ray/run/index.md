@@ -4,8 +4,6 @@ imports:
     - ml/ray/run/logs/init
 ---
 
-# Run a Ray Job
-
 --8<-- "ml/ray/run/core"
 --8<-- "ml/ray/run/data"
 --8<-- "ml/ray/run/train"

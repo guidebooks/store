@@ -25,6 +25,9 @@ Note: set this after bringing up the port-forward, because the
 RAY_ADDRESS is not valid until the port forward is up.
 
 ```shell
-export RAY_ADDRESS="http://127.0.0.1:$RAY_KUBE_PORT"
+# export RAY_KUBE_PORT=10001
+export RAY_ADDRESS="http://127.0.0.1:10001"
 echo "Running Ray on: $RAY_ADDRESS"
 ```
+
+<!-- --8<-- "ml/ray/start/kubernetes/port-forward/ray.md" -->
