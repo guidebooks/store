@@ -22,7 +22,7 @@ We will stream out a suite of data, including resource utilization metrics and j
 Wait for the job to be active.
 
 ```shell
-while true; do if [ "$(ray job status ${JOB_ID} >& /dev/null && echo 1 || echo 0)" = "1" ]; then break; sleep 1; fi; done
+while true; do if [ "$(curl -s -I $RAY_ADDRESS/api/jobs/$JOB_ID | head -n 1 | cut -d$' ' -f2)" = "200" ]; then break; sleep 1; fi; done
 ```
 
 Then stream out the logs.
