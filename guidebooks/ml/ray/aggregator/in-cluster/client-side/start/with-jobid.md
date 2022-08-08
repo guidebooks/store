@@ -2,6 +2,7 @@
 imports:
     - kubernetes/kubectl
     - kubernetes/choose/ns
+    - ../names
 ---
 
 # Start a Log Aggregation Instance (client-side, given JOB_ID)
@@ -9,11 +10,6 @@ imports:
 This guidebook communicates with previously deployed (via
 `./deploy.md`) log aggregator pod to start streaming. It assumes the
 `JOB_ID` environment variable has already been set.
-
-TODO this does not belong here?
-```shell
-export LOG_AGGREGATOR_POD_NAME=guidebook-log-aggregator
-```
 
 First, wait for the aggregator pod to be ready.
 ```shell
