@@ -25,4 +25,4 @@ TODO: avoid hard-coded `mycluster`.
 export RAY_ADDRESS=http://mycluster-ray-head.${KUBE_NS}.svc.cluster.local:8265
 ```
 
-:import{./with-jobid}
+--8<-- "./with-jobid"
