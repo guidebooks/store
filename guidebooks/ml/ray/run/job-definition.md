@@ -16,7 +16,7 @@ INPUT=$(cat "${LOGDIR_STAGE}/ray-job-definition.json" | jq -r .entrypoint | awk 
 PKGDIR=$(cat "${LOGDIR_STAGE}/ray-job-definition.json" | jq -r .runtime_env.working_dir | sed 's#gcs://##' | sed 's/\.zip//')
 
 if [ -n "$KUBE_CONTEXT" ] && [ -n "$KUBE_NS" ]; then
-    kubectl exec --context ${KUBE_CONTEXT} -n ${KUBE_NS} ${RAY_HEAD_POD} -- cat /tmp/ray/session_latest/runtime_resources/working_dir_files/${PKGDIR}/${INPUT} >> "${LOGDIR_STAGE}/source.py"
+    kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} -- cat /tmp/ray/session_latest/runtime_resources/working_dir_files/${PKGDIR}/${INPUT} >> "${LOGDIR_STAGE}/source.py"
 fi
 
 while true; do

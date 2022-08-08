@@ -17,7 +17,7 @@ This will install Ray on a Kubernetes context of your choosing.
 ## Stream out Events from the Ray Head Node
 
 ```shell.async
-kubectl get events --context ${KUBE_CONTEXT} -n ${KUBE_NS} --watch-only | tee "${STREAMCONSUMER_EVENTS}kubernetes.txt"
+kubectl get events ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --watch-only | tee "${STREAMCONSUMER_EVENTS}kubernetes.txt"
 ```
 
 ### Use Helm to create the Ray Cluster
@@ -50,7 +50,7 @@ export RAY_KUBE_CLUSTER_NAME=mycluster
 
 ```shell
 while true; do
-    kubectl --context ${KUBE_CONTEXT} get pod -n ${KUBE_NS} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} | grep Running > /dev/null && break || echo "Waiting for Ray Head node"
+    kubectl ${KUBE_CONTEXT_ARG} get pod ${KUBE_NS_ARG} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} | grep Running > /dev/null && break || echo "Waiting for Ray Head node"
     sleep 1
 done
 ```
@@ -61,7 +61,7 @@ done
 
 ```shell
 while true; do
-    kubectl --context ${KUBE_CONTEXT} get pod -n ${KUBE_NS} -l ${KUBE_POD_LABEL_SELECTOR} | grep Running > /dev/null && break || echo "Waiting for Ray Worker nodes"
+    kubectl ${KUBE_CONTEXT_ARG} get pod ${KUBE_NS_ARG} -l ${KUBE_POD_LABEL_SELECTOR} | grep Running > /dev/null && break || echo "Waiting for Ray Worker nodes"
     sleep 1
 done
 ```

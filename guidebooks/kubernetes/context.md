@@ -9,3 +9,11 @@ imports:
     ```shell
     export KUBE_CONTEXT="${choice}"
     ```
+
+    ```shell
+    export KUBE_CONTEXT_ARG="--context ${choice}"
+    ```
+
+    ```shell
+    export KUBE_CONTEXT_ARG_HELM="--kube-context ${choice}"
+    ```
