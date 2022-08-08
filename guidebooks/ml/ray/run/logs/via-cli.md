@@ -1,6 +1,6 @@
 ---
 imports:
-    - ml/ray/install/cli
+    - util/jq
     - ./via-cli.sh
 ---
 

@@ -1,3 +1,3 @@
 if [ -z "${STREAMCONSUMER_LOGS}" ]; then
-    ray job logs -f ${JOB_ID} 2> /dev/null
+    curl -s $RAY_ADDRESS/api/jobs/$JOB_ID/logs | jq -r .logs
 fi
