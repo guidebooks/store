@@ -1,8 +1,3 @@
----
-imports:
-    - ml/ray/install/cli
----
-
 # Pick a Ray Target
 
 === "My Cluster is Running Locally"
