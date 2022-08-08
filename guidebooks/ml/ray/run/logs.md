@@ -1,8 +1,3 @@
----
-imports:
-    - util/websocat
----
-
 # Stream out Ray Job Logs
 
 We will stream out a suite of data, including resource utilization metrics and job logs.
@@ -58,11 +53,9 @@ need for an additional tool. Sigh.
 
 ### Logs just to console
 
-```shell
---8<-- "./logs.sh"
-```
+--8<-- "./logs/via-cli.md"
 
 ### Logs to a file (and possibly the console, too)
 
---8<-- "./logs-websocat.md"
+--8<-- "./logs/via-websocat.md"
 
