@@ -1,3 +1,8 @@
+---
+imports:
+    - kubernetes/kubectl
+---
+
 # Configure Log Aggregator for use inside a Kubernetes Cluster
 
 ```shell

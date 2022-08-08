@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: guidebook-log-aggregator-serviceaccount
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: guidebook-log-aggregator-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "pods/exec", "services"]
+  verbs: ["events", "get", "watch", "list"]
+#- apiGroups: ["apps"]
+#  resources: [deployments]
+#  verbs: [get, list]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: guidebook-log-aggregator-rolebinding
+subjects:
+- kind: ServiceAccount
+  name: guidebook-log-aggregator-serviceaccount
+roleRef:
+  kind: Role
+  name: guidebook-log-aggregator-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: guidebook-log-aggregator
+  labels:
+    app: guidebook-log-aggregator
+spec:
+#      volumes:
+#        - name: profile-volume
+#          configMap:
+#            name: profile-config
+  restartPolicy: Never
+  serviceAccountName: guidebook-log-aggregator-serviceaccount
+  containers:
+    - name: guidebook-log-aggregator
+      image: ghcr.io/project-codeflare/codeflare-log-aggregator
+      env:
+        - name: LOG_AGGREGATOR_POD
+          value: guidebook-log-aggregator
+        - name: GUIDEBOOK
+          value: ml/ray/aggregator/in-cluster/server-side/start
+#        volumeMounts:
+#          - name: profile-volume
+#            mountPath: /home/codeflare/.local/share/madwizard-nodejs/profiles/default
