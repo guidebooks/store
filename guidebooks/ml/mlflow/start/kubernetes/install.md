@@ -18,7 +18,7 @@ export S3_BUCKETMLFLOW=${S3_BUCKETRAYLOGS}/mlflow
 ```shell
 ---
 validate: |
-  if [ -n "${KUBE_CONTEXT}" ] && [ -n "${KUBE_NS}" ]; then kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get deploy mlflow; else exit 1; fi
+  if [ -n "${KUBE_CONTEXT}" ] && [ -n "${KUBE_NS}" ]; then kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} get deploy mlflow; else exit 1; fi
 ---
 --8<-- "./install.sh"
 ```

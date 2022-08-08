@@ -25,5 +25,5 @@
     ```
 
     ```shell.async
-    while true; do kubectl get pod -l ${KUBE_POD_LABEL_SELECTOR} -n ${KUBE_NS} --template '{{range .items}}{{.metadata.name}}{{end}}' | xargs -I POD -n1 rsync --inplace --archive --no-owner --no-group --omit-dir-times --numeric-ids --quiet --rsh="oc rsh -n ${KUBE_NS} --context ${KUBE_CONTEXT}" POD:${TB_LOGDIR} ${TB_LOCAL_LOGDIR_FOR_RSYNC}; sleep 10; done
+    while true; do kubectl get pod -l ${KUBE_POD_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --template '{{range .items}}{{.metadata.name}}{{end}}' | xargs -I POD -n1 rsync --inplace --archive --no-owner --no-group --omit-dir-times --numeric-ids --quiet --rsh="oc rsh ${KUBE_NS_ARG} ${KUBE_CONTEXT_ARG}" POD:${TB_LOGDIR} ${TB_LOCAL_LOGDIR_FOR_RSYNC}; sleep 10; done
     ```

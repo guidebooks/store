@@ -11,6 +11,10 @@ imports:
     export KUBE_NS=${choice}
     ```
 
+    ```shell
+    export KUBE_NS_ARG="-n ${choice}"
+    ```
+
 === "Create a namespace"
     ```shell
     kubectl create ns madns

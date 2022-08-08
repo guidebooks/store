@@ -13,7 +13,7 @@ your Kubernetes cluster. It does not check whether there is a quorum
 of head and worker nodes ready. For that, use `ml/ray/cluster/kubernetes/is-ready`
 
 ```shell
-helm status --kube-context ${KUBE_CONTEXT} -n ${KUBE_NS} ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq .info
+helm status ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq .info
 ```
 
 This guidebook will `exit 1` if your Ray cluster has not been

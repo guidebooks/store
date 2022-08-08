@@ -9,7 +9,7 @@ imports:
 # Ray-in-Kubernetes Cluster Readiness
 
 ```shell
-export RAY_MAX_WORKERS=$(kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .maxWorkers')
+export RAY_MAX_WORKERS=$(kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} get raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .maxWorkers')
 ```
 
 Emit the initial state
@@ -20,7 +20,7 @@ echo "workers 0/${RAY_MAX_WORKERS-1}"
 
 ```shell
 kubectl get pod \
-  --context ${KUBE_CONTEXT} -n ${KUBE_NS} \
+  ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} \
   -l ray-cluster-name=${RAY_KUBE_CLUSTER_NAME-mycluster} \
   --watch --no-headers \
   -o custom-columns=NAME:.metadata.name,TYPE:.metadata.labels.ray-node-type,STATUS:.status.phase \

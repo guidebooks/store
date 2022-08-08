@@ -10,5 +10,5 @@ imports:
 Stop The Tensorboard Server in Kubernetes.
 
 ```shell
-helm --kube-context ${KUBE_CONTEXT} -n ${KUBE_NS} uninstall tensorboard
+helm ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} uninstall tensorboard
 ```
