@@ -1,6 +1,7 @@
 ---
 imports:
     - util/jq
+    - kubernetes/choose/ns
     - ml/ray/cluster
 ---
 
