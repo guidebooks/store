@@ -45,7 +45,7 @@ spec:
     - name: guidebook-log-aggregator
       image: ghcr.io/project-codeflare/codeflare-log-aggregator
       env:
-        - name: LOG_AGGREGATOR_POD
+        - name: LOG_AGGREGATOR_POD_NAME
           value: guidebook-log-aggregator # TODO somehow share this with ./names.md
 #        volumeMounts:
 #          - name: profile-volume
