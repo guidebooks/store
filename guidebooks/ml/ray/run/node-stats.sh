@@ -2,7 +2,7 @@ if [ -z "$KUBE_CONTEXT" ] || [ -z "$KUBE_NS" ]; then exit; fi
 
 if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
     kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- \
-            tail -f -n +1 "$LOG_AGGREGATOR_LOGDIR"/resources/node-stats.txt > "${STREAMCONSUMER_RESOURCES}node-stats.txt"
+            wait-for-and-tailf "$LOG_AGGREGATOR_LOGDIR"/resources/node-stats.txt > "${STREAMCONSUMER_RESOURCES}node-stats.txt"
     exit
 fi
 
