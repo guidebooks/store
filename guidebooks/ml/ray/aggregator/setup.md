@@ -17,7 +17,7 @@ fi
 ```shell
 export JOB_ENV=$(
     if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
-        echo $(kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod/$LOG_AGGREGATOR_POD_NAME -- cat "$LOG_AGGREGATOR_LOGDIR"/ray-job-definition.json)
+        echo $(kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} $LOG_AGGREGATOR_POD_NAME -- wait-for-and-cat "$LOG_AGGREGATOR_LOGDIR"/ray-job-definition.json)
     elif [ -z "$RAY_ADDRESS" ]; then
         echo "Please set RAY_ADDRESS"
         exit 1
