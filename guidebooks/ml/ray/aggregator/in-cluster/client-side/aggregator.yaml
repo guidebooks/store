@@ -46,9 +46,7 @@ spec:
       image: ghcr.io/project-codeflare/codeflare-log-aggregator
       env:
         - name: LOG_AGGREGATOR_POD
-          value: guidebook-log-aggregator
-        - name: GUIDEBOOK
-          value: ml/ray/aggregator/in-cluster/server-side/start
+          value: guidebook-log-aggregator # TODO somehow share this with ./names.md
 #        volumeMounts:
 #          - name: profile-volume
 #            mountPath: /home/codeflare/.local/share/madwizard-nodejs/profiles/default
