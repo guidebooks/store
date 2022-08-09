@@ -17,7 +17,11 @@ We will stream out a suite of data, including resource utilization metrics and j
 Wait for the job to be active.
 
 ```shell
-while true; do if [ "$(curl -s -I $RAY_ADDRESS/api/jobs/$JOB_ID | head -n 1 | cut -d$' ' -f2)" = "200" ]; then break; sleep 1; fi; done
+if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
+    echo "Ready"
+else
+    while true; do if [ "$(curl -s -I $RAY_ADDRESS/api/jobs/$JOB_ID | head -n 1 | cut -d$' ' -f2)" = "200" ]; then break; sleep 1; fi; done
+fi
 ```
 
 Then stream out the logs.
