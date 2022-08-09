@@ -20,7 +20,9 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
     elif [ -z "$QUIET_CONSOLE" ]; then
         websocat --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail | tee "${STREAMCONSUMER_LOGS}job.txt"
     else
+        echo "Ray log streamer start: ${JOB_ID}" 1>&2
         websocat -B 524288 --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > "${STREAMCONSUMER_LOGS}job.txt"
+        echo "Ray log streamer exit: ${JOB_ID}" 1>&2
     fi
 fi
 ```
@@ -33,12 +35,25 @@ https://discuss.ray.io/t/feature-request-cli-command-ray-job-wait/6492
 if [ -n "${STREAMCONSUMER_LOGS}" ]; then
     if [ -z "$NO_WAIT" ]; then
         if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
-            echo "TODO"
+            echo "TODO" 1>&2
         else
             # was: ray job logs -f ${JOB_ID} >& /dev/null
-            echo "Waiting for job to finish: ${JOB_ID}"
+            echo "Waiting for ray job to finish: ${JOB_ID}" 1>&2
             websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > /dev/null
-            echo "Job has finished: ${JOB_ID}"
+            if [ "SUCCEEDED" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq .status) ]; then
+                echo "Waiting (again) for ray job to finish: ${JOB_ID}" 1>&2
+                websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > /dev/null
+                if [ "SUCCEEDED" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq .status) ]; then
+                    echo "Polling for ray job to finish: ${JOB_ID}" 1>&2
+                    while true; do
+                        sleep 1
+                        if [ "SUCCEEDED" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq .status) ]; then
+                            break
+                        fi
+                    done
+                fi
+            fi
+            echo "Ray job has finished: ${JOB_ID}" 1>&2
         fi
     fi
 fi
