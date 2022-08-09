@@ -40,14 +40,14 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
             # was: ray job logs -f ${JOB_ID} >& /dev/null
             echo "Waiting for ray job to finish: ${JOB_ID}" 1>&2
             websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > /dev/null
-            if [ "SUCCEEDED" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq .status) ]; then
+            if [ "RUNNING" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status) ]; then
                 echo "Waiting (again) for ray job to finish: ${JOB_ID}" 1>&2
                 websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > /dev/null
-                if [ "SUCCEEDED" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq .status) ]; then
+                if [ "RUNNING" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status) ]; then
                     echo "Polling for ray job to finish: ${JOB_ID}" 1>&2
                     while true; do
                         sleep 1
-                        if [ "SUCCEEDED" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq .status) ]; then
+                        if [ "RUNNING" != $(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status) ]; then
                             break
                         fi
                     done
