@@ -45,6 +45,8 @@ spec:
     - name: guidebook-log-aggregator
       image: ghcr.io/project-codeflare/codeflare-log-aggregator
       env:
+        - name: QUIET_CONSOLE
+          value: true
         - name: LOG_AGGREGATOR_POD_NAME
           value: guidebook-log-aggregator # TODO somehow share this with ./names.md
 #        volumeMounts:
