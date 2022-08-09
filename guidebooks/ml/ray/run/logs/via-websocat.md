@@ -36,7 +36,9 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
             echo "TODO"
         else
             # was: ray job logs -f ${JOB_ID} >& /dev/null
-            websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail >& /dev/null
+            echo "Waiting for job to finish: ${JOB_ID}"
+            websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > /dev/null
+            echo "Job has finished: ${JOB_ID}"
         fi
     fi
 fi
