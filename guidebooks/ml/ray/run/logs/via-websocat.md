@@ -50,7 +50,7 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
                     while true; do
                         sleep 1
                         status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
-                        if [ "SUCCEEDED" != $status ] && [ "ERROR" != $status ]; then
+                        if [ "SUCCEEDED" = $status ] || [ "ERROR" = $status ]; then
                             break
                         fi
                     done
