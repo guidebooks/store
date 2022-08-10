@@ -4,7 +4,7 @@ Ray provides actors to allow you to parallelize an instance of a class in Python
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 import ray
 ray.init() # Only call this once.
@@ -25,5 +25,3 @@ counters = [Counter.remote() for i in range(4)]
 futures = [c.read.remote() for c in counters]
 print(ray.get(futures)) # [1, 1, 1, 1]
 ```
-
---8<-- "../logs.md"

@@ -9,7 +9,7 @@ This example shows how you can use Ray Train with PyTorch.
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 # First, set up your dataset and model.
 --8<-- "./nn.py"
@@ -26,5 +26,3 @@ exec: ray-submit --job-id ${JOB_ID} --no-wait
 # Then, instantiate a Trainer that uses a "torch" backend with 4 workers, and use it to run the new training function!
 --8<-- "./trainer.py"
 ```
-
---8<-- "../../../logs.md"

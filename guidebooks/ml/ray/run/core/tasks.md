@@ -9,7 +9,7 @@ future, a so-called Ray object reference, that you can then fetch with
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 import ray
 ray.init(address="auto")
@@ -25,6 +25,4 @@ print(ray.get(futures)) # [0, 1, 4, 9]
 In the above code block we defined some Ray Tasks. While these are
 great for stateless operations, sometimes you must maintain the state
 of your application. You can do that with Ray Actors.
-
---8<-- "ml/ray/run/logs"
 

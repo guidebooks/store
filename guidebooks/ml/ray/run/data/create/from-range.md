@@ -12,7 +12,7 @@ Arrow](https://arrow.apache.org/docs/python/api/datatypes.html)).
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 import ray
 
@@ -41,5 +41,3 @@ ds.schema()
 # -> col1: int64
 # -> col2: string
 ```
-
---8<-- "../../logs.md"
