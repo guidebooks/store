@@ -2,8 +2,6 @@ if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
     kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- \
             wait-for-and-tailf "$LOG_AGGREGATOR_LOGDIR"/resources/gpu.txt > "${STREAMCONSUMER_RESOURCES}gpu.txt"
     exit
-elif [ -z "$KUBE_CONTEXT" ] || [ -z "$KUBE_NS" ]; then
-    exit
 fi
 
 
