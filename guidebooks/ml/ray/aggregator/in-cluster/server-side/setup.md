@@ -23,3 +23,8 @@ export KUBE_NS=${KUBE_NS-$(kubectl get --no-headers pod $LOG_AGGREGATOR_POD_NAME
 ```shell
 export RAY_ADDRESS=http://${RAY_KUBE_CLUSTER_NAME}-ray-head.${KUBE_NS}.svc.cluster.local:8265
 ```
+
+Only start aggregation if we haven't yet, by some other client
+```shell
+export GUIDEBOOK_AGGREGATOR_SINGLETON=$JOB_ID
+```
