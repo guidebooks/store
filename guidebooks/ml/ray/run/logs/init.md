@@ -12,7 +12,7 @@ We may have been requested only to start if we haven't already been
 tracking the given `JOB_ID`.
 
 ```shell
-if [ "$GUIDEBOOK_AGGREGATOR_SINGLETON" = "$JOB_ID" ] && [ -d "$LOGDIR_STAGE ]; then
+if [ "$GUIDEBOOK_AGGREGATOR_SINGLETON" = "$JOB_ID" ] && [ -d "$LOGDIR_STAGE" ]; then
     echo "Exiting, because this job is already being tracked: $JOB_ID"
     exit
 fi
