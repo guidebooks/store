@@ -12,7 +12,7 @@ We may have been requested only to start if we haven't already been
 tracking the given `JOB_ID`.
 
 ```shell
-if [ "$GUIDEBOOK_AGGREGATOR_SINGLETON" = "$JOB_ID" ] && [ -d "$LOGDIR_STAGE" ]; then
+if [ "$GUIDEBOOK_AGGREGATOR_SINGLETON" = "$JOB_ID" ] && [ -f "$LOGDIR_STAGE/jobid.txt" ]; then
     echo "Exiting, because this job is already being tracked: $JOB_ID"
     exit 90
 fi
@@ -25,7 +25,7 @@ Ensure the staging directory exists.
 mkdir -p "$LOGDIR_STAGE"
 ```
 
-Store the job id in the stage.
+Store the job id in the stage. Note that we use this above in the singleton check.
 ```shell
 echo ${JOB_ID} > "${LOGDIR_STAGE}/jobid.txt"
 ```
