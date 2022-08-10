@@ -1,13 +1,13 @@
-if [ -z "$KUBE_CONTEXT" ] || [ -z "$KUBE_NS" ]; then exit; fi
-
-# staggered starts
-sleep 0.$(shuf -i 5000-7000 -n1)
-
 if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
     kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- \
             wait-for-and-tailf "$LOG_AGGREGATOR_LOGDIR"/resources/pod-vmstat.txt > "${STREAMCONSUMER_RESOURCES}pod-vmstat.txt"
     exit
+elif [ -z "$KUBE_CONTEXT" ] || [ -z "$KUBE_NS" ]; then
+    exit
 fi
+
+# staggered starts
+sleep 0.$(shuf -i 5000-7000 -n1)
 
 if [ $(uname) = "Darwin" ]; then export REPLSIZE="-S5000"; fi
 
