@@ -9,7 +9,7 @@ imports:
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 # This example runs a small grid search with an iterative training function.
 from ray import tune
@@ -30,6 +30,4 @@ search_space = {
 analysis = tune.run(objective, config=search_space)
 print(analysis.get_best_config(metric="score", mode="min"))
 ```
-
---8<-- "../../logs.md"
 

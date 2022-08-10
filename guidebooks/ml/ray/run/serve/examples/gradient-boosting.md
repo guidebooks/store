@@ -9,7 +9,7 @@ imports:
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 # This example runs serves a [scikit-learn](https://scikit-learn.org/) gradient boosting classifier.
 
@@ -51,5 +51,3 @@ response = requests.get(
     "http://localhost:8000/iris", json=sample_request_input)
 print(response.text)
 ```
-
---8<-- "../../logs.md"

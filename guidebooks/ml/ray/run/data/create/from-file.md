@@ -22,7 +22,7 @@ operation is finished. Datasets also supports `.filter()` and
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 import ray
 import pandas as pd
@@ -54,5 +54,3 @@ ds.flat_map(lambda x: [x, -x]).take(5)
 # -> Map Progress: 100%|████████████████████| 200/200 [00:00<00:00, 1568.10it/s]
 # -> [0, 0, 2, -2, 4]
 ```
-
---8<-- "../../logs.md"

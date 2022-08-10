@@ -33,9 +33,7 @@ export TB_LOGDIR="s3://${S3_BUCKETRAYLOGS}/tensorboard/${JOB_ID}"
 
 ```python
 ---
-exec: ray-submit --job-id ${JOB_ID} --no-wait
+exec: ray-submit --job-id ${JOB_ID}
 ---
 --8<-- "./main.py"
 ```
-
---8<-- "ml/ray/run/logs"
