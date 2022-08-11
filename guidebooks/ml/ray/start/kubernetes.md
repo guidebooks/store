@@ -32,12 +32,6 @@ export RAY_OPERATOR_IMAGE=${RAY_OPERATOR_IMAGE-rayproject/ray:1.13.0-py37}
 export RAY_IMAGE=${RAY_IMAGE-$([ $NUM_GPUS = 0 ] && echo rayproject/ray:1.13.0-py37 || echo rayproject/ray-ml:1.13.0-py37-gpu)}
 ```
 
-A staging directory for the clone of the Ray Helm chart.
-
-```shell
-export HELM_CLONE_TEMPDIR=$(mktemp -d)
-```
-
 The name of the Ray Kubernetes Service:
 
 ```shell
