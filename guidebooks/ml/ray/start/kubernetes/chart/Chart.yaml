@@ -1,0 +1,10 @@
+apiVersion: v2
+name: ray-mcad
+description: A Helm chart for deployments of Ray on Kubernetes, using MCAD.
+type: application
+
+# Chart version.
+version: 0.1.0
+
+# Ray version.
+appVersion: "latest"

@@ -1,0 +1,39 @@
+# This AppWrapper resource informs the Multi-cluster App Dispatcher as
+# to which resources we want it to schedule
+#    https://github.com/IBM/multi-cluster-app-dispatcher
+#
+# - Service for head node
+# - Deployment to manage the head node
+# - Deployment to manage the worker nodes
+# - PodGroup to manage the pods of those deployments (only if the coscheduler is enabled)
+#
+# Th coscheduler prevents situations where multiple simultaneous jobs
+# are "all heads, no workers", because we arrange the pods for the
+# heads+workers into a podgroup that the coscheduler schedules as a
+# "gang", i.e. don't schedule any of the pods in a gang, if the
+# minimum viability for that gang cannot currently be achieved.
+# https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md
+
+apiVersion: mcad.ibm.com/v1beta1
+kind: AppWrapper
+metadata:
+  name: {{ .Values.clusterName }}
+spec:
+  resources:
+    Items: []
+    GenericItems:
+    - replicas: 1
+      generictemplate:
+{{ include "head-service" . | indent 8 }}
+    - replicas: 1
+      generictemplate:
+{{ include "head-deployment" . | indent 8 }}
+    - replicas: 1
+      generictemplate:
+{{ include "worker-deployment" . | indent 8 }}
+
+{{ if eq .Values.scheduler "coscheduler" }}
+    - replicas: 1
+      generictemplate:
+{{ include "podgroup" . | indent 8 }}
+{{ end }}
