@@ -14,6 +14,7 @@
 # minimum viability for that gang cannot currently be achieved.
 # https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md
 
+{{- if .Values.mcad.enabled }}
 apiVersion: mcad.ibm.com/v1beta1
 kind: AppWrapper
 metadata:
@@ -32,8 +33,15 @@ spec:
       generictemplate:
 {{ include "worker-deployment" . | indent 8 }}
 
-{{ if eq .Values.scheduler "coscheduler" }}
+{{ if eq .Values.mcad.scheduler "coscheduler" }}
     - replicas: 1
       generictemplate:
 {{ include "podgroup" . | indent 8 }}
-{{ end }}
+{{- end }}
+{{- else }}
+{{ include "head-service" . }}
+---
+{{ include "head-deployment" . }}
+---
+{{ include "worker-deployment" . }}
+{{- end }}
