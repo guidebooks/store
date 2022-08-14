@@ -1,7 +1,8 @@
 ---
 imports:
-    - ../../../../kubernetes/kubectl.md
-    - ../../../../util/jq.md
+    - util/jq
+    - kubernetes/kubectl
+    - kubernetes/choose/ns
 ---
 
 ## Verify UID Range for your Namespace
@@ -20,9 +21,9 @@ by default ([reference](https://access.redhat.com/solutions/2801791)).
     ```shell
     ---
     validate: |
-      [ -n "${KUBE_CONTEXT}" ] && [ -n "${KUBE_NS}" ] && [ $(kubectl get ns ${KUBE_NS} ${KUBE_CONTEXT_ARG} -o json | jq -r '.metadata.annotations."openshift.io/sa.scc.uid-range"') = "1000/10000" ]
+      --8<-- "./uid-range-validate.sh"
     ---
-    kubectl annotate namespace ${KUBE_NS} ${KUBE_CONTEXT_ARG} --overwrite openshift.io/sa.scc.uid-range=1000/10000
+    --8<-- "./uid-range-update.sh"
     ```
 
     Not changing the UID can cause permissions problems when the Ray

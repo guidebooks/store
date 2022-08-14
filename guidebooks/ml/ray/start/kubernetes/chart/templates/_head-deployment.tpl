@@ -28,11 +28,11 @@ spec:
         ray-user-node-type: rayHeadType
         ray-node-name: {{ include "ray.head" . }}
 
-        {{ if eq .Values.scheduler "coscheduler" }}
+        {{ if eq .Values.mcad.scheduler "coscheduler" }}
         pod-group.scheduling.sigs.k8s.io: {{ include "ray.podgroup" . }}
         {{ end }}
     spec:
-      {{ if eq .Values.scheduler "coscheduler" }}
+      {{ if eq .Values.mcad.scheduler "coscheduler" }}
       schedulerName: scheduler-plugins-scheduler
       {{ end }}
 

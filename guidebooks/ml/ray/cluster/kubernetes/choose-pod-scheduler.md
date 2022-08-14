@@ -2,39 +2,87 @@
 
 To schedule your job's work, you have several scheduler options.
 
-=== "Use Ray Autoscaler"
+=== "Keep It Simple"
 
-    If you run one application at a time, whose demand varies greatly as it runs (e.g. from one phase to the next), use the [Ray Autoscaler](https://www.anyscale.com/blog/autoscaling-clusters-with-ray) to manage the workload.
+    Want to test things out, while minimizing impact to your cluster? With
+    this option, only two
+    [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+    and one
+    [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
+    will be created, in the namespace you specify.
+    
+    ```shell
+    export KUBE_POD_MANAGER=kubernetes
+    ```
+
+    ```shell
+    export KUBE_POD_MANAGER_NON_ROOT=true
+    ```
+
+=== "Use the Ray Autoscaler"
+
+    If you run one application at a time, whose demand varies greatly as
+    it runs (e.g. from one phase to the next), use the [Ray
+    Autoscaler](https://www.anyscale.com/blog/autoscaling-clusters-with-ray)
+    to manage the workload. *Requires root privileges to your cluster.*
 
     ```shell
     export KUBE_POD_MANAGER=ray
     ```
 
-=== "Use Multi-user Enhanced Kubernetes Scheduler"
+    :import{ml/ray/hacks/openshift/uid-range}
 
-    If you run many unrelated jobs concurrently, use the [Multi-Cluster Application Dispatcher (MCAD)](https://github.com/IBM/multi-cluster-app-dispatcher) with the sophisticated [coscheduler](https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md). MCAD can be configured to prioritize your workloads, and the coscheduler helps avoid livelock, where multiple jobs compete for resources in a way that prevents any of them from making progress.
+=== "Use the Multi-user Enhanced Kubernetes Scheduler"
 
-    ```shell
-    export KUBE_POD_MANAGER=mcad
-    ```
+    If you run many unrelated jobs concurrently, use the [Multi-Cluster
+    Application Dispatcher
+    (MCAD)](https://github.com/IBM/multi-cluster-app-dispatcher) with the
+    sophisticated
+    [coscheduler](https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md). MCAD
+    can be configured to prioritize your workloads.
 
-    ```shell
-    export KUBE_POD_SCHEDULER=coscheduler
-    ```
+    === "My administrator has already installed and configured MCAD"
 
-    :import{kubernetes/mcad/install}
+        If your are a non-admin user in a multi-tenant cluster, select this option.
+        ```shell
+        export KUBE_POD_MANAGER=ray
+        ```
 
+        ```shell
+        export KUBE_POD_MANAGER_NON_ROOT=true
+        ```
 
-=== "Use Default Kubernetes Scheduler"
+    === "MCAD with the Advanced Coscheduler"
+    
+        The [coscheduler](https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md)
+        helps avoid livelock, where multiple jobs compete for resources in a
+        way that prevents any of them from making progress. 
+        *Requires root privileges to your cluster.*
+        
+        ```shell
+        export KUBE_POD_MANAGER=mcad
+        ```
 
-    If your needs are similar to those described in the Multi-user Enhanced Scheduler option, but you do not wish to use the experimental coscheduler, select this option.
+        ```shell
+        export KUBE_POD_SCHEDULER=coscheduler
+        ```
 
-    ```shell
-    export KUBE_POD_MANAGER=mcad
-    ```
+        :import{ml/ray/hacks/openshift/uid-range}
+        :import{kubernetes/mcad/install}
 
-    ```shell
-    export KUBE_POD_SCHEDULER=default
-    ```
+    === "MCAD with the Default Kubernetes Scheduler"
 
-    :import{kubernetes/mcad/install}
+        If you do not wish to use the experimental
+        coscheduler, select this option.
+        *Requires root privileges to your cluster.*
+
+        ```shell
+        export KUBE_POD_MANAGER=mcad
+        ```
+
+        ```shell
+        export KUBE_POD_SCHEDULER=default
+        ```
+
+        :import{ml/ray/hacks/openshift/uid-range}
+        :import{kubernetes/mcad/install}

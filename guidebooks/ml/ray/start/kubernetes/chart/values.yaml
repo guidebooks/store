@@ -1,9 +1,11 @@
 clusterName: mycluster
 clusterNamespace: default
 
-# Settings for the pod coscheduler
-scheduler: default # use the default kubernetes pod scheduler
-# scheduler: coscheduler # https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md
+# Settings for the pod scheduler
+mcad:
+  enabled: true
+  scheduler: default # use the default kubernetes pod scheduler
+  # scheduler: coscheduler # https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md
 
 # Default values for Ray.
 
