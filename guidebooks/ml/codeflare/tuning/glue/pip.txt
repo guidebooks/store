@@ -4,3 +4,8 @@ ray_lightning
 pytorch_lightning
 torchvision
 transformers==3.0.2
+requests
+scikit-learn
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.12.1+cu116
