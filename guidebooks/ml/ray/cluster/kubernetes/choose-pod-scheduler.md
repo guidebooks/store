@@ -4,12 +4,11 @@ To schedule your job's work, you have several scheduler options.
 
 === "Keep It Simple"
 
-    Want to test things out, while minimizing impact to your cluster? With
-    this option, only two
+    This option installs only two
     [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
     and one
     [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
-    will be created, in the namespace you specify.
+    in the namespace you specify.
     
     ```shell
     export KUBE_POD_MANAGER=kubernetes
@@ -37,13 +36,13 @@ To schedule your job's work, you have several scheduler options.
     If you run many unrelated jobs concurrently, use the [Multi-Cluster
     Application Dispatcher
     (MCAD)](https://github.com/IBM/multi-cluster-app-dispatcher) with the
-    sophisticated
+    advanced
     [coscheduler](https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md). MCAD
     can be configured to prioritize your workloads.
 
     === "My administrator has already installed and configured MCAD"
 
-        If your are a non-admin user in a multi-tenant cluster, select this option.
+        If you are a non-admin user in a multi-tenant cluster, select this option.
         ```shell
         export KUBE_POD_MANAGER=ray
         ```
