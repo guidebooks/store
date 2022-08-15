@@ -23,11 +23,11 @@ kubectl get events ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --watch-only | tee "${STRE
 This defines the base docker image we will use for the ray head and worker nodes.
 
 ```shell
-export RAY_OPERATOR_IMAGE=${RAY_OPERATOR_IMAGE-rayproject/ray:1.13.0-py37}
+export RAY_OPERATOR_IMAGE=${RAY_OPERATOR_IMAGE-rayproject/ray:1.13.1-py37}
 ```
 
 ```shell
-export RAY_IMAGE=${RAY_IMAGE-$([ $NUM_GPUS = 0 ] && echo rayproject/ray:1.13.0-py37 || echo rayproject/ray-ml:1.13.0-py37-gpu)}
+export RAY_IMAGE=${RAY_IMAGE-$([ $NUM_GPUS = 0 ] && echo rayproject/ray:1.13.1-py37 || echo rayproject/ray-ml:1.13.1-py37-gpu)}
 ```
 
 The name of the Ray Kubernetes Service:
