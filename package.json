@@ -1,6 +1,6 @@
 {
   "name": "@guidebooks/store",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The home for importable Guidebooks.",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,18 @@
     "mirror": "T=$(mktemp -d) && madwizard mirror $PWD/guidebooks $T/store",
     "test": "npm run mirror"
   },
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guidebooks/store.git"
   },
-  "keywords": ["markdown", "wizards", "documentation"],
+  "keywords": [
+    "markdown",
+    "wizards",
+    "documentation"
+  ],
   "author": "@starpit",
   "license": "Apache-2.0",
   "bugs": {
