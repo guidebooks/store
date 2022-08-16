@@ -62,9 +62,9 @@ spec:
             - containerPort: 8000 # Used by Ray Serve
 
           startupProbe:
-            periodSeconds: 10
-            failureThreshold: 10
-            initialDelaySeconds: 5
+            periodSeconds: {{ .Values.startupProbe.periodSeconds | default 10 }}
+            failureThreshold: {{ .Values.startupProbe.failureThreshold | default 10 }}
+            initialDelaySeconds: {{ .Values.startupProbe.initialDelaySeconds | default 5 }}
             httpGet:
               path: /
               port: 8265

@@ -47,10 +47,14 @@ echo "$(tput setaf 4)Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} 
 # this maps 250m => 1 and 2500m => 3 and 4 => 4
 nCPUs=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); return(x>y?y+1:y)} /[^m]$/ { print $1 } /m$/ { sub("m",""); print ceil($1/1000) }')
 
+if [ -n "$RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS" ]; then
+    STARTUP_PROBE="--set startupProbe.initialDelaySeconds=${RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS}"
+fi
+
 cd $REPO/$SUBDIR && \
     helm upgrade --install --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
-         ${CREATE_NAMESPACE} \
+         ${CREATE_NAMESPACE} ${STARTUP_PROBE} \
          --set clusterNamespace=${KUBE_NS} \
          --set podTypes.rayWorkerType.CPU=${nCPUs} \
          --set podTypes.rayWorkerType.GPU=${NUM_GPUS-0} \
@@ -60,5 +64,6 @@ cd $REPO/$SUBDIR && \
          --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-1} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
+         ${startupProbe} \
          --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
          --set image=${RAY_IMAGE}
