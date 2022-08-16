@@ -21,6 +21,10 @@ if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
     fi
 fi
 
+if [ "$KUBE_POD_MANAGER" = ray ]; then
+    OPERATOR_IMAGE="--set operatorImage=${RAY_OPERATOR_IMAGE}"
+fi
+
 if [ -n "$KUBE_POD_MANAGER_NON_ROOT" ]; then
     # user does not have root access to their kubernetes cluster
     CLUSTER_ONLY=true
@@ -54,7 +58,7 @@ fi
 cd $REPO/$SUBDIR && \
     helm upgrade --install --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
-         ${CREATE_NAMESPACE} ${STARTUP_PROBE} \
+         ${CREATE_NAMESPACE} ${STARTUP_PROBE} ${OPERATOR_IMAGE} \
          --set clusterNamespace=${KUBE_NS} \
          --set podTypes.rayWorkerType.CPU=${nCPUs} \
          --set podTypes.rayWorkerType.GPU=${NUM_GPUS-0} \
