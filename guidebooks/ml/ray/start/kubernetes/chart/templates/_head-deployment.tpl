@@ -54,12 +54,17 @@ spec:
           imagePullPolicy: IfNotPresent
           command: [ "/bin/bash", "-c", "--" ]
           args:
-            - {{ print "ray start --head --port=6379 --redis-shard-ports=6380,6381 --num-cpus=" .Values.podTypes.rayHeadType.CPU " --num-gpus=" .Values.podTypes.rayHeadType.GPU " --object-manager-port=22345 --node-manager-port=22346 --dashboard-host=0.0.0.0 --block" }}
+            - {{ print "if ! $(which ray); then pip install ray[default]==" .Values.failsafes.ray.version "; fi; ray start --head --port=6379 --redis-shard-ports=6380,6381 --num-cpus=" .Values.podTypes.rayHeadType.CPU " --num-gpus=" .Values.podTypes.rayHeadType.GPU " --object-manager-port=22345 --node-manager-port=22346 --dashboard-host=0.0.0.0 --block" }}
           ports:
             - containerPort: 6379 # Redis port
             - containerPort: 10001 # Used by Ray Client
             - containerPort: 8265 # Used by Ray Dashboard
             - containerPort: 8000 # Used by Ray Serve
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8265
 
           # This volume allocates shared memory for Ray to use for its plasma
           # object store. If you do not provide this, Ray will fall back to

@@ -11,9 +11,9 @@ SUBDIR=deploy/charts/ray
 if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
     # MCAD-enabled helm chart; this chart also allows mcad-free operation, hence the ||
     GITHUB=github.com
-    ORG=guidebooks
-    REPO=store
-    BRANCH=""
+    ORG=${RAY_CHART_ORG-guidebooks}
+    REPO=${RAY_CHART_REPO-store}
+    BRANCH=${RAY_CHART_BRANCH}
     SUBDIR=guidebooks/ml/ray/start/kubernetes/chart
 
     if [ "$KUBE_POD_MANAGER" = mcad ]
