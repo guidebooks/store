@@ -62,6 +62,9 @@ spec:
             - containerPort: 8000 # Used by Ray Serve
 
           readinessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 10
             httpGet:
               path: /
               port: 8265
