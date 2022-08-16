@@ -7,6 +7,11 @@ mcad:
   scheduler: default # use the default kubernetes pod scheduler
   # scheduler: coscheduler # https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md
 
+startupProbe:
+  periodSeconds: 10
+  failureThrehsold: 10
+  initialDelaySeconds: 5
+
 failsafes:
   ray:
     version: 1.13.0
