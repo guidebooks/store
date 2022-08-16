@@ -12,10 +12,22 @@ imports:
 
 This will install Ray on a Kubernetes context of your choosing.
 
+The name of the Ray Kubernetes Service:
+
+```shell
+export RAY_KUBE_CLUSTER_NAME=${RAY_KUBE_CLUSTER_NAME-mycluster}
+```
+
 ## Stream out Events from the Ray Head Node
 
 ```shell.async
 kubectl get events ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --watch-only | tee "${STREAMCONSUMER_EVENTS}kubernetes.txt"
+```
+
+```shell.async
+if [ -n "$DEBUG_KUBERNETES" ]
+then kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} logs -l ray-cluster-name=${RAY_KUBE_CLUSTER_NAME} -f
+fi
 ```
 
 ### Use Helm to create the Ray Cluster
@@ -28,12 +40,6 @@ export RAY_OPERATOR_IMAGE=${RAY_OPERATOR_IMAGE-rayproject/ray:1.13.1-py37}
 
 ```shell
 export RAY_IMAGE=${RAY_IMAGE-$([ $NUM_GPUS = 0 ] && echo rayproject/ray:1.13.1-py37 || echo rayproject/ray-ml:1.13.1-py37-gpu)}
-```
-
-The name of the Ray Kubernetes Service:
-
-```shell
-export RAY_KUBE_CLUSTER_NAME=mycluster
 ```
 
 --8<-- "./kubernetes/install-via-helm.md"
