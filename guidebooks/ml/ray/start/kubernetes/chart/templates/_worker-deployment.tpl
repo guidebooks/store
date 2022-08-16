@@ -41,7 +41,7 @@ spec:
         imagePullPolicy: IfNotPresent
         command: ["/bin/bash", "-c", "--"]
         args:
-          - {{ print "if ! $(which ray); then pip install ray[default]==" .Values.failsafes.ray.version "; fi;  ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPU " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block" }}
+          - {{ print "if ! $(which ray); then pip install ray==" .Values.failsafes.ray.version "; fi;  ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPU " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block" }}
         # This volume allocates shared memory for Ray to use for its plasma
         # object store. If you do not provide this, Ray will fall back to
         # /tmp which cause slowdowns if is not a shared memory volume.
