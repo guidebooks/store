@@ -69,14 +69,6 @@ spec:
               path: /
               port: 8265
 
-          readinessProbe:
-            periodSeconds: 10
-            failureThreshold: 10
-            initialDelaySeconds: 5
-            httpGet:
-              path: /
-              port: 8265
-
           # This volume allocates shared memory for Ray to use for its plasma
           # object store. If you do not provide this, Ray will fall back to
           # /tmp which cause slowdowns if is not a shared memory volume.
