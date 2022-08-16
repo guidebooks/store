@@ -25,8 +25,9 @@ kubectl get events ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --watch-only | tee "${STRE
 ```
 
 ```shell.async
-if [ -n "$DEBUG_KUBERNETES" ]
-then kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} logs -l ray-cluster-name=${RAY_KUBE_CLUSTER_NAME} -f
+if [ -n "$DEBUG_KUBERNETES" ]; then
+    echo "Streaming out Ray Pod Logs"
+    kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} logs -l ray-cluster-name=${RAY_KUBE_CLUSTER_NAME} -f
 fi
 ```
 
