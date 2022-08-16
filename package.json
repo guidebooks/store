@@ -22,5 +22,8 @@
   "homepage": "https://github.com/guidebooks/store#readme",
   "devDependencies": {
     "madwizard": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
