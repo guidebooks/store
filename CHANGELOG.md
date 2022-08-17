@@ -1,5 +1,12 @@
 
 
+## [0.1.1](https://github.com/guidebooks/store/compare/0.1.0...0.1.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* regression, ray operator is no longer namespaced ([7bf4de4](https://github.com/guidebooks/store/commit/7bf4de4886979e39a8c3f3f39e40ff57c251fd7c))
+
 # [0.1.0](https://github.com/guidebooks/store/compare/0.0.5...0.1.0) (2022-08-17)
 
 
