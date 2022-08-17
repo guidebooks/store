@@ -1,5 +1,12 @@
 
 
+## [0.0.5](https://github.com/guidebooks/store/compare/0.0.4...0.0.5) (2022-08-17)
+
+
+### Bug Fixes
+
+* typo from prior commit in helm chart ([8b175e7](https://github.com/guidebooks/store/commit/8b175e75f13ce9ab5ddc0fe11cd3c2cbc3bcc701))
+
 ## [0.0.4](https://github.com/guidebooks/store/compare/0.0.3...0.0.4) (2022-08-17)
 
 
