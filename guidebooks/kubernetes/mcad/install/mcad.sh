@@ -22,7 +22,7 @@ if [ -n "$CI" ]; then
     # resource consumption. For example, GitHub Actions have only 2
     # cpus to allocate to everything, and Kubernetes itself takes up a
     # fair chunk of that (as much as 750m?)
-    RESOURCES="--set resources.limits.cpu=300m --set resources.requests.cpu=300m"
+    RESOURCES="--set resources.limits.cpu=300m --set resources.requests.cpu=300m --set resources.limits.memory=1Gi --set resources.requests.memory=1Gi"
 fi
 
 IMAGE=darroyo/mcad-controller
