@@ -3,9 +3,9 @@ WORKDIR=$(mktemp -d) && cd $WORKDIR
 
 # base ray chart
 GITHUB=github.com
-ORG=ray-project
+ORG=starpit # ray-project
 REPO=ray
-BRANCH=""
+BRANCH=operator-cpu # ""
 SUBDIR=deploy/charts/ray
 
 if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
@@ -69,6 +69,7 @@ cd $REPO/$SUBDIR && \
          --set podTypes.rayWorkerType.memory=${WORKER_MEMORY-1Gi} \
          --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-1} \
          --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-1} \
+         --set operatorResources.cpu=${NUM_CPUS-1} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
          ${startupProbe} \
