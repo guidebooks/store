@@ -1,5 +1,12 @@
 
 
+## [0.2.2](https://github.com/guidebooks/store/compare/0.2.1...0.2.2) (2022-08-17)
+
+
+### Bug Fixes
+
+* ml/ray/start/kubernetes does not wait for ray head to be fully ready ([ec10241](https://github.com/guidebooks/store/commit/ec102419d4b32047325dd9f8335a7f3514414e10))
+
 ## [0.2.1](https://github.com/guidebooks/store/compare/0.2.0...0.2.1) (2022-08-17)
 
 
