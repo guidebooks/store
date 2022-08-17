@@ -60,10 +60,12 @@ cd $REPO/$SUBDIR && \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
          ${CREATE_NAMESPACE} ${STARTUP_PROBE} ${OPERATOR_IMAGE} \
          --set clusterNamespace=${KUBE_NS} \
-         --set podTypes.rayWorkerType.CPU=${NUM_CPUS-1} \
-         --set podTypes.rayWorkerType.CPUInteger=${NUM_CPUS_INTEGER} \
-         --set podTypes.rayWorkerType.GPU=${NUM_GPUS-0} \
+         --set podTypes.rayHeadType.CPU=${NUM_CPUS-1} \
+         --set podTypes.rayHeadType.CPUInteger=${NUM_CPUS_INTEGER-1} \
          --set podTypes.rayHeadType.memory=${HEAD_MEMORY-1Gi} \
+         --set podTypes.rayWorkerType.CPU=${NUM_CPUS-1} \
+         --set podTypes.rayWorkerType.CPUInteger=${NUM_CPUS_INTEGER-1} \
+         --set podTypes.rayWorkerType.GPU=${NUM_GPUS-0} \
          --set podTypes.rayWorkerType.memory=${WORKER_MEMORY-1Gi} \
          --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-1} \
          --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-1} \
