@@ -1,5 +1,17 @@
 
 
+# [0.1.0](https://github.com/guidebooks/store/compare/0.0.5...0.1.0) (2022-08-17)
+
+
+### Bug Fixes
+
+* another regression fix for helm chart ([685864b](https://github.com/guidebooks/store/commit/685864ba595780ce33f0f650235195f282c7a590))
+
+
+### Features
+
+* pin a branch for the default ray helm chart ([7a4900d](https://github.com/guidebooks/store/commit/7a4900dd4bf43c4fe45d903dc650266ab419b2d1))
+
 ## [0.0.5](https://github.com/guidebooks/store/compare/0.0.4...0.0.5) (2022-08-17)
 
 
