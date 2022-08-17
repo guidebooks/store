@@ -1,5 +1,12 @@
 
 
+## [0.2.3](https://github.com/guidebooks/store/compare/0.2.2...0.2.3) (2022-08-17)
+
+
+### Bug Fixes
+
+* increase pod readiness wait timeout in ml/ray/start/kubernetes ([c7ea666](https://github.com/guidebooks/store/commit/c7ea6663370215626fd57010f466c0674d10e7f9))
+
 ## [0.2.2](https://github.com/guidebooks/store/compare/0.2.1...0.2.2) (2022-08-17)
 
 
