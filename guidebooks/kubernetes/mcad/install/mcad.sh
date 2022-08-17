@@ -17,10 +17,18 @@ if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
     git sparse-checkout init --cone > /dev/null && \
     git sparse-checkout set $SUBDIR > /dev/null)
 
+if [ -n "$CI" ]; then
+    # If we are running in a CI setting, we need to dial down the
+    # resource consumption. For example, GitHub Actions have only 2
+    # cpus to allocate to everything, and Kubernetes itself takes up a
+    # fair chunk of that (as much as 750m?)
+    RESOURCES="--set resources.limits.cpu=300m --set resources.requests.cpu=300m"
+fi
+
 IMAGE=darroyo/mcad-controller
 cd $REPO/$SUBDIR &&
     helm upgrade --install --wait mcad . \
-         ${KUBE_CONTEXT_ARG_HELM} \
+         ${KUBE_CONTEXT_ARG_HELM} ${RESOURCES} \
          --namespace kube-system \
          --set loglevel=4 \
          --set image.repository=$IMAGE \
