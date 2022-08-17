@@ -1,5 +1,13 @@
 
 
+## [0.2.1](https://github.com/guidebooks/store/compare/0.2.0...0.2.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* a few missing ${KUBE_CONTEXT_ARG} in mcad and the coscheduler validators ([083d88c](https://github.com/guidebooks/store/commit/083d88c0176d1ac8c1f916264327854ef1eba87a))
+* MCAD without coscheduler still installs the coscheduler ([ad5cfa7](https://github.com/guidebooks/store/commit/ad5cfa717b37f94bbfa9cddd0ffb4937d92cd84d))
+
 # [0.2.0](https://github.com/guidebooks/store/compare/0.1.1...0.2.0) (2022-08-17)
 
 
