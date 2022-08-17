@@ -67,6 +67,7 @@ To schedule your job's work, you have several scheduler options.
         ```
 
         :import{ml/ray/hacks/openshift/uid-range}
+        :import{kubernetes/coscheduler/install}
         :import{kubernetes/mcad/install}
 
     === "MCAD with the Default Kubernetes Scheduler"
