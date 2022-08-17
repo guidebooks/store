@@ -1,5 +1,12 @@
 
 
+# [0.2.0](https://github.com/guidebooks/store/compare/0.1.1...0.2.0) (2022-08-17)
+
+
+### Features
+
+* allow mcad resource requirements to be dialed down when running CI ([ceb0dd1](https://github.com/guidebooks/store/commit/ceb0dd1d9a096578a4f1467a87d3b2584a842e6a))
+
 ## [0.1.1](https://github.com/guidebooks/store/compare/0.1.0...0.1.1) (2022-08-17)
 
 
