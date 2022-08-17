@@ -8,7 +8,7 @@ The multi-cluster-app-dispatcher (MCAD) controller is capable of (i) providing a
 
 ```shell
 ---
-validate: kubectl get deploy mcad-controller -n kube-system
+validate: kubectl get ${KUBE_CONTEXT_ARG} -n kube-system deploy mcad-controller
 ---
 --8<-- "./mcad.sh"
 ```

@@ -7,7 +7,7 @@ way that prevents any of them from making progress.
         
 ```shell
 ---
-validate: kubectl get deploy -n scheduler-plugins scheduler-plugins-controller
+validate: kubectl get ${KUBE_CONTEXT_ARG} -n scheduler-plugins deploy scheduler-plugins-controller
 ---
 --8<-- "./coscheduler.sh"
 ```

@@ -8,7 +8,7 @@ REPO=multi-cluster-app-dispatcher
 BRANCH=helm3-qm
 SUBDIR=deployment/mcad-controller
 
-echo "Installing Enhanced Scheduler"
+echo "Installing Advanced Pod Manager"
 
 # sparse clone
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
