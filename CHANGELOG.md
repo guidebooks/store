@@ -1,5 +1,12 @@
 
 
+## [0.0.4](https://github.com/guidebooks/store/compare/0.0.3...0.0.4) (2022-08-17)
+
+
+### Bug Fixes
+
+* back out conditional installation of ray in chart ([280d8fb](https://github.com/guidebooks/store/commit/280d8fbda64b75370e1888809dc3d740b2ce82ee))
+
 ## [0.0.3](https://github.com/guidebooks/store/compare/0.0.2...0.0.3) (2022-08-17)
 
 
