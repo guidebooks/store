@@ -44,7 +44,7 @@ To schedule your job's work, you have several scheduler options.
 
         If you are a non-admin user in a multi-tenant cluster, select this option.
         ```shell
-        export KUBE_POD_MANAGER=ray
+        export KUBE_POD_MANAGER=mcad
         ```
 
         ```shell
