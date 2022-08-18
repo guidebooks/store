@@ -1,3 +1,8 @@
+---
+imports:
+    - kubernetes/helm3
+---
+
 # Install MCAD
 
 The [multi-cluster-app-dispatcher](https://github.com/IBM/multi-cluster-app-dispatcher) is a Kubernetes controller providing mechanisms for applications to manage batch jobs in a single or mult-cluster environment.
