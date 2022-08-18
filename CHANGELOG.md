@@ -1,5 +1,14 @@
 
 
+## [0.2.4](https://github.com/guidebooks/store/compare/0.2.3...0.2.4) (2022-08-18)
+
+
+### Bug Fixes
+
+* add missing kubernetes/mcad/uninstall ([7dc3858](https://github.com/guidebooks/store/commit/7dc385882e53eebf2b437747bb723291ceed3242))
+* kubernetes/mcad/install is missing helm3 prereq ([3cff3e3](https://github.com/guidebooks/store/commit/3cff3e33d3b1880f3fe9f72f91151901e541eddd))
+* ml/ray/cluster/kubernetes/choose-pod-scheduler incorrectly sets up mcad preinstalled ([4d8d88d](https://github.com/guidebooks/store/commit/4d8d88d05b45195dbbff3791398a1f0e7580f1dd))
+
 ## [0.2.3](https://github.com/guidebooks/store/compare/0.2.2...0.2.3) (2022-08-17)
 
 
