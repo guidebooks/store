@@ -1,5 +1,12 @@
 
 
+## [0.3.3](https://github.com/guidebooks/store/compare/0.3.2...0.3.3) (2022-08-19)
+
+
+### Bug Fixes
+
+* allow splicing in of namespace in ray helm chart ([a22d837](https://github.com/guidebooks/store/commit/a22d837491641b36c361a8222568cf2fe19742df))
+
 ## [0.3.2](https://github.com/guidebooks/store/compare/0.3.1...0.3.2) (2022-08-19)
 
 
