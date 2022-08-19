@@ -1,5 +1,12 @@
 
 
+## [0.3.1](https://github.com/guidebooks/store/compare/0.3.0...0.3.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* kubernetes/context does not work when running in-cluster ([6d78ad4](https://github.com/guidebooks/store/commit/6d78ad4c4a0b35a3efa4467c4a2c962e09f6fd17))
+
 # [0.3.0](https://github.com/guidebooks/store/compare/0.2.4...0.3.0) (2022-08-19)
 
 
