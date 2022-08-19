@@ -1,5 +1,12 @@
 
 
+# [0.3.0](https://github.com/guidebooks/store/compare/0.2.4...0.3.0) (2022-08-19)
+
+
+### Features
+
+* support for in-kube-cluster start of ray cluster ([8c32df5](https://github.com/guidebooks/store/commit/8c32df55150035e8cb5fe15ad691ee57ae2b4997))
+
 ## [0.2.4](https://github.com/guidebooks/store/compare/0.2.3...0.2.4) (2022-08-18)
 
 
