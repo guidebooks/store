@@ -1,5 +1,12 @@
 
 
+## [0.3.2](https://github.com/guidebooks/store/compare/0.3.1...0.3.2) (2022-08-19)
+
+
+### Bug Fixes
+
+* allow in-cluster operation to specify a default context and namespace name ([2de8f2e](https://github.com/guidebooks/store/commit/2de8f2e70a71262f6d0c240f5240cba5aabb1808))
+
 ## [0.3.1](https://github.com/guidebooks/store/compare/0.3.0...0.3.1) (2022-08-19)
 
 
