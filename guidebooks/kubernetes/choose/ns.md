@@ -14,14 +14,16 @@ same, but in a restricted environment, a Project can act as a
 Namespace, without the additional security concerns that Namespaces
 bring.
 
-=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || X=$(kubectl ${KUBE_CONTEXT_ARG} get ns -o name || oc ${KUBE_CONTEXT_ARG} get projects -o name); echo "$X" | sed -E 's#(namespace|project\.project\.openshift\.io)/##' | grep -Ev 'openshift|kube-', Kubernetes namespaces)"
+=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || X=$([ -n "$KUBE_NS_FOR_TEST" ] && echo $KUBE_NS_FOR_TEST || kubectl ${KUBE_CONTEXT_ARG} get ns -o name || oc ${KUBE_CONTEXT_ARG} get projects -o name); echo "$X" | sed -E 's#(namespace|project\.project\.openshift\.io)/##' | grep -Ev 'openshift|kube-', Kubernetes namespaces)"
     ```shell
     export KUBE_NS=${choice}
     ```
 
     ```shell
-    export KUBE_NS_ARG="-n ${choice}"
+    export KUBE_NS_ARG=$([ -n "$KUBE_NS_FOR_TEST" ] && echo "" || echo "-n ${choice}")
     ```
+
+    > If we are faking a project for tests, then don't use a `-n <namespace` CLI argument for subsequent `kubectl` commands.
 
 === "Create a namespace"
     ```shell

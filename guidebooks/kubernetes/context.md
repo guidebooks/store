@@ -9,17 +9,17 @@ A Kubernetes
 [context](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)
 defines access to a cluster as a particular user.
 
-=== "expand((kubectl config get-contexts -o name | grep -E . >& /dev/null && kubectl config get-contexts -o name) || (kubectl version | grep Server >& /dev/null && echo "In-cluster" || exit 1), Kubernetes contexts)"
+=== "expand((kubectl config get-contexts -o name | grep -E . >& /dev/null && kubectl config get-contexts -o name) || (kubectl version | grep Server >& /dev/null && echo "${KUBE_CONTEXT_FOR_TEST-In-cluster}" || exit 1), Kubernetes contexts)"
     ```shell
     export KUBE_CONTEXT="${choice}"
     ```
 
     ```shell
-    export KUBE_CONTEXT_ARG="--context ${choice}"
+    export KUBE_CONTEXT_ARG=$([ -n "$KUBE_CONTEXT_FOR_TEST" ] && echo "" || echo "--context ${choice}")
     ```
 
     ```shell
-    export KUBE_CONTEXT_ARG_HELM="--kube-context ${choice}"
+    export KUBE_CONTEXT_ARG_HELM=$([ -n "$KUBE_CONTEXT_FOR_TEST" ] && echo "" || echo "--kube-context ${choice}")
     ```
 
 > The bit of complexity here is intended to handle the situation of
