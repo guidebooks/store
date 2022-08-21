@@ -9,7 +9,7 @@ metadata:
   name: guidebook-log-aggregator-role
 rules:
 - apiGroups: [""]
-  resources: ["pods", "pods/exec", "services"]
+  resources: ["pods", "pods/exec", "services", "nodes"]
   verbs: ["events", "get", "watch", "list"]
 - apiGroups: [""]
   resources: ["pods/exec"]
