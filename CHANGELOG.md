@@ -1,5 +1,17 @@
 
 
+# [0.4.0](https://github.com/guidebooks/store/compare/0.3.3...0.4.0) (2022-08-21)
+
+
+### Bug Fixes
+
+* increase cpu limit for ray head ([303ee6d](https://github.com/guidebooks/store/commit/303ee6d1c3e4b287c3e8bf8e5283c30abb8051b2))
+
+
+### Features
+
+* remove untested knative guidebooks ([71f0809](https://github.com/guidebooks/store/commit/71f08095c32687806fbbaa4d3e3571f0be1a1aa9))
+
 ## [0.3.3](https://github.com/guidebooks/store/compare/0.3.2...0.3.3) (2022-08-19)
 
 
