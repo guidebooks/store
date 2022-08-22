@@ -29,6 +29,9 @@
   "devDependencies": {
     "madwizard": "*"
   },
+  "peerDependencies": {
+    "madwizard": "^0.19.5"
+  },
   "publishConfig": {
     "access": "public"
   },
