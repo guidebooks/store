@@ -5,7 +5,6 @@ We will stream out a suite of data, including resource utilization metrics and j
 ## Stream Resource Metrics
 
 --8<-- "./pod-stats.md"
---8<-- "./node-stats.md"
 --8<-- "./gpu-utilization.md"
 
 ## Capture Job Definition
