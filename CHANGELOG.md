@@ -1,5 +1,17 @@
 
 
+# [0.5.0](https://github.com/guidebooks/store/compare/0.4.8...0.5.0) (2022-08-22)
+
+
+### Bug Fixes
+
+* server-side log aggregator may try to query ray head before ready ([6cda2ae](https://github.com/guidebooks/store/commit/6cda2ae5ac660d21ddcc84d071bd02323bf52848))
+
+
+### Features
+
+* allow log aggregator image to be specified by env var ([2ca584d](https://github.com/guidebooks/store/commit/2ca584d8d4cc549012268d8cf853f8a69abd3cea))
+
 ## [0.4.8](https://github.com/guidebooks/store/compare/0.4.7...0.4.8) (2022-08-22)
 
 
