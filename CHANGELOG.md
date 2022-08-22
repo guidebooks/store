@@ -1,5 +1,13 @@
 
 
+## [0.4.1](https://github.com/guidebooks/store/compare/0.4.0...0.4.1) (2022-08-22)
+
+
+### Bug Fixes
+
+* add nodes to the log aggregator Role ([23c231d](https://github.com/guidebooks/store/commit/23c231d48f1432345d1fe2ae2b4ffa546b3ecf36))
+* util/jobid should inherit JOB_ID from env ([a45f054](https://github.com/guidebooks/store/commit/a45f054207c77e525a11724f527aa6a82c056e70))
+
 # [0.4.0](https://github.com/guidebooks/store/compare/0.3.3...0.4.0) (2022-08-21)
 
 
