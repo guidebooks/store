@@ -12,14 +12,22 @@ if [ -z "$LOG_AGGREGATOR_POD_NAME" ]; then
 fi
 ```
 
+Wait for Ray head node to be ready.
+```shell
+kubectl wait -l ray-node-type=head --for=condition=Ready
+```
+
+Extract the name of the Ray cluster.
 ```shell
 export RAY_KUBE_CLUSTER_NAME=${RAY_KUBE_CLUSTER_NAME-$(kubectl get pod --no-headers -l ray-node-type=head -o custom-columns=NAME:.metadata.labels.ray-cluster-name | head -1 )}
 ```
 
+Extract the name of our namespace.
 ```shell
 export KUBE_NS=${KUBE_NS-$(kubectl get --no-headers pod $LOG_AGGREGATOR_POD_NAME -o custom-columns=NS:.metadata.namespace)}
 ```
 
+Extract the endpoint for the Ray API.
 ```shell
 export RAY_ADDRESS=http://${RAY_KUBE_CLUSTER_NAME}-ray-head.${KUBE_NS}.svc.cluster.local:8265
 ```
