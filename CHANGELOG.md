@@ -1,5 +1,12 @@
 
 
+## [0.4.5](https://github.com/guidebooks/store/compare/0.4.4...0.4.5) (2022-08-22)
+
+
+### Bug Fixes
+
+* ugh, ~/ -> /root for server-side log aggregator ([7907824](https://github.com/guidebooks/store/commit/79078241df7221fa63c729188a0b9e4733e97250))
+
 ## [0.4.4](https://github.com/guidebooks/store/compare/0.4.3...0.4.4) (2022-08-22)
 
 
