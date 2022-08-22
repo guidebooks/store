@@ -19,5 +19,5 @@ EOF
 Wait for it to be productive.
 
 ```shell
-kubectl wait ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} --for=condition=Ready
+kubectl wait ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod/${LOG_AGGREGATOR_POD_NAME} --for=condition=Ready
 ```
