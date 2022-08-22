@@ -1,5 +1,12 @@
 
 
+## [0.5.1](https://github.com/guidebooks/store/compare/0.5.0...0.5.1) (2022-08-22)
+
+
+### Bug Fixes
+
+* improved logic for server-side ray head wait ([4cc34ca](https://github.com/guidebooks/store/commit/4cc34caac3df6d0ca436bae3e2b79d7432801481))
+
 # [0.5.0](https://github.com/guidebooks/store/compare/0.4.8...0.5.0) (2022-08-22)
 
 
