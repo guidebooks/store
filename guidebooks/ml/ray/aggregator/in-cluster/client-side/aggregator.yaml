@@ -46,7 +46,7 @@ spec:
   serviceAccountName: guidebook-log-aggregator-serviceaccount
   containers:
     - name: guidebook-log-aggregator
-      image: ghcr.io/project-codeflare/codeflare-log-aggregator
+      image: ${LOG_AGGREGATOR_IMAGE-ghcr.io/project-codeflare/codeflare-log-aggregator:${LOG_AGGREGATOR_TAG-latest}}
       env:
         - name: QUIET_CONSOLE
           value: "true"
