@@ -1,5 +1,12 @@
 
 
+## [0.4.7](https://github.com/guidebooks/store/compare/0.4.6...0.4.7) (2022-08-22)
+
+
+### Bug Fixes
+
+* log aggregator deploy should wait for it to be ready ([bdc7a5c](https://github.com/guidebooks/store/commit/bdc7a5c2720e98d2211830b490a0bf0e149bff77))
+
 ## [0.4.6](https://github.com/guidebooks/store/compare/0.4.5...0.4.6) (2022-08-22)
 
 
