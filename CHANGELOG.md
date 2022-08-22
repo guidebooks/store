@@ -1,5 +1,12 @@
 
 
+## [0.4.3](https://github.com/guidebooks/store/compare/0.4.2...0.4.3) (2022-08-22)
+
+
+### Bug Fixes
+
+* use ~/ instead of /home/node in log aggregator ([efd950d](https://github.com/guidebooks/store/commit/efd950d2b959f23a2ee468fade6f0b153366e463))
+
 ## [0.4.2](https://github.com/guidebooks/store/compare/0.4.1...0.4.2) (2022-08-22)
 
 
