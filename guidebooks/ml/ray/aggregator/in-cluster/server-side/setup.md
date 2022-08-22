@@ -14,6 +14,11 @@ fi
 
 Wait for Ray head node to be ready.
 ```shell
+while true; do
+    kubectl get pod -l ray-node-type=head | grep Running > /dev/null && break || echo "Waiting for Ray Head node"
+    sleep 1
+done
+
 kubectl wait -l ray-node-type=head --for=condition=Ready
 ```
 
