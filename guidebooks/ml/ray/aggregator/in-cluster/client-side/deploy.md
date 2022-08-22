@@ -15,3 +15,9 @@ cat << EOF | kubectl apply ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -f -
 --8<-- "./aggregator.yaml"
 EOF
 ```
+
+Wait for it to be productive.
+
+```shell
+kubectl wait ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} --for=condition=Ready
+```
