@@ -9,5 +9,5 @@ kubectl wait ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod/${LOG_AGGREGATOR_POD_NAME} -
 
 Now we can stream.
 ```shell.async
-kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- env GUIDEBOOK_NAME=log-aggregator-server-side JOB_ID=$JOB_ID codeflare ml/ray/aggregator/in-cluster/server-side/start
+kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- env GUIDEBOOK_NAME=log-aggregator-server-side JOB_ID=$JOB_ID codeflare -V ml/ray/aggregator/in-cluster/server-side/start
 ```

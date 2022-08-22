@@ -20,7 +20,7 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
     elif [ -z "$QUIET_CONSOLE" ]; then
         websocat --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail | tee "${STREAMCONSUMER_LOGS}job.txt"
     else
-        echo "Ray log streamer start: ${JOB_ID}" 1>&2
+        echo "Ray log streamer start: ${JOB_ID} ${WS_ADDRESS}"" 1>&2
         websocat -B 524288 --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail > "${STREAMCONSUMER_LOGS}job.txt"
         echo "Ray log streamer exit: ${JOB_ID}" 1>&2
     fi

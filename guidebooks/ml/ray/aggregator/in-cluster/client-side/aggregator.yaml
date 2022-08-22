@@ -52,6 +52,3 @@ spec:
           value: "true"
         - name: LOG_AGGREGATOR_POD_NAME
           value: guidebook-log-aggregator # TODO somehow share this with ./names.md
-#        volumeMounts:
-#          - name: profile-volume
-#            mountPath: /home/codeflare/.local/share/madwizard-nodejs/profiles/default
