@@ -1,5 +1,12 @@
 
 
+## [0.4.6](https://github.com/guidebooks/store/compare/0.4.5...0.4.6) (2022-08-22)
+
+
+### Bug Fixes
+
+* disable node-stats.sh collection in log aggregator ([8162626](https://github.com/guidebooks/store/commit/81626264629b62b00909411f023455e26d1f5364))
+
 ## [0.4.5](https://github.com/guidebooks/store/compare/0.4.4...0.4.5) (2022-08-22)
 
 
