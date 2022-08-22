@@ -1,5 +1,12 @@
 
 
+## [0.4.4](https://github.com/guidebooks/store/compare/0.4.3...0.4.4) (2022-08-22)
+
+
+### Bug Fixes
+
+* parse error in ml/ray/run/logs/via-websocat ([728b285](https://github.com/guidebooks/store/commit/728b285fc876b7991e85ba28ea01ad3f8e731c45))
+
 ## [0.4.3](https://github.com/guidebooks/store/compare/0.4.2...0.4.3) (2022-08-22)
 
 
