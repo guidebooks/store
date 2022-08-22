@@ -1,5 +1,12 @@
 
 
+## [0.4.2](https://github.com/guidebooks/store/compare/0.4.1...0.4.2) (2022-08-22)
+
+
+### Bug Fixes
+
+* update log aggregator to use /home/node rather than /home/codeflare ([a025f21](https://github.com/guidebooks/store/commit/a025f218bc88723b883f4fa36b0c02cd2c03f32b))
+
 ## [0.4.1](https://github.com/guidebooks/store/compare/0.4.0...0.4.1) (2022-08-22)
 
 
