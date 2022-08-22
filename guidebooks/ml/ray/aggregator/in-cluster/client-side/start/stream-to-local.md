@@ -4,6 +4,6 @@ Now we can capture what the server-side is streaming to its
 
 TODO we should capture this from the server-side, rather than hard-coding here.
 ```shell
-export LOG_AGGREGATOR_LOGDIR=/home/codeflare/.local/share/madwizard-nodejs/default/jobs/$JOB_ID
+export LOG_AGGREGATOR_LOGDIR=/home/node/.local/share/madwizard-nodejs/default/jobs/$JOB_ID
 ```
 
