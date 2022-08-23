@@ -1,5 +1,12 @@
 
 
+## [0.5.4](https://github.com/guidebooks/store/compare/0.5.3...0.5.4) (2022-08-23)
+
+
+### Bug Fixes
+
+* two more fixes for log aggregator not waiting long enough ([0853310](https://github.com/guidebooks/store/commit/0853310b4e1a86c70cd28d280d3c58e72617a290))
+
 ## [0.5.3](https://github.com/guidebooks/store/compare/0.5.2...0.5.3) (2022-08-23)
 
 
