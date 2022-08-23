@@ -1,5 +1,12 @@
 
 
+## [0.5.6](https://github.com/guidebooks/store/compare/0.5.5...0.5.6) (2022-08-23)
+
+
+### Bug Fixes
+
+* server-side aggregator needs to wait for job to be actually running ([0048c68](https://github.com/guidebooks/store/commit/0048c68717237340398d0c2eab875b0a0c94fc52))
+
 ## [0.5.5](https://github.com/guidebooks/store/compare/0.5.4...0.5.5) (2022-08-23)
 
 
