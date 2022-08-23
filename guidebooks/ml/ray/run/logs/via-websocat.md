@@ -16,7 +16,7 @@ export WS_ADDRESS=$(echo ${RAY_ADDRESS} | sed 's/^http/ws/')
 if [ -n "${STREAMCONSUMER_LOGS}" ]; then
     if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
         kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- \
-            tail -f -n +1 "$LOG_AGGREGATOR_LOGDIR"/logs/job.txt > "${STREAMCONSUMER_LOGS}job.txt"
+            wait-for-and-tailf "$LOG_AGGREGATOR_LOGDIR"/logs/job.txt > "${STREAMCONSUMER_LOGS}job.txt"
     elif [ -z "$QUIET_CONSOLE" ]; then
         websocat --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail | tee "${STREAMCONSUMER_LOGS}job.txt"
     else
