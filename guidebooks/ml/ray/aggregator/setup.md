@@ -24,10 +24,17 @@ export JOB_ENV=$(
     else
         while true; do
             resp=$(curl -s $RAY_ADDRESS/api/jobs/$JOB_ID)
-            if [ -n "$resp" ]
-            then echo "[Log Aggregator]: Ray job has started"; break;
-            else echo "[Log Aggregator]: Waiting for Ray job to start"; sleep 2;
+            if [ -n "$resp" ]; then
+                status=$(echo "$resp" | jq -cr '.status')
+                if [ "$status" = "RUNNING" ] || [ "$status" = "SUCCEEDED" ]; then
+                    echo "[Log Aggregator]: Ray job has started" 1>&2
+                    echo "$resp"
+                    break
+                fi
             fi
+
+            echo "[Log Aggregator]: Waiting for Ray job to start" 1>&2
+            sleep 2
         done
     fi
 )
