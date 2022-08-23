@@ -1,5 +1,12 @@
 
 
+## [0.5.5](https://github.com/guidebooks/store/compare/0.5.4...0.5.5) (2022-08-23)
+
+
+### Bug Fixes
+
+* pin ray (to 1.13) ([18ffab3](https://github.com/guidebooks/store/commit/18ffab373adcdb4c3cf2983afafec324247c88df))
+
 ## [0.5.4](https://github.com/guidebooks/store/compare/0.5.3...0.5.4) (2022-08-23)
 
 
