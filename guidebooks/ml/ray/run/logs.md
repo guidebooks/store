@@ -17,7 +17,7 @@ Wait for the job to be active.
 
 ```shell
 if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
-    echo "Ready"
+    echo "Client-side aggregator Ray job log collection about to commence"
 else
     while true; do if [ "$(curl -s -I $RAY_ADDRESS/api/jobs/$JOB_ID | head -n 1 | cut -d$' ' -f2)" = "200" ]; then break; sleep 1; fi; done
 fi
@@ -53,12 +53,6 @@ consuming streaming output from that file "batchy". Instead, we use
 [`websocat`](https://github.com/vi/websocat) to talk directly to the
 Ray API; for log following, this is a websocket protocol, hence the
 need for an additional tool. Sigh.
-
-### Logs just to console
-
---8<-- "./logs/via-cli.md"
-
-### Logs to a file (and possibly the console, too)
 
 --8<-- "./logs/via-websocat.md"
 
