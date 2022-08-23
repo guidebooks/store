@@ -19,5 +19,6 @@ EOF
 Wait for it to be productive.
 
 ```shell
-kubectl wait ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod/${LOG_AGGREGATOR_POD_NAME} --for=condition=Ready
+echo "[Log Aggregator Deploy Client-side] Waiting for log aggregator" 1>&2
+kubectl wait ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod/${LOG_AGGREGATOR_POD_NAME} --for=condition=Ready --timeout=240s
 ```

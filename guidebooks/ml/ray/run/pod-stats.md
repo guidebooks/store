@@ -3,7 +3,7 @@ imports:
     - ml/ray/start/kubernetes/label-selectors.md
 ---
 
-# Sample Retrieve Kubernetes Pod Statistics
+# Sample Kubernetes Pod Statistics
 
 This guidebook will emit a stream of samples of the form:
 
