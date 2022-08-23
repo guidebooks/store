@@ -1,5 +1,14 @@
 
 
+## [0.5.7](https://github.com/guidebooks/store/compare/0.5.6...0.5.7) (2022-08-23)
+
+
+### Bug Fixes
+
+* a few minor refinements to log/debug output ([40447b0](https://github.com/guidebooks/store/commit/40447b0ba6c8648ac56b4280b585080cb6b55366))
+* ml/ray/cluster/head lacks KUBE_CONTEXT/NS in kubectl command ([b6adff1](https://github.com/guidebooks/store/commit/b6adff1dc061506a53b099da6cb72d40f6328041))
+* remove old non-websocat way of fetching ray job logs ([be6c829](https://github.com/guidebooks/store/commit/be6c829a82fd644167e235e8ed25639340247fa9))
+
 ## [0.5.6](https://github.com/guidebooks/store/compare/0.5.5...0.5.6) (2022-08-23)
 
 
