@@ -15,7 +15,7 @@ export PIP_LOCAL=true
     ---
     validate: pip-show ray
     ---
-    pip install -U "ray[default]"
+    pip install -U "ray[default]==1.13"
     ```
 
 === "Apple Silicon"

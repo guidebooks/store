@@ -1,5 +1,5 @@
 boto3
-ray[default]
+ray[default]==1.13
 ray_lightning
 pytorch_lightning
 torchvision
