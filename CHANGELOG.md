@@ -1,5 +1,12 @@
 
 
+## [0.5.3](https://github.com/guidebooks/store/compare/0.5.2...0.5.3) (2022-08-23)
+
+
+### Bug Fixes
+
+* client-side log aggregator may fail to collect job logs ([83be1f0](https://github.com/guidebooks/store/commit/83be1f0a84b7f4ad9596b6b429e930688d135a2e))
+
 ## [0.5.2](https://github.com/guidebooks/store/compare/0.5.1...0.5.2) (2022-08-23)
 
 
