@@ -19,7 +19,7 @@ while true; do
     sleep 1
 done
 
-kubectl wait pod -l ray-node-type=head --for=condition=Ready
+kubectl wait pod -l ray-node-type=head --for=condition=Ready --timeout=240s
 ```
 
 Extract the name of the Ray cluster.

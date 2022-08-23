@@ -22,7 +22,13 @@ export JOB_ENV=$(
         echo "Please set RAY_ADDRESS"
         exit 1
     else
-        echo $(curl -s $RAY_ADDRESS/api/jobs/$JOB_ID)
+        while true; do
+            resp=$(curl -s $RAY_ADDRESS/api/jobs/$JOB_ID)
+            if [ -n "$resp" ]
+            then echo "[Log Aggregator]: Ray job has started"; break;
+            else echo "[Log Aggregator]: Waiting for Ray job to start"; sleep 2;
+            fi
+        done
     fi
 )
 ```
