@@ -1,5 +1,12 @@
 
 
+## [0.5.2](https://github.com/guidebooks/store/compare/0.5.1...0.5.2) (2022-08-23)
+
+
+### Bug Fixes
+
+* another fix for log aggregator server side ray head wait ([a3ada23](https://github.com/guidebooks/store/commit/a3ada239e8560cf40fa0affda79279248320362e))
+
 ## [0.5.1](https://github.com/guidebooks/store/compare/0.5.0...0.5.1) (2022-08-22)
 
 
