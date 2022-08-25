@@ -1,5 +1,12 @@
 
 
+## [0.5.8](https://github.com/guidebooks/store/compare/0.5.7...0.5.8) (2022-08-25)
+
+
+### Bug Fixes
+
+* change ^ to >= for peer dependence on madwizard ([43ab1f6](https://github.com/guidebooks/store/commit/43ab1f6aed0bc30dbff751673f663b170d266aa8))
+
 ## [0.5.7](https://github.com/guidebooks/store/compare/0.5.6...0.5.7) (2022-08-23)
 
 
