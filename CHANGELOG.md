@@ -1,5 +1,17 @@
 
 
+# [0.6.0](https://github.com/guidebooks/store/compare/0.5.8...0.6.0) (2022-08-26)
+
+
+### Bug Fixes
+
+* ray helm chart incorrectly always uses 1 worker replica ([569c4ad](https://github.com/guidebooks/store/commit/569c4ad80e744b545dd568a01d41b1a92356c958))
+
+
+### Features
+
+* add ml/codeflare/training/roberta ([f2e6a6b](https://github.com/guidebooks/store/commit/f2e6a6bc10d3cb1e4e7d0b94da77c0b0d39a1463))
+
 ## [0.5.8](https://github.com/guidebooks/store/compare/0.5.7...0.5.8) (2022-08-25)
 
 
