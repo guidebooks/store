@@ -4,11 +4,12 @@ I would like to configure and fire off a run.
 
 ## What kind of application do you want to run?
 
-=== "Training Demos"
-    --8<-- "./training"
-
-=== "Fine Tuning Demos"
-    --8<-- "./tuning"
-
+=== "Run with CodeFlare Model Architecture"
+    --8<-- "./run-with-codeflare.md"
+    
 === "Bring Your Own Code"
     --8<-- "./training/byot/index.md"
+
+=== "Demos"
+    Experience how CodeFlare integrates with Tensorboard, MLFlow, and other technologies on simple demo applications.
+    --8<-- "./training/demos/index.md"
