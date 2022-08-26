@@ -66,9 +66,9 @@ podTypes:
     # The key for each podType is a user-defined string.
     rayWorkerType:
         # minWorkers is the minimum number of Ray workers of this pod type to keep running.
-        minWorkers: 2
+        minWorkers: 1
         # maxWorkers is the maximum number of Ray workers of this pod type to which Ray will scale.
-        maxWorkers: 3
+        maxWorkers: 1
         # memory is the memory used by this Pod type.
         # (Used for both requests and limits.)
         memory: 1Gi
