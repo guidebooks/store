@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Values.clusterNamespace }}
 spec:
   # Change this to scale the number of worker nodes started in the Ray cluster.
-  replicas: 1
+  replicas: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
   selector:
     matchLabels:
       component: ray-worker
