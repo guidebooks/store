@@ -1,5 +1,12 @@
 
 
+## [0.6.1](https://github.com/guidebooks/store/compare/0.6.0...0.6.1) (2022-08-27)
+
+
+### Bug Fixes
+
+* restore ray cli-based log streaming ([0b89f4d](https://github.com/guidebooks/store/commit/0b89f4da704a87bb01e0faefce2688b820d2770e))
+
 # [0.6.0](https://github.com/guidebooks/store/compare/0.5.8...0.6.0) (2022-08-26)
 
 
