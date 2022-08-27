@@ -54,5 +54,12 @@ consuming streaming output from that file "batchy". Instead, we use
 Ray API; for log following, this is a websocket protocol, hence the
 need for an additional tool. Sigh.
 
+### Logs just to console
+
+--8<-- "./logs/via-cli.md"
+
+### Logs to a file (and possibly the console, too)
+
 --8<-- "./logs/via-websocat.md"
 
+ 
