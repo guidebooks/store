@@ -1,5 +1,12 @@
 
 
+## [0.6.2](https://github.com/guidebooks/store/compare/0.6.1...0.6.2) (2022-08-28)
+
+
+### Bug Fixes
+
+* update ml/codeflare/training/roberta to specify --no-input to ray-submit intrinsic ([b955284](https://github.com/guidebooks/store/commit/b9552842cb6e295fd8296428890419910d67088f))
+
 ## [0.6.1](https://github.com/guidebooks/store/compare/0.6.0...0.6.1) (2022-08-27)
 
 
