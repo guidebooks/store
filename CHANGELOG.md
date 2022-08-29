@@ -1,5 +1,12 @@
 
 
+## [0.6.3](https://github.com/guidebooks/store/compare/0.6.2...0.6.3) (2022-08-29)
+
+
+### Bug Fixes
+
+* ml/ray/cluster/kubernetes/is-ready can emit "workers 1/0" ([6ebccce](https://github.com/guidebooks/store/commit/6ebccce7f887e74484c1f76d8f42a7b498fe6dd0))
+
 ## [0.6.2](https://github.com/guidebooks/store/compare/0.6.1...0.6.2) (2022-08-28)
 
 
