@@ -4,6 +4,7 @@ imports:
     - kubernetes/helm3
     - kubernetes/context
     - kubernetes/choose/ns
+    - ./choose-pod-scheduler
 ---
 
 # Ray-in-Kubernetes Cluster Readiness
@@ -24,7 +25,7 @@ kubectl get pod \
   -l ray-cluster-name=${RAY_KUBE_CLUSTER_NAME-mycluster} \
   --watch --no-headers \
   -o custom-columns=NAME:.metadata.name,TYPE:.metadata.labels.ray-node-type,STATUS:.status.phase \
-  | awk -v MAX_WORKERS=${RAY_MAX_WORKERS-0} '\
+  | awk -v MAX_WORKERS=${RAY_MAX_WORKERS-0} -v KUBE_POD_MANAGER=$KUBE_POD_MANAGER '\
   --8<-- "./is-ready.awk"
   '
 ```
