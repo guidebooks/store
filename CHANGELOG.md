@@ -1,5 +1,12 @@
 
 
+## [0.6.4](https://github.com/guidebooks/store/compare/0.6.3...0.6.4) (2022-08-29)
+
+
+### Bug Fixes
+
+* switch to a stability branch of the ml/codeflare/training/roberta code ([9f4d0bb](https://github.com/guidebooks/store/commit/9f4d0bba841d27fb2fe2474436aa7e5d04822770))
+
 ## [0.6.3](https://github.com/guidebooks/store/compare/0.6.2...0.6.3) (2022-08-29)
 
 
