@@ -40,7 +40,7 @@ export ML_CODEFLARE_ROBERTA_REPO=foundation-model-stack
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_BRANCH=training-code
+export ML_CODEFLARE_ROBERTA_BRANCH=0-0-x
 ```
 
 ```shell
