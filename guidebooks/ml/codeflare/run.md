@@ -8,7 +8,7 @@ I would like to configure and fire off a run.
     --8<-- "./run-with-codeflare.md"
     
 === "Bring Your Own Code"
-    --8<-- "./training/byot/index.md"
+    --8<-- "./training/byoc/index.md"
 
 === "Demos"
     Experience how CodeFlare integrates with Tensorboard, MLFlow, and other technologies on simple demo applications.
