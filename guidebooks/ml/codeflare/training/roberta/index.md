@@ -7,9 +7,10 @@ imports:
 
 # Pre-Train a RoBERTa Language Model from Pre-tokenized Data
 
+The
 [RoBERTa](https://huggingface.co/docs/transformers/model_doc/roberta)
-is a robustly optimized method for pretraining natural language
-processing (NLP) systems.
+model architecture is a robustly optimized method for pretraining
+natural language processing (NLP) systems.
 
 ## Dependencies
 
