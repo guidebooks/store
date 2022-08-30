@@ -1,5 +1,12 @@
 
 
+## [0.6.5](https://github.com/guidebooks/store/compare/0.6.4...0.6.5) (2022-08-30)
+
+
+### Bug Fixes
+
+* allow roberta github location defaults to be overridden ([2b167c8](https://github.com/guidebooks/store/commit/2b167c85baca64e5d9681ae8f5e377428186c1d1))
+
 ## [0.6.4](https://github.com/guidebooks/store/compare/0.6.3...0.6.4) (2022-08-29)
 
 
