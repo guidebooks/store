@@ -1,5 +1,12 @@
 
 
+# [0.7.0](https://github.com/guidebooks/store/compare/0.6.7...0.7.0) (2022-08-30)
+
+
+### Features
+
+* add ml/codeflare/training/demos/getting-started ([857964f](https://github.com/guidebooks/store/commit/857964f54b9badf9ea2b45d541828a11c6dfa104))
+
 ## [0.6.7](https://github.com/guidebooks/store/compare/0.6.6...0.6.7) (2022-08-30)
 
 
