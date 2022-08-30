@@ -28,23 +28,23 @@ export ML_CODEFLARE_ROBERTA_WORKDIR=$(mktemp -d)
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_GITHUB=github.ibm.com
+export ML_CODEFLARE_ROBERTA_GITHUB=${ML_CODEFLARE_ROBERTA_GITHUB-github.ibm.com}
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_ORG=ai-foundation
+export ML_CODEFLARE_ROBERTA_ORG=${ML_CODEFLARE_ROBERTA_ORG-ai-foundation}
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_REPO=foundation-model-stack
+export ML_CODEFLARE_ROBERTA_REPO=${ML_CODEFLARE_ROBERTA_REPO-foundation-model-stack}
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_BRANCH=0-0-x
+export ML_CODEFLARE_ROBERTA_BRANCH=${ML_CODEFLARE_ROBERTA_BRANCH-0-0-x}
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_SUBDIR=RoBERTa/training
+export ML_CODEFLARE_ROBERTA_SUBDIR=${ML_CODEFLARE_ROBERTA_SUBDIR-RoBERTa/training}
 ```
 
 Clone the code.
