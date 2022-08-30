@@ -1,5 +1,7 @@
 
 
+## [0.6.6](https://github.com/guidebooks/store/compare/0.6.5...0.6.6) (2022-08-30)
+
 ## [0.6.5](https://github.com/guidebooks/store/compare/0.6.4...0.6.5) (2022-08-30)
 
 
