@@ -1,5 +1,12 @@
 
 
+## [0.8.2](https://github.com/guidebooks/store/compare/0.8.1...0.8.2) (2022-08-31)
+
+
+### Bug Fixes
+
+* increase connection timeout in ibmcloud detector ([a13afad](https://github.com/guidebooks/store/commit/a13afad1566ea06701606b1a48412c37b7615ac5))
+
 ## [0.8.1](https://github.com/guidebooks/store/compare/0.8.0...0.8.1) (2022-08-31)
 
 
