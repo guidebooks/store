@@ -6,12 +6,6 @@
 if [ "$CODEFLARE_ROBERTA_DATA" = "public" ]; then
     # use sample data
     R_DATA_ENDPOINT=s3.direct.us-east.cloud-object-storage.appdomain.cloud
-    wget -t1 --connect-timeout=4 -S --spider $R_DATA_ENDPOINT
-    if [ $? = 4 ]; then
-        # then we must not be internal to ibmcloud; we cannot use the direct endpoint
-        R_DATA_ENDPOINT=s3.us-east.cloud-object-storage.appdomain.cloud
-    fi
-
     R_DATA_BUCKET=codeflare-roberta-public
     R_DATA_OBJECT=roberta-sample-input-0.0.1.tar.gz
     R_ARGS="--simulated_gpus 4 --num_steps 100 --report_interval 10 --b_size 12"
@@ -47,8 +41,21 @@ if [ ! -f /tmp/$R_DATA_OBJECT ]; then
       (cd /tmp && wget -q -O- https://github.com/peak/s5cmd/releases/download/v2.0.0/s5cmd_2.0.0_\${PLATFORM}.tar.gz | tar zxf - s5cmd && chmod +x s5cmd)
   fi
 
-   echo "Fetching data"
    export S3_ENDPOINT_URL=$R_DATA_ENDPOINT
+   if [ "\$S3_ENDPOINT_URL" = "s3.direct.us-east.cloud-object-storage.appdomain.cloud" ]; then
+     set +e
+     wget -t1 --connect-timeout=4 -S --spider \$S3_ENDPOINT_URL >& /dev/null
+     set -e
+     if [ $? = 4 ]; then
+         # then we must not be internal to ibmcloud; we cannot use the direct endpoint
+         export S3_ENDPOINT_URL=s3.us-east.cloud-object-storage.appdomain.cloud
+         echo "Using public endpoint"
+     else
+         echo "Using ibmcloud endpoint"
+     fi
+   fi
+
+   echo "Fetching data from \$S3_ENDPOINT_URL"
    time /tmp/s5cmd --no-sign-request cp s3://$R_DATA_BUCKET/$R_DATA_OBJECT /tmp/$R_DATA_OBJECT
    echo "Fetching data done"
    echo "Disseminating data to workers"
