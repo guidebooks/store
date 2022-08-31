@@ -17,6 +17,13 @@ else
     URL="git@${ML_CODEFLARE_ROBERTA_GITHUB}:${ML_CODEFLARE_ROBERTA_ORG}/${ML_CODEFLARE_ROBERTA_REPO}.git"
 fi
 
+if [ -f "/tmp/github/id_rsa" ]; then
+    eval "$(ssh-agent -s)"
+    ssh-add /tmp/github/id_rsa
+    mkdir -p ~/.ssh
+    ssh-keyscan -H $ML_CODEFLARE_ROBERTA_GITHUB >> ~/.ssh/known_hosts
+fi
+
 # sparse clone
 if [ -n "$ML_CODEFLARE_ROBERTA_BRANCH" ]; then BRANCHOPT="-b $ML_CODEFLARE_ROBERTA_BRANCH"; fi
 echo "Cloning $URL ${BRANCHOPT}"
