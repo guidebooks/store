@@ -5,10 +5,10 @@
 
 if [ "$CODEFLARE_ROBERTA_DATA" = "public" ]; then
     # use sample data
-    R_DATA_ENDPOINT=s3.direct.us-east.cloud-object-storage.appdomain.cloud
-    R_DATA_BUCKET=codeflare-roberta-public
-    R_DATA_OBJECT=roberta-sample-input-0.0.1.tar.gz
-    R_ARGS="--simulated_gpus 4 --num_steps 100 --report_interval 10 --b_size 12"
+    R_DATA_ENDPOINT=${ML_CODEFLARE_ROBERTA_S3_ENDPOINT_URL-s3.direct.us-east.cloud-object-storage.appdomain.cloud}
+    R_DATA_BUCKET=${ML_CODEFLARE_ROBERTA_S3_BUCKET-codeflare-roberta-public}
+    R_DATA_OBJECT=${ML_CODEFLARE_ROBERTA_S3_OBJECT-roberta-sample-input-0.0.1.tar.gz}
+    R_ARGS=${ML_CODEFLARE_ROBERTA_ARGS-"--simulated_gpus 4 --num_steps 100 --report_interval 10 --b_size 12"}
     # ^^^ here we are using a quite conservative b_size, to allow for running on a 16GiB GPU
 else
     # bring your own data
