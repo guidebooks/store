@@ -14,7 +14,8 @@ if [ "$CODEFLARE_ROBERTA_DATA" = "public" ]; then
 
     R_DATA_BUCKET=codeflare-roberta-public
     R_DATA_OBJECT=roberta-sample-input-0.0.1.tar.gz
-    R_ARGS="--simulated_gpus 4 --num_steps 100 --report_interval 10 --b_size 32"
+    R_ARGS="--simulated_gpus 4 --num_steps 100 --report_interval 10 --b_size 12"
+    # ^^^ here we are using a quite conservative b_size, to allow for running on a 16GiB GPU
 else
     # bring your own data
     R_DATA_ENDPOINT=$S3_ENDPOINT_URL
