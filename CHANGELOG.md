@@ -1,5 +1,17 @@
 
 
+# [0.8.0](https://github.com/guidebooks/store/compare/0.7.3...0.8.0) (2022-08-31)
+
+
+### Bug Fixes
+
+* add get verb to ray head node role ([0094ee8](https://github.com/guidebooks/store/commit/0094ee898a0e47904a5bd99c18d753c43e023963))
+
+
+### Features
+
+* associate ray head pod with a serviceaccount ([9872455](https://github.com/guidebooks/store/commit/987245595f9ea2f201bfb2a9feca1ce6ecf23cb3))
+
 ## [0.7.3](https://github.com/guidebooks/store/compare/0.7.2...0.7.3) (2022-08-31)
 
 
