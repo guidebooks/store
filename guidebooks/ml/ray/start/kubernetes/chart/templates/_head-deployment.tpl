@@ -32,6 +32,8 @@ spec:
         pod-group.scheduling.sigs.k8s.io: {{ include "ray.podgroup" . }}
         {{ end }}
     spec:
+      serviceAccountName: ray-head-serviceaccount
+
       {{ if eq .Values.mcad.scheduler "coscheduler" }}
       schedulerName: scheduler-plugins-scheduler
       {{ end }}
