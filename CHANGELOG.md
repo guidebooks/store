@@ -1,5 +1,12 @@
 
 
+## [0.7.1](https://github.com/guidebooks/store/compare/0.7.0...0.7.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* add a marker to the end of the getting-started guidebook ([1dbd721](https://github.com/guidebooks/store/commit/1dbd72188235d61af81de68e909710e4a7a3dce6))
+
 # [0.7.0](https://github.com/guidebooks/store/compare/0.6.7...0.7.0) (2022-08-30)
 
 
