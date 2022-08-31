@@ -6,7 +6,7 @@
 if [ "$CODEFLARE_ROBERTA_DATA" = "public" ]; then
     # use sample data
     R_DATA_ENDPOINT=s3.direct.us-east.cloud-object-storage.appdomain.cloud
-    wget -t1 --connect-timeout=1 -S --spider $R_DATA_ENDPOINT
+    wget -t1 --connect-timeout=4 -S --spider $R_DATA_ENDPOINT
     if [ $? = 4 ]; then
         # then we must not be internal to ibmcloud; we cannot use the direct endpoint
         R_DATA_ENDPOINT=s3.us-east.cloud-object-storage.appdomain.cloud
