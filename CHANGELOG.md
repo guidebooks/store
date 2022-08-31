@@ -1,5 +1,12 @@
 
 
+## [0.8.1](https://github.com/guidebooks/store/compare/0.8.0...0.8.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* in ml/codeflare/training/roberta, lower b_size for sample input ([4e2e6b2](https://github.com/guidebooks/store/commit/4e2e6b2a575d2d2eec003fed737ce7a07882d9d0))
+
 # [0.8.0](https://github.com/guidebooks/store/compare/0.7.3...0.8.0) (2022-08-31)
 
 
