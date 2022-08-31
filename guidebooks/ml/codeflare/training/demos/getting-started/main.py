@@ -48,3 +48,6 @@ model.fit(x=x_train,
           epochs=5, 
           validation_data=(x_test, y_test), 
           callbacks=[tensorboard_callback])
+
+# Helps with tests # @starpit
+print("Final result") # @starpit
