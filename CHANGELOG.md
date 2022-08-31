@@ -1,5 +1,12 @@
 
 
+## [0.7.2](https://github.com/guidebooks/store/compare/0.7.1...0.7.2) (2022-08-31)
+
+
+### Bug Fixes
+
+* ml/codeflare/training/roberta regression in job submission ([d6ae0f6](https://github.com/guidebooks/store/commit/d6ae0f646942765545efc5c61fcdb0d3cecf9e80))
+
 ## [0.7.1](https://github.com/guidebooks/store/compare/0.7.0...0.7.1) (2022-08-31)
 
 
