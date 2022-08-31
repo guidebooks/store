@@ -1,5 +1,12 @@
 
 
+# [0.9.0](https://github.com/guidebooks/store/compare/0.8.3...0.9.0) (2022-08-31)
+
+
+### Features
+
+* update ml/codeflare/training/roberta/clone.sh to support ssh keys from secrets ([ae21a5b](https://github.com/guidebooks/store/commit/ae21a5bbf1b631efb0f18ccbab079de532da1d9b))
+
 ## [0.8.3](https://github.com/guidebooks/store/compare/0.8.2...0.8.3) (2022-08-31)
 
 
