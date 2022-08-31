@@ -5,7 +5,13 @@
 
 if [ "$CODEFLARE_ROBERTA_DATA" = "public" ]; then
     # use sample data
-    R_DATA_ENDPOINT=s3.direct.us-east.cloud-object-storage.appdomain.cloud # todo detect in-ibm/ex-ibm
+    R_DATA_ENDPOINT=s3.direct.us-east.cloud-object-storage.appdomain.cloud
+    wget -t1 --connect-timeout=1 -S --spider $R_DATA_ENDPOINT
+    if [ $? = 4 ]; then
+        # then we must not be internal to ibmcloud; we cannot use the direct endpoint
+        R_DATA_ENDPOINT=s3.us-east.cloud-object-storage.appdomain.cloud
+    fi
+
     R_DATA_BUCKET=codeflare-roberta-public
     R_DATA_OBJECT=roberta-sample-input-0.0.1.tar.gz
     R_ARGS="--simulated_gpus 4 --num_steps 100 --report_interval 10 --b_size 32"
