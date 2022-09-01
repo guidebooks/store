@@ -40,6 +40,11 @@
       "@release-it/conventional-changelog": {
         "preset": "angular",
         "infile": "CHANGELOG.md"
+      },
+      "@release-it/bumper": {
+        "out": [
+          "guidebooks/ml/ray/start/kubernetes/install-via-helm.sh"
+        ]
       }
     }
   }
