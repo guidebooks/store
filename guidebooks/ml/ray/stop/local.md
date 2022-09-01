@@ -1,3 +1,8 @@
+---
+imports:
+    - ml/ray/install/cli
+---
+
 # Stopping Ray Locally
 
 This will stop Ray on your laptop.
