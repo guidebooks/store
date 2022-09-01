@@ -54,7 +54,6 @@ spec:
             cpu: {{ .Values.podTypes.rayWorkerType.CPU }}
             memory: {{ .Values.podTypes.rayWorkerType.memory }}
           limits:
-            cpu: {{ .Values.podTypes.rayWorkerType.CPU }}
             # The maximum memory that this pod is allowed to use. The
             # limit will be detected by ray and split to use 10% for
             # redis, 30% for the shared memory object store, and the
