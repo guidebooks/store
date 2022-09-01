@@ -1,9 +1,8 @@
 ---
 imports:
-    - ../../../kubernetes/kubectl.md
-    - ../../../kubernetes/context.md
-    - ../../../kubernetes/choose/ns.md
-    - ../../../kubernetes/helm3.md
+    - kubernetes/helm3
+    - kubernetes/kubectl
+    - kubernetes/choose/ns
 ---
 
 # Stop Ray in your Kubernetes Cluster
