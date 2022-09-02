@@ -1,5 +1,22 @@
 
 
+# [0.10.0](https://github.com/guidebooks/store/compare/0.9.0...0.10.0) (2022-09-02)
+
+
+### Bug Fixes
+
+* allow ray workers to use as much cpu as they need, if available ([6b96256](https://github.com/guidebooks/store/commit/6b962563273fd7954479d7160c7aa71906697894))
+* back out prior removal of cpu limit ([983bb5c](https://github.com/guidebooks/store/commit/983bb5c6f9d40eaf87938171a95b372669b64611))
+* ml/ray/start/kubernetes/install-via-helm.sh needs to pin a version for git clone ([7cd557f](https://github.com/guidebooks/store/commit/7cd557f5e74ee5a8bd38f311620f2ede27bd5f07))
+* ml/ray/start/kubernetes/port-forward/ray should retry ([1744483](https://github.com/guidebooks/store/commit/174448389e9e3e6c5e85adc1eb01e7fd0048801d))
+* ml/ray/stop should not require the ray cli ([df28bfc](https://github.com/guidebooks/store/commit/df28bfc9c7afa11c32d60c9b36765b2c2d26ed5e))
+
+
+### Features
+
+* allow guidebooks/ml/codeflare/training/roberta/demo s3 defaults to be overridden ([cfdd201](https://github.com/guidebooks/store/commit/cfdd201891aadc4c70b67b2afd153a08bd4a8c0a))
+* support for s3fs in ml/codeflare/training/roberta ([0fd23a0](https://github.com/guidebooks/store/commit/0fd23a0759f239b1aaf9f02d7d9ced68fd62729a))
+
 # [0.9.0](https://github.com/guidebooks/store/compare/0.8.3...0.9.0) (2022-08-31)
 
 
