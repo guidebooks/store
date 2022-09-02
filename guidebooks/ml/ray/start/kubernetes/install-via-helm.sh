@@ -37,7 +37,7 @@ fi
 # sparse clone
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
 echo "Cloning https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}"
-(git clone -q --filter=tree:0 --depth 1 --sparse https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
+(git clone -c advice.detachedHead=false -q --filter=tree:0 --depth 1 --sparse https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
     cd $REPO && \
     git sparse-checkout init --cone > /dev/null && \
     git sparse-checkout set $SUBDIR > /dev/null)
