@@ -60,6 +60,7 @@ cd $REPO/$SUBDIR && \
     helm upgrade --install --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
          ${CREATE_NAMESPACE} ${STARTUP_PROBE} ${OPERATOR_IMAGE} \
+         ${HELM_EXTRA} \
          --set clusterNamespace=${KUBE_NS_FOR_REAL-${KUBE_NS}} \
          --set podTypes.rayHeadType.CPU=${NUM_CPUS-1} \
          --set podTypes.rayHeadType.CPUInteger=${NUM_CPUS_INTEGER-1} \

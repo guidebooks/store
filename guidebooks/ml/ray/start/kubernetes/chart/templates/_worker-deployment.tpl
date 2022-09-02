@@ -35,6 +35,15 @@ spec:
       - name: dshm
         emptyDir:
           medium: Memory
+      {{- if .Values.pvcs }}
+      {{- if .Values.pvcs.rayWorkerType }}
+      {{- range $key, $val := .Values.pvcs.rayWorkerType }}
+      - name: {{ regexReplaceAll "\\." $val.claim "-" }}
+        persistentVolumeClaim:
+          claimName: {{ $val.claim }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
       containers:
       - name: ray-worker
         image: {{ .Values.image }}
@@ -48,6 +57,14 @@ spec:
         volumeMounts:
           - mountPath: /dev/shm
             name: dshm
+        {{- if .Values.pvcs }}
+        {{- if .Values.pvcs.rayWorkerType }}
+        {{- range $key, $val := .Values.pvcs.rayWorkerType }}
+          - name: {{ regexReplaceAll "\\." $val.claim "-" }}
+            mountPath: {{ $val.mountPath }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
         env:
         resources:
           requests:

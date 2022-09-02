@@ -3,7 +3,7 @@
 # generate a main.sh in the provided $ML_CODEFLARE_ROBERTA_WORKDIR
 # working directory that deals with fetching the data from s3
 
-if [ "$CODEFLARE_ROBERTA_DATA" = "public" ]; then
+if [ "$ML_CODEFLARE_ROBERTA_DATA" = "public" ]; then
     # use sample data
     R_DATA_ENDPOINT=${ML_CODEFLARE_ROBERTA_S3_ENDPOINT_URL-s3.direct.us-east.cloud-object-storage.appdomain.cloud}
     R_DATA_BUCKET=${ML_CODEFLARE_ROBERTA_S3_BUCKET-codeflare-roberta-public}
@@ -18,7 +18,7 @@ else
     R_ARGS="--simulated_gpus 8 --b_size 64"
 fi
 
-DATAPATH=/tmp/roberta-sample-input
+DATAPATH=${ML_CODEFLARE_ROBERTA_DATAPATH-/tmp/roberta-sample-input}
 
 set -e
 set -o pipefail
@@ -30,10 +30,15 @@ fi
 cd "$ML_CODEFLARE_ROBERTA_WORKDIR"
 
 # this script will be run on the target machines, not the user's laptop
-cat << EOF > main.sh
+if [ "$ML_CODEFLARE_ROBERTA_DATA" = "premounted" ]; then
+    cat << EOF > main.sh
+echo "Spawning job with --datapath=$DATAPATH $R_ARGS \$@"
+(cd "$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" && python3 train_roberta.py --datapath=$DATAPATH $R_ARGS \$@)
+EOF
+else
+    cat << EOF > main.sh
 set -e
 set -o pipefail
-if [ ! -d /tmp/roberta-sample-input ]; then mkdir /tmp/roberta-sample-input; fi
 if [ ! -f /tmp/$R_DATA_OBJECT ]; then
   if [ ! -f /tmp/s5cmd ]; then
       PLATFORM=Linux-64bit
@@ -66,5 +71,6 @@ fi
 echo "Spawning job with --datapath=$DATAPATH $R_ARGS \$@"
 (cd "$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" && python3 train_roberta.py --datapath=$DATAPATH $R_ARGS \$@)
 EOF
+fi
 
 chmod +x main.sh
