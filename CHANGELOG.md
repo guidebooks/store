@@ -1,5 +1,12 @@
 
 
+## [0.10.1](https://github.com/guidebooks/store/compare/0.10.0...0.10.1) (2022-09-02)
+
+
+### Bug Fixes
+
+* pvc delete command missing $ in `$ML_CODEFLARE_ROBERTA_S3FS_CLAIM` ([d9efd2b](https://github.com/guidebooks/store/commit/d9efd2be68d0d1e6c43c33f29d3ec8a7e3b351b4))
+
 # [0.10.0](https://github.com/guidebooks/store/compare/0.9.0...0.10.0) (2022-09-02)
 
 
