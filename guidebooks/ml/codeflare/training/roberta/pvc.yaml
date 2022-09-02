@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    name: $ML_CODEFLARE_ROBERTA_S3FS_CLAIM
+    annotations:
+        ibm.io/auto-create-bucket: "false"
+        ibm.io/auto-delete-bucket: "false"
+        ibm.io/bucket: $S3_BUCKET
+        ibm.io/secret-name: $ML_CODEFLARE_ROBERTA_S3FS_SECRET
+        ibm.io/endpoint: $S3_ENDPOINT
+spec:
+    accessModes:
+        - ReadWriteMany
+    resources:
+        requests:
+            storage: 8Gi
+    storageClassName: ibmc-s3fs-standard-regional

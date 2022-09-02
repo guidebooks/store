@@ -15,6 +15,13 @@ startupProbe:
 failsafes:
   ray:
     version: 1.13.0
+
+# you may mount pvcs into the pods
+# pvcs:
+#   rayWorkerType:
+#     - claim: claimName
+#       mountPath: /data
+# Usage: helm --set pvc.rayWorkerType[0].claim=claimName --set pvc.rayWorkerType[0].mountPath=/data
   
 # Default values for Ray.
 
