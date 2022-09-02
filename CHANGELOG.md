@@ -1,5 +1,13 @@
 
 
+## [0.10.2](https://github.com/guidebooks/store/compare/0.10.1...0.10.2) (2022-09-02)
+
+
+### Bug Fixes
+
+* /ml/codeflare/training/roberta/choose-data-public sets wrong variable ([1021cd4](https://github.com/guidebooks/store/commit/1021cd47e6974ab00017c47e68ec8b49954ba592))
+* avoid detached HEAD warnings from ray helm git clone ([9fc9b0f](https://github.com/guidebooks/store/commit/9fc9b0f46cbb997cd52e1acdeb3ea5f619bcfe6b))
+
 ## [0.10.1](https://github.com/guidebooks/store/compare/0.10.0...0.10.1) (2022-09-02)
 
 
