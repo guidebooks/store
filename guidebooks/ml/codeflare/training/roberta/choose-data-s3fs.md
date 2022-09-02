@@ -40,7 +40,7 @@ kubectl create ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} \
 ## Create the S3FS PersistentVolumeClaim
 
 ```shell
-(kubectl delete ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pvc ML_CODEFLARE_ROBERTA_S3FS_CLAIM >& /dev/null || exit 0)
+(kubectl delete ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pvc $ML_CODEFLARE_ROBERTA_S3FS_CLAIM >& /dev/null || exit 0)
 
 cat << EOF | kubectl apply ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -f -
 --8<-- "./pvc.yaml"
