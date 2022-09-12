@@ -60,6 +60,7 @@ spec:
             - containerPort: 10001 # Used by Ray Client
             - containerPort: 8265 # Used by Ray Dashboard
             - containerPort: 8000 # Used by Ray Serve
+            - containerPort: 8888 # Used by Jupyter-lab server
 
           startupProbe:
             periodSeconds: {{ .Values.startupProbe.periodSeconds | default 10 }}
