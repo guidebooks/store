@@ -10,7 +10,7 @@ imports:
 # Ray-in-Kubernetes Cluster Readiness
 
 ```shell
-export RAY_MAX_WORKERS=$(kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} get raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .maxWorkers')
+export RAY_MAX_WORKERS=$(kubectl get ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq '.spec.podTypes | .[] | select(.name=="rayWorkerType") | .maxWorkers')
 ```
 
 Emit the initial state
