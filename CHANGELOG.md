@@ -1,5 +1,12 @@
 
 
+## [0.10.3](https://github.com/guidebooks/store/compare/0.10.2...0.10.3) (2022-09-14)
+
+
+### Bug Fixes
+
+* kubectl context and namespace args have to be after verb ([4deefc5](https://github.com/guidebooks/store/commit/4deefc573bac8729ee5b835678f05721736a0a6a))
+
 ## [0.10.2](https://github.com/guidebooks/store/compare/0.10.1...0.10.2) (2022-09-02)
 
 
