@@ -12,6 +12,7 @@
     ```
 
 === "Linux"
+    <!-- FIXME: this is debian/ubuntu-specific. -->
     ```shell
     ---
     validate: which jq
