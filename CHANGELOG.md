@@ -1,5 +1,12 @@
 
 
+# [0.11.0](https://github.com/guidebooks/store/compare/0.10.3...0.11.0) (2022-09-14)
+
+
+### Features
+
+* add ml/codeflare/training/demos/getting-started/s3 ([199f402](https://github.com/guidebooks/store/commit/199f40240c796344a7375671c4492a972d8d328f))
+
 ## [0.10.3](https://github.com/guidebooks/store/compare/0.10.2...0.10.3) (2022-09-14)
 
 
