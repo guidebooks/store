@@ -14,7 +14,7 @@ export TENSORBOARD_PORT=${TENSORBOARD_PORT-$(shuf -i 8266-9999 -n1)}
 ```
 
 ```shell.async
-kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} port-forward service/tensorboard-service ${TENSORBOARD_PORT}:9080 > /tmp/port-forward-tensorboard
+kubectl port-forward ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} service/tensorboard-service ${TENSORBOARD_PORT}:9080 > /tmp/port-forward-tensorboard
 ```
 
 ```shell
