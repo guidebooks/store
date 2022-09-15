@@ -1,6 +1,6 @@
 # Configure your Ray Resource Requirements
 
-=== "Number of CPUs [default: 1]"
+=== "Number of CPUs [default: 500m]"
     ```shell
     export NUM_CPUS=${choice}
     ```
@@ -15,17 +15,17 @@
     export MIN_WORKERS=${choice}
     ```
 
-=== "Maximum Workers [default: 2]"
+=== "Maximum Workers [default: 1]"
     ```shell
     export MAX_WORKERS=${choice}
     ```
 
-=== "Worker Memory [default: 1Gi]"
+=== "Worker Memory [default: 500Mi]"
     ```shell
     export WORKER_MEMORY=${choice}
     ```
 
-=== "Head Memory [default: 1Gi]"
+=== "Head Memory [default: 4Gi]"
     ```shell
     export HEAD_MEMORY=${choice}
     ```
