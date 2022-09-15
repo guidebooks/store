@@ -71,6 +71,11 @@ spec:
               path: /
               port: 8265
 
+          # make openshift local happy
+          securityContext:
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+
           # This volume allocates shared memory for Ray to use for its plasma
           # object store. If you do not provide this, Ray will fall back to
           # /tmp which cause slowdowns if is not a shared memory volume.
