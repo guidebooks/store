@@ -8,5 +8,5 @@ export PATH=~/.local/bin:$PATH:/usr/local/opt/python@3.9/Frameworks/Python.frame
 ---
 validate: which ray
 ---
-pip install -U "ray[default]==1.13"
+which ray || pip install -U "ray[default]==1.13"
 ```
