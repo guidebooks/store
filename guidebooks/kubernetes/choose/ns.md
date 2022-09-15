@@ -27,6 +27,9 @@ bring.
 
 === "Create a namespace"
     ```shell
+    ---
+    validate: kubectl get ns madns
+    ---
     kubectl create ns madns
     ```
     
