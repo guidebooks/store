@@ -28,12 +28,16 @@ bring.
 === "Create a namespace"
     ```shell
     ---
-    validate: kubectl get ns madns
+    validate: kubectl get ${KUBE_CONTEXT_ARG} ns madns || oc get ${KUBE_CONTEXT_ARG} ns madns
     ---
-    kubectl create ns madns
+    kubectl create ${KUBE_CONTEXT_ARG} ns madns || oc new-project ${KUBE_CONTEXT_ARG} madns
     ```
     
     ```shell
     export KUBE_NS=madns
     ```
-    
+
+    ```shell
+    export KUBE_NS_ARG="-n madns"
+    ```
+
