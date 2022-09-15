@@ -1,5 +1,12 @@
 
 
+## [0.11.3](https://github.com/guidebooks/store/compare/0.11.2...0.11.3) (2022-09-15)
+
+
+### Bug Fixes
+
+* enforce more restrictive securityContext for ray pods ([c89073a](https://github.com/guidebooks/store/commit/c89073a38374452e7f4797d2b2e9ed69cb357134))
+
 ## [0.11.2](https://github.com/guidebooks/store/compare/0.11.1...0.11.2) (2022-09-15)
 
 
