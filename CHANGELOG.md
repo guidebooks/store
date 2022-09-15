@@ -1,5 +1,12 @@
 
 
+## [0.11.2](https://github.com/guidebooks/store/compare/0.11.1...0.11.2) (2022-09-15)
+
+
+### Bug Fixes
+
+* add more PATH discovery options to ml/ray/install/cli ([a32299a](https://github.com/guidebooks/store/commit/a32299a4c8c64ade96fd5d865543dd17ba6cb8eb))
+
 ## [0.11.1](https://github.com/guidebooks/store/compare/0.11.0...0.11.1) (2022-09-15)
 
 
