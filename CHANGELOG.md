@@ -1,5 +1,16 @@
 
 
+## [0.11.1](https://github.com/guidebooks/store/compare/0.11.0...0.11.1) (2022-09-15)
+
+
+### Bug Fixes
+
+* adjust default ray cluster resources to be less demanding ([423b107](https://github.com/guidebooks/store/commit/423b107c5e1b65c1876c936c4c67711f529f8407))
+* another fix for re-installing the ray cli ([66b52df](https://github.com/guidebooks/store/commit/66b52dfdb53adafe0eee45c78be6a0b62010da51))
+* if user selects "create namespace", then profile can get stuck ([87f9048](https://github.com/guidebooks/store/commit/87f90480ea752bf568e1de764ee7894500fea426))
+* kubernetes/choose/ns does not set KUBE_NS_ARG for "create namespace" option ([bb41e24](https://github.com/guidebooks/store/commit/bb41e244a60ef28093da8b01b5a2c3c57760c2e2))
+* on macOS, ray may still not be on PATH even after installation of the ray CLI ([0fc24c2](https://github.com/guidebooks/store/commit/0fc24c2ede0f6ad4503b2e03325e640b8e8c8c07))
+
 # [0.11.0](https://github.com/guidebooks/store/compare/0.10.3...0.11.0) (2022-09-14)
 
 
