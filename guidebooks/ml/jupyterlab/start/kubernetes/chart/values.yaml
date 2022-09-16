@@ -1,0 +1,2 @@
+clusterName: mycluster
+rayHeadPort: 6379

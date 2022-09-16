@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: {{ .Values.clusterName }}-jupyterlab
+    labels:
+        app: jupyterlab
+spec:
+    ports:
+        - port: 8888
+          protocol: TCP
+    selector:
+        app: jupyterlab

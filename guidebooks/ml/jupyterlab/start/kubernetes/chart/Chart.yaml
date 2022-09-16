@@ -1,0 +1,10 @@
+apiVersion: v2
+name: jupyterlab
+description: A Helm chart for deployments of JupyterLab on Kubernetes.
+type: application
+
+# Chart version
+version: 0.1.0
+
+# JupyterLab version
+appVersion: "latest"
