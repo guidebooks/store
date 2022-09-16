@@ -1,5 +1,12 @@
 
 
+## [0.12.2](https://github.com/guidebooks/store/compare/0.12.1...0.12.2) (2022-09-16)
+
+
+### Bug Fixes
+
+* sparse checkout update uses wrong branch for mcad and coschedulerE ([63b89b2](https://github.com/guidebooks/store/commit/63b89b21d250f1348ceb4f00239f5bfa71204393))
+
 ## [0.12.1](https://github.com/guidebooks/store/compare/0.12.0...0.12.1) (2022-09-16)
 
 
