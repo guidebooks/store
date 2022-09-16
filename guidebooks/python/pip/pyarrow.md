@@ -18,5 +18,5 @@ based on the C++ implementation of Arrow.
 ---
 validate: pip-show pyarrow
 ---
-pip install pyarrow
+pip3 install -U pyarrow
 ```

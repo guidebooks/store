@@ -4,5 +4,5 @@
 ---
 validate: pip-show ray_lightning
 ---
-pip install ray_lightning
+pip3 install -U ray_lightning
 ```

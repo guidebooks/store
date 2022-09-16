@@ -4,5 +4,5 @@
 ---
 validate: pip-show sklearn
 ---
-pip install scikit-learn
+pip3 install -U scikit-learn
 ```

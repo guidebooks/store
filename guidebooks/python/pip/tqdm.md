@@ -7,5 +7,5 @@ iterable with `tqdm(iterable)`, and you're done!
 ---
 validate: pip-show tqdm
 ---
-pip install tqdm
+pip3 install -U tqdm
 ```

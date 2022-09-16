@@ -16,6 +16,6 @@ To get started with Ray Serve, you will need to install a library.
 ---
 validate: pip-show ray[serve]
 ---
-pip install "ray[serve]"
+pip3 install -U "ray[serve]"
 ```
 

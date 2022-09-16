@@ -4,5 +4,5 @@
 ---
 validate: pip-show aiorwlock
 ---
-pip install aiorwlock
+pip3 install -U aiorwlock
 ```

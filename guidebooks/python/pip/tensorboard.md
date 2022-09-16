@@ -16,5 +16,5 @@ experimentation:
 ---
 validate: pip-show tensorboard
 ---
-pip install --user tensorboard
+pip3 install -U tensorboard
 ```
