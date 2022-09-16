@@ -1,5 +1,12 @@
 
 
+## [0.12.1](https://github.com/guidebooks/store/compare/0.12.0...0.12.1) (2022-09-16)
+
+
+### Bug Fixes
+
+* improve git compatibility with sparse checkout ([7c6cbdf](https://github.com/guidebooks/store/commit/7c6cbdfb9388ecc1fd2f4e5edf9ce6133266aa31))
+
 # [0.12.0](https://github.com/guidebooks/store/compare/0.11.3...0.12.0) (2022-09-16)
 
 
