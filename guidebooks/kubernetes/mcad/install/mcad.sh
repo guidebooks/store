@@ -14,7 +14,7 @@ echo "Installing Advanced Pod Manager"
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
 (git clone -q --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} && \
     cd $REPO && \
-    git sparse-checkout set --cone $SUBDIR && git checkout master)
+    git sparse-checkout set --cone $SUBDIR && git checkout ${BRANCH-master})
 
 if [ -n "$CI" ]; then
     # If we are running in a CI setting, we need to dial down the

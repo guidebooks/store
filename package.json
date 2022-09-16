@@ -43,6 +43,8 @@
       },
       "@release-it/bumper": {
         "out": [
+          "guidebooks/ml/mlflow/start/kubernetes/install.sh",
+          "guidebooks/ml/tensorboard/start/kubernetes/install.sh",
           "guidebooks/ml/ray/start/kubernetes/install-via-helm.sh"
         ]
       }

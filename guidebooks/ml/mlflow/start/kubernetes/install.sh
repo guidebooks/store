@@ -1,11 +1,12 @@
+BRANCH=0.12.2 # <-- will get updated by @release-it/bumper; see top-level package.json
 CHART_DIR=guidebooks/ml/mlflow/start/kubernetes/chart
 
 MLFLOW_CLONE_TEMPDIR=$(mktemp -d)
 cd $MLFLOW_CLONE_TEMPDIR
 
-git clone -q --no-checkout --filter=blob:none https://github.com/guidebooks/store.git && \
+git clone -q --no-checkout --filter=blob:none https://github.com/guidebooks/store.git -b $BRANCH && \
     cd store && \
-    git sparse-checkout set --cone $CHART_DIR && git checkout main
+    git sparse-checkout set --cone $CHART_DIR && git checkout $BRANCH
 
 helm --kube-context ${KUBE_CONTEXT} -n ${KUBE_NS} \
      upgrade --install --wait --timeout 30m \
