@@ -1,5 +1,12 @@
 
 
+## [0.12.3](https://github.com/guidebooks/store/compare/0.12.2...0.12.3) (2022-09-16)
+
+
+### Bug Fixes
+
+* sparse checkout branches need not be main/master ([f1ef3d4](https://github.com/guidebooks/store/commit/f1ef3d4407d41d407d858980396d9b4074097810))
+
 ## [0.12.2](https://github.com/guidebooks/store/compare/0.12.1...0.12.2) (2022-09-16)
 
 
