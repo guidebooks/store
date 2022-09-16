@@ -1,5 +1,12 @@
 
 
+# [0.12.0](https://github.com/guidebooks/store/compare/0.11.3...0.12.0) (2022-09-16)
+
+
+### Features
+
+* discontinue support for ray local (ray kube only) ([431dc11](https://github.com/guidebooks/store/commit/431dc1142d2eb228d8ad437ccef05241bd6b5aa6))
+
 ## [0.11.3](https://github.com/guidebooks/store/compare/0.11.2...0.11.3) (2022-09-15)
 
 
