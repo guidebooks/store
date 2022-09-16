@@ -14,10 +14,9 @@ echo "Installing Enhanced Scheduler Support"
 
 # sparse clone
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
-(git clone -q --filter=tree:0 --depth 1 --sparse https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} >& /dev/null && \
+(git clone -q --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} && \
     cd $REPO && \
-    git sparse-checkout init --cone >& /dev/null && \
-    git sparse-checkout set $SUBDIR >& /dev/null)
+    git sparse-checkout set $SUBDIR && git checkout main)
 
 cd $REPO/manifests/install/charts && \
     helm upgrade --install --wait scheduler-plugins as-a-second-scheduler/ \

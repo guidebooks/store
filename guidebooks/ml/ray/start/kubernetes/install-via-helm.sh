@@ -37,10 +37,9 @@ fi
 # sparse clone
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
 echo "Cloning https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}"
-(git clone -c advice.detachedHead=false -q --filter=tree:0 --depth 1 --sparse https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
+(git clone -q --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
     cd $REPO && \
-    git sparse-checkout init --cone > /dev/null && \
-    git sparse-checkout set $SUBDIR > /dev/null)
+    git sparse-checkout set $SUBDIR && git checkout main)
 
 if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml

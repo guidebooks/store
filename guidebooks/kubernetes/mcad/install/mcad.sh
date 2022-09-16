@@ -12,10 +12,9 @@ echo "Installing Advanced Pod Manager"
 
 # sparse clone
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
-(git clone -q --filter=tree:0 --depth 1 --sparse https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
+(git clone -q --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} && \
     cd $REPO && \
-    git sparse-checkout init --cone > /dev/null && \
-    git sparse-checkout set $SUBDIR > /dev/null)
+    git sparse-checkout set --cone $SUBDIR && git checkout main)
 
 if [ -n "$CI" ]; then
     # If we are running in a CI setting, we need to dial down the

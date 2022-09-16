@@ -3,10 +3,9 @@ CHART_DIR=guidebooks/ml/mlflow/start/kubernetes/chart
 MLFLOW_CLONE_TEMPDIR=$(mktemp -d)
 cd $MLFLOW_CLONE_TEMPDIR
 
-git clone --filter=tree:0 --depth 1 --sparse https://github.com/guidebooks/store.git >& /dev/null && \
+git clone -q --no-checkout --filter=blob:none https://github.com/guidebooks/store.git && \
     cd store && \
-    git sparse-checkout init --cone >& /dev/null && \
-    git sparse-checkout set $CHART_DIR >& /dev/null
+    git sparse-checkout set --cone $CHART_DIR && git checkout main
 
 helm --kube-context ${KUBE_CONTEXT} -n ${KUBE_NS} \
      upgrade --install --wait --timeout 30m \

@@ -27,7 +27,7 @@ fi
 # sparse clone
 if [ -n "$ML_CODEFLARE_ROBERTA_BRANCH" ]; then BRANCHOPT="-b $ML_CODEFLARE_ROBERTA_BRANCH"; fi
 echo "Cloning $URL ${BRANCHOPT}"
-(git clone -q --filter=tree:0 --depth 1 --sparse "$URL" ${BRANCHOPT} > /dev/null && \
+(git clone -q --no-checkout --filter=blob:none "$URL" ${BRANCHOPT} > /dev/null && \
     cd "$ML_CODEFLARE_ROBERTA_REPO" && \
     git sparse-checkout init --cone > /dev/null && \
     git sparse-checkout set "${ML_CODEFLARE_ROBERTA_SUBDIR}" > /dev/null)
