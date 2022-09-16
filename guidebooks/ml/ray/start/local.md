@@ -15,7 +15,7 @@ export PIP_LOCAL=true
     ---
     validate: pip-show ray
     ---
-    pip install -U "ray[default]==1.13"
+    pip3 install -U "ray[default]==1.13"
     ```
 
 === "Apple Silicon"
@@ -30,7 +30,7 @@ export PIP_LOCAL=true
     conda activate
     pip uninstall grpcio
     conda install grpcio
-    pip install ray
+    pip3 install -U "ray[default]==1.13"
     ```
         
 ```shell

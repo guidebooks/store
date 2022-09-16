@@ -4,5 +4,5 @@
 ---
 validate: pip-show tensorflow
 ---
-pip install --user tensorflow
+pip3 install -U tensorflow
 ```

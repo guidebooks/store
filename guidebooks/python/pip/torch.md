@@ -8,5 +8,5 @@ production deployment.
 ---
 validate: pip-show torch
 ---
-pip install torch
+pip3 install -U torch
 ```

@@ -8,5 +8,5 @@ export PATH=~/.local/bin:$PATH:~/Library/Python/3.9/bin:~/Library/Python/3.8/bin
 ---
 validate: which ray
 ---
-which ray || pip install -U "ray[default]==1.13"
+(which ray >& /dev/null) || pip3 install -U "ray[default]==1.13"
 ```

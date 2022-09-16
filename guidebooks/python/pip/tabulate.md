@@ -4,5 +4,5 @@
 ---
 validate: pip-show tabulate
 ---
-pip install tabulate
+pip3 install -U tabulate
 ```

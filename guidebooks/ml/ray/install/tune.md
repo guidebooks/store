@@ -13,5 +13,5 @@ To get started with Ray Tune, you will need to install a library.
 ---
 validate: pip-show ray[tune]
 ---
-pip install "ray[tune]"
+pip3 install -U "ray[tune]"
 ```

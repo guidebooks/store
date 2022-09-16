@@ -4,5 +4,5 @@
 ---
 validate: pip-show boto3
 ---
-pip install boto3
+pip3 install -U boto3
 ```

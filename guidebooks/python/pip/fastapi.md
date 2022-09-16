@@ -4,5 +4,5 @@
 ---
 validate: pip-show fastapi
 ---
-pip install fastapi
+pip3 install -U fastapi
 ```

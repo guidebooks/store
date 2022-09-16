@@ -8,6 +8,6 @@ To get started with Ray Data, you will need to install a library.
 ---
 validate: pip-show ray[data]
 ---
-pip install "ray[data]" dask
+pip3 install -U "ray[data]" dask
 ```
 

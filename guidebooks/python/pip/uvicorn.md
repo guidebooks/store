@@ -4,5 +4,5 @@
 ---
 validate: pip-show uvicorn
 ---
-pip install uvicorn
+pip3 install -U uvicorn
 ```
