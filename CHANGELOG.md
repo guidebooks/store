@@ -1,5 +1,12 @@
 
 
+## [0.12.4](https://github.com/guidebooks/store/compare/0.12.3...0.12.4) (2022-09-16)
+
+
+### Bug Fixes
+
+* use pip3 rather than pip to install deps ([3ca3fc6](https://github.com/guidebooks/store/commit/3ca3fc6d42a40ffa42d796d3190c284ca898a066))
+
 ## [0.12.3](https://github.com/guidebooks/store/compare/0.12.2...0.12.3) (2022-09-16)
 
 
