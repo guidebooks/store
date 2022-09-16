@@ -19,7 +19,7 @@ spec:
                 - name: jupyterlab
                   image: docker.io/metalcycling/ray-jupyter
                   command: ["/bin/bash", "-c", "--"]
-                  args: ["ray start --address={{ .Values.clusterName }}-ray-head:{{ .Values.rayHeadPort; sleep infinity;"]
+                  args: ["ray start --address={{ .Values.clusterName }}-ray-head:{{ .Values.rayHeadPort }}; sleep infinity;"]
                   imagePullPolicy: IfNotPresent
                   ports:
                       - containerPort: 8888
