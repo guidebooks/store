@@ -8,11 +8,11 @@ spec:
     replicas: 1
     selector:
         matchLabels:
-            app: jupyterlab
+            app: jupyterlab-pod
     template:
         metadata:
             labels:
-                app: jupyterlab
+                app: jupyterlab-pod
         spec:
             restartPolicy: Always
             containers:
