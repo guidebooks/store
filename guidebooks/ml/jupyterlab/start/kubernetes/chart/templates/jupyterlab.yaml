@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
     name: {{ .Values.clusterName }}-jupyterlab
     labels:
-        app: jupyterlab
+        app: jupyterlab-deployment
 spec:
     replicas: 1
     selector:

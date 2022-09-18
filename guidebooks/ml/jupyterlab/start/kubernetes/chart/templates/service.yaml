@@ -3,10 +3,10 @@ kind: Service
 metadata:
     name: {{ .Values.clusterName }}-jupyterlab
     labels:
-        app: jupyterlab-service
+        app: jupyterlab-deployment
 spec:
     ports:
         - port: 8888
           protocol: TCP
     selector:
-        app: jupyterlab-deployment
+        app: jupyterlab-pod
