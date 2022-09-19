@@ -39,7 +39,7 @@ else
     cat << EOF > main.sh
 set -e
 set -o pipefail
-if [ ! -f /tmp/$R_DATA_OBJECT ]; then
+if [ ! -s /tmp/$R_DATA_OBJECT ]; then
   if [ ! -f /tmp/s5cmd ]; then
       PLATFORM=Linux-64bit
       echo "Fetching s5cmd for platform=\$PLATFORM"
@@ -49,9 +49,12 @@ if [ ! -f /tmp/$R_DATA_OBJECT ]; then
    export S3_ENDPOINT_URL=$R_DATA_ENDPOINT
    if [ "\$S3_ENDPOINT_URL" = "s3.direct.us-east.cloud-object-storage.appdomain.cloud" ]; then
      set +e
+     echo "Confirming endpoint"
      wget -t1 --connect-timeout=4 -S --spider \$S3_ENDPOINT_URL >& /dev/null
+     CODE=$?
+     echo "Confirming endpoint done with code $CODE"
      set -e
-     if [ $? = 4 ]; then
+     if [ "$CODE" = "4" ]; then
          # then we must not be internal to ibmcloud; we cannot use the direct endpoint
          export S3_ENDPOINT_URL=s3.us-east.cloud-object-storage.appdomain.cloud
          echo "Using public endpoint"
