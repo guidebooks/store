@@ -49,12 +49,8 @@ if [ ! -s /tmp/$R_DATA_OBJECT ]; then
    export S3_ENDPOINT_URL=$R_DATA_ENDPOINT
    if [ "\$S3_ENDPOINT_URL" = "s3.direct.us-east.cloud-object-storage.appdomain.cloud" ]; then
      set +e
-     echo "Confirming endpoint"
-     wget -t1 --connect-timeout=4 -S --spider \$S3_ENDPOINT_URL >& /dev/null
-     CODE=$?
-     echo "Confirming endpoint done with code $CODE"
-     set -e
-     if [ "$CODE" = "4" ]; then
+     X=\$(wget -t1 --connect-timeout=4 --spider "\$S3_ENDPOINT_URL" 2>&1)
+     if echo "\$X" | grep "Giving up"; then
          # then we must not be internal to ibmcloud; we cannot use the direct endpoint
          export S3_ENDPOINT_URL=s3.us-east.cloud-object-storage.appdomain.cloud
          echo "Using public endpoint"
