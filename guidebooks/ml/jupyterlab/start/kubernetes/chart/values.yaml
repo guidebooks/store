@@ -1,2 +1,3 @@
 clusterName: mycluster
 rayHeadPort: 6379
+rayImage: rayproject/ray:1.13.1-py37
