@@ -39,7 +39,7 @@ if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
 echo "Cloning https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}"
 (git clone -q --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
     cd $REPO && \
-    git sparse-checkout set $SUBDIR && git checkout ${BRANCH-main})
+    git sparse-checkout set --cone $SUBDIR && git checkout ${BRANCH-main})
 
 if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml
