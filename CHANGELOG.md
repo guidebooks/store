@@ -1,5 +1,12 @@
 
 
+## [0.12.6](https://github.com/guidebooks/store/compare/0.12.5...0.12.6) (2022-09-19)
+
+
+### Bug Fixes
+
+* pin openshift `oc` version to 4.10.33 ([3a2a08d](https://github.com/guidebooks/store/commit/3a2a08dd78d31bf1eabebbd1244b987903f66eb2))
+
 ## [0.12.5](https://github.com/guidebooks/store/compare/0.12.4...0.12.5) (2022-09-19)
 
 
