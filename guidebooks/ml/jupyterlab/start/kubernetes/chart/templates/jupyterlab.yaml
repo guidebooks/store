@@ -19,7 +19,7 @@ spec:
                 - name: jupyterlab
                   image: {{ .Values.rayImage }}
                   command: ["/bin/bash", "-c", "--"]
-                  args: ["conda install -c conda-forge vim; pip install jupyterlab; ray start --address={{ .Values.clusterName }}-ray-head:{{ .Values.rayHeadPort }}; sleep infinity;"]
+                  args: ["conda install -c conda-forge vim; pip install jupyterlab jupyterlab-vim; ray start --address={{ .Values.clusterName }}-ray-head:{{ .Values.rayHeadPort }}; sleep infinity;"]
                   imagePullPolicy: IfNotPresent
                   ports:
                       - containerPort: 8888
