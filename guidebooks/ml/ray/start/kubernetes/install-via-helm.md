@@ -1,5 +1,7 @@
 ---
 imports:
+    - ./label-selectors
+    - kubernetes/helm3
     - ml/ray/cluster/kubernetes/choose-pod-scheduler
 ---
 
