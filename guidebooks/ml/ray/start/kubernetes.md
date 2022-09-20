@@ -1,11 +1,8 @@
 ---
 imports:
     - kubernetes/kubectl
-    - kubernetes/helm3
-    - kubernetes/context
-    - kubernetes/choose/ns
-    - ./kubernetes/label-selectors
     - ./resources
+    - kubernetes/choose/ns
 ---
 
 # Install Ray on a Kubernetes Cluster
