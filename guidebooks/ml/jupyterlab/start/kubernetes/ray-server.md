@@ -1,5 +1,6 @@
 ---
 imports:
+    - ml/ray/start/kubernetes
     - kubernetes/kubectl
     - kubernetes/helm3
     - kubernetes/context
@@ -11,5 +12,3 @@ imports:
 A JupyterLab server will run on a Kubernetes cluster
 
 --8<-- "../util/working-directory.md"
-
-:import{ml/ray/start/kubernetes}
