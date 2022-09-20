@@ -1,5 +1,5 @@
 ---
-imports: 
+imports:
     - ./local/image.md
 ---
 

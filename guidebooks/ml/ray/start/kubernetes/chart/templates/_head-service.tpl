@@ -19,10 +19,6 @@ spec:
     protocol: TCP
     port: 6379
     targetPort: 6379
-  - name: jupyter-lab
-    protocol: TCP
-    port: 8888
-    targetPort: 8888
   selector:
     component: ray-head
 {{end}}
