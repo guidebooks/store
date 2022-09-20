@@ -15,3 +15,7 @@ in a *comparmentalized* way, with the data living throughout the notebook execut
 === "Shut down a Kubernetes Cluster"
     Stop a Kubernetes cluster that maybe running a Jupyter server
     :import{ml/ray/stop/kubernetes}
+
+=== "Shut down a JupyterLab server"
+    Stop a JupyterLab server
+    :import{ml/jupyterlab/stop/kubernetes}
