@@ -1,5 +1,21 @@
 
 
+# [0.13.0](https://github.com/guidebooks/store/compare/0.12.6...0.13.0) (2022-09-24)
+
+
+### Bug Fixes
+
+* ml/ray/start/kubernetes expresses import dependencies that aren't needed ([968dd9f](https://github.com/guidebooks/store/commit/968dd9f83f61374413092a428d82cff8ea5330bc))
+* ml/ray/start/kubernetes may leave "kubernetes.txt" in CWD ([de3c273](https://github.com/guidebooks/store/commit/de3c273461ac9a28213f6562eb89f5c4ed1a2702))
+* roberta with sample input should use /tmp for logdir ([8523223](https://github.com/guidebooks/store/commit/8523223fd51973b03999ba394f708ee19bdeaf9e))
+
+
+### Features
+
+* add kubernetes/choose/ns-with-context to allow choice of ns with an a priori context choice ([f20a69e](https://github.com/guidebooks/store/commit/f20a69e0b888ec3c4b89d761108f5b99ff30f2b2))
+* add util/envsubst and util/envsubst2 ([7aed3f0](https://github.com/guidebooks/store/commit/7aed3f0a0c9ef289b9afaf5c47bf8903bdf69f0d))
+* bump to madwizard 1.0.0 which mandates use of imports versus inlining ([1e1b943](https://github.com/guidebooks/store/commit/1e1b943d2c24308e120e01dca161093efe584183))
+
 ## [0.12.6](https://github.com/guidebooks/store/compare/0.12.5...0.12.6) (2022-09-19)
 
 
