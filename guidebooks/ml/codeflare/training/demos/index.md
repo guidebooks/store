@@ -1,8 +1,8 @@
 === "Getting Started Demo"
-    --8<-- "./getting-started"
+    :import{./getting-started}
 
 === "MLFlow Demo"
-    --8<-- "./mlflow"
+    :import{./mlflow}
 
 === "Tensorboard Demo"
-    --8<-- "./tensorboard"
+    :import{./tensorboard}

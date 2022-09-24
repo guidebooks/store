@@ -8,7 +8,7 @@ imports:
 --8<-- "../../glossary/dataset.md"
 
 === "New Dataset from Range"
-    --8<-- "./from-range.md"
+    :import{./from-range}
 
 === "New Dataset from File"
-    --8<-- "./from-file.md"
+    :import{./from-file}

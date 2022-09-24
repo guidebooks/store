@@ -5,7 +5,8 @@
 ## What do you want to do today?
 
 === "Start a new Run"
-    --8<-- "./run.md"
+    I would like to configure and fire off a run.
+    :import{./run.md}
     
 === "Connect Dashboard to an existing Run"
     I would like to visualize the resource consumption, status, and logs of a run in progress.

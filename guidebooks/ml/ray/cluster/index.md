@@ -1,7 +1,5 @@
 # Pick a Ray Target
 
-=== "My Cluster is Running Locally"
-    --8<-- "./local.md"
+Only Kubernetes is supported, for now.
 
-=== "My Cluster is Running on Kubernetes"
-    --8<-- "./kubernetes/index.md"
+--8<-- "./kubernetes/index.md"

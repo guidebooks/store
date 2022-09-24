@@ -4,11 +4,6 @@
 ML lifecycle, including experimentation, reproducibility, deployment,
 and a central model registry.
 
-=== "Run Locally"
-    Run The MLFlow Server on your computer.
-    ```shell
-    echo TODO
-    ```
+Only Kubernetes is supported, for now.
 
-=== "Run on a Kubernetes Cluster"
-    --8<-- "./kubernetes"
+--8<-- "./kubernetes"

@@ -1,2 +1,2 @@
 === "Example: Hyperparameter Tuning"
-    --8<-- "./examples/grid-search.md"
+    :import{./examples/grid-search}
