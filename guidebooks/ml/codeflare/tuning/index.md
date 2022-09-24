@@ -7,4 +7,4 @@ same domain.
 ## Which fine-tuning application do you want to run?
 
 === "GLUE"
-    --8<-- "./glue"
+    :import{./glue}

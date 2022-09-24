@@ -5,7 +5,7 @@ collection of optimized source code and pre-trained models that you
 can leverage to expedite your time to value.
 
 === "Training Tasks"
-    --8<-- "./training"
+    :import{./training}
 
 === "Fine Tuning Tasks"
-    --8<-- "./tuning"
+    :import{./tuning}

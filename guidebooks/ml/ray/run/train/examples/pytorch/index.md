@@ -1,6 +1,6 @@
 ---
 imports:
-    - ../../../../../../python/pip/torch.md
+    - python/pip/torch
 ---
 
 # Ray Train with PyTorch

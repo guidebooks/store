@@ -15,4 +15,4 @@
     :import{s3/choose/object}
 
 === "My S3 data will be pre-mounted via s3fs"
-    --8<-- "./choose-data-s3fs"
+    :import{./choose-data-s3fs}

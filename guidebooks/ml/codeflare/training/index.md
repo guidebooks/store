@@ -13,4 +13,4 @@ by the training process.
     is a robustly optimized method for pretraining natural language
     processing (NLP) systems.
 
-    --8<-- "./roberta"
+    :import{./roberta}
