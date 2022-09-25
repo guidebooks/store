@@ -30,7 +30,7 @@
     "madwizard": "*"
   },
   "peerDependencies": {
-    "madwizard": ">=1.0.0"
+    "madwizard": ">=1.0.2"
   },
   "publishConfig": {
     "access": "public"
