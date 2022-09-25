@@ -1,5 +1,12 @@
 
 
+## [0.13.1](https://github.com/guidebooks/store/compare/0.13.0...0.13.1) (2022-09-25)
+
+
+### Bug Fixes
+
+* bump to madwizard 1.0.2 to pick up aprioris fixes ([080737a](https://github.com/guidebooks/store/commit/080737a58bc34b5c09067635245356c5094a8b73))
+
 # [0.13.0](https://github.com/guidebooks/store/compare/0.12.6...0.13.0) (2022-09-24)
 
 
