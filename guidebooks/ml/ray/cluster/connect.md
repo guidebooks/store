@@ -7,11 +7,7 @@ imports:
 
 This will define the environment variable `RAY_ADDRESS`.
 
-=== "Run Locally"
-    ```shell
-    export RAY_ADDRESS=http://127.0.0.1:8265
-    ```
+## Run on a Kubernetes Cluster
 
-=== "Run on a Kubernetes Cluster"
-    --8<-- "./kubernetes"
+--8<-- "./kubernetes"
 
