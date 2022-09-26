@@ -1,5 +1,17 @@
 
 
+# [0.14.0](https://github.com/guidebooks/store/compare/0.13.1...0.14.0) (2022-09-26)
+
+
+### Bug Fixes
+
+* ml/ray/cluster/kubernetes/choose-pod-scheduler was not properly importing mcad choice ([3eb1192](https://github.com/guidebooks/store/commit/3eb1192a60bedf3bf1b0d2f693d284808f2bb768))
+
+
+### Features
+
+* remove untested ray local remnants ([b1bf712](https://github.com/guidebooks/store/commit/b1bf712a2377090d1802c70e21e9e766455d7aae))
+
 ## [0.13.1](https://github.com/guidebooks/store/compare/0.13.0...0.13.1) (2022-09-25)
 
 
