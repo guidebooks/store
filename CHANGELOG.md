@@ -1,5 +1,12 @@
 
 
+## [0.14.1](https://github.com/guidebooks/store/compare/0.14.0...0.14.1) (2022-09-27)
+
+
+### Bug Fixes
+
+* kubernetes/choose/ns shows up in profile as kubernetes/choose/ns-with-context ([d910ced](https://github.com/guidebooks/store/commit/d910cedceb2db76c755c47079ea6c10ae1e31bb1))
+
 # [0.14.0](https://github.com/guidebooks/store/compare/0.13.1...0.14.0) (2022-09-26)
 
 
