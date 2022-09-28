@@ -1,5 +1,12 @@
 
 
+## [0.14.2](https://github.com/guidebooks/store/compare/0.14.1...0.14.2) (2022-09-27)
+
+
+### Bug Fixes
+
+* missing title for ml/codeflare/training/demos ([30cedd3](https://github.com/guidebooks/store/commit/30cedd3855c1e0d0a30f7e5322e76e9aee217bdc))
+
 ## [0.14.1](https://github.com/guidebooks/store/compare/0.14.0...0.14.1) (2022-09-27)
 
 
