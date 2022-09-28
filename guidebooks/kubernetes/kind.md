@@ -1,16 +1,36 @@
 ---
-title: Install kind
 imports:
-    - ../docker/install.md
-codeblocks:
-    - match: ^\(kind version >& /dev/null\) && echo "You have Kind!" \|\| echo "Please install Kind"$
-      validate: $body
+    - docker/install
 ---
 
-### [kind](https://kind.sigs.k8s.io/docs/user/quick-start){target=_blank} (Kubernetes in Docker)
+# Install kind
 
-Enables you to run a local Kubernetes cluster with Docker container nodes.
+[kind](https://kind.sigs.k8s.io/docs/user/quick-start)(Kubernetes in
+Docker) enables you to run a local Kubernetes cluster with Docker
+container nodes.
 
-```bash
-(kind version >& /dev/null) && echo "You have Kind!" || echo "Please install Kind"
-```
+=== "MacOS"
+    ```shell
+    ---
+    validate: which kind
+    ---
+    brew install kind
+    ```
+
+=== "Linux"
+    ```shell
+    ---
+    validate: which kind
+    ---
+    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.16.0/kind-linux-amd64
+    chmod +x ./kind
+    sudo mv ./kind /usr/local/bin/kind
+    ```
+    
+=== "Windows"
+    ```shell
+    ---
+    validate: which kind
+    ---
+    choco install kind
+    ```
