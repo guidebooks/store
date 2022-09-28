@@ -1,5 +1,13 @@
 
 
+## [0.14.3](https://github.com/guidebooks/store/compare/0.14.2...0.14.3) (2022-09-28)
+
+
+### Bug Fixes
+
+* improved error messages for docker/install ([197ba62](https://github.com/guidebooks/store/commit/197ba623d6cbe71fb6becacf69c4945edfceda84))
+* update kubernetes/kind to install kind if needed ([6d296ee](https://github.com/guidebooks/store/commit/6d296ee7ebe4af07acd29b9f2b45aabd3825cd40))
+
 ## [0.14.2](https://github.com/guidebooks/store/compare/0.14.1...0.14.2) (2022-09-27)
 
 
