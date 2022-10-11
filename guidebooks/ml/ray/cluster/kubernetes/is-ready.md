@@ -13,6 +13,7 @@ export RAY_MAX_WORKERS=$(kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get ray
 ```
 
 Emit the initial state
+
 ```shell
 echo "head    0/1"
 echo "workers 0/${RAY_MAX_WORKERS-1}"

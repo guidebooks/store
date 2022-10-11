@@ -12,7 +12,9 @@ imports:
 
 This will install Ray on a Kubernetes context of your choosing.
 
---8<-- "../hacks/openshift/uid-range.md"
+I think this validate could be messing it up.... 
+
+<!-- --8<-- "../hacks/openshift/uid-range.md" -->
 
 ## Stream out Events from the Ray Head Node
 
@@ -24,12 +26,14 @@ kubectl get events --context ${KUBE_CONTEXT} -n ${KUBE_NS} --watch-only | tee "$
 
 This defines the base docker image we will use for the ray head and worker nodes.
 
-=== "Select Docker image for Ray Operator [default: rayproject/ray:1.13.0-py39]"
+=== "Select Docker image for Ray [default: rayproject/ray:1.13.0-py39]"
     ```shell
     export RAY_OPERATOR_IMAGE=${choice}
-    export RAY_IMAGE=${choice}
     ```
 
+```shell
+export RAY_IMAGE=${RAY_OPERATOR_IMAGE}
+```
 
 A staging directory for the clone of the Ray Helm chart.
 
@@ -39,7 +43,7 @@ export HELM_CLONE_TEMPDIR=$(mktemp -d)
 
 ### Choose name of RayCluster CRD
 
-=== "The name of the Ray Kubernetes Service that best describes your ray project: [default: "ray-cluster"]"
+=== "The name of the Ray Kubernetes Service that best describes your ray project: [default: "example-cluster"]"
     ```shell
     export RAY_KUBE_CLUSTER_NAME=${choice}
     ```
