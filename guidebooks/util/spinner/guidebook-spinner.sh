@@ -20,7 +20,7 @@ function spinner() {
 
   local pid=$1 # Process Id of the previous running command
 
-  case 11 in
+  case 7 in
   0)
     local spin='⠁⠂⠄⡀⢀⠠⠐⠈'
     local charwidth=3
@@ -75,14 +75,14 @@ function spinner() {
   tput civis # cursor invisible
   while kill -0 $pid 2>/dev/null; do
     local i=$(((i + $charwidth) % ${#spin}))
-    printf "\033[33m%s" "${spin:$i:$charwidth}"
+    printf "\b\033[33m%s" "${spin:$i:$charwidth}"
     tput sgr0 # reset colors
 
-    cursorBack 7
     sleep .1
   done
   tput cnorm
   wait $pid # capture exit code
+  printf "\b"
   return $?
 }
 
