@@ -4,14 +4,10 @@
 #       E.g. ‹spinner sleep 10›
 
 function shutdown() {
-  tput sgr0 # reset colors
-  tput cnorm # reset cursor
+  printf "\x1b[0" # reset colors
+  printf "\x1b[?25h" # cursor visible
 }
 trap shutdown EXIT
-
-function cursorBack() {
-  echo -en "\033[$1D"
-}
 
 function spinner() {
   # make sure we use non-unicode character type locale 
@@ -22,7 +18,7 @@ function spinner() {
 
   case 7 in
   0)
-    local spin='⠁⠂⠄⡀⢀⠠⠐⠈'
+    local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
     local charwidth=3
     ;;
   1)
@@ -69,10 +65,14 @@ function spinner() {
     local spin='⣾⣽⣻⢿⡿⣟⣯⣷'
     local charwidth=3
     ;;
+  12)
+    local spin='▓▒░'
+    local charwidth=3
+    ;;
   esac
 
   local i=0
-  tput civis # cursor invisible
+  printf "\x1b[?25l" # cursor invisible
   while kill -0 $pid 2>/dev/null; do
     local i=$(((i + $charwidth) % ${#spin}))
     printf "\b\033[33m%s" "${spin:$i:$charwidth}"
@@ -80,7 +80,7 @@ function spinner() {
 
     sleep .1
   done
-  tput cnorm
+  printf "\x1b[?25h" # cursor visible
   wait $pid # capture exit code
   printf "\b"
   return $?
