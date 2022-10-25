@@ -1,5 +1,21 @@
 
 
+# [0.15.0](https://github.com/guidebooks/store/compare/0.14.3...0.15.0) (2022-10-25)
+
+
+### Bug Fixes
+
+* add validators to aws/install/cli ([53114c0](https://github.com/guidebooks/store/commit/53114c05e8de7b41a8cee95e606d51be9b37c2fe))
+* s3fs pvc used deprecated storageclass ([f77bd0c](https://github.com/guidebooks/store/commit/f77bd0c89a8b37496464e5774baeffb5efca0545))
+* util/spinner does not properly update and erase spinner ([9482107](https://github.com/guidebooks/store/commit/948210782e7d5b06fc03045c57cc9a3b9f5c8731))
+* util/spinner may not hide cursor in non-pty stdouts ([c77fa4d](https://github.com/guidebooks/store/commit/c77fa4d70d9a14a8e22f0d67b8c1be9b5ad5f52e))
+
+
+### Features
+
+* add aws/install/cli ([851f426](https://github.com/guidebooks/store/commit/851f426b09d6615deaa7c0b0b7a921d1c8aa4b31))
+* add util/spinner ([ae2a43b](https://github.com/guidebooks/store/commit/ae2a43bbe96117041245892308cdbc9a7f96251b))
+
 ## [0.14.3](https://github.com/guidebooks/store/compare/0.14.2...0.14.3) (2022-09-28)
 
 
