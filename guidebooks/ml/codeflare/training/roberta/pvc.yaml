@@ -6,12 +6,14 @@ metadata:
         ibm.io/auto-create-bucket: "false"
         ibm.io/auto-delete-bucket: "false"
         ibm.io/bucket: $S3_BUCKET
+        ibm.io/object-path: "${ML_CODEFLARE_ROBERTA_OBJECTPATH}"
         ibm.io/secret-name: $ML_CODEFLARE_ROBERTA_S3FS_SECRET
-        ibm.io/endpoint: $S3_ENDPOINT
+        ibm.io/endpoint: ${S3_ENDPOINT/s3/s3.direct}
+        ibm.io/tls-cipher-suite: "default" # https://github.com/IBM/ibmcloud-object-storage-plugin/issues/110
 spec:
     accessModes:
         - ReadWriteMany
     resources:
         requests:
-            storage: 8Gi
-    storageClassName: ibmc-s3fs-cos-perf
+            storage: 100Gi
+    storageClassName: ibmc-s3fs-cos
