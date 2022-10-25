@@ -1,5 +1,12 @@
 
 
+## [0.15.1](https://github.com/guidebooks/store/compare/0.15.0...0.15.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* due to madwizard bug, aws/auth does not work ([c68be15](https://github.com/guidebooks/store/commit/c68be153378796539d37916cb1b3ed469ab56a43))
+
 # [0.15.0](https://github.com/guidebooks/store/compare/0.14.3...0.15.0) (2022-10-25)
 
 
