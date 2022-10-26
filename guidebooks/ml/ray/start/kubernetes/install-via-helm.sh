@@ -77,4 +77,5 @@ cd $REPO/$SUBDIR && \
          --set operatorNamespace=${KUBE_NS} \
          ${startupProbe} \
          --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
-         --set image=${RAY_IMAGE}
+         --set image=${RAY_IMAGE} \
+         --set imagePullPolicy=${IMAGE_PULL_POLICY}
