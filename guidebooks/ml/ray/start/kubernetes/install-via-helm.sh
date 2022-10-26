@@ -14,7 +14,7 @@ if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
     ORG=${RAY_CHART_ORG-guidebooks}
     REPO=${RAY_CHART_REPO-store}
     BRANCH=${RAY_CHART_BRANCH-0.15.2} # <-- will get updated by @release-it/bumper; see top-level package.json
-    SUBDIR=guidebooks/ml/ray/start/kubernetes/chart
+    SUBDIR=${RAY_CHART_SUBDIR-guidebooks/ml/ray/start/kubernetes/chart}
 
     if [ "$KUBE_POD_MANAGER" = mcad ]
     then MCAD_ENABLED=true
@@ -77,4 +77,5 @@ cd $REPO/$SUBDIR && \
          --set operatorNamespace=${KUBE_NS} \
          ${startupProbe} \
          --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
-         --set image=${RAY_IMAGE}
+         --set image=${RAY_IMAGE} \
+         --set imagePullPolicy=${IMAGE_PULL_POLICY}

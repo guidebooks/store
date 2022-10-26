@@ -31,6 +31,8 @@ failsafes:
 # It's recommended to build custom dependencies for your workload into this image,
 # taking one of the offical `rayproject/ray` images as base.
 image: rayproject/ray:latest
+# Define if images should be pulled or taken if present
+imagePullPolicy: IfNotPresent
 # If a node is idle for this many minutes, it will be removed.
 idleTimeoutMinutes: 5
 # serviceAccountName is used for the Ray head and each Ray worker.
