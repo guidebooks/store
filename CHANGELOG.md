@@ -1,5 +1,12 @@
 
 
+## [0.15.2](https://github.com/guidebooks/store/compare/0.15.1...0.15.2) (2022-10-26)
+
+
+### Bug Fixes
+
+* roberta s3fs did delete+create; replace with validator ([4039e4a](https://github.com/guidebooks/store/commit/4039e4a6f4adf5c3a96c4c75912e17722bc27fa4))
+
 ## [0.15.1](https://github.com/guidebooks/store/compare/0.15.0...0.15.1) (2022-10-25)
 
 
