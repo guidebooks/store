@@ -15,5 +15,5 @@ forwarding, then we shouldn't exit. This is the hack for now: set
 `WAIT=true` when running this guidebook in this scenarios.
 
 ```shell
-if [ -n "$WAIT" ]; then sleep 100000; fi
+if [ -n "$WAIT" ]; then echo ${RAY_KUBE_PORT-8266}; sleep 100000; fi
 ```
