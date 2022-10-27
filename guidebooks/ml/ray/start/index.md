@@ -1,6 +1,7 @@
 ---
 imports:
     - ml/ray/install/cli
+    - ml/torchx/install/cli
 ---
 
 # Pick a Ray Target

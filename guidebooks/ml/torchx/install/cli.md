@@ -1,3 +1,8 @@
+---
+imports:
+    - ml/ray/install/cli
+---
+
 # Install the TorchX CLI
 
 [TorchX](https://pytorch.org/torchx/latest/) is a universal job
@@ -13,5 +18,5 @@ export PATH=~/.local/bin:$PATH:~/Library/Python/3.9/bin:~/Library/Python/3.8/bin
 ---
 validate: which torchx
 ---
-(which torchx >& /dev/null) || pip3 install -U "torchx[dev]"
+(which torchx >& /dev/null) || pip3 install -U "torchx[ray]"
 ```
