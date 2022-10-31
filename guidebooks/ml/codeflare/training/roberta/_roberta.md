@@ -40,11 +40,11 @@ export ML_CODEFLARE_ROBERTA_REPO=${ML_CODEFLARE_ROBERTA_REPO-foundation-model-st
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_BRANCH=${ML_CODEFLARE_ROBERTA_BRANCH-0-0-x}
+export ML_CODEFLARE_ROBERTA_BRANCH=${ML_CODEFLARE_ROBERTA_BRANCH-0-0-2}
 ```
 
 ```shell
-export ML_CODEFLARE_ROBERTA_SUBDIR=${ML_CODEFLARE_ROBERTA_SUBDIR-RoBERTa/training}
+export ML_CODEFLARE_ROBERTA_SUBDIR=${ML_CODEFLARE_ROBERTA_SUBDIR-src}
 ```
 
 Clone the code.
@@ -54,14 +54,23 @@ Clone the code.
 
 Inject our wrapper script
 ```shell
---8<-- "./wrapper.sh"
+cat << EOF > "${ML_CODEFLARE_ROBERTA_WORKDIR}/$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR/main.py"
+--8<-- "./fetch.py"
+EOF
 ```
 
+```shell
+export ML_CODEFLARE_MAIN=nlp/pretraining/train_roberta-torchnative.py
+```
 
 ## Submit a Ray Job
 
 ```shell
 ---
-exec: ray-submit --no-input --job-id ${JOB_ID} --working-dir=${ML_CODEFLARE_ROBERTA_WORKDIR} -- bash -c "chmod +x main.sh && ./main.sh --gpus=$((${MAX_WORKERS} * ${NUM_GPUS})) ${GUIDEBOOK_DASHDASH}"
+exec: ray-submit --no-input --job-id ${JOB_ID} --working-dir="${ML_CODEFLARE_ROBERTA_WORKDIR}/$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" --entrypoint main.py -- ${GUIDEBOOK_DASHDASH}
 ---
 ```
+
+exec: ray-submit --no-input --job-id ${JOB_ID} --working-dir=${ML_CODEFLARE_ROBERTA_WORKDIR} -- bash -c "chmod +x main.sh && ./main.sh --gpus=$((${MAX_WORKERS} * ${NUM_GPUS})) ${GUIDEBOOK_DASHDASH}"
+
+GOOD: exec: ray-submit --no-input --job-id ${JOB_ID} --working-dir="${ML_CODEFLARE_ROBERTA_WORKDIR}/$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" --entrypoint nlp/pretraining/train_roberta-torchnative.py -- --datapath $ML_CODEFLARE_ROBERTA_DATAPATH --simulated_gpus 8 --b_size 64 ${GUIDEBOOK_DASHDASH}

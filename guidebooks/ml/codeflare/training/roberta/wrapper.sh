@@ -33,7 +33,7 @@ cd "$ML_CODEFLARE_ROBERTA_WORKDIR"
 if [ "$ML_CODEFLARE_ROBERTA_DATA" = "premounted" ]; then
     cat << EOF > main.sh
 echo "Spawning job with --datapath=$DATAPATH $R_ARGS \$@"
-(cd "$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" && python3 train_roberta.py --datapath=$DATAPATH $R_ARGS \$@)
+(cd "$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" && python3 ${MAIN-train_roberta-torchnative.py} --datapath=$DATAPATH $R_ARGS \$@)
 EOF
 else
     cat << EOF > main.sh
@@ -68,7 +68,7 @@ if [ ! -s /tmp/$R_DATA_OBJECT ]; then
 fi
 
 echo "Spawning job with --datapath=$DATAPATH $R_ARGS \$@"
-(cd "$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" && python3 train_roberta.py --datapath=$DATAPATH $R_ARGS \$@)
+(cd "$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" && python3 ${MAIN-train_roberta-torchnative.py} --datapath=$DATAPATH $R_ARGS \$@)
 EOF
 fi
 
