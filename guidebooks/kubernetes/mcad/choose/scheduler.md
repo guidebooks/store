@@ -14,6 +14,11 @@ can be configured to prioritize your workloads.
     export KUBE_POD_MANAGER=mcad
     ```
 
+    TODO: here we assume that the coscheduler is installed.
+    ```shell
+    export KUBE_POD_SCHEDULER=coscheduler
+    ```
+
     ```shell
     export KUBE_POD_MANAGER_NON_ROOT=true
     ```
