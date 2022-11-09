@@ -1,8 +1,6 @@
-# Project Codeflare: Run a Job
+# Run a Job with CodeFlare
 
 I would like to configure and fire off a run.
-
-## What kind of application do you want to run?
 
 === "Run with CodeFlare Model Architecture"
     :import{./run-with-codeflare.md}
