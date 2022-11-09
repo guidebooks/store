@@ -1,5 +1,22 @@
 
 
+# [0.16.0](https://github.com/guidebooks/store/compare/0.15.2...0.16.0) (2022-11-09)
+
+
+### Bug Fixes
+
+* print out port or port forward ([bbd218c](https://github.com/guidebooks/store/commit/bbd218c91e2b51bf25dc3493b7595a1425f9521b))
+* remove question marks from ml/codeflare and ml/codeflare/run titles ([ada0e0f](https://github.com/guidebooks/store/commit/ada0e0fa92fc34b453e831dacb722e1d72805283))
+* update the terminology around choosing s3 credentials ([d6abd74](https://github.com/guidebooks/store/commit/d6abd748dde6ea3e083e5242ebd857cb63bc9dbd))
+* use coscheduler for preinstalled mcad option ([2604681](https://github.com/guidebooks/store/commit/2604681dfc342d717f2f7147bce097879f228ad5))
+
+
+### Features
+
+* add ml/torchx/install/cli ([1e96ccd](https://github.com/guidebooks/store/commit/1e96ccdc412aea866a8b007c869a499541e52cef))
+* add RAY_ADDRESS env var to ray head ([d6b0a6a](https://github.com/guidebooks/store/commit/d6b0a6a57d5a11cb84e4d648efdead82594bbc33))
+* add support for torchx run ([e523eac](https://github.com/guidebooks/store/commit/e523eac8a9b994027bbc2febb5fad283dc25c2b6))
+
 ## [0.15.2](https://github.com/guidebooks/store/compare/0.15.1...0.15.2) (2022-10-26)
 
 
