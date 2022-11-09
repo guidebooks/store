@@ -1,5 +1,12 @@
 
 
+# [0.17.0](https://github.com/guidebooks/store/compare/0.16.0...0.17.0) (2022-11-09)
+
+
+### Features
+
+* split out ray advanced topics from ml/codeflare ([8c21d30](https://github.com/guidebooks/store/commit/8c21d3044cbde1c87b1dda291ee07f54fed943fc))
+
 # [0.16.0](https://github.com/guidebooks/store/compare/0.15.2...0.16.0) (2022-11-09)
 
 

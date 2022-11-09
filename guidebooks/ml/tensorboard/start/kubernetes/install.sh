@@ -1,4 +1,4 @@
-BRANCH=0.16.0 # <-- will get updated by @release-it/bumper; see top-level package.json
+BRANCH=0.17.0 # <-- will get updated by @release-it/bumper; see top-level package.json
 CHART_DIR=guidebooks/ml/tensorboard/start/kubernetes/chart
 
 TENSORBOARD_CLONE_TEMPDIR=$(mktemp -d)
