@@ -2,7 +2,7 @@
 
 --8<-- "./welcome.md"
 
-## What do you want to do today?
+## CodeFlare Tasks
 
 === "Start a new Run"
     I would like to configure and fire off a run.
