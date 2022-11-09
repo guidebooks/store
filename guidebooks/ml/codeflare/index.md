@@ -4,11 +4,11 @@
 
 ## CodeFlare Tasks
 
-=== "Start a new Run"
+=== "Submit a new Run"
     I would like to configure and fire off a run.
     :import{./run.md}
     
-=== "Connect Dashboard to an existing Run"
+=== "Observe a Run"
     I would like to visualize the resource consumption, status, and logs of a run in progress.
     ```shell
     codeflare db -a
