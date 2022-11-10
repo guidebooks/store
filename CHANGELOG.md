@@ -1,5 +1,12 @@
 
 
+## [0.17.2](https://github.com/guidebooks/store/compare/0.17.1...0.17.2) (2022-11-10)
+
+
+### Bug Fixes
+
+* workaround for madwizard bug in ml/codeflare/training/roberta/choose-data-public ([72a406f](https://github.com/guidebooks/store/commit/72a406feb28f099087513fbcb3f4779a465e0c63))
+
 # [0.17.0](https://github.com/guidebooks/store/compare/0.16.0...0.17.0) (2022-11-09)
 
 
