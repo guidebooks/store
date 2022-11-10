@@ -4,9 +4,9 @@ CHART_DIR=guidebooks/ml/tensorboard/start/kubernetes/chart
 TENSORBOARD_CLONE_TEMPDIR=$(mktemp -d)
 cd $TENSORBOARD_CLONE_TEMPDIR
 
-git clone -q --no-checkout --filter=blob:none https://github.com/guidebooks/store.git $BRANCH && \
+git clone -q --no-checkout --filter=blob:none https://github.com/guidebooks/store.git -b $BRANCH && \
     cd store && \
-    git sparse-checkout set --cone $CHART_DIR && git checkout $BRANCHx
+    git sparse-checkout set --cone $CHART_DIR && git checkout $BRANCH
 
 helm --kube-context ${KUBE_CONTEXT} -n ${KUBE_NS} \
      upgrade --install --wait --timeout 30m \
