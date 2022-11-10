@@ -1,5 +1,12 @@
 
 
+## [0.17.3](https://github.com/guidebooks/store/compare/0.17.2...0.17.3) (2022-11-10)
+
+
+### Bug Fixes
+
+* ml/tensorboard/start/kubernetes/install.sh has typos w.r.t. branch checkout ([0f68602](https://github.com/guidebooks/store/commit/0f6860261a0aa8882be7274aff200274c29b51cd))
+
 ## [0.17.2](https://github.com/guidebooks/store/compare/0.17.1...0.17.2) (2022-11-10)
 
 
