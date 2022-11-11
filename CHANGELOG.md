@@ -1,5 +1,12 @@
 
 
+## [0.17.4](https://github.com/guidebooks/store/compare/0.17.3...0.17.4) (2022-11-11)
+
+
+### Bug Fixes
+
+* kubernetes/mcad/choose/scheduler should allow tests to set default scheduler ([30edda8](https://github.com/guidebooks/store/commit/30edda833f4a0fa05c63c1dac1adb9d1afa29f55))
+
 ## [0.17.3](https://github.com/guidebooks/store/compare/0.17.2...0.17.3) (2022-11-10)
 
 
