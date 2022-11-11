@@ -16,7 +16,7 @@ can be configured to prioritize your workloads.
 
     TODO: here we assume that the coscheduler is installed.
     ```shell
-    export KUBE_POD_SCHEDULER=coscheduler
+    export KUBE_POD_SCHEDULER=${KUBE_POD_SCHEDULER-coscheduler}
     ```
 
     ```shell
