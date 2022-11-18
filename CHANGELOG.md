@@ -1,5 +1,12 @@
 
 
+## [0.17.7](https://github.com/guidebooks/store/compare/0.17.6...0.17.7) (2022-11-18)
+
+
+### Bug Fixes
+
+* refinements to title and description of ml/codeflare/training/byoc ([9ef0ad6](https://github.com/guidebooks/store/commit/9ef0ad69573389e5dadc06b421eecdf0db93acf7))
+
 ## [0.17.6](https://github.com/guidebooks/store/compare/0.17.5...0.17.6) (2022-11-18)
 
 
