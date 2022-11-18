@@ -1,5 +1,12 @@
 
 
+## [0.17.5](https://github.com/guidebooks/store/compare/0.17.4...0.17.5) (2022-11-18)
+
+
+### Bug Fixes
+
+* improved descriptions for ml/codeflare and ml/codeflare/run ([c84e290](https://github.com/guidebooks/store/commit/c84e290cbe5bdcc8034506243d4bb1e4768538ce))
+
 ## [0.17.4](https://github.com/guidebooks/store/compare/0.17.3...0.17.4) (2022-11-11)
 
 
