@@ -1,5 +1,12 @@
 
 
+## [0.17.6](https://github.com/guidebooks/store/compare/0.17.5...0.17.6) (2022-11-18)
+
+
+### Bug Fixes
+
+* bump to madwizard 1.8.x to pick up description fixes ([d82538e](https://github.com/guidebooks/store/commit/d82538ec1d71fda661c30554b49280c76e75b213))
+
 ## [0.17.5](https://github.com/guidebooks/store/compare/0.17.4...0.17.5) (2022-11-18)
 
 
