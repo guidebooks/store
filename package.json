@@ -27,10 +27,10 @@
   },
   "homepage": "https://github.com/guidebooks/store#readme",
   "devDependencies": {
-    "madwizard": "*"
+    "madwizard": ">=1.8.3"
   },
   "peerDependencies": {
-    "madwizard": ">=1.0.2"
+    "madwizard": ">=1.8.3"
   },
   "publishConfig": {
     "access": "public"
