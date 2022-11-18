@@ -5,7 +5,7 @@
 ## CodeFlare Tasks
 
 === "Submit a new Run"
-    I would like to configure and fire off a run.
+
     :import{./run.md}
     
 === "Observe a Run"
