@@ -1,16 +1,13 @@
 {{- define "worker-deployment" -}}
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: {{ include "ray.workers" . }}
   namespace: {{ .Values.clusterNamespace }}
 spec:
   # Change this to scale the number of worker nodes started in the Ray cluster.
-  replicas: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
-  selector:
-    matchLabels:
-      component: ray-worker
-      type: ray
+  completions: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
+  parallelism: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
   template:
     metadata:
       labels:
@@ -30,7 +27,7 @@ spec:
       schedulerName: scheduler-plugins-scheduler
       {{ end }}
 
-      restartPolicy: Always
+      restartPolicy: OnFailure
       volumes:
       - name: dshm
         emptyDir:

@@ -1,6 +1,6 @@
 {{- define "head-deployment" -}}
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: {{ include "ray.head" . }}
   namespace: {{ .Values.clusterNamespace }}
@@ -10,11 +10,7 @@ metadata:
     appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
 spec:
   # Do not change this - Ray currently only supports one head node per cluster.
-  replicas: 1
-  selector:
-    matchLabels:
-      component: ray-head
-      type: ray
+  completions: 1
   template:
     metadata:
       name: {{ include "ray.head" . }}
@@ -39,9 +35,8 @@ spec:
       {{ end }}
 
       # If the head node goes down, the entire cluster (including all worker
-      # nodes) will go down as well. If you want Kubernetes to bring up a new
-      # head node in this case, set this to "Always," else set it to "Never."
-      restartPolicy: Always
+      # nodes) will go down as well.
+      restartPolicy: OnFailure
 
       # This volume allocates shared memory for Ray to use for its plasma
       # object store. If you do not provide this, Ray will fall back to
