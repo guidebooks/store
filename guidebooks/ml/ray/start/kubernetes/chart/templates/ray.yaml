@@ -27,9 +27,11 @@ spec:
       generictemplate:
 {{ include "head-service" . | indent 8 }}
     - replicas: 1
+      completionstatus: "Complete,Failed"
       generictemplate:
 {{ include "head-deployment" . | indent 8 }}
     - replicas: 1
+      completionstatus: "Complete,Failed"
       generictemplate:
 {{ include "worker-deployment" . | indent 8 }}
 
