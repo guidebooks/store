@@ -1,5 +1,15 @@
 
 
+# [0.18.0](https://github.com/guidebooks/store/compare/0.17.7...0.18.0) (2022-11-22)
+
+
+### Features
+
+* add mcad `completionstatus` field to ray worker and head jobs ([7dc2874](https://github.com/guidebooks/store/commit/7dc2874134fbf52bc3e9e45a297b45bafab90f03))
+* automatically shut down ray upon completion, for roberta and byoc ([19c5ed9](https://github.com/guidebooks/store/commit/19c5ed9dcb1f7bbbd5e9e59a39cc18ecd1316f66))
+* bump mcad to pick up `completionstatus` support ([0d511b6](https://github.com/guidebooks/store/commit/0d511b677537a55c147fa28b52adb17e02038245))
+* switch from Deployment to Job for ray ([425e5f2](https://github.com/guidebooks/store/commit/425e5f222fa6d07c0fc51d8a07949578ca338f26))
+
 ## [0.17.7](https://github.com/guidebooks/store/compare/0.17.6...0.17.7) (2022-11-18)
 
 
