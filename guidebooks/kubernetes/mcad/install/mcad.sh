@@ -5,7 +5,7 @@ GITHUB=github.com
 ORG=starpit
 REPO=multi-cluster-app-dispatcher
 #BRANCH=quota-management
-BRANCH=helm3-qm
+BRANCH=002
 SUBDIR=deployment/mcad-controller
 
 echo "Installing Advanced Pod Manager"
