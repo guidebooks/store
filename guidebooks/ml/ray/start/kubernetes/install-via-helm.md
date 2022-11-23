@@ -10,7 +10,7 @@ imports:
 This defines the base docker image we will use for the ray head and worker nodes.
 
 ```shell
-export RAY_OPERATOR_IMAGE=${RAY_OPERATOR_IMAGE-rayproject/ray:2.1.0-py37}
+export RAY_OPERATOR_IMAGE=${RAY_OPERATOR_IMAGE-rayproject/ray:2.1.0}
 ```
 
 ```shell
