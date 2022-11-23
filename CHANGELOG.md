@@ -1,5 +1,17 @@
 
 
+# [1.1.0](https://github.com/guidebooks/store/compare/1.0.0...1.1.0) (2022-11-23)
+
+
+### Bug Fixes
+
+* make ray operator base image consistent with main base image ([0e67a5a](https://github.com/guidebooks/store/commit/0e67a5a6726e1ba2ed1df86e3880862998ed2e16))
+
+
+### Features
+
+* add ml/ray/v1 to allow use cases to insist on using ray v1 ([236d493](https://github.com/guidebooks/store/commit/236d4935c30eb95022f7913b69f312732ef0dcdd))
+
 # [1.0.0](https://github.com/guidebooks/store/compare/0.18.2...1.0.0) (2022-11-23)
 
 
