@@ -73,6 +73,7 @@ cd $REPO/$SUBDIR && \
          --set operatorResources.cpu=${NUM_CPUS-1} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
+         --set storage.path=${RAY_STORAGE_PATH-/tmp} \
          --set namespacedOperator=true \
          --set operatorNamespace=${KUBE_NS} \
          ${startupProbe} \
