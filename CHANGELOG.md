@@ -1,5 +1,22 @@
 
 
+# [1.0.0](https://github.com/guidebooks/store/compare/0.18.2...1.0.0) (2022-11-23)
+
+
+### Bug Fixes
+
+* set storage path in ray head start ([43a7544](https://github.com/guidebooks/store/commit/43a75442f964958ee71ebd072cadb0375baecc99))
+
+
+### Features
+
+* bump default ray image to 2.1 (from 1.13.0) ([b2f8e11](https://github.com/guidebooks/store/commit/b2f8e118b03d2193145b973738da5cd3bf743ef4))
+
+
+### BREAKING CHANGES
+
+* this is a major update to the ray api
+
 ## [0.18.2](https://github.com/guidebooks/store/compare/0.18.1...0.18.2) (2022-11-23)
 
 
