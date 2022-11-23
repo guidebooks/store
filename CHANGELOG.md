@@ -1,5 +1,12 @@
 
 
+## [0.18.2](https://github.com/guidebooks/store/compare/0.18.1...0.18.2) (2022-11-23)
+
+
+### Bug Fixes
+
+* back out adding RAY_ADDRESS to head pod ([65dfb61](https://github.com/guidebooks/store/commit/65dfb611f61a120d9872158b363c1380f62fcc3a))
+
 ## [0.18.1](https://github.com/guidebooks/store/compare/0.18.0...0.18.1) (2022-11-22)
 
 
