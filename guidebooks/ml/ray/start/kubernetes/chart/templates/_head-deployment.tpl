@@ -77,9 +77,6 @@ spec:
           volumeMounts:
             - mountPath: /dev/shm
               name: dshm
-          env:
-            - name: RAY_ADDRESS
-              value: http://127.0.0.1:8265
           resources:
             requests:
               cpu: {{ .Values.podTypes.rayHeadType.CPU }}
