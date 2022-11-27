@@ -1,5 +1,12 @@
 
 
+## [1.1.1](https://github.com/guidebooks/store/compare/1.1.0...1.1.1) (2022-11-27)
+
+
+### Bug Fixes
+
+* force ml/codeflare/training/roberta to use ray v1 ([17041e2](https://github.com/guidebooks/store/commit/17041e211e09ea43e31bc28bf26dbed2b73cf104))
+
 # [1.1.0](https://github.com/guidebooks/store/compare/1.0.0...1.1.0) (2022-11-23)
 
 
