@@ -1,7 +1,7 @@
 ---
 imports:
     - util/jobid
-    - ml/ray/v1
+    - ml/ray/v1/gpu
     - ml/ray/start
     - ./submit.md
     - ml/ray/stop
