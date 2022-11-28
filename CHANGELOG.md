@@ -1,5 +1,12 @@
 
 
+# [1.2.0](https://github.com/guidebooks/store/compare/1.1.1...1.2.0) (2022-11-28)
+
+
+### Bug Fixes
+
+* sigh, release-it/bumper replaced '/1000' with '.1.0' ([277cef1](https://github.com/guidebooks/store/commit/277cef1568ec72bbc3f3855e17e92d38e43afbfd))
+
 ## [1.1.1](https://github.com/guidebooks/store/compare/1.1.0...1.1.1) (2022-11-27)
 
 
