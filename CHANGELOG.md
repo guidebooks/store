@@ -1,5 +1,12 @@
 
 
+## [1.2.1](https://github.com/guidebooks/store/compare/1.2.0...1.2.1) (2022-11-28)
+
+
+### Bug Fixes
+
+* ml/codeflare/training/roberta was using non-gpu ray base image ([312ad1f](https://github.com/guidebooks/store/commit/312ad1fb77a4663a12fd1a61b9706376226bb101))
+
 # [1.2.0](https://github.com/guidebooks/store/compare/1.1.1...1.2.0) (2022-11-28)
 
 
