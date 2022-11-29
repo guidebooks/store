@@ -1,5 +1,8 @@
 # Choose Input Data for RoBERTa
 
+The RoBERTa pre-training code assumes its input data is accessible as
+a mounted filesystem. You can set this up in one of three ways.
+
 === "I want to run a quick test with sample data"
 
     --8<-- "./choose-data-public"
