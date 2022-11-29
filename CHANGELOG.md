@@ -1,5 +1,12 @@
 
 
+## [1.2.2](https://github.com/guidebooks/store/compare/1.2.1...1.2.2) (2022-11-29)
+
+
+### Bug Fixes
+
+* ml/ray/codeflare/training/roberta used base image lacking torch ([f07c9a9](https://github.com/guidebooks/store/commit/f07c9a97099b94f22244add8699ab257c169806f))
+
 ## [1.2.1](https://github.com/guidebooks/store/compare/1.2.0...1.2.1) (2022-11-28)
 
 
