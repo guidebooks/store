@@ -76,6 +76,7 @@ cd $REPO/$SUBDIR && \
          --set storage.path=${RAY_STORAGE_PATH-/tmp} \
          --set namespacedOperator=true \
          --set operatorNamespace=${KUBE_NS} \
+         --set rbac.enabled=${KUBERNETES_RBAC_ENABLED-true} \
          ${startupProbe} \
          --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
          --set image=${RAY_IMAGE} \

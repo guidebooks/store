@@ -1,13 +1,15 @@
 {{- define "worker-deployment" -}}
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: {{ include "ray.workers" . }}
   namespace: {{ .Values.clusterNamespace }}
 spec:
-  # Change this to scale the number of worker nodes started in the Ray cluster.
-  completions: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
-  parallelism: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
+  replicas: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
+  selector:
+    matchLabels:
+      component: ray-worker
+      type: ray
   template:
     metadata:
       labels:
@@ -27,7 +29,7 @@ spec:
       schedulerName: scheduler-plugins-scheduler
       {{ end }}
 
-      restartPolicy: OnFailure
+      restartPolicy: Always
       volumes:
       - name: dshm
         emptyDir:
@@ -73,6 +75,7 @@ spec:
           requests:
             cpu: {{ .Values.podTypes.rayWorkerType.CPU }}
             memory: {{ .Values.podTypes.rayWorkerType.memory }}
+            ephemeral-storage: {{ .Values.podTypes.rayWorkerType.storage }}
           limits:
             cpu: {{ .Values.podTypes.rayWorkerType.CPU }}
             # The maximum memory that this pod is allowed to use. The
@@ -83,6 +86,7 @@ spec:
             # allocate a very large object store in each pod that may
             # cause problems for other pods.
             memory: {{ .Values.podTypes.rayWorkerType.memory }}
+            ephemeral-storage: {{ .Values.podTypes.rayWorkerType.storage }}
             {{- if .Values.podTypes.rayWorkerType.GPU }}
             nvidia.com/gpu: {{ .Values.podTypes.rayWorkerType.GPU }}
             {{- end }}

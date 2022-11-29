@@ -7,6 +7,10 @@ mcad:
   scheduler: default # use the default kubernetes pod scheduler
   # scheduler: coscheduler # https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md
 
+# properties of your kubernetes cluster viz. RBAC
+rbac:
+  enabled: true
+
 startupProbe:
   periodSeconds: 10
   failureThrehsold: 10
@@ -57,6 +61,7 @@ podTypes:
         # GPU is the number of NVIDIA GPUs used by this pod type.
         # (Optional, requires GPU nodes with appropriate setup. See https://docs.ray.io/en/master/cluster/kubernetes-gpu.html)
         GPU: 0
+        storage: 5Gi
         # rayResources is an optional string-int mapping signalling additional resources to Ray.
         # "CPU", "GPU", and "memory" are filled automatically based on the above settings, but can be overriden;
         # For example, rayResources: {"CPU": 0} can be used in the head podType to prevent Ray from scheduling tasks on the head.
@@ -91,6 +96,7 @@ podTypes:
         # GPU is the number of NVIDIA GPUs used by this pod type.
         # (Optional, requires GPU nodes with appropriate setup. See https://docs.ray.io/en/master/cluster/kubernetes-gpu.html)
         GPU: 0
+        storage: 5Gi
         # rayResources is an optional string-int mapping signalling additional resources to Ray.
         # "CPU", "GPU", and "memory" are filled automatically based on the above settings, but can be overriden;
         # For example, rayResources: {"CPU": 0} can be used in the head podType to prevent Ray from scheduling tasks on the head.
