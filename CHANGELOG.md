@@ -1,5 +1,14 @@
 
 
+## [1.2.3](https://github.com/guidebooks/store/compare/1.2.2...1.2.3) (2022-11-29)
+
+
+### Bug Fixes
+
+* improve description for kubernetes/choose/ns ([6ff5c2c](https://github.com/guidebooks/store/commit/6ff5c2c57a35342a7b568e6c49af7adbcbca1537))
+* improve description for roberta choose-data ([47fdb9c](https://github.com/guidebooks/store/commit/47fdb9c5ad934f72a4f8ac95c56658dc93356887))
+* some optimizations for ibmcloud expansions ([43a9d05](https://github.com/guidebooks/store/commit/43a9d0550c0a4a9befaff32a1c71cefbe352d3d2))
+
 ## [1.2.2](https://github.com/guidebooks/store/compare/1.2.1...1.2.2) (2022-11-29)
 
 
