@@ -1,8 +1,8 @@
 ---
 imports:
-    - ../../../util/jq.md
-    - ../target.md
-    - ../cli/plugins/ce.md
+    - util/jq
+    - ibm/cloud/target
+    - ibm/cloud/cli/plugins/ce
 ---
 
 # IBM Cloud Code Engine: Select a Project
@@ -20,7 +20,7 @@ are used to manage resources and provide access to its entities.
     ibmcloud ce project create --name myproject-${uuid}
     ```
 
-=== "expand(ibmcloud ce project list -o json | jq -r '.[] | select(.state == \"active\")  | \"\\(.name) \\(.region_id)\"', Code Engine Projects)"
+=== "expand(ibmcloud target | tail -1 | grep -qv "Not logged in" && ibmcloud ce project list -o json | jq -r '.[] | select(.state == \"active\")  | \"\\(.name) \\(.region_id)\"', Code Engine Projects)"
 
     ```shell
     export DESIRED_IBMCLOUD_REGION=$(echo "$choice" | awk '{print $2}')
