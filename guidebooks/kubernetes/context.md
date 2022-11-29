@@ -22,6 +22,8 @@ defines access to a cluster as a particular user.
     export KUBE_CONTEXT_ARG_HELM=$([ -n "$KUBE_CONTEXT_FOR_TEST" ] && echo "" || echo "--kube-context ${choice}")
     ```
 
+--8<-- "./hosted-kubernetes"
+
 > The bit of complexity here is intended to handle the situation of
 > running a guidebook in a Pod running. In this case, the normal context
 > list is empty, but `kubectl` still works as desired. Hence, we first
