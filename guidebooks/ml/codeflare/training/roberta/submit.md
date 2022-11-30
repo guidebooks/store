@@ -41,6 +41,10 @@ export ML_CODEFLARE_ROBERTA_BRANCH=${ML_CODEFLARE_ROBERTA_BRANCH-0-0-x}
 export ML_CODEFLARE_ROBERTA_SUBDIR=${ML_CODEFLARE_ROBERTA_SUBDIR-RoBERTa/training}
 ```
 
+```shell
+export APP_NAME=roberta
+```
+
 Clone the code.
 ```shell
 --8<-- "./clone.sh"

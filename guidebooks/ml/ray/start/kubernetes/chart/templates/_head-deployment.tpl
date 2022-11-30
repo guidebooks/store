@@ -7,6 +7,7 @@ metadata:
   labels:
     component: ray-head
     type: ray
+    ray-cluster-name: {{ .Values.clusterName }}
     appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
 spec:
   # Do not change this - Ray currently only supports one head node per cluster.
