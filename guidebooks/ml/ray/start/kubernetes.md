@@ -1,5 +1,6 @@
 ---
 imports:
+    - util/jobid
     - kubernetes/kubectl
     - ./resources
     - kubernetes/choose/ns
@@ -12,7 +13,7 @@ This will install Ray on a Kubernetes context of your choosing.
 The name of the Ray Kubernetes Service:
 
 ```shell
-export RAY_KUBE_CLUSTER_NAME=${RAY_KUBE_CLUSTER_NAME-mycluster}
+export RAY_KUBE_CLUSTER_NAME=${RAY_KUBE_CLUSTER_NAME-ray-${APP_NAME-myapp}-${JOB_ID}}
 ```
 
 ## Stream out Events from the Ray Head Node
