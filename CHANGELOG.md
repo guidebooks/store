@@ -1,5 +1,12 @@
 
 
+## [1.4.1](https://github.com/guidebooks/store/compare/1.4.0...1.4.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* my/ray/cluster/choose was hard-wiring kube context and ns ([ee28d56](https://github.com/guidebooks/store/commit/ee28d5682b998b416a72f88d9444db33155a5ddb))
+
 # [1.4.0](https://github.com/guidebooks/store/compare/1.3.0...1.4.0) (2022-11-30)
 
 
