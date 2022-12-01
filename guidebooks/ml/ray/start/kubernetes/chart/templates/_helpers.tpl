@@ -13,3 +13,15 @@
 {{- define "ray.headService" -}}
 {{- print .Values.clusterName "-ray-head" -}}
 {{- end }}
+
+{{- define "ray.serviceaccount" -}}
+{{- print .Values.clusterName "-serviceaccount" -}}
+{{- end }}
+
+{{- define "ray.role" -}}
+{{- print .Values.clusterName "-role" -}}
+{{- end }}
+
+{{- define "ray.rolebinding" -}}
+{{- print .Values.clusterName "-role" -}}
+{{- end }}
