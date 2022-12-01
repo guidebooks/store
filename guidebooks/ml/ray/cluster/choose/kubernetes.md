@@ -13,9 +13,9 @@ your current Kubernetes context.
 export FORCE=" "
 ```
 
-=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || kubectl get ${FORCE} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} deploy -l type=ray -o name, Ray clusters)"
+=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || kubectl get ${FORCE} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod -l type=ray -l ray-node-type=head --no-headers -o custom-columns=CLUSTER:.metadata.labels.ray-cluster-name, Ray clusters)"
     ```shell
-    export RAY_KUBE_CLUSTER_NAME=$(kubectl get ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --no-headers ${choice} -o custom-columns=CLUSTER:.metadata.labels.ray-cluster-name)
+    export RAY_KUBE_CLUSTER_NAME=${choice}
     ```
 
 === "Nevermind, apparently I do not have any active Ray clusters"
