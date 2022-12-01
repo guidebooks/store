@@ -1,5 +1,14 @@
 
 
+## [1.4.3](https://github.com/guidebooks/store/compare/1.4.2...1.4.3) (2022-12-01)
+
+
+### Bug Fixes
+
+* ml/ray/cluster/choose does not work against ray's helm chart ([4ad60e4](https://github.com/guidebooks/store/commit/4ad60e42a08336786ebefddfbded95100ce18f1c))
+* ray charts use fixed name for rbac resources ([7dc8834](https://github.com/guidebooks/store/commit/7dc88343c46e3616f2f09ed2822534b8c4912c6e))
+* use /dev/shm for ray --storage to allow sharing for workflows ([eae870f](https://github.com/guidebooks/store/commit/eae870f6ad1ac3e849870d5669182a818a12150b))
+
 ## [1.4.2](https://github.com/guidebooks/store/compare/1.4.1...1.4.2) (2022-12-01)
 
 
