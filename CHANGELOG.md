@@ -1,5 +1,12 @@
 
 
+# [1.6.0](https://github.com/guidebooks/store/compare/1.5.0...1.6.0) (2022-12-01)
+
+
+### Features
+
+* update ml/ray/cluster/choose to use madwizard env-keyed choice ([cc87842](https://github.com/guidebooks/store/commit/cc87842238875c2be8250d59a11ad8c2b2d7638a))
+
 # [1.5.0](https://github.com/guidebooks/store/compare/1.4.3...1.5.0) (2022-12-01)
 
 
