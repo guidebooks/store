@@ -34,7 +34,7 @@ spec:
         {{ end }}
     spec:
       {{- if .Values.rbac.enabled }}
-      serviceAccountName: ray-head-serviceaccount
+      serviceAccountName: {{ include "ray.serviceaccount" . }}
       {{- end }}
 
       {{ if eq .Values.mcad.scheduler "coscheduler" }}
