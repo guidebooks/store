@@ -1,5 +1,12 @@
 
 
+## [1.4.2](https://github.com/guidebooks/store/compare/1.4.1...1.4.2) (2022-12-01)
+
+
+### Bug Fixes
+
+* ml/ray/stop may not list ray clusters ([9934933](https://github.com/guidebooks/store/commit/9934933fac9a2f64ac959d8afd873573442ce12f))
+
 ## [1.4.1](https://github.com/guidebooks/store/compare/1.4.0...1.4.1) (2022-11-30)
 
 
