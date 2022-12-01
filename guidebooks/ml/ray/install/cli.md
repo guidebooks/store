@@ -1,12 +1,18 @@
 # Install the Ray CLI
 
 ```shell
-export PATH=~/.local/bin:$PATH:~/Library/Python/3.9/bin:~/Library/Python/3.8/bin:~/Library/Python/3.7/bin:/usr/local/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/opt/python@3.7/Frameworks/Python.framework/Versions/3.7/bin
+export RAY_VENV_PATH=${GUIDEBOOK_GLOBAL_DATA_PATH}/venvs/ray/${RAY_PIP_VERSION-2.1}
 ```
 
 ```shell
 ---
-validate: which ray
+validate: |
+  [ -n "${RAY_VENV_PATH}" ] && [ -e "${RAY_VENV_PATH}/bin/ray" ]
 ---
-(which ray >& /dev/null) || pip3 install -U "ray[default]==1.13"
+if [ ! -d "${RAY_VENV_PATH}" ]; then
+    echo "Creating python venv ${RAY_VENV_PATH}"
+    python3 -m venv "${RAY_VENV_PATH}"
+fi
+source "${RAY_VENV_PATH}"/bin/activate
+pip3 install "ray[default]==${RAY_PIP_VERSION-2.1}"
 ```
