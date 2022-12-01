@@ -41,7 +41,7 @@ imagePullPolicy: IfNotPresent
 idleTimeoutMinutes: 5
 # persistent storage
 storage:
-  path: /tmp
+  path: /dev/shm
 # serviceAccountName is used for the Ray head and each Ray worker.
 # It can be set to your particular service account instead of using the default.
 # serviceAccountName: ...
