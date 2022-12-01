@@ -1,5 +1,12 @@
 
 
+# [1.5.0](https://github.com/guidebooks/store/compare/1.4.3...1.5.0) (2022-12-01)
+
+
+### Features
+
+* install ray as a venv that is managed by us ([7eba971](https://github.com/guidebooks/store/commit/7eba97112ef01e7e4c3d23335a2a09b94b48c8a4))
+
 ## [1.4.3](https://github.com/guidebooks/store/compare/1.4.2...1.4.3) (2022-12-01)
 
 
