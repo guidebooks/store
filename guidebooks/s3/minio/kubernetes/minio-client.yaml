@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: minio-client
+spec:
+  containers:
+  - name: minio-client
+    image: quay.io/minio/mc:latest
+    command:
+    - /bin/bash
+    - -c
+    args: 
+    - sleep infinity
