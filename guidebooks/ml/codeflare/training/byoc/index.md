@@ -4,6 +4,7 @@ imports:
     - ./working-directory.md
     - ./base-ray-image.md
     - s3/choose/instance-maybe
+    - ml/ray/storage/s3/maybe
     - ml/ray/run/logs/init.md
     - ml/ray/start
     - ./submit
