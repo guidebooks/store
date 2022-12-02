@@ -1,5 +1,12 @@
 
 
+## [1.7.1](https://github.com/guidebooks/store/compare/1.7.0...1.7.1) (2022-12-02)
+
+
+### Bug Fixes
+
+* add missing title to ml/ray/storage/s3/maybe ([9109e1d](https://github.com/guidebooks/store/commit/9109e1d7ff0272ead9a4bf0ee279ad4737df0aa7))
+
 # [1.7.0](https://github.com/guidebooks/store/compare/1.6.1...1.7.0) (2022-12-02)
 
 
