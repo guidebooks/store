@@ -57,6 +57,11 @@ spec:
           image: {{ .Values.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           command: [ "/bin/bash", "-c", "--" ]
+          {{ if .Values.storage.secret }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.storage.secret }}
+          {{- end }}
           args:
             - {{ print "ray start --head --port=6379 --redis-shard-ports=6380,6381 --num-cpus=" .Values.podTypes.rayHeadType.CPUInteger " --num-gpus=" .Values.podTypes.rayHeadType.GPU " --object-manager-port=22345 --node-manager-port=22346 --dashboard-host=0.0.0.0 --storage=" .Values.storage.path " --block" }}
           ports:

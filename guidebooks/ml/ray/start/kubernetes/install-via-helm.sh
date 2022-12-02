@@ -55,6 +55,11 @@ if [ -n "$RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS" ]; then
     STARTUP_PROBE="--set startupProbe.initialDelaySeconds=${RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS}"
 fi
 
+if [ -n "ML_RAY_STORAGE_S3_KUBERNETES_SECRET" ]; then
+    echo "!!!!!!!! STORAGE SECRET $ML_RAY_STORAGE_S3_KUBERNETES_SECRET"
+    storageSecret="--set storage.secret=$ML_RAY_STORAGE_S3_KUBERNETES_SECRET"
+fi
+
 cd $REPO/$SUBDIR && \
     helm upgrade --install --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
@@ -75,6 +80,7 @@ cd $REPO/$SUBDIR && \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
          --set storage.path=${RAY_STORAGE_PATH-/dev/shm} \
+         ${storageSecret} \
          --set namespacedOperator=true \
          --set operatorNamespace=${KUBE_NS} \
          --set rbac.enabled=${KUBERNETES_RBAC_ENABLED-true} \
