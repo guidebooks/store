@@ -45,5 +45,7 @@ spec:
 ---
 {{ include "head-deployment" . }}
 ---
+{{ if gt .Values.podTypes.rayWorkerType.maxWorkers 0 }}
 {{ include "worker-deployment" . }}
+{{- end }}
 {{- end }}
