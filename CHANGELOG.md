@@ -1,5 +1,17 @@
 
 
+# [1.7.0](https://github.com/guidebooks/store/compare/1.6.1...1.7.0) (2022-12-02)
+
+
+### Bug Fixes
+
+* handle 0-worker case for ray ([9b94f4e](https://github.com/guidebooks/store/commit/9b94f4e6b37f86adf90b41234c3473f21236cd35))
+
+
+### Features
+
+* add s3 secrets to ray head deployment so that --storage=s3:// works ([355d230](https://github.com/guidebooks/store/commit/355d23003fb4c4033c30120d74f1d82129fd81f2))
+
 ## [1.6.1](https://github.com/guidebooks/store/compare/1.6.0...1.6.1) (2022-12-02)
 
 
