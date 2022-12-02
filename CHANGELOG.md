@@ -1,5 +1,13 @@
 
 
+## [1.6.1](https://github.com/guidebooks/store/compare/1.6.0...1.6.1) (2022-12-02)
+
+
+### Bug Fixes
+
+* leftover reference to using /tmp for ray storage ([7aea102](https://github.com/guidebooks/store/commit/7aea102495c9bcdf4e32558d824323fb942ba507))
+* ml/ray/start should not need torchx ([4f24298](https://github.com/guidebooks/store/commit/4f242989ac9157a0628dcc9d07e26abdc12df397))
+
 # [1.6.0](https://github.com/guidebooks/store/compare/1.5.0...1.6.0) (2022-12-01)
 
 
