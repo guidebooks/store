@@ -56,7 +56,6 @@ if [ -n "$RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS" ]; then
 fi
 
 if [ -n "ML_RAY_STORAGE_S3_KUBERNETES_SECRET" ]; then
-    echo "!!!!!!!! STORAGE SECRET $ML_RAY_STORAGE_S3_KUBERNETES_SECRET"
     storageSecret="--set storage.secret=$ML_RAY_STORAGE_S3_KUBERNETES_SECRET"
 fi
 
