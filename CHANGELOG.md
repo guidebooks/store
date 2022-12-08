@@ -1,5 +1,19 @@
 
 
+# [1.8.0](https://github.com/guidebooks/store/compare/1.7.1...1.8.0) (2022-12-08)
+
+
+### Bug Fixes
+
+* bump to >=madwizard@1.10.3 to pick up description and relpath fixes ([a441250](https://github.com/guidebooks/store/commit/a441250ce0aec366c3942a0019f5de2ebe90184c))
+* remove debugging output from ray helm install ([1d6c8e4](https://github.com/guidebooks/store/commit/1d6c8e4aca74e0bab63355fa3ae449e11bfff0b0))
+* update util/hello to echo hello world ([116a3b2](https://github.com/guidebooks/store/commit/116a3b29763c9903e198d939951a579e085c62c1))
+
+
+### Features
+
+* add s3/minio to facilitate standing up minio in kubernetes ([2baa4d2](https://github.com/guidebooks/store/commit/2baa4d26d19eba4abeab5be8049923018bffb3e5))
+
 ## [1.7.1](https://github.com/guidebooks/store/compare/1.7.0...1.7.1) (2022-12-02)
 
 
