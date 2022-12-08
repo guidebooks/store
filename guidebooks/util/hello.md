@@ -1,3 +1,5 @@
 # Welcome
 
-Hello there
+```shell
+echo "Hello world"
+```
