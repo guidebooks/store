@@ -1,5 +1,12 @@
 
 
+# [1.9.0](https://github.com/guidebooks/store/compare/1.8.0...1.9.0) (2022-12-08)
+
+
+### Features
+
+* switch from madwizard to madwizard-cli for madwizard cli ([f747168](https://github.com/guidebooks/store/commit/f7471688755e6b05af93c248710a2ff545e2477a))
+
 # [1.8.0](https://github.com/guidebooks/store/compare/1.7.1...1.8.0) (2022-12-08)
 
 
