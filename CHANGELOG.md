@@ -1,5 +1,12 @@
 
 
+## [1.9.2](https://github.com/guidebooks/store/compare/1.9.1...1.9.2) (2022-12-12)
+
+
+### Bug Fixes
+
+* add form and multiselect examples to demo guidebook ([ffafa82](https://github.com/guidebooks/store/commit/ffafa82a5c314985f71c7bb433e28b991f10a48b))
+
 ## [1.9.1](https://github.com/guidebooks/store/compare/1.9.0...1.9.1) (2022-12-12)
 
 
