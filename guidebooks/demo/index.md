@@ -16,6 +16,11 @@ presented as a guidebook!
 === "A simple Hello World"
     :import{./hello}
     
-=== "Making a Choice to execute one or another code block"
+=== "Make a choice to execute one or another code block"
     :import{./choice}
 
+=== "Multi-select"
+    :import{./multi}
+
+=== "Form"
+    :import{./form}
