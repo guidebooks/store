@@ -1,5 +1,12 @@
 
 
+## [1.9.1](https://github.com/guidebooks/store/compare/1.9.0...1.9.1) (2022-12-12)
+
+
+### Bug Fixes
+
+* switch from madwizard-cli to madwizard-cli-core ([2ff8caa](https://github.com/guidebooks/store/commit/2ff8caaa37d4f5e457e20e7046bb535a8ba0b38d))
+
 # [1.9.0](https://github.com/guidebooks/store/compare/1.8.0...1.9.0) (2022-12-08)
 
 
