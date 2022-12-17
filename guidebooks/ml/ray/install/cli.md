@@ -1,3 +1,8 @@
+---
+imports:
+    - python/venv/setup
+---
+
 # Install the Ray CLI
 
 ```shell
