@@ -1,5 +1,12 @@
 
 
+## [1.9.3](https://github.com/guidebooks/store/compare/1.9.2...1.9.3) (2022-12-17)
+
+
+### Bug Fixes
+
+* ml/ray/install/cli assumed venv support was installed ([3c98a48](https://github.com/guidebooks/store/commit/3c98a48ee35ef3534f2557c677aae8398c73a25e))
+
 ## [1.9.2](https://github.com/guidebooks/store/compare/1.9.1...1.9.2) (2022-12-12)
 
 
