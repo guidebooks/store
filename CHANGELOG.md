@@ -1,5 +1,12 @@
 
 
+## [1.9.4](https://github.com/guidebooks/store/compare/1.9.3...1.9.4) (2022-12-25)
+
+
+### Bug Fixes
+
+* flesh out the demo/multi descriptions and choices ([3019689](https://github.com/guidebooks/store/commit/301968990d0332b9ca82302cbe8dab61da7c15f2))
+
 ## [1.9.3](https://github.com/guidebooks/store/compare/1.9.2...1.9.3) (2022-12-17)
 
 
