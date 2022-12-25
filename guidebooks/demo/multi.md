@@ -1,13 +1,33 @@
 # Multi-select Example
 
-Select more than one choice.
+This demo shows how to offer a checkbox-style selection to users. For
+example, pretend you are going shopping, what items do you want to
+purchase?
+
+=== "Bananas [ ]"
+    Add bananas to your basket.
+
+    ```shell
+    echo "You have purchased some ${choice}"
+    ```
 
 === "Rice [ ]"
+    Add rice to your basket.
+
     ```shell
-    echo "got rice"
+    echo "You have purchased some ${choice}"
     ```
-    
-=== "Beans [ ]"
+
+=== "Applesauce [ ]"
+    Add applesauce to your basket.
+
     ```shell
-    echo "got beans"
+    echo "You have purchased some ${choice}"
+    ```
+
+=== "Tea [ ]"
+    Add tea to your basket.
+
+    ```shell
+    echo "You have purchased some ${choice}"
     ```
