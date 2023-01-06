@@ -6,5 +6,5 @@ expected to perform well as general-purpose downstream language
 models.
 
 ```shell
-export ML_CODEFLARE_ROBERTA_DATA=public
+export S3_DATA=public
 ```

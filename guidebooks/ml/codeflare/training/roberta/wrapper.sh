@@ -18,7 +18,7 @@ else
     R_ARGS="--simulated_gpus 8 --b_size 64"
 fi
 
-DATAPATH=${ML_CODEFLARE_ROBERTA_DATAPATH-/tmp/roberta-sample-input}
+DATAPATH=${S3_DATAPATH-/tmp/roberta-sample-input}
 
 set -e
 set -o pipefail
@@ -30,7 +30,7 @@ fi
 cd "$ML_CODEFLARE_ROBERTA_WORKDIR"
 
 # this script will be run on the target machines, not the user's laptop
-if [ "$ML_CODEFLARE_ROBERTA_DATA" = "premounted" ]; then
+if [ "$S3_DATA" = "premounted" ]; then
     cat << EOF > main.sh
 echo "Spawning job with --datapath=$DATAPATH $R_ARGS \$@"
 (cd "$ML_CODEFLARE_ROBERTA_REPO/$ML_CODEFLARE_ROBERTA_SUBDIR" && python3 train_roberta.py --datapath=$DATAPATH $R_ARGS \$@)
