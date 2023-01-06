@@ -12,7 +12,7 @@ a tab is indented by four spaces.
     Description for choice A.
 
     ```shell
-    echo "Executing task for choice A"
+    echo "Executing task for ${choice}"
     ```
     
 === "Choice B"
@@ -23,5 +23,5 @@ a tab is indented by four spaces.
     :import{./choice2.md}
 
     ```shell
-    echo "Executing task for choice B"
+    echo "Executing task for ${choice}"
     ```
