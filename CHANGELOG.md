@@ -1,5 +1,17 @@
 
 
+# [1.10.0](https://github.com/guidebooks/store/compare/1.9.4...1.10.0) (2023-01-06)
+
+
+### Bug Fixes
+
+* minor tweak to demo guidebooks to leverage $choice variable ([c77fe92](https://github.com/guidebooks/store/commit/c77fe9284a5fda1f99600274ba2142e9906f4c27))
+
+
+### Features
+
+* generalize s3fs support ([682388d](https://github.com/guidebooks/store/commit/682388df7cf4fc1465a7a7b70e80cdb4f2c5b228))
+
 ## [1.9.4](https://github.com/guidebooks/store/compare/1.9.3...1.9.4) (2022-12-25)
 
 
