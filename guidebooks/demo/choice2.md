@@ -7,12 +7,12 @@ nested choice.
     Description for nested choice B1.
 
     ```shell
-    echo "Executing task for nested choice B1"
+    echo "Executing task for ${choice}"
     ```
 
 === "Nested Choice B2"
     Description for nested choice B2.
 
     ```shell
-    echo "Executing task for nested choice B2"
+    echo "Executing task for ${choice}"
     ```
