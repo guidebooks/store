@@ -13,10 +13,9 @@ a mounted filesystem. You can set this up in one of three ways.
     large datasets. We recommend at least 5GB of raw data.
     
     ```shell
-    export ML_CODEFLARE_ROBERTA_DATA=s3
+    export S3_DATA=s3
     ```
 
     :import{s3/choose/object}
 
-=== "My S3 data will be pre-mounted via s3fs"
-    :import{./choose-data-s3fs}
+--8<-- "s3/choose/s3fs"

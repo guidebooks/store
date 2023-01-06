@@ -1,6 +1,7 @@
 ---
 imports:
-    - ./choose-data-s3fs
+    - s3/choose/bucket
+    - s3/choose/s3fs
     - ./_roberta
 ---
 

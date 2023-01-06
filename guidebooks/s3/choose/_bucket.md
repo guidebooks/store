@@ -1,3 +1,8 @@
+---
+imports:
+    - s3/install/cli
+    - s3/install/auth
+---
 
 # Choose an S3 Bucket
 
@@ -14,4 +19,4 @@
 
 === "📁 Create a new bucket"
     You may choose to create a new S3 bucket.
-    :import{s3/create/bucket}
+    :import{s3/create/_bucket}

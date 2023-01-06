@@ -1,13 +1,13 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-    name: $ML_CODEFLARE_ROBERTA_S3FS_CLAIM
+    name: $S3_S3FS_CLAIM
     annotations:
         ibm.io/auto-create-bucket: "false"
         ibm.io/auto-delete-bucket: "false"
         ibm.io/bucket: $S3_BUCKET
-        ibm.io/object-path: "${ML_CODEFLARE_ROBERTA_OBJECTPATH}"
-        ibm.io/secret-name: $ML_CODEFLARE_ROBERTA_S3FS_SECRET
+        ibm.io/object-path: "${S3_OBJECTPATH}"
+        ibm.io/secret-name: $S3_S3FS_SECRET
         ibm.io/endpoint: ${S3_ENDPOINT/s3/s3.direct}
         ibm.io/tls-cipher-suite: "default" # https://github.com/IBM/ibmcloud-object-storage-plugin/issues/110
 spec:

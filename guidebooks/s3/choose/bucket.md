@@ -1,2 +1,6 @@
---8<-- "./prereqs.md"
---8<-- "./_bucket.md"
+---
+imports:
+    - ./prereqs
+    - ./_bucket
+---
+
