@@ -1,5 +1,13 @@
 
 
+## [1.11.1](https://github.com/guidebooks/store/compare/1.11.0...1.11.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* ml/codeflare/training/byoc may not stop ray cluster automatically ([944676a](https://github.com/guidebooks/store/commit/944676a04384cef4c74382107a3e109eb3cb6aef))
+* ray helm chart install was not passing through imagePullSecret ([3694ce4](https://github.com/guidebooks/store/commit/3694ce46e5276655839e05739da18b0bd860b75b))
+
 # [1.11.0](https://github.com/guidebooks/store/compare/1.10.1...1.11.0) (2023-01-09)
 
 
