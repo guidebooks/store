@@ -1,5 +1,17 @@
 
 
+# [1.11.0](https://github.com/guidebooks/store/compare/1.10.1...1.11.0) (2023-01-09)
+
+
+### Bug Fixes
+
+* improve wording of cancel in ml/ray/stop/kubernetes ([ad6ce31](https://github.com/guidebooks/store/commit/ad6ce318f2d085ec0c7864e2defcf41e4fed3e9e))
+
+
+### Features
+
+* initial support for image pull secrets ([19626e8](https://github.com/guidebooks/store/commit/19626e8b07e791e1a1ebd3a065ebb74e4035a9f3))
+
 ## [1.10.1](https://github.com/guidebooks/store/compare/1.10.0...1.10.1) (2023-01-09)
 
 
