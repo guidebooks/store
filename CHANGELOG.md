@@ -1,5 +1,12 @@
 
 
+## [1.10.1](https://github.com/guidebooks/store/compare/1.10.0...1.10.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* s3fs guidebooks may result in asking the s3/choose/instance question twice ([923b74f](https://github.com/guidebooks/store/commit/923b74f1364e1048dd2e317cb17839ee5dceb61a))
+
 # [1.10.0](https://github.com/guidebooks/store/compare/1.9.4...1.10.0) (2023-01-06)
 
 
