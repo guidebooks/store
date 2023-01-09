@@ -18,4 +18,8 @@ a mounted filesystem. You can set this up in one of three ways.
 
     :import{s3/choose/object}
 
---8<-- "s3/choose/s3fs"
+=== "I will use data premounted from S3FS"
+    To run with the full or a custom data set, choose this option.
+    
+    :import{s3/choose/bucket}
+    :import{s3/choose/s3fs/kubernetes}
