@@ -47,6 +47,10 @@ spec:
       - name: ray-worker
         image: {{ .Values.image }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        {{- if .Values.imagePullSecret }}
+        imagePullSecrets:
+          - name: {{ .Values.imagePullSecret }}
+        {{- end }}
         command: ["/bin/bash", "-c", "--"]
         args:
           - {{ print "ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPUInteger " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block" }}
