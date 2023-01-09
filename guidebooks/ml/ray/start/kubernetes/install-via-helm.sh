@@ -55,8 +55,12 @@ if [ -n "$RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS" ]; then
     STARTUP_PROBE="--set startupProbe.initialDelaySeconds=${RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS}"
 fi
 
-if [ -n "ML_RAY_STORAGE_S3_KUBERNETES_SECRET" ]; then
+if [ -n "$ML_RAY_STORAGE_S3_KUBERNETES_SECRET" ]; then
     storageSecret="--set storage.secret=$ML_RAY_STORAGE_S3_KUBERNETES_SECRET"
+fi
+
+if [ -n "$IMAGE_PULL_SECRET" ]; then
+    imagePullSecret="--set imagePullSecret=${IMAGE_PULL_SECRET}"
 fi
 
 cd $REPO/$SUBDIR && \
@@ -86,4 +90,5 @@ cd $REPO/$SUBDIR && \
          ${startupProbe} \
          --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
          --set image=${RAY_IMAGE} \
+         ${imagePullSecret} \
          --set imagePullPolicy=${IMAGE_PULL_POLICY}
