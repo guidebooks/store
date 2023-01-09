@@ -18,8 +18,8 @@ export FORCE=" "
     export RAY_KUBE_CLUSTER_NAME=${choice}
     ```
 
-=== "Nevermind, apparently I do not have any active Ray clusters"
-    No Ray clusters were found.
+=== "Cancel"
+    Nevermind, I don't see my Ray cluster in the list.
     ```shell
     # Indicate an early exit to madwizard
     exit 90
