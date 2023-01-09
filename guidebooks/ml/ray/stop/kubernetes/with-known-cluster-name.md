@@ -3,7 +3,6 @@ imports:
     - kubernetes/helm3
     - kubernetes/kubectl
     - kubernetes/choose/ns
-    - ml/ray/cluster/choose
 ---
 
 # Stop Ray in your Kubernetes Cluster
