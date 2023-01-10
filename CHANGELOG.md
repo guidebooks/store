@@ -1,5 +1,12 @@
 
 
+## [1.11.3](https://github.com/guidebooks/store/compare/1.11.2...1.11.3) (2023-01-10)
+
+
+### Bug Fixes
+
+* improved description text for byoc and roberta ([1e6a5d9](https://github.com/guidebooks/store/commit/1e6a5d9e10e2200f1ae3b1e4a1bfa7dbecc2ac1c))
+
 ## [1.11.2](https://github.com/guidebooks/store/compare/1.11.1...1.11.2) (2023-01-10)
 
 
