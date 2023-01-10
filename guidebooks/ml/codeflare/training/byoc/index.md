@@ -13,9 +13,9 @@ imports:
 
 # Bring Your Own Code
 
-This path provides a way for you to run your own custom code on a
-remote ray cluster.  Specify the location of your source code and the
-base image you would like to use. Currently, there is a convention for
-your code source directory: the main Python file should named
-**main.py**; the directory may also include a **requirements.txt**
-file.
+This option lets you submit custom [Ray](https://www.ray.io/) code to
+run on a [Kubernetes](https://kubernetes.io/) cluster. Identify your
+source code and the base image to use, and it will take care of the
+rest. Note: there is a convention for your code source directory: the
+main Python file should named **main.py**, and the directory may also
+include a **requirements.txt** file.

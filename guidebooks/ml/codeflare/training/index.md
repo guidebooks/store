@@ -7,10 +7,6 @@ by the training process.
 
 ## Which training application do you want to run?
 
-=== "Train a Masked Language Model"
-
-    The [CodeFlare](https://codeflare.dev/) [model architecture](https://developer.ibm.com/articles/cc-machine-learning-deep-learning-architectures/) uses [RoBERTa](https://huggingface.co/docs/transformers/model_doc/roberta), which
-    is a robustly optimized method for pretraining natural language
-    processing (NLP) systems.
+=== "Pre-Train a Masked Language Model"
 
     :import{./roberta}
