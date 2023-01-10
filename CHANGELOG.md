@@ -1,5 +1,12 @@
 
 
+## [1.11.2](https://github.com/guidebooks/store/compare/1.11.1...1.11.2) (2023-01-10)
+
+
+### Bug Fixes
+
+* ml/ray/run/pod-vmstat-memory does not support cgroup v2 api ([78cd603](https://github.com/guidebooks/store/commit/78cd603f74cace5b7828ba065d3383334e60c33a))
+
 ## [1.11.1](https://github.com/guidebooks/store/compare/1.11.0...1.11.1) (2023-01-09)
 
 
