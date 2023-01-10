@@ -1,5 +1,12 @@
 
 
+## [1.11.5](https://github.com/guidebooks/store/compare/1.11.4...1.11.5) (2023-01-10)
+
+
+### Bug Fixes
+
+* ugh, bumper again messed up install-via-helm.sh ([e995a28](https://github.com/guidebooks/store/commit/e995a28c2e6394b02261045925e8bf2221e677a0))
+
 ## [1.11.4](https://github.com/guidebooks/store/compare/1.11.3...1.11.4) (2023-01-10)
 
 
