@@ -1,5 +1,12 @@
 
 
+## [1.11.4](https://github.com/guidebooks/store/compare/1.11.3...1.11.4) (2023-01-10)
+
+
+### Bug Fixes
+
+* add more missing description paragraphs ([11c5991](https://github.com/guidebooks/store/commit/11c5991e15ae8b1e1b68e09f438e57d44d3560d4))
+
 ## [1.11.3](https://github.com/guidebooks/store/compare/1.11.2...1.11.3) (2023-01-10)
 
 
