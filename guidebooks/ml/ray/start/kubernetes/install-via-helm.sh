@@ -49,7 +49,7 @@ echo "$(tput setaf 4)Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} 
 
 # sigh, ray's --num-cpus flag does not understand millicores, such as 250m, nor fractional cores at all
 # this maps 250m => 1 and 2500m => 3 and 4 => 4
-NUM_CPUS_INTEGER=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); return(x>y?y+1:y)} /[^m]$/ { print $1 } /m$/ { sub("m",""); print ceil($1.11.4) }')
+NUM_CPUS_INTEGER=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); return(x>y?y+1:y)} /[^m]$/ { print $1 } /m$/ { sub("m",""); print ceil($1/1000) }')
 
 if [ -n "$RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS" ]; then
     STARTUP_PROBE="--set startupProbe.initialDelaySeconds=${RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS}"
