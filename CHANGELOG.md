@@ -1,5 +1,17 @@
 
 
+# [2.0.0](https://github.com/guidebooks/store/compare/1.11.5...2.0.0) (2023-01-11)
+
+
+### Bug Fixes
+
+* kubernetes image-pull can hang if cluster is not reachable ([76f9ecc](https://github.com/guidebooks/store/commit/76f9ecce23c7b53119801d5f5d8d3fff74851ffc))
+
+
+### BREAKING CHANGES
+
+* rename kubernetes/secrets/image-pull to kubernetes/choose/secret/image-pull
+
 ## [1.11.5](https://github.com/guidebooks/store/compare/1.11.4...1.11.5) (2023-01-10)
 
 
