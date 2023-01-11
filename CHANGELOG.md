@@ -1,5 +1,12 @@
 
 
+## [2.0.1](https://github.com/guidebooks/store/compare/2.0.0...2.0.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* kubernetes/choose/ns should also filter out calico-system and tigera-operator ([d016a2d](https://github.com/guidebooks/store/commit/d016a2d4fd95891467a137f801e73b974dbdd241))
+
 # [2.0.0](https://github.com/guidebooks/store/compare/1.11.5...2.0.0) (2023-01-11)
 
 
