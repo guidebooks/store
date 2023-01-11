@@ -15,7 +15,7 @@ imports:
 > Namespace, without the additional security concerns that Namespaces
 > bring.
 
-=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || X=$([ -n "$KUBE_NS_FOR_TEST" ] && echo $KUBE_NS_FOR_TEST || kubectl get ${KUBE_CONTEXT_ARG} ns -o name || oc ${KUBE_CONTEXT_ARG} get projects -o name); echo "$X" | sed -E 's#(namespace|project\.project\.openshift\.io)/##' | grep -Ev 'openshift|kube-', Kubernetes namespaces)"
+=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || X=$([ -n "$KUBE_NS_FOR_TEST" ] && echo $KUBE_NS_FOR_TEST || kubectl get ${KUBE_CONTEXT_ARG} ns -o name || oc ${KUBE_CONTEXT_ARG} get projects -o name); echo "$X" | sed -E 's#(namespace|project\.project\.openshift\.io)/##' | grep -Ev 'calico-system|tigera-operator|openshift|kube-', Kubernetes namespaces)"
     ```shell
     export KUBE_NS=${choice}
     ```
