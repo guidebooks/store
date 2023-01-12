@@ -53,13 +53,13 @@ spec:
         emptyDir:
           medium: Memory
       containers:
+        {{- if .Values.imagePullSecret }}
+        imagePullSecrets:
+          - name: {{ .Values.imagePullSecret }}
+        {{- end }}
         - name: ray-head
           image: {{ .Values.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
-          {{- if .Values.imagePullSecret }}
-          imagePullSecrets:
-            - name: {{ .Values.imagePullSecret }}
-          {{- end }}
           command: [ "/bin/bash", "-c", "--" ]
           {{ if .Values.storage.secret }}
           envFrom:
