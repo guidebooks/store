@@ -1,5 +1,13 @@
 
 
+## [2.0.2](https://github.com/guidebooks/store/compare/2.0.1...2.0.2) (2023-01-12)
+
+
+### Bug Fixes
+
+* ml/codeflare/training/demos/getting-started doesn't tear down ray ([4913b1a](https://github.com/guidebooks/store/commit/4913b1a7ce989daf2613e272fdf45d4d691bf8b0))
+* ml/ray/start helm chart schema violation for imagePullSecret ([87daba9](https://github.com/guidebooks/store/commit/87daba992e48e19a19405ee88a45893ad30f0f67))
+
 ## [2.0.1](https://github.com/guidebooks/store/compare/2.0.0...2.0.1) (2023-01-11)
 
 
