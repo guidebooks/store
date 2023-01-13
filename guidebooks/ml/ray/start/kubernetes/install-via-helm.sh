@@ -63,8 +63,19 @@ if [ -n "$IMAGE_PULL_SECRET" ]; then
     imagePullSecret="--set imagePullSecret=${IMAGE_PULL_SECRET}"
 fi
 
+if [ -n "$IMAGE_PULL_POLICY" ]; then
+    imagePullPolicy="--set imagePullPolicy=${IMAGE_PULL_POLICY}"
+fi
+
+OUTPUT=/tmp/helm.yml
+if [ -n "$HELM_DRYRUN" ]; then
+    INSTALL="install --dry-run"
+else
+    INSTALL="upgrade --install"
+fi
+
 cd $REPO/$SUBDIR && \
-    helm upgrade --install --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
+    helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
          ${CREATE_NAMESPACE} ${STARTUP_PROBE} ${OPERATOR_IMAGE} \
          ${HELM_EXTRA} \
@@ -91,4 +102,10 @@ cd $REPO/$SUBDIR && \
          --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
          --set image=${RAY_IMAGE} \
          ${imagePullSecret} \
-         --set imagePullPolicy=${IMAGE_PULL_POLICY}
+         ${imagePullPolicy} | tee ${OUTPUT}
+
+if [ -n "$HELM_DRYRUN" ]; then
+    # early exit
+    echo "Helm chart should be in ${OUTPUT}"
+    exit 90
+fi
