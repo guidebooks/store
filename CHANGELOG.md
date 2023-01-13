@@ -1,5 +1,12 @@
 
 
+## [2.0.3](https://github.com/guidebooks/store/compare/2.0.2...2.0.3) (2023-01-13)
+
+
+### Bug Fixes
+
+* install-via-helm should allow user to request dry-run ([c5cbecc](https://github.com/guidebooks/store/commit/c5cbecc9275bff1213d4fccd16c19e64504402b3))
+
 ## [2.0.2](https://github.com/guidebooks/store/compare/2.0.1...2.0.2) (2023-01-12)
 
 
