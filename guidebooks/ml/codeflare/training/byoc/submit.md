@@ -1,3 +1,10 @@
+---
+imports:
+    - ml/ray/start
+finally:
+    - ml/ray/stop/kubernetes/with-known-cluster-name
+---
+
 # Run it
 
 Submit a bring-your-own job.
