@@ -1,6 +1,6 @@
 ---
 imports:
-    - ../kubectl.md
+    - ../kubectl
 ---
 
 # Target Kubernetes Namespace for Ray Cluster
