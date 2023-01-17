@@ -70,8 +70,10 @@ fi
 OUTPUT=/tmp/helm.yml
 if [ -n "$HELM_DRYRUN" ]; then
     INSTALL="install --dry-run"
+    echo "Performing dry run"
 else
     INSTALL="upgrade --install"
+    echo "Performing install"
 fi
 
 cd $REPO/$SUBDIR && \

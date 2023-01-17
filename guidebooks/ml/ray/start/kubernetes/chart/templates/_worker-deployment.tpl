@@ -43,11 +43,11 @@ spec:
       {{- end }}
       {{- end }}
       {{- end }}
-      containers:
       {{- if .Values.imagePullSecret }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecret }}
       {{- end }}
+      containers:
       - name: ray-worker
         image: {{ .Values.image }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
