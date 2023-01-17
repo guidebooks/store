@@ -1,5 +1,17 @@
 
 
+# [2.1.0](https://github.com/guidebooks/store/compare/2.0.3...2.1.0) (2023-01-17)
+
+
+### Bug Fixes
+
+* minor change in import kubectl.md -> kubectl ([6c60ef7](https://github.com/guidebooks/store/commit/6c60ef752e51e27c6cdf6248e1a9d78441720cf2))
+
+
+### Features
+
+* bump madwizard@4.3.0, update ml/codeflare to use finally new support ([29d6c2c](https://github.com/guidebooks/store/commit/29d6c2cce06a563624841150967dac780b9055f0))
+
 ## [2.0.3](https://github.com/guidebooks/store/compare/2.0.2...2.0.3) (2023-01-13)
 
 
