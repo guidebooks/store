@@ -1,5 +1,12 @@
 
 
+## [2.1.2](https://github.com/guidebooks/store/compare/2.1.1...2.1.2) (2023-01-17)
+
+
+### Bug Fixes
+
+* ray helm chart syntax error for imagePullSecrets ([56f59e7](https://github.com/guidebooks/store/commit/56f59e7a2e14dc341b87e9ec81119f62e2debfe1))
+
 ## [2.1.1](https://github.com/guidebooks/store/compare/2.1.0...2.1.1) (2023-01-17)
 
 
