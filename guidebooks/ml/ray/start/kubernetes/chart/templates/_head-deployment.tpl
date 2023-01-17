@@ -52,11 +52,11 @@ spec:
       - name: dshm
         emptyDir:
           medium: Memory
+      {{- if .Values.imagePullSecret }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecret }}
+      {{- end }}
       containers:
-        {{- if .Values.imagePullSecret }}
-        imagePullSecrets:
-          - name: {{ .Values.imagePullSecret }}
-        {{- end }}
         - name: ray-head
           image: {{ .Values.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
