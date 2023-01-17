@@ -1,5 +1,13 @@
 
 
+## [2.1.1](https://github.com/guidebooks/store/compare/2.1.0...2.1.1) (2023-01-17)
+
+
+### Bug Fixes
+
+* helm uninstall (ray stop) issued immediately after helm install can leave dangling helm ([a0a2712](https://github.com/guidebooks/store/commit/a0a271243eaec0aa978f177eb97bdd1b67f423d5))
+* work around finally ordering issue ([ac9ca4b](https://github.com/guidebooks/store/commit/ac9ca4bc7c4640ca719d84faa6f4991126ed6d4a))
+
 # [2.1.0](https://github.com/guidebooks/store/compare/2.0.3...2.1.0) (2023-01-17)
 
 
