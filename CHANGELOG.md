@@ -1,5 +1,12 @@
 
 
+## [2.2.1](https://github.com/guidebooks/store/compare/2.2.0...2.2.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* bump to madwizard ^4.5.0 to pick up :::: fix ([34b0390](https://github.com/guidebooks/store/commit/34b0390b20e6f32954c3aa0fd13b025072cfcf90))
+
 # [2.2.0](https://github.com/guidebooks/store/compare/2.1.2...2.2.0) (2023-01-31)
 
 
