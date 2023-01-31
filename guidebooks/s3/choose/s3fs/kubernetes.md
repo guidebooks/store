@@ -2,6 +2,7 @@
 imports:
     - s3/choose/_bucket
     - kubernetes/choose/ns
+    - ./storage-class
 ---
 
 ```shell

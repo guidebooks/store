@@ -16,4 +16,4 @@ spec:
     resources:
         requests:
             storage: 100Gi
-    storageClassName: ibmc-s3fs-cos
+    storageClassName: ${S3_STORAGE_CLASS-ibmc-s3fs-standard-cross-region}
