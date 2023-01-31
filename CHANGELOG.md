@@ -1,5 +1,12 @@
 
 
+# [2.2.0](https://github.com/guidebooks/store/compare/2.1.2...2.2.0) (2023-01-31)
+
+
+### Features
+
+* allow users to choose storage class in s3/choose/s3fs/kubernetes ([3bb90ce](https://github.com/guidebooks/store/commit/3bb90cea1e5b4e24919015e65fcdfee5ca2fb7ff))
+
 ## [2.1.2](https://github.com/guidebooks/store/compare/2.1.1...2.1.2) (2023-01-17)
 
 
