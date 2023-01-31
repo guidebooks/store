@@ -1,5 +1,12 @@
 
 
+## [2.2.2](https://github.com/guidebooks/store/compare/2.2.1...2.2.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* add missing choice description for s3/choose/s3fs/storage-class ([3a3c905](https://github.com/guidebooks/store/commit/3a3c9051553b53fe1e0ae15a5130a5caaabb60c7))
+
 ## [2.2.1](https://github.com/guidebooks/store/compare/2.2.0...2.2.1) (2023-01-31)
 
 
