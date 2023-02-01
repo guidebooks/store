@@ -5,8 +5,6 @@ imports:
     - kubernetes/choose/ns
     - ./storage-class
     - ./folder
-    - ./secret
-    - ./pvc
     - ./configure
 ---
 

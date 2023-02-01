@@ -35,11 +35,11 @@ spec:
         emptyDir:
           medium: Memory
       {{- if .Values.pvcs }}
-      {{- if .Values.pvcs.rayWorkerType }}
-      {{- range $key, $val := .Values.pvcs.rayWorkerType }}
-      - name: {{ regexReplaceAll "\\." $val.claim "-" }}
+      {{- if .Values.pvcs.claims }}
+      {{- range $key, $val := .Values.pvcs.claims }}
+      - name: {{ regexReplaceAll "\\." $val.name "-" }}
         persistentVolumeClaim:
-          claimName: {{ $val.claim }}
+          claimName: {{ $val.name }}
       {{- end }}
       {{- end }}
       {{- end }}
@@ -67,9 +67,9 @@ spec:
           - mountPath: /dev/shm
             name: dshm
         {{- if .Values.pvcs }}
-        {{- if .Values.pvcs.rayWorkerType }}
-        {{- range $key, $val := .Values.pvcs.rayWorkerType }}
-          - name: {{ regexReplaceAll "\\." $val.claim "-" }}
+        {{- if .Values.pvcs.claims }}
+        {{- range $key, $val := .Values.pvcs.claims }}
+          - name: {{ regexReplaceAll "\\." $val.name "-" }}
             mountPath: {{ $val.mountPath }}
         {{- end }}
         {{- end }}

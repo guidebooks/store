@@ -1,0 +1,16 @@
+{{- if .Values.pvcs }}
+{{- if .Values.pvcs.secrets }}
+{{- if .Values.pvcs.secrets.s3fs }}
+{{- range $key, $val := .Values.pvcs.secrets.s3fs }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ $val.name }}
+type: ibm/ibmc-s3fs
+data:
+  access-key: {{ $val.accessKey }}
+  secret-key: {{ $val.secretKey }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
