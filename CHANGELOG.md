@@ -1,5 +1,12 @@
 
 
+## [2.2.9](https://github.com/guidebooks/store/compare/2.2.8...2.2.9) (2023-02-01)
+
+
+### Bug Fixes
+
+* ml/ray/stop/kubernetes/with-known-cluster-name should check if it has a ray cluster name ([bfc3810](https://github.com/guidebooks/store/commit/bfc38103ade448ce440f14070fca701193e4f78b))
+
 ## [2.2.8](https://github.com/guidebooks/store/compare/2.2.7...2.2.8) (2023-02-01)
 
 
