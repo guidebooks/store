@@ -1,5 +1,12 @@
 
 
+## [2.2.8](https://github.com/guidebooks/store/compare/2.2.7...2.2.8) (2023-02-01)
+
+
+### Bug Fixes
+
+* kube events no longer stream ([c68ffdf](https://github.com/guidebooks/store/commit/c68ffdf59ad483fcb0515d16e558f9eb4e3804b5))
+
 ## [2.2.7](https://github.com/guidebooks/store/compare/2.2.6...2.2.7) (2023-02-01)
 
 
