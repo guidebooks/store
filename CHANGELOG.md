@@ -1,5 +1,14 @@
 
 
+## [2.2.3](https://github.com/guidebooks/store/compare/2.2.2...2.2.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* pvc configuration does not handle spaces in mountPath ([da1bb9a](https://github.com/guidebooks/store/commit/da1bb9ab59c73d2fd5c84bbcf83ed4bc342e6249))
+* s3/choose/s3fs/kubernetes may fail to create pvc ([c7afbba](https://github.com/guidebooks/store/commit/c7afbbad674c23cb1c9129dd43100956c0c1f803))
+* s3fs secret and claim name should hash in cluster name ([8246d4f](https://github.com/guidebooks/store/commit/8246d4f325676e96261bc84e24831e77f8218564))
+
 ## [2.2.2](https://github.com/guidebooks/store/compare/2.2.1...2.2.2) (2023-01-31)
 
 
