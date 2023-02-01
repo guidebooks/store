@@ -39,7 +39,7 @@ spec:
       {{- range $key, $val := .Values.pvcs.claims }}
       - name: {{ print "pvc-" $key }}
         persistentVolumeClaim:
-          claimName: {{ $val.name }}
+          claimName: {{ regexReplaceAll "\\." $val.name "-" }}
       {{- end }}
       {{- end }}
       {{- end }}
