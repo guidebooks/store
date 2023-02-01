@@ -1,5 +1,12 @@
 
 
+## [2.2.7](https://github.com/guidebooks/store/compare/2.2.6...2.2.7) (2023-02-01)
+
+
+### Bug Fixes
+
+* inconsistent use of dots and dashes in pvc claim name ([9c64c34](https://github.com/guidebooks/store/commit/9c64c34e7b0cc3fcf83e7cae0024a48bf36dd831))
+
 ## [2.2.6](https://github.com/guidebooks/store/compare/2.2.5...2.2.6) (2023-02-01)
 
 
