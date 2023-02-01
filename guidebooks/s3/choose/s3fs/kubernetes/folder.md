@@ -1,15 +1,8 @@
-# Specify an S3 folder
+# Where should the S3 bucket be mounted in the filesystem?
 
-Under the given bucket, which path do you wish to be mounted? Note:
-your data will be mounted under `$S3_DATAPATH`. Make sure your code
-uses this environment variable to find the input data.
+Where should the S3 bucket be mounted?
 
-=== "S3 path to be mounted [default: input/]"
-
+=== "Mount Path [default: /data]"
     ```shell
-    export S3_OBJECTPATH="${choice}"
-    ```
-
-    ```shell
-    export S3_DATAPATH="/data/${choice}"
+    export S3_DATAPATH="${choice}"
     ```

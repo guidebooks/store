@@ -22,9 +22,18 @@ failsafes:
 
 # you may mount pvcs into the pods
 # pvcs:
-#   rayWorkerType:
-#     - claim: claimName
-#       mountPath: /data
+#   secrets:
+#     s3fs:
+#     - name: secretName
+#       accessKey: xxx
+#       secretKey: yyy
+#   claims:
+#   - name: claimName
+#     secret: secretName
+#     bucket: bucketName
+#     endpoint: <endpoint url>
+#     storageClass: storageClassName
+#     mountPath: /data
 # Usage: helm --set pvc.rayWorkerType[0].claim=claimName --set pvc.rayWorkerType[0].mountPath=/data
   
 # Default values for Ray.

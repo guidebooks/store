@@ -1,0 +1,25 @@
+{{- if .Values.pvcs }}
+{{- if .Values.pvcs.claims }}
+{{- range $key, $val := .Values.pvcs.claims }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    name: {{ regexReplaceAll "\\." $val.name "-" }}
+    annotations:
+        ibm.io/auto-create-bucket: "false"
+        ibm.io/auto-delete-bucket: "false"
+        ibm.io/bucket: {{ $val.bucket }}
+        # ibm.io/object-path: "${S3_OBJECTPATH}"
+        ibm.io/secret-name: {{ $val.secret }}
+        ibm.io/endpoint: {{ $val.endpoint }}
+        ibm.io/tls-cipher-suite: "default" # https://github.com/IBM/ibmcloud-object-storage-plugin/issues/110
+spec:
+    accessModes:
+        - ReadWriteMany
+    resources:
+        requests:
+            storage: 100Gi
+    storageClassName: {{ $val.storageClass }}
+{{- end }}
+{{- end }}
+{{- end }}
