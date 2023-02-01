@@ -1,5 +1,13 @@
 
 
+## [2.2.4](https://github.com/guidebooks/store/compare/2.2.3...2.2.4) (2023-02-01)
+
+
+### Bug Fixes
+
+* move s3fs pvc and secret to helm chart ([d12fc5b](https://github.com/guidebooks/store/commit/d12fc5b174db366adb9c2587189e67fddb10b7c0))
+* pvc name should use jobid not cluster name ([eed5f8e](https://github.com/guidebooks/store/commit/eed5f8e2c6e32825a58d762abb6b622a4edf8b69))
+
 ## [2.2.3](https://github.com/guidebooks/store/compare/2.2.2...2.2.3) (2023-02-01)
 
 
