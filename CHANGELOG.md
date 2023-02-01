@@ -1,5 +1,12 @@
 
 
+## [2.2.6](https://github.com/guidebooks/store/compare/2.2.5...2.2.6) (2023-02-01)
+
+
+### Bug Fixes
+
+* use echo -n when base64-encoding secrets ([6885257](https://github.com/guidebooks/store/commit/688525797d6a6ae9814b9bdbaf5090abc0e89cef))
+
 ## [2.2.5](https://github.com/guidebooks/store/compare/2.2.4...2.2.5) (2023-02-01)
 
 
