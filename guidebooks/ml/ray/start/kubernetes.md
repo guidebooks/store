@@ -18,8 +18,11 @@ export RAY_KUBE_CLUSTER_NAME=${RAY_KUBE_CLUSTER_NAME-ray-${APP_NAME-myapp}-${JOB
 
 ## Stream out Events from the Ray Head Node
 
+Kubernetes doesn't give us a great way to filter out events that are
+not associated with our job. We pipe to grep here to work around that.
+
 ```shell.async
-kubectl get events ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ray-cluster-name=${RAY_KUBE_CLUSTER_NAME} --watch-only | tee "${STREAMCONSUMER_EVENTS-/tmp/}kubernetes.txt"
+kubectl get events ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -o wide --watch-only | grep ${JOB_ID} | tee "${STREAMCONSUMER_EVENTS-/tmp/}kubernetes.txt"
 ```
 
 ```shell.async
