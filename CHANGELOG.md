@@ -1,5 +1,15 @@
 
 
+## [2.2.5](https://github.com/guidebooks/store/compare/2.2.4...2.2.5) (2023-02-01)
+
+
+### Bug Fixes
+
+* improved filtering of kubernetes events ([60cee25](https://github.com/guidebooks/store/commit/60cee25a2d61a9a34bf80175015bc99f6cfcfc67))
+* kube volume name may exceed 63 chars ([9b807b9](https://github.com/guidebooks/store/commit/9b807b90d6a355418ac0efea5edb62738f1322ca))
+* ml/ray/start/kubernetes should only track events for my job ([2beb22b](https://github.com/guidebooks/store/commit/2beb22b7bf62dd1fc68b0ee5790e634b6df1021a))
+* s3fs secrets need to be base64 encoded ([51ef88f](https://github.com/guidebooks/store/commit/51ef88f4b1fcd15c63e00e98743170572a3b1607))
+
 ## [2.2.4](https://github.com/guidebooks/store/compare/2.2.3...2.2.4) (2023-02-01)
 
 
