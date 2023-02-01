@@ -37,7 +37,7 @@ spec:
       {{- if .Values.pvcs }}
       {{- if .Values.pvcs.claims }}
       {{- range $key, $val := .Values.pvcs.claims }}
-      - name: {{ regexReplaceAll "\\." $val.name "-" }}
+      - name: {{ print "pvc-" $key }}
         persistentVolumeClaim:
           claimName: {{ $val.name }}
       {{- end }}
@@ -69,7 +69,7 @@ spec:
         {{- if .Values.pvcs }}
         {{- if .Values.pvcs.claims }}
         {{- range $key, $val := .Values.pvcs.claims }}
-          - name: {{ regexReplaceAll "\\." $val.name "-" }}
+          - name: {{ print "pvc-" $key }}
             mountPath: {{ $val.mountPath }}
         {{- end }}
         {{- end }}
