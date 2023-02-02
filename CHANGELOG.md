@@ -1,5 +1,13 @@
 
 
+## [2.2.10](https://github.com/guidebooks/store/compare/2.2.9...2.2.10) (2023-02-02)
+
+
+### Bug Fixes
+
+* avoid pvc name collisions e.g. pvc-0 ([0d35514](https://github.com/guidebooks/store/commit/0d355140f737eb8575bb3799ca5c128d2f8310ae))
+* ray head node should also mount s3fs data ([98f0df2](https://github.com/guidebooks/store/commit/98f0df270736b4f059a9e0b011533d13f564ab50))
+
 ## [2.2.9](https://github.com/guidebooks/store/compare/2.2.8...2.2.9) (2023-02-01)
 
 
