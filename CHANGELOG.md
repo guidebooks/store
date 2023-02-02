@@ -1,5 +1,12 @@
 
 
+# [2.3.0](https://github.com/guidebooks/store/compare/2.2.10...2.3.0) (2023-02-02)
+
+
+### Features
+
+* allow ray jobs to specify ephemeral storage requirements ([58c456a](https://github.com/guidebooks/store/commit/58c456ac43b2ddcc4870d0a1ed5f3c28ecd1b2e2))
+
 ## [2.2.10](https://github.com/guidebooks/store/compare/2.2.9...2.2.10) (2023-02-02)
 
 
