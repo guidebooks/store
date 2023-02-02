@@ -52,6 +52,15 @@ spec:
       - name: dshm
         emptyDir:
           medium: Memory
+      {{- if .Values.pvcs }}
+      {{- if .Values.pvcs.claims }}
+      {{- range $key, $val := .Values.pvcs.claims }}
+      - name: {{ regexReplaceAll "\\." $val.name "-" }}
+        persistentVolumeClaim:
+          claimName: {{ regexReplaceAll "\\." $val.name "-" }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
       {{- if .Values.imagePullSecret }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecret }}
@@ -93,6 +102,14 @@ spec:
           volumeMounts:
             - mountPath: /dev/shm
               name: dshm
+          {{- if .Values.pvcs }}
+          {{- if .Values.pvcs.claims }}
+          {{- range $key, $val := .Values.pvcs.claims }}
+            - name: {{ regexReplaceAll "\\." $val.name "-" }}
+              mountPath: {{ $val.mountPath }}
+          {{- end }}
+          {{- end }}
+          {{- end }}
           resources:
             requests:
               cpu: {{ .Values.podTypes.rayHeadType.CPU }}
