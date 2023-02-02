@@ -29,3 +29,8 @@
     ```shell
     export HEAD_MEMORY=${choice}
     ```
+
+=== "Ephemeral Storage [default: 5Gi]"
+    ```shell
+    export RAY_EPHEMERAL_STORAGE=${choice}
+    ```
