@@ -1,5 +1,12 @@
 
 
+## [2.3.1](https://github.com/guidebooks/store/compare/2.3.0...2.3.1) (2023-02-07)
+
+
+### Bug Fixes
+
+* update default ray cluster name to user $USER ([ccc00f8](https://github.com/guidebooks/store/commit/ccc00f802e38da2224f04faa54260b204b8cfb92))
+
 # [2.3.0](https://github.com/guidebooks/store/compare/2.2.10...2.3.0) (2023-02-02)
 
 
