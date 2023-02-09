@@ -22,25 +22,12 @@ export RAY_IMAGE=${RAY_IMAGE-$([ $NUM_GPUS = 0 ] && echo ${RAY_IMAGE_ORG-rayproj
 ```
 
 ```shell
----
-validate: |
-  if [ -n "${KUBE_CONTEXT}" ] && [ -n "${KUBE_NS}" ]; then helm status ${RAY_KUBE_CLUSTER_NAME} ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG}; else exit 1; fi
----
 --8<-- "./install-via-helm.sh"
 ```
 
 ## Wait for Ray Head Node
 
-```shell
-while true; do
-    kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} | grep Running > /dev/null && break || echo "Waiting for Ray Head node"
-    sleep 1
-done
-
-kubectl wait pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} --for=condition=Ready --timeout=240s && \
-    echo "Head node is ready"
-```
-
+--8<-- "ml/ray/start/kubernetes/wait-for-head"
 --8<-- "ml/ray/cluster/kubernetes"
 
 ## Wait for at least one Worker to be Ready
