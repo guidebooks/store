@@ -1,5 +1,12 @@
 
 
+## [2.3.2](https://github.com/guidebooks/store/compare/2.3.1...2.3.2) (2023-02-09)
+
+
+### Bug Fixes
+
+* ray in-cluster attach had bit rotted ([f517379](https://github.com/guidebooks/store/commit/f517379ffc288876645116d8905f3e9911a2ecf3))
+
 ## [2.3.1](https://github.com/guidebooks/store/compare/2.3.0...2.3.1) (2023-02-07)
 
 
