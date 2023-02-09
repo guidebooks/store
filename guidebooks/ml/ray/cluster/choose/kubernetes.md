@@ -1,6 +1,5 @@
 ---
 imports:
-    - kubernetes/kubectl
     - kubernetes/choose/ns
 ---
 
@@ -17,7 +16,7 @@ export FORCE=" "
     ```shell
     export RAY_KUBE_CLUSTER_NAME=${choice}
     ```
-
+    
 === "Cancel"
     Nevermind, I don't see my Ray cluster in the list.
     ```shell
