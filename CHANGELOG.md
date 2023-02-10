@@ -1,5 +1,12 @@
 
 
+## [2.3.4](https://github.com/guidebooks/store/compare/2.3.3...2.3.4) (2023-02-10)
+
+
+### Bug Fixes
+
+* ray server-side log aggregator emits debug/verbose output on client ([81fb933](https://github.com/guidebooks/store/commit/81fb933b8094739dd180076e8951ecb06adf9148))
+
 ## [2.3.3](https://github.com/guidebooks/store/compare/2.3.2...2.3.3) (2023-02-10)
 
 
