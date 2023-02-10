@@ -1,5 +1,13 @@
 
 
+## [2.3.3](https://github.com/guidebooks/store/compare/2.3.2...2.3.3) (2023-02-10)
+
+
+### Bug Fixes
+
+* improve message announcing ray api port forward ([e7e7f79](https://github.com/guidebooks/store/commit/e7e7f7917143d458a81aba0f8f77e275b951a769))
+* ml/ray/run/choose should wait a bit for ray job to be active ([01eba4a](https://github.com/guidebooks/store/commit/01eba4a9a0b7770e35d14875bb69fdbbe419a96c))
+
 ## [2.3.2](https://github.com/guidebooks/store/compare/2.3.1...2.3.2) (2023-02-09)
 
 
