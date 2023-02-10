@@ -38,5 +38,5 @@ while true; do
     N=$((N + 1))
 done
 
-echo "Ray port forward is active on http://localhost:${RAY_KUBE_PORT}"
+echo "Ray API is active with RAY_ADDRESS=http://localhost:${RAY_KUBE_PORT}"
 ```
