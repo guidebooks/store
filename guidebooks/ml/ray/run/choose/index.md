@@ -5,6 +5,6 @@ imports:
     - ml/ray/cluster/choose/kubernetes
     - ml/ray/cluster/kubernetes
     - ml/ray/start/kubernetes/wait-for-head
-    - ./v2
+    - ./list-jobs
 ---
 
