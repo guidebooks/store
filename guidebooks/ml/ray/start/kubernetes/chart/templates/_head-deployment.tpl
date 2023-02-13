@@ -24,6 +24,7 @@ spec:
         component: ray-head
         type: ray
         appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
+        app.kubernetes.io/name: {{ .Values.clusterName }}
         ray-node-type: head
         ray-cluster-name: {{ .Values.clusterName }}
         ray-user-node-type: rayHeadType
