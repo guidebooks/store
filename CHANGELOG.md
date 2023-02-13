@@ -1,5 +1,13 @@
 
 
+## [2.3.5](https://github.com/guidebooks/store/compare/2.3.4...2.3.5) (2023-02-13)
+
+
+### Bug Fixes
+
+* add app.kubernetes.io/name label to ray helm chart worker and head ([7135279](https://github.com/guidebooks/store/commit/71352794a16f5d214b70ef0a3eacdc97b7fa0b78))
+* we were hard-coding ray v2 for ml/ray/run/choose ([68f30fc](https://github.com/guidebooks/store/commit/68f30fc554de1264d9d2b0d9da075f7df902e36c))
+
 ## [2.3.4](https://github.com/guidebooks/store/compare/2.3.3...2.3.4) (2023-02-10)
 
 
