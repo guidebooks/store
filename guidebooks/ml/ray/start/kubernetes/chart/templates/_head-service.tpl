@@ -21,4 +21,5 @@ spec:
     targetPort: 6379
   selector:
     component: ray-head
+    ray-cluster-name: {{ .Values.clusterName }}
 {{end}}
