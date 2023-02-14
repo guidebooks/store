@@ -1,5 +1,18 @@
 
 
+# [3.1.0](https://github.com/guidebooks/store/compare/3.0.0...3.1.0) (2023-02-14)
+
+
+### Bug Fixes
+
+* remove unnecessary import of ml/ray/cli/install ([a474adb](https://github.com/guidebooks/store/commit/a474adb43c14a3e3b4ba889190e904dee620559a))
+
+
+### Features
+
+* remove funky ml/torchx/install/cli with its odd ray cli dependence ([4693c31](https://github.com/guidebooks/store/commit/4693c317fbd9f529750766a30fa41fbcd8025178))
+* remove ml/ray/stop/local ([be2039a](https://github.com/guidebooks/store/commit/be2039a596d82acdd2500cb1102c979473b60513))
+
 # [3.0.0](https://github.com/guidebooks/store/compare/2.3.6...3.0.0) (2023-02-14)
 
 
