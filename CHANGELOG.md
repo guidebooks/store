@@ -1,5 +1,22 @@
 
 
+# [3.0.0](https://github.com/guidebooks/store/compare/2.3.6...3.0.0) (2023-02-14)
+
+
+### Bug Fixes
+
+* further porting to byoc-style ([9082933](https://github.com/guidebooks/store/commit/9082933e9b111d1bcf32077c7f76daa42fbcae76))
+
+
+### Features
+
+* remove ancient ml/ray/run/.../examples and python/pip/... ([b12dce7](https://github.com/guidebooks/store/commit/b12dce76e4fa55e4cb6d74249d74845637dfe842))
+
+
+### BREAKING CHANGES
+
+* removal of guidebooks
+
 ## [2.3.6](https://github.com/guidebooks/store/compare/2.3.5...2.3.6) (2023-02-14)
 
 
