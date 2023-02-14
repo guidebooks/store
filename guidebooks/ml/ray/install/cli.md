@@ -19,5 +19,5 @@ if [ ! -d "${RAY_VENV_PATH}" ]; then
     python3 -m venv "${RAY_VENV_PATH}"
 fi
 source "${RAY_VENV_PATH}"/bin/activate
-pip3 install "ray[default]==${RAY_PIP_VERSION-2.1}"
+pip3 install grpcio==1.52.0 "ray[default]==${RAY_PIP_VERSION-2.1}"
 ```
