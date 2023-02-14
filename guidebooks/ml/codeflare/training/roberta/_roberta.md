@@ -3,8 +3,10 @@ imports:
     - util/jobid
     - ml/ray/v1/gpu
     - ml/ray/start
-    - ./submit.md
+    - ./setup
+    - ./submit
 finally:
+    - ./cleanup
     - ml/ray/stop/kubernetes/with-known-cluster-name
 ---
 
