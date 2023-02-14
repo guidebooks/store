@@ -1,5 +1,13 @@
 
 
+## [2.3.6](https://github.com/guidebooks/store/compare/2.3.5...2.3.6) (2023-02-14)
+
+
+### Bug Fixes
+
+* port ml/codeflare/training/demos/getting-started to simpler byoc-style ([d38c9bf](https://github.com/guidebooks/store/commit/d38c9bf7c72fe35b9ef2c7e48a06a447e90ebeee))
+* ray service was not selective enough ([92dd13c](https://github.com/guidebooks/store/commit/92dd13cb4c65c88646e98a71550d088cedba648a))
+
 ## [2.3.5](https://github.com/guidebooks/store/compare/2.3.4...2.3.5) (2023-02-13)
 
 
