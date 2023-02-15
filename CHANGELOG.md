@@ -1,5 +1,13 @@
 
 
+# [3.2.0](https://github.com/guidebooks/store/compare/3.1.1...3.2.0) (2023-02-15)
+
+
+### Features
+
+* clean up ml/ray/start/kubernetes ([91a1f9e](https://github.com/guidebooks/store/commit/91a1f9e3fbec503f692bc30a602084233f43e5a1))
+* discontinue import of ray cli for ml/ray/start ([1acec02](https://github.com/guidebooks/store/commit/1acec02940c6f05de07a1cc29fed5bd252dd93b8))
+
 ## [3.1.1](https://github.com/guidebooks/store/compare/3.1.0...3.1.1) (2023-02-14)
 
 
