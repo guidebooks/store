@@ -11,6 +11,11 @@ mcad:
 rbac:
   enabled: true
 
+# if you want the helm chart to automatically uninstall this chart when a given jobid is complete
+selfdestruct:
+  jobid: null
+  delaySeconds: 10 # wait this long after job completion before deleting the helm chart; allows client to clean up first
+
 startupProbe:
   periodSeconds: 10
   failureThrehsold: 10

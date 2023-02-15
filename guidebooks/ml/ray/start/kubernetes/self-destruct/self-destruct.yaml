@@ -1,0 +1,56 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: $RAY_KUBE_CLUSTER_NAME-self-destruct
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    metadata:
+      name: $RAY_KUBE_CLUSTER_NAME-self-destruct
+    spec:
+      restartPolicy: Never
+      serviceAccountName: ray-self-destruct-sa-$USER
+      containers:
+      - name: self-destruct
+        image: $RAY_IMAGE
+        env:
+          - name: RAY_ADDRESS
+            value: $RAY_KUBE_CLUSTER_NAME-ray-head:6379
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - "wget -O get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3; chmod 700 get_helm.sh; HELM_INSTALL_DIR=/tmp ./get_helm.sh --no-sudo; until ray job status $JOB_ID | grep -iE running\\\|succeeded\\\|failed\\\|stopped; do echo 'Ray Self Destruct is waiting for job to start'; sleep 1; done; ray job logs -f $JOB_ID; sleep ${RAY_SELFDESTRUCT_DELAY-10}; /tmp/helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ray-self-destruct-sa-$USER
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ray-self-destruct-role-$USER
+rules:
+- apiGroups: [""]
+  resources: ["pods", "pods/exec", "secrets", "serviceaccounts", "services"]
+  verbs: ["get", "list", "delete"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "delete"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["roles", "rolebindings"]
+  verbs: ["get", "list", "delete"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ray-self-destruct-rb-$USER
+subjects:
+- kind: ServiceAccount
+  name: ray-self-destruct-sa-$USER
+roleRef:
+  kind: Role
+  name: ray-self-destruct-role-$USER
+  apiGroup: rbac.authorization.k8s.io

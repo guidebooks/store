@@ -7,6 +7,7 @@ imports:
     - ./kubernetes/name
     - ./kubernetes/events
     - ./kubernetes/install-via-helm
+    - ml/ray/start/kubernetes/self-destruct
 ---
 
 # Install Ray on a Kubernetes Cluster
