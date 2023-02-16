@@ -1,5 +1,13 @@
 
 
+## [3.3.2](https://github.com/guidebooks/store/compare/3.3.1...3.3.2) (2023-02-16)
+
+
+### Bug Fixes
+
+* ray self-destruct fails with $USER is not defined ([0aae213](https://github.com/guidebooks/store/commit/0aae213f37581553c5101ef733d07e1691b64dca))
+* ray self-destruct should clean up after itself ([0e4e625](https://github.com/guidebooks/store/commit/0e4e625356a246efe8e5056f949a5c9711573c2e))
+
 ## [3.3.1](https://github.com/guidebooks/store/compare/3.3.0...3.3.1) (2023-02-16)
 
 
