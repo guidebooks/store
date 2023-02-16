@@ -1,5 +1,12 @@
 
 
+## [3.3.1](https://github.com/guidebooks/store/compare/3.3.0...3.3.1) (2023-02-16)
+
+
+### Bug Fixes
+
+* restore finally in ml/codeflare/training/byoc ([654ead7](https://github.com/guidebooks/store/commit/654ead70d8738045671231d2a099dd6fb417e224))
+
 # [3.3.0](https://github.com/guidebooks/store/compare/3.2.0...3.3.0) (2023-02-16)
 
 
