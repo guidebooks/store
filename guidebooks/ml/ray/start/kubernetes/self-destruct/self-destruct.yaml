@@ -9,7 +9,7 @@ spec:
       name: $RAY_KUBE_CLUSTER_NAME-self-destruct
     spec:
       restartPolicy: Never
-      serviceAccountName: ray-self-destruct-sa-${USER-genericuser}
+      serviceAccountName: ray-self-destruct-v1-sa-${USER-genericuser}
       containers:
       - name: self-destruct
         image: $RAY_IMAGE
@@ -23,12 +23,12 @@ spec:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: ray-self-destruct-sa-${USER-genericuser}
+  name: ray-self-destruct-v1-sa-${USER-genericuser}
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: ray-self-destruct-role-${USER-genericuser}
+  name: ray-self-destruct-v1-role-${USER-genericuser}
 rules:
 - apiGroups: [""]
   resources: ["pods", "pods/exec", "secrets", "serviceaccounts", "services"]
@@ -46,11 +46,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: ray-self-destruct-rb-${USER-genericuser}
+  name: ray-self-destruct-v1-rb-${USER-genericuser}
 subjects:
 - kind: ServiceAccount
-  name: ray-self-destruct-sa-${USER-genericuser}
+  name: ray-self-destruct-v1-sa-${USER-genericuser}
 roleRef:
   kind: Role
-  name: ray-self-destruct-role-${USER-genericuser}
+  name: ray-self-destruct-v1-role-${USER-genericuser}
   apiGroup: rbac.authorization.k8s.io
