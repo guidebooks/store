@@ -1,5 +1,12 @@
 
 
+## [3.3.3](https://github.com/guidebooks/store/compare/3.3.2...3.3.3) (2023-02-16)
+
+
+### Bug Fixes
+
+* self-destruct cleanup failure should not cause overall failure ([cb6399b](https://github.com/guidebooks/store/commit/cb6399bf77825f67337b1e8ffa30e23274850da6))
+
 ## [3.3.2](https://github.com/guidebooks/store/compare/3.3.1...3.3.2) (2023-02-16)
 
 
