@@ -1,5 +1,12 @@
 
 
+# [3.3.0](https://github.com/guidebooks/store/compare/3.2.0...3.3.0) (2023-02-16)
+
+
+### Features
+
+* ray helm chart should tear itself down when job completes ([3fa402b](https://github.com/guidebooks/store/commit/3fa402b421f67683f1441bd00743b34b36acdff0))
+
 # [3.2.0](https://github.com/guidebooks/store/compare/3.1.1...3.2.0) (2023-02-15)
 
 
