@@ -1,5 +1,12 @@
 
 
+## [3.3.5](https://github.com/guidebooks/store/compare/3.3.4...3.3.5) (2023-02-16)
+
+
+### Bug Fixes
+
+* squash errors from helm auto-cleanup ([4f0e16a](https://github.com/guidebooks/store/commit/4f0e16adcd072fa0f3a84a3fca59e0655c466a8c))
+
 ## [3.3.4](https://github.com/guidebooks/store/compare/3.3.3...3.3.4) (2023-02-16)
 
 
