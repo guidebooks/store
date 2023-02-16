@@ -8,6 +8,8 @@ imports:
     - ml/ray/run/logs/init.md
     - ml/ray/start
     - ./submit
+finally:
+    - ml/ray/stop/kubernetes/with-known-cluster-name
 ---
 
 # Bring Your Own Code
