@@ -1,5 +1,12 @@
 
 
+## [3.3.6](https://github.com/guidebooks/store/compare/3.3.5...3.3.6) (2023-02-16)
+
+
+### Bug Fixes
+
+* self-destruct rbacs should be versioned ([1fa9e75](https://github.com/guidebooks/store/commit/1fa9e7549475aa3a4db770169512b83eac868005))
+
 ## [3.3.5](https://github.com/guidebooks/store/compare/3.3.4...3.3.5) (2023-02-16)
 
 
