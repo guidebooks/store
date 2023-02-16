@@ -1,8 +1,6 @@
 ---
 imports:
     - kubernetes/choose/ns
-finally:
-    - ./cleanup
 ---
 
 # Provision a Self-destruct for our Helm Chart

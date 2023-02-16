@@ -1,7 +1,6 @@
 ---
 imports:
     - kubernetes/helm3
-    - kubernetes/kubectl
     - kubernetes/choose/ns
 ---
 
@@ -23,3 +22,5 @@ helm ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} uninstall ${RAY_KUBE_CLUSTER_NAME} 
     || (sleep 1 && helm ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} uninstall ${RAY_KUBE_CLUSTER_NAME}) \
     || exit 0
 ```
+
+--8<-- "ml/ray/start/kubernetes/self-destruct/cleanup"
