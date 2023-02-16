@@ -1,5 +1,12 @@
 
 
+## [3.3.4](https://github.com/guidebooks/store/compare/3.3.3...3.3.4) (2023-02-16)
+
+
+### Bug Fixes
+
+* self-destruct does not properly clean up on job termination ([ece4711](https://github.com/guidebooks/store/commit/ece4711bd6b88d2d21d2d4affd91c648c0911408))
+
 ## [3.3.3](https://github.com/guidebooks/store/compare/3.3.2...3.3.3) (2023-02-16)
 
 
