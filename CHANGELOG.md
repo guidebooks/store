@@ -1,5 +1,12 @@
 
 
+## [3.3.8](https://github.com/guidebooks/store/compare/3.3.7...3.3.8) (2023-02-17)
+
+
+### Bug Fixes
+
+* ray helm chart names may have invalid uppercase characters ([16c6c3c](https://github.com/guidebooks/store/commit/16c6c3c84f9f8f6ad743e5f36be0a1dad5751e82))
+
 ## [3.3.7](https://github.com/guidebooks/store/compare/3.3.6...3.3.7) (2023-02-17)
 
 
