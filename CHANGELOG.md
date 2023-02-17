@@ -1,5 +1,12 @@
 
 
+## [3.3.9](https://github.com/guidebooks/store/compare/3.3.8...3.3.9) (2023-02-17)
+
+
+### Bug Fixes
+
+* ray-api port-forward should use a pod-running-timeout ([7ae6e13](https://github.com/guidebooks/store/commit/7ae6e1370496f87aba24cf63f5b03a29ce177838))
+
 ## [3.3.8](https://github.com/guidebooks/store/compare/3.3.7...3.3.8) (2023-02-17)
 
 
