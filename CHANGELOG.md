@@ -1,5 +1,12 @@
 
 
+## [3.3.7](https://github.com/guidebooks/store/compare/3.3.6...3.3.7) (2023-02-17)
+
+
+### Bug Fixes
+
+* ray helm chart names may exceed 53 characters ([41c878b](https://github.com/guidebooks/store/commit/41c878b153abc4c7272f956d282840d689db6084))
+
 ## [3.3.6](https://github.com/guidebooks/store/compare/3.3.5...3.3.6) (2023-02-16)
 
 
