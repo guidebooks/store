@@ -1,5 +1,12 @@
 
 
+## [3.3.12](https://github.com/guidebooks/store/compare/3.3.11...3.3.12) (2023-02-19)
+
+
+### Bug Fixes
+
+* extend websocat fix ([54b7d85](https://github.com/guidebooks/store/commit/54b7d85eeb99577d12325bb43f5961ca76381814))
+
 ## [3.3.11](https://github.com/guidebooks/store/compare/3.3.10...3.3.11) (2023-02-19)
 
 
