@@ -1,5 +1,12 @@
 
 
+## [3.3.11](https://github.com/guidebooks/store/compare/3.3.10...3.3.11) (2023-02-19)
+
+
+### Bug Fixes
+
+* ml/ray/run/logs/via-websocat may fail with errno 22 ([0739192](https://github.com/guidebooks/store/commit/0739192caef8616e9d5c94e0df72ff02c1c30ea8))
+
 ## [3.3.10](https://github.com/guidebooks/store/compare/3.3.9...3.3.10) (2023-02-19)
 
 
