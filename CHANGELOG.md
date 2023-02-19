@@ -1,5 +1,12 @@
 
 
+## [3.3.10](https://github.com/guidebooks/store/compare/3.3.9...3.3.10) (2023-02-19)
+
+
+### Bug Fixes
+
+* ml/ray/aggregator/with-jobid does not prepare ray cluster ([6d0d8c4](https://github.com/guidebooks/store/commit/6d0d8c4b75c3245799a77b82abefb33b9b9344d4))
+
 ## [3.3.9](https://github.com/guidebooks/store/compare/3.3.8...3.3.9) (2023-02-17)
 
 
