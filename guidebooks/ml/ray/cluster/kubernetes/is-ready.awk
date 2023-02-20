@@ -7,7 +7,7 @@ BEGIN {
             cmd = "kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get raycluster ${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq \".spec.podTypes | .[] | select(.name==\\\"rayWorkerType\\\") | .maxWorkers\"";
             cmd | getline MAX_WORKERS;
         } else {
-            cmd = "kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get deploy ${RAY_KUBE_CLUSTER_NAME-mycluster}-ray-worker -o json | jq -r \".spec.replicas\"";
+            cmd = "kubectl --context ${KUBE_CONTEXT} -n ${KUBE_NS} get deploy ray-worker-${RAY_KUBE_CLUSTER_NAME-mycluster} -o json | jq -r \".spec.replicas\"";
             cmd | getline MAX_WORKERS;
         }
     }

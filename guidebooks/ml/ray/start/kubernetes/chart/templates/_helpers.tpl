@@ -1,27 +1,27 @@
 {{- define "ray.podgroup" -}}
-{{- print .Values.clusterName "-ray-pod-group" }}
+{{- trunc 63 (print "ray-pg-" .Values.clusterName) }}
 {{- end }}
 
 {{- define "ray.head" -}}
-{{- print .Values.clusterName "-ray-head" -}}
+{{- trunc 63 (print "ray-head-" .Values.clusterName) -}}
 {{- end }}
 
 {{- define "ray.workers" -}}
-{{- print .Values.clusterName "-ray-worker" -}}
+{{- trunc 63 (print "ray-worker-" .Values.clusterName) -}}
 {{- end }}
 
 {{- define "ray.headService" -}}
-{{- print .Values.clusterName "-ray-head" -}}
+{{- trunc 63 (print "ray-head-" .Values.clusterName) -}}
 {{- end }}
 
 {{- define "ray.serviceaccount" -}}
-{{- print .Values.clusterName "-serviceaccount" -}}
+{{- trunc 63 (print "ray-sa-" .Values.clusterName) -}}
 {{- end }}
 
 {{- define "ray.role" -}}
-{{- print .Values.clusterName "-role" -}}
+{{- trunc 63 (print "ray-role-" .Values.clusterName) -}}
 {{- end }}
 
 {{- define "ray.rolebinding" -}}
-{{- print .Values.clusterName "-role" -}}
+{{- trunc 63 (print "ray-rb-" .Values.clusterName) -}}
 {{- end }}
