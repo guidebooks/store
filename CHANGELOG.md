@@ -1,5 +1,12 @@
 
 
+## [4.0.1](https://github.com/guidebooks/store/compare/4.0.0...4.0.1) (2023-02-20)
+
+
+### Bug Fixes
+
+* add missing free memory to pod-vmstat, and missing timestamp to pod-vmstat-memory ([041215c](https://github.com/guidebooks/store/commit/041215c197b0d2a92151ef00962bc65060d4e71f))
+
 # [4.0.0](https://github.com/guidebooks/store/compare/3.3.12...4.0.0) (2023-02-20)
 
 
