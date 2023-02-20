@@ -1,6 +1,6 @@
 {
   "name": "@guidebooks/store",
-  "version": "3.3.12",
+  "version": "4.0.0",
   "description": "The home for importable Guidebooks.",
   "main": "index.js",
   "scripts": {

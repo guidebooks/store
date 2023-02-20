@@ -1,5 +1,17 @@
 
 
+# [4.0.0](https://github.com/guidebooks/store/compare/3.3.12...4.0.0) (2023-02-20)
+
+
+### Features
+
+* improve console readability of ml/ray/run/pod-vmstat and memory stats ([e5fd5a6](https://github.com/guidebooks/store/commit/e5fd5a64998cac0c14bd27de4b1de611d87a75e6))
+
+
+### BREAKING CHANGES
+
+* this breaks any clients that were assuming a normal vmstat format for the cpu stats. it is now limited to the cpu columns (i.e. us sy id wa st).
+
 ## [3.3.12](https://github.com/guidebooks/store/compare/3.3.11...3.3.12) (2023-02-19)
 
 
