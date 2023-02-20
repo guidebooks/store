@@ -34,7 +34,7 @@ export KUBE_NS=${KUBE_NS-$(kubectl get --no-headers pod $LOG_AGGREGATOR_POD_NAME
 
 Extract the endpoint for the Ray API.
 ```shell
-export RAY_ADDRESS=http://${RAY_KUBE_CLUSTER_NAME}-ray-head.${KUBE_NS}.svc.cluster.local:8265
+export RAY_ADDRESS=http://ray-head-${RAY_KUBE_CLUSTER_NAME}.${KUBE_NS}.svc.cluster.local:8265
 ```
 
 Only start aggregation if we haven't yet, by some other client

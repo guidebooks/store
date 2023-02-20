@@ -13,7 +13,7 @@ port-forward to a selected Ray cluster.
 N=1
 SLEEP=1
 while true; do
-    kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} port-forward --pod-running-timeout=24h service/${RAY_KUBE_CLUSTER_NAME-mycluster}-ray-head ${RAY_KUBE_PORT-8266}:8265 > /tmp/port-forward-ray-${RAY_KUBE_CLUSTER_NAME-mycluster} || sleep $SLEEP
+    kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} port-forward --pod-running-timeout=24h service/ray-head-${RAY_KUBE_CLUSTER_NAME-mycluster} ${RAY_KUBE_PORT-8266}:8265 > /tmp/port-forward-ray-${RAY_KUBE_CLUSTER_NAME-mycluster} || sleep $SLEEP
     if [ "$N" -lt 10 ]; then SLEEP=10; fi
     N=$((N + 1))
 done
