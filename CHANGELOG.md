@@ -1,5 +1,12 @@
 
 
+## [4.0.3](https://github.com/guidebooks/store/compare/4.0.2...4.0.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* another fix for pod-vmstat colors ([7801065](https://github.com/guidebooks/store/commit/78010651a95cbcb889728a5dffab597e1bcbb23a))
+
 ## [4.0.2](https://github.com/guidebooks/store/compare/4.0.1...4.0.2) (2023-02-20)
 
 
