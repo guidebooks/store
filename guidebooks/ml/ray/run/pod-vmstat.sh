@@ -11,6 +11,6 @@ if [ $(uname) = "Darwin" ]; then export REPLSIZE="-S5000"; fi
 
 kubectl get pod -l ${KUBE_PODFULL_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -o name \
     | xargs ${REPLSIZE} -P128 -I {} -n1 \
-            sh -c "kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- sh -c \"vmstat 5 --timestamp | awk -Winteractive -v pod=\\\$(hostname) 'FNR>2 {printf(\\\"%s %2s %2s %2s %2s %2s        %5.2f%% [CPU Utilization]\\\n\\\", pod, \\\$13, \\\$14, \\\$15, \\\$16, \\\$17, \\\$13+\\\$14)}'\"" \
+            sh -c "kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- sh -c \"vmstat 5 | awk -Winteractive -v now=\\\"\\\$(date -u)\\\" -v pod=\\\$(hostname) 'FNR>2 {printf(\\\"%s %14s %2s %2s %2s %2s %2s [CPU Utilization %5.1f%%] %s\\\n\\\", pod, \\\$4, \\\$13, \\\$14, \\\$15, \\\$16, \\\$17, \\\$13+\\\$14, now)}'\"" \
     | sed -lE 's/^ray-.+-(ray-.+)$/\x1B[33m\1\x1B[0m/' \
     | tee -a "${STREAMCONSUMER_RESOURCES}pod-vmstat.txt"
