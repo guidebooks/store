@@ -1,5 +1,13 @@
 
 
+## [4.0.2](https://github.com/guidebooks/store/compare/4.0.1...4.0.2) (2023-02-20)
+
+
+### Bug Fixes
+
+* restore colors in pod-vmstat ([b1d5e42](https://github.com/guidebooks/store/commit/b1d5e42f5ae0df7d76841ce86b7540efdcb11027))
+* some ray kubernetes resource names may exceed 63 chars ([642c842](https://github.com/guidebooks/store/commit/642c842c3cedca7bd481e5370ff91084f3dc0fe7))
+
 ## [4.0.1](https://github.com/guidebooks/store/compare/4.0.0...4.0.1) (2023-02-20)
 
 
