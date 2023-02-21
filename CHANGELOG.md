@@ -1,5 +1,17 @@
 
 
+# [5.0.0](https://github.com/guidebooks/store/compare/4.0.5...5.0.0) (2023-02-21)
+
+
+### Features
+
+* remove ray autoscaler option in ml/ray/cluster/kubernetes/choose-pod-scheduler ([5db8f4c](https://github.com/guidebooks/store/commit/5db8f4cd4593c48dbaac9d6db7a74265a2cc5486))
+
+
+### BREAKING CHANGES
+
+* this removes support for using the ray operator. There is some breaking skew in ray 2 that we have not accounted for in our fork of the ray helm chart.
+
 ## [4.0.5](https://github.com/guidebooks/store/compare/4.0.4...4.0.5) (2023-02-21)
 
 
