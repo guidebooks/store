@@ -1,5 +1,12 @@
 
 
+## [4.0.4](https://github.com/guidebooks/store/compare/4.0.3...4.0.4) (2023-02-21)
+
+
+### Bug Fixes
+
+* allow tests to specifying name of ray-head service ([9f16453](https://github.com/guidebooks/store/commit/9f16453aa514ad97740d8afbc23184a9d95c3a13))
+
 ## [4.0.3](https://github.com/guidebooks/store/compare/4.0.2...4.0.3) (2023-02-20)
 
 
