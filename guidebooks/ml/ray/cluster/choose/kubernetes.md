@@ -12,7 +12,7 @@ your current Kubernetes context.
 export FORCE=" "
 ```
 
-=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || kubectl get ${FORCE} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod -l type=ray -l ray-node-type=head --no-headers -o custom-columns=CLUSTER:.metadata.labels.ray-cluster-name, Ray clusters, RAY_KUBE_CLUSTER_NAME)"
+=== "expand([ -z ${KUBE_CONTEXT} ] && exit 1 || kubectl get ${FORCE} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod -l type=ray,ray-node-type=head --no-headers -o custom-columns=CLUSTER:.metadata.labels.ray-cluster-name, Ray clusters, RAY_KUBE_CLUSTER_NAME)"
     ```shell
     export RAY_KUBE_CLUSTER_NAME=${choice}
     ```
