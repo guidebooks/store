@@ -1,5 +1,12 @@
 
 
+## [4.0.5](https://github.com/guidebooks/store/compare/4.0.4...4.0.5) (2023-02-21)
+
+
+### Bug Fixes
+
+* ray kube label selectors were not discriminating by job ([ddad4d8](https://github.com/guidebooks/store/commit/ddad4d8c0da002a392e142f3b4748da0fb3d2989))
+
 ## [4.0.4](https://github.com/guidebooks/store/compare/4.0.3...4.0.4) (2023-02-21)
 
 
