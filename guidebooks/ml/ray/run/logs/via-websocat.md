@@ -12,7 +12,7 @@ https://discuss.ray.io/t/ray-job-logs-follow-does-not-cooperate-with-unix-pipes/
 export WS_ADDRESS=$(echo ${RAY_ADDRESS} | sed 's/^http/ws/')
 ```
 
-```shell.async
+```shell
 if [ -n "${STREAMCONSUMER_LOGS}" ]; then
     # ugh, otherwise errno 22 ensues with ray 2
     if [ "$(uname)" = "Darwin" ]; then WEBSOCAT_OPTS=threadedstdio: ; fi
@@ -21,10 +21,10 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
         kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- \
             wait-for-and-tailf "$LOG_AGGREGATOR_LOGDIR"/logs/job.txt > "${STREAMCONSUMER_LOGS}job.txt"
     elif [ -z "$QUIET_CONSOLE" ]; then
-        websocat --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS | tee "${STREAMCONSUMER_LOGS}job.txt"
+        websocat --text --no-line --exit-on-eof ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS | tee "${STREAMCONSUMER_LOGS}job.txt"
     else
         echo "Ray log streamer start: ${JOB_ID} ${WS_ADDRESS}" 1>&2
-        websocat -B 524288 --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS > "${STREAMCONSUMER_LOGS}job.txt"
+        websocat --text -B 524288 --no-line --exit-on-eof ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS > "${STREAMCONSUMER_LOGS}job.txt"
         echo "Ray log streamer exit: ${JOB_ID}" 1>&2
     fi
 fi
@@ -40,16 +40,10 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
         if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
             echo "TODO" 1>&2
         else
-            # ugh, otherwise errno 22 ensues with ray 2
-            if [ "$(uname)" = "Darwin" ]; then WEBSOCAT_OPTS=threadedstdio: ; fi
-
-            # was: ray job logs -f ${JOB_ID} >& /dev/null
-            echo "Waiting for ray job to finish: ${JOB_ID}" 1>&2
-            websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS > /dev/null
             status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
             if [ "SUCCEEDED" != $status ] && [ "ERROR" != $status ]; then
                 echo "Waiting (again) for ray job to finish: ${JOB_ID} $status" 1>&2
-                websocat --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS > /dev/null
+                websocat --text --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS > /dev/null
                 status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
                 if [ "SUCCEEDED" != $status ] && [ "ERROR" != $status ]; then
                     echo "Polling for ray job to finish: ${JOB_ID} $status" 1>&2
@@ -63,7 +57,7 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
                 fi
             fi
             status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
-            echo "Ray job has finished: ${JOB_ID} $status" 1>&2
+            echo "Job status for ${JOB_ID}: $status"
         fi
     fi
 fi
