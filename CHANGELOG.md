@@ -1,5 +1,12 @@
 
 
+# [5.1.0](https://github.com/guidebooks/store/compare/5.0.0...5.1.0) (2023-02-22)
+
+
+### Features
+
+* update ml/codeflare/training/byoc to use improved logs ([02d1f29](https://github.com/guidebooks/store/commit/02d1f29dacd6f10b266762a205756cc0deb8d4b0))
+
 # [5.0.0](https://github.com/guidebooks/store/compare/4.0.5...5.0.0) (2023-02-21)
 
 
