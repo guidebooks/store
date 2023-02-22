@@ -8,6 +8,7 @@ imports:
     - ml/ray/run/logs/init.md
     - ml/ray/start
     - ./submit
+    - ml/ray/aggregator/with-jobid
 finally:
     - ml/ray/stop/kubernetes/with-known-cluster-name
 ---
