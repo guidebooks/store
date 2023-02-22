@@ -4,7 +4,8 @@ validate: which websocat
 
 # Websocat
 
-Netcat, curl and socat for [WebSockets](https://en.wikipedia.org/wiki/WebSocket).
+[Websocat](https://github.com/vi/websocat) is netcat, curl and socat
+for [WebSockets](https://en.wikipedia.org/wiki/WebSocket).
 
 === "MacOS"
     ```shell
@@ -20,7 +21,7 @@ Netcat, curl and socat for [WebSockets](https://en.wikipedia.org/wiki/WebSocket)
         F=$(mktemp)
         curl -L https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static > $F
         chmod a+rx $F
-        sudo mv $F /usr/local/bin
+        sudo mv $F /usr/local/bin/websocat
         ```
    
     === "ARM"
@@ -28,7 +29,7 @@ Netcat, curl and socat for [WebSockets](https://en.wikipedia.org/wiki/WebSocket)
         F=$(mktemp)
         curl -L https://github.com/vi/websocat/releases/download/v1.8.0/websocat_arm-linux-static > $F
         chmod a+rx $F
-        sudo mv $F /usr/local/bin
+        sudo mv $F /usr/local/bin/websocat
         ```
 
 === "Windows"
