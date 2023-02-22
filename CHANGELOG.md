@@ -1,5 +1,12 @@
 
 
+## [5.1.3](https://github.com/guidebooks/store/compare/5.1.2...5.1.3) (2023-02-22)
+
+
+### Bug Fixes
+
+* ray self-destruct should use image pull secret ([f1ebf89](https://github.com/guidebooks/store/commit/f1ebf89283db06f2235a7cf8725d857ed898c90d))
+
 ## [5.1.2](https://github.com/guidebooks/store/compare/5.1.1...5.1.2) (2023-02-22)
 
 
