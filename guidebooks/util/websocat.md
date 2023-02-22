@@ -17,16 +17,18 @@ Netcat, curl and socat for [WebSockets](https://en.wikipedia.org/wiki/WebSocket)
 === "Linux"
     === "Intel"
         ```shell
-        curl -L https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static > websocat
-        chmod a+rx websocat
-        sudo mv websocat /usr/local/bin
+        F=$(mktemp)
+        curl -L https://github.com/vi/websocat/releases/download/v1.8.0/websocat_amd64-linux-static > $F
+        chmod a+rx $F
+        sudo mv $F /usr/local/bin
         ```
    
     === "ARM"
         ```shell
-        curl -L https://github.com/vi/websocat/releases/download/v1.8.0/websocat_arm-linux-static > websocat
-        chmod a+rx websocat
-        sudo mv websocat /usr/local/bin
+        F=$(mktemp)
+        curl -L https://github.com/vi/websocat/releases/download/v1.8.0/websocat_arm-linux-static > $F
+        chmod a+rx $F
+        sudo mv $F /usr/local/bin
         ```
 
 === "Windows"
