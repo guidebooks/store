@@ -1,5 +1,16 @@
 
 
+## [5.1.1](https://github.com/guidebooks/store/compare/5.1.0...5.1.1) (2023-02-22)
+
+
+### Bug Fixes
+
+* improve ml/ray/run/job-definition error handling ([040f228](https://github.com/guidebooks/store/commit/040f228348ef0ffe1e655f6589daf43122f57876))
+* ml/ray/run/logs/via-websocat may prematurely exit and should mimic ray job submit success message ([1bb3dbc](https://github.com/guidebooks/store/commit/1bb3dbc31dbd4c6162d28e12327e63da8734ae39))
+* ml/ray/run/vmstat fails due to missing line continuations ([ffdfda8](https://github.com/guidebooks/store/commit/ffdfda806d5e100b8feed217fc19f10b7099ca84))
+* update ml/ray/run/vmstat to use consistent timestamp format and user's timezone ([4269261](https://github.com/guidebooks/store/commit/42692618507112539bf1f1f6ba77658c91a90190))
+* util/websocat may fail on linux due to permissions ([d6b2be2](https://github.com/guidebooks/store/commit/d6b2be26ce89cfae530de894642442e5f799f1b9))
+
 # [5.1.0](https://github.com/guidebooks/store/compare/5.0.0...5.1.0) (2023-02-22)
 
 
