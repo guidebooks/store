@@ -10,6 +10,8 @@ spec:
     spec:
       restartPolicy: Never
       serviceAccountName: ray-self-destruct-v1-sa-${USER-genericuser}
+      imagePullSecrets:
+        - name: ${IMAGE_PULL_SECRET-none}
       containers:
       - name: self-destruct
         image: $RAY_IMAGE
