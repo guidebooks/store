@@ -22,7 +22,7 @@ fi
 INPUT=$(cat "${LOGDIR_STAGE}/ray-job-definition.json" | jq -r .entrypoint | awk '{print $2}')
 PKGDIR=$(cat "${LOGDIR_STAGE}/ray-job-definition.json" | jq -r .runtime_env.working_dir | sed 's#gcs://##' | sed 's/\.zip//')
 
-if [ -n "$KUBE_CONTEXT" ] && [ -n "$KUBE_NS" ]; then
+if [ -n "$KUBE_CONTEXT" ] && [ -n "$KUBE_NS" ] && [ -n "$PKGDIR" ] && [ -n "$INPUT" ]; then
     RAY_HEAD_POD=$(kubectl get ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} pod -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} --no-headers | awk '{print $1}')
     kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} -- cat /tmp/ray/session_latest/runtime_resources/working_dir_files/${PKGDIR}/${INPUT} >> "${LOGDIR_STAGE}/source.py"
 fi
