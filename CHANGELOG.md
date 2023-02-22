@@ -1,5 +1,12 @@
 
 
+## [5.1.2](https://github.com/guidebooks/store/compare/5.1.1...5.1.2) (2023-02-22)
+
+
+### Bug Fixes
+
+* linux websocat installation does not create /usr/local/bin/websocat ([f4b8ed4](https://github.com/guidebooks/store/commit/f4b8ed41fff4b2bd558f4c57c6657c12fa2130b8))
+
 ## [5.1.1](https://github.com/guidebooks/store/compare/5.1.0...5.1.1) (2023-02-22)
 
 
