@@ -1,5 +1,12 @@
 
 
+## [5.1.4](https://github.com/guidebooks/store/compare/5.1.3...5.1.4) (2023-02-22)
+
+
+### Bug Fixes
+
+* ray cleaner might stick around, and may consume lots of cpu/mem ([0f88584](https://github.com/guidebooks/store/commit/0f88584ee6c6df59cff1dbfd7f7a3db5bba68f83))
+
 ## [5.1.3](https://github.com/guidebooks/store/compare/5.1.2...5.1.3) (2023-02-22)
 
 
