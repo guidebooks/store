@@ -1,5 +1,12 @@
 
 
+## [5.1.5](https://github.com/guidebooks/store/compare/5.1.4...5.1.5) (2023-02-23)
+
+
+### Bug Fixes
+
+* ml/ray/run/logs/via-websocat fails on zsh due to assignment to `status` ([72fdec7](https://github.com/guidebooks/store/commit/72fdec71abff07ba95da4702f2a78b299d627579))
+
 ## [5.1.4](https://github.com/guidebooks/store/compare/5.1.3...5.1.4) (2023-02-22)
 
 
