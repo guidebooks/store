@@ -18,4 +18,4 @@ kubectl get pod -l ${KUBE_PODFULL_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_
     | sed -lE 's/^(ray-[^-]+-[^-]+)-[a-z0-9-]+(.+)$/\x1B[33m\1\2\x1B[0m/' \
     | grep --line-buffered -v timestamp \
     | tee -a "${STREAMCONSUMER_RESOURCES}pod-vmstat.txt" \
-    >(cat 1>&2)
+    1>&2
