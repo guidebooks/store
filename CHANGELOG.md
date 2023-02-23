@@ -1,5 +1,12 @@
 
 
+## [5.1.7](https://github.com/guidebooks/store/compare/5.1.6...5.1.7) (2023-02-23)
+
+
+### Bug Fixes
+
+* utilization was flowing to both stderr and stout ([75c2cb2](https://github.com/guidebooks/store/commit/75c2cb2ee7347c359a66d6c008fad3d3c2a71a41))
+
 ## [5.1.6](https://github.com/guidebooks/store/compare/5.1.5...5.1.6) (2023-02-23)
 
 
