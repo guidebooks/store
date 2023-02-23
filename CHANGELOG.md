@@ -1,5 +1,12 @@
 
 
+## [5.1.6](https://github.com/guidebooks/store/compare/5.1.5...5.1.6) (2023-02-23)
+
+
+### Bug Fixes
+
+* ml/ray/run utilization info should flow to stderr ([bbf2c4d](https://github.com/guidebooks/store/commit/bbf2c4d474377a134168ac3e3d6354acff777b42))
+
 ## [5.1.5](https://github.com/guidebooks/store/compare/5.1.4...5.1.5) (2023-02-23)
 
 
