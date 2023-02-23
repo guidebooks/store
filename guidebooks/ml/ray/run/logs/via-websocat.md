@@ -40,24 +40,24 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
         if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
             echo "TODO" 1>&2
         else
-            status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
-            if [ "SUCCEEDED" != $status ] && [ "ERROR" != $status ]; then
-                echo "Waiting (again) for ray job to finish: ${JOB_ID} $status" 1>&2
+            jobstatus=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
+            if [ "SUCCEEDED" != $jobstatus ] && [ "ERROR" != $jobstatus ]; then
+                echo "Waiting (again) for ray job to finish: ${JOB_ID} $jobstatus" 1>&2
                 websocat --text --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS > /dev/null
-                status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
-                if [ "SUCCEEDED" != $status ] && [ "ERROR" != $status ]; then
-                    echo "Polling for ray job to finish: ${JOB_ID} $status" 1>&2
+                jobstatus=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
+                if [ "SUCCEEDED" != $jobstatus ] && [ "ERROR" != $jobstatus ]; then
+                    echo "Polling for ray job to finish: ${JOB_ID} $jobstatus" 1>&2
                     while true; do
                         sleep 1
-                        status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
-                        if [ "SUCCEEDED" = $status ] || [ "ERROR" = $status ]; then
+                        jobstatus=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
+                        if [ "SUCCEEDED" = $jobstatus ] || [ "ERROR" = $jobstatus ]; then
                             break
                         fi
                     done
                 fi
             fi
-            status=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
-            echo "Job status for ${JOB_ID}: $status"
+            jobstatus=$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)
+            echo "Job status for ${JOB_ID}: $jobstatus"
         fi
     fi
 fi
