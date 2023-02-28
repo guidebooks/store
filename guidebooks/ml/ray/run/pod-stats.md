@@ -1,5 +1,6 @@
 ---
 imports:
+    - kubernetes/choose/ns
     - ml/ray/start/kubernetes/label-selectors.md
 ---
 
@@ -27,4 +28,8 @@ mycluster-ray-worker-type-np2vr   1        1        32Gi
 
 ```shell.async
 --8<-- "./pod-stats.sh"
+```
+
+```shell
+if [ -n "$WAIT" ]; then sleep 100000000; fi
 ```

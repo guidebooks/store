@@ -7,6 +7,8 @@ fi
 
 if [ $(uname) = "Darwin" ]; then export REPLSIZE="-S5000"; fi
 
+if [ -z "$STREAMCONSUMER_RESOURCES" ]; then STREAMCONSUMER_RESOURCES="/tmp/"; fi
+
 if [ -z "$QUIET_CONSOLE" ]; then
     kubectl get pod -l ${KUBE_POD_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -o name \
         | xargs ${REPLSIZE} -P128 -I {} -n1 \
