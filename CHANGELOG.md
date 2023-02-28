@@ -1,5 +1,12 @@
 
 
+# [5.2.0](https://github.com/guidebooks/store/compare/5.1.7...5.2.0) (2023-02-28)
+
+
+### Features
+
+* allow use of vmstat and gpu utilization tracking outside of ray ([2a4b7a4](https://github.com/guidebooks/store/commit/2a4b7a4a16287ee801bb2d16a4c45f64665d56e8))
+
 ## [5.1.7](https://github.com/guidebooks/store/compare/5.1.6...5.1.7) (2023-02-23)
 
 
