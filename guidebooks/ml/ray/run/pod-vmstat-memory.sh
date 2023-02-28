@@ -9,6 +9,8 @@ fi
 
 if [ $(uname) = "Darwin" ]; then export REPLSIZE="-S5000"; fi
 
+if [ -z "$STREAMCONSUMER_RESOURCES" ]; then STREAMCONSUMER_RESOURCES="/tmp/"; fi
+
 # Use the user's timezone, to help with readability
 TZ=$(date +%Z)
 
