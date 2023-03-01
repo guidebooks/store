@@ -1,5 +1,12 @@
 
 
+## [5.2.1](https://github.com/guidebooks/store/compare/5.2.0...5.2.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* ray helm chart podgroup had a 10 second scheduling timeout ([e916c1a](https://github.com/guidebooks/store/commit/e916c1a5bfde6ad71996e38a5299d87b9ba0eeb8))
+
 # [5.2.0](https://github.com/guidebooks/store/compare/5.1.7...5.2.0) (2023-02-28)
 
 
