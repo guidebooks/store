@@ -1,5 +1,12 @@
 
 
+## [5.3.1](https://github.com/guidebooks/store/compare/5.3.0...5.3.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* treat default scheduling priority as not enabling prioritization ([f762ae8](https://github.com/guidebooks/store/commit/f762ae84c1f6a265b4cefca14a48f5b29babd49d))
+
 # [5.3.0](https://github.com/guidebooks/store/compare/5.2.3...5.3.0) (2023-03-01)
 
 
