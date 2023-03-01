@@ -3,8 +3,6 @@
 {{- if eq ( has .Values.priority $priorities ) false -}}
 {{- fail ( printf "Field 'priority: \"%s\"' in user file is not correctly set (values possible: 'default-priority', 'low-priority', 'high-priority')" .Values.priority ) -}}
 {{- end -}}
-{{- else -}}
-{{ required "Please specify a valid 'priority' in the user file" "" -}}
 {{- end -}}
 
 {{- define "priority.className" -}}
