@@ -7,7 +7,7 @@ if [ "$MAX_WORKERS" -gt "0" ]; then
         sleep 1
     done
 
-    kubectl wait pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${KUBE_POD_LABEL_SELECTOR} --for=condition=Ready --timeout=240s && \
+    kubectl wait pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${KUBE_POD_LABEL_SELECTOR} --for=condition=Ready --timeout=-1s && \
         echo "Worker node is ready"
 fi
 ```
