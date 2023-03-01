@@ -6,5 +6,5 @@ metadata:
   namespace: {{ .Values.clusterNamespace }}
 spec:
   minMember: {{ add .Values.podTypes.rayWorkerType.maxWorkers 1 }} # workers + 1 for head pod
-  scheduleTimeoutSeconds: 10
+  scheduleTimeoutSeconds: 10000
 {{end}}
