@@ -12,7 +12,7 @@ display the utilization metric in red text (`[31m`), and to turn "Gpu"
 into "Gpu Utilization".
 
 ```shell.async
-if [ ${NUM_GPUS-0} -gt 0 ]; then
+if [[ ${NUM_GPUS-0} -gt 0 ]]; then
   --8<-- "./gpu-utilization.sh"
 fi
 ```
