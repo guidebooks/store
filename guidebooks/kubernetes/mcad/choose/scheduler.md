@@ -23,6 +23,8 @@ can be configured to prioritize your workloads.
     export KUBE_POD_MANAGER_NON_ROOT=true
     ```
 
+    :import{./job-priority}
+
 === "MCAD with the Advanced Coscheduler"
 
     The [coscheduler](https://github.com/kubernetes-sigs/scheduler-plugins/blob/master/pkg/coscheduling/README.md)

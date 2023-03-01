@@ -40,6 +40,7 @@ spec:
 
       {{ if eq .Values.mcad.scheduler "coscheduler" }}
       schedulerName: scheduler-plugins-scheduler
+      {{ include "priority.className" . }}
       {{ end }}
 
       # If the head node goes down, the entire cluster (including all worker
