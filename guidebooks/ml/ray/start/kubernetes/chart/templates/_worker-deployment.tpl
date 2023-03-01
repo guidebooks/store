@@ -28,6 +28,7 @@ spec:
     spec:
       {{ if eq .Values.mcad.scheduler "coscheduler" }}
       schedulerName: scheduler-plugins-scheduler
+      {{ include "priority.className" . }}
       {{ end }}
 
       restartPolicy: Always

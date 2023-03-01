@@ -20,6 +20,8 @@ kind: AppWrapper
 metadata:
   name: {{ .Values.clusterName }}
 spec:
+  {{ include "priority.value" . }}
+  {{ include "priority.slope" . }}
   resources:
     Items: []
     GenericItems:

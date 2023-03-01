@@ -76,6 +76,11 @@ else
     echo "Performing install"
 fi
 
+if [ -n "$KUBE_POD_SCHEDULING_PRIO" ]; then
+    echo "$(tput setaf 4)Using job priority=$(tput setaf 5)$KUBE_POD_SCHEDULING_PRIO$(tput sgr0)"
+    jobPriority="--set priority=${KUBE_POD_SCHEDULING_PRIO}"
+fi
+
 cd $REPO/$SUBDIR && \
     helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
@@ -97,6 +102,7 @@ cd $REPO/$SUBDIR && \
          --set operatorResources.cpu=${NUM_CPUS-1} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
+         ${jobPriority} \
          --set storage.path=${RAY_STORAGE_PATH-/dev/shm} \
          ${storageSecret} \
          --set namespacedOperator=true \
