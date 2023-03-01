@@ -1,5 +1,17 @@
 
 
+# [5.3.0](https://github.com/guidebooks/store/compare/5.2.3...5.3.0) (2023-03-01)
+
+
+### Bug Fixes
+
+* gpu-utilization.md may fail on zsh if profile specifies no gpus ([90a7ac9](https://github.com/guidebooks/store/commit/90a7ac9031dd6422264282da165aa5e88c7e6320))
+
+
+### Features
+
+* allow selection of scheduling priority for MCAD ([7a7eda9](https://github.com/guidebooks/store/commit/7a7eda9be89354db89d0c68fa9672bfe199d55d3))
+
 ## [5.2.3](https://github.com/guidebooks/store/compare/5.2.2...5.2.3) (2023-03-01)
 
 
