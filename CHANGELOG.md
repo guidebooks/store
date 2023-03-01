@@ -1,5 +1,12 @@
 
 
+## [5.3.2](https://github.com/guidebooks/store/compare/5.3.1...5.3.2) (2023-03-01)
+
+
+### Bug Fixes
+
+* make sure not to set priorityClassName if not using job priorities ([3253b50](https://github.com/guidebooks/store/commit/3253b506d74f5341b50e704b9a5853ea40a2e692))
+
 ## [5.3.1](https://github.com/guidebooks/store/compare/5.3.0...5.3.1) (2023-03-01)
 
 
