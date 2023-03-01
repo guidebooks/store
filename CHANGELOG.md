@@ -1,5 +1,12 @@
 
 
+## [5.3.3](https://github.com/guidebooks/store/compare/5.3.2...5.3.3) (2023-03-01)
+
+
+### Bug Fixes
+
+* improved error handling in log streaming for pods disappearing ([5595911](https://github.com/guidebooks/store/commit/5595911fa3e37b4c3e959847a5dc943a4a7e20cf))
+
 ## [5.3.2](https://github.com/guidebooks/store/compare/5.3.1...5.3.2) (2023-03-01)
 
 
