@@ -1,5 +1,12 @@
 
 
+## [5.2.3](https://github.com/guidebooks/store/compare/5.2.2...5.2.3) (2023-03-01)
+
+
+### Bug Fixes
+
+* remove use of GUIDEBOOK_DASHDASH ([bd120f8](https://github.com/guidebooks/store/commit/bd120f802ef45e583581a887cf1de5671dd35a7e))
+
 ## [5.2.2](https://github.com/guidebooks/store/compare/5.2.1...5.2.2) (2023-03-01)
 
 
