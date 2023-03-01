@@ -1,5 +1,12 @@
 
 
+## [5.2.2](https://github.com/guidebooks/store/compare/5.2.1...5.2.2) (2023-03-01)
+
+
+### Bug Fixes
+
+* increase ray head+worker wait timeout ([46e0b27](https://github.com/guidebooks/store/commit/46e0b279bff50f87d2dc4dea75d8e7fb87f27619))
+
 ## [5.2.1](https://github.com/guidebooks/store/compare/5.2.0...5.2.1) (2023-03-01)
 
 
