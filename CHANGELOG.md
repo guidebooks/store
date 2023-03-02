@@ -1,5 +1,12 @@
 
 
+## [5.3.4](https://github.com/guidebooks/store/compare/5.3.3...5.3.4) (2023-03-02)
+
+
+### Bug Fixes
+
+* add a byoc/submitonly task ([d49bcd1](https://github.com/guidebooks/store/commit/d49bcd16d48b5bd6ff3923383ca41a8eca25bbf8))
+
 ## [5.3.3](https://github.com/guidebooks/store/compare/5.3.2...5.3.3) (2023-03-01)
 
 
