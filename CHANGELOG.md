@@ -1,5 +1,12 @@
 
 
+# [5.4.0](https://github.com/guidebooks/store/compare/5.3.4...5.4.0) (2023-03-03)
+
+
+### Features
+
+* submit ray job in helm chart ([c20de16](https://github.com/guidebooks/store/commit/c20de165280842caccece1905d4ed8f934164ac7))
+
 ## [5.3.4](https://github.com/guidebooks/store/compare/5.3.3...5.3.4) (2023-03-02)
 
 
