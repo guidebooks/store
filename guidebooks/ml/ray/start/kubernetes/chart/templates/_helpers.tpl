@@ -25,3 +25,11 @@
 {{- define "ray.rolebinding" -}}
 {{- trunc 63 (print "ray-rb-" .Values.clusterName) -}}
 {{- end }}
+
+{{- define "ray.workdir" -}}
+{{- trunc 63 (print "ray-workdir-" .Values.clusterName) -}}
+{{- end }}
+
+{{- define "ray.head.args" -}}
+{{ print "ray start --head --port=6379 --redis-shard-ports=6380,6381 --num-cpus=" .Values.podTypes.rayHeadType.CPUInteger " --num-gpus=" .Values.podTypes.rayHeadType.GPU " --object-manager-port=22345 --node-manager-port=22346 --dashboard-host=0.0.0.0 --storage=" .Values.storage.path }}
+{{- end }}

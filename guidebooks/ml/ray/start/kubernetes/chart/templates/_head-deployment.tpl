@@ -1,6 +1,6 @@
 {{- define "head-deployment" -}}
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: {{ include "ray.head" . }}
   namespace: {{ .Values.clusterNamespace }}
@@ -10,12 +10,9 @@ metadata:
     ray-cluster-name: {{ .Values.clusterName }}
     appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
 spec:
+  ttlSecondsAfterFinished: 100
   # Do not change this - Ray currently only supports one head node per cluster.
-  replicas: 1
-  selector:
-    matchLabels:
-      component: ray-head
-      type: ray
+  completions: 1
   template:
     metadata:
       name: {{ include "ray.head" . }}
@@ -47,7 +44,7 @@ spec:
 
       # If the head node goes down, the entire cluster (including all worker
       # nodes) will go down as well.
-      restartPolicy: Always
+      restartPolicy: OnFailure
 
       # This volume allocates shared memory for Ray to use for its plasma
       # object store. If you do not provide this, Ray will fall back to
@@ -74,13 +71,31 @@ spec:
           image: {{ .Values.image }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
           command: [ "/bin/bash", "-c", "--" ]
-          {{ if .Values.storage.secret }}
+
+          {{ if .Values.jobEnv }}
+          env:
+            {{ .Values.jobEnv | b64dec | indent 12 }}
+          {{- end }}
+
+          {{ if or .Values.storage.secret .Values.workdir }}
           envFrom:
+          {{ if .Values.workdir }}
+            - configMapRef:
+                name: {{ include "ray.workdir" . }}
+          {{- end }}
+          {{ if .Values.storage.secret }}
             - secretRef:
                 name: {{ .Values.storage.secret }}
           {{- end }}
+          {{- end }}
+
           args:
-            - {{ print "ray start --head --port=6379 --redis-shard-ports=6380,6381 --num-cpus=" .Values.podTypes.rayHeadType.CPUInteger " --num-gpus=" .Values.podTypes.rayHeadType.GPU " --object-manager-port=22345 --node-manager-port=22346 --dashboard-host=0.0.0.0 --storage=" .Values.storage.path " --block" }}
+          {{ if .Values.workdir }}
+            - {{ print "set -e; set -o pipefail; " (include "ray.head.args" .) "; mkdir /tmp/workdir; echo $RAY_WORKDIR_ENCODED | base64 -d | tar -C /tmp/workdir -jxf -; if [ ! -f /tmp/workdir/runtime-env.yaml ]; then touch /tmp/workdir/runtime-env.yaml; if [ -f /tmp/workdir/requirements.txt ]; then echo 'Splicing in requirements.txt'; awk 'BEGIN { print \"pip:\" } NF > 0 { print \"  - \" $0 }' /tmp/workdir/requirements.txt >> /tmp/workdir/runtime-env.yaml; fi; fi ; ls -l /tmp/workdir ; ray job submit --job-id " (.Values.jobId) " --address http://localhost:8265 --working-dir=/tmp/workdir --runtime-env=/tmp/workdir/runtime-env.yaml -- python3 " (.Values.entrypoint | default "main.py" ) " $(echo " (.Values.dashdash | default "") " | base64 -d); echo 'Job complete, shutting down ray...'; ray stop" }}
+          {{ else }}
+            - {{ print (include "ray.head.args" .) " --block" }}
+          {{ end }}
+
           ports:
             - containerPort: 6379 # Redis port
             - containerPort: 10001 # Used by Ray Client

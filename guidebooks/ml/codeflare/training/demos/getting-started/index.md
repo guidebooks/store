@@ -1,9 +1,9 @@
 ---
 imports:
     - util/jobid
-    - ml/ray/start
     - ./setup
-    - ./submit
+    - ml/ray/start
+    - ml/ray/aggregator/with-jobid
 finally:
     - ./cleanup
     - ml/ray/stop/kubernetes/with-known-cluster-name

@@ -1,3 +1,6 @@
+set -e
+set -o pipefail
+
 # A staging directory for the clone of the Ray Helm chart.
 WORKDIR=$(mktemp -d) && cd $WORKDIR
 
@@ -81,8 +84,31 @@ if [ -n "$KUBE_POD_SCHEDULING_PRIO" ]; then
     jobPriority="--set priority=${KUBE_POD_SCHEDULING_PRIO}"
 fi
 
+if [ -d "$CUSTOM_WORKING_DIR" ]; then
+    workdirEnc=$(tar -jcf - --no-xattrs --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' -C "$CUSTOM_WORKING_DIR" . | base64)
+    workdir="--set workdir=${workdirEnc}"
+    echo "$(tput setaf 4)Using workdir via configmap=$(tput setaf 5)${#workdir}$(tput sgr0)"
+fi
+
+if [ -n "$GUIDEBOOK_DASHDASH" ]; then
+    dashdashEnc=$(echo "$GUIDEBOOK_DASHDASH" | base64)
+    dashdash="--set dashdash=${dashdashEnc}"
+    echo "$(tput setaf 4)Using dashdash=$(tput setaf 5)${GUIDEBOOK_DASHDASH}$(tput sgr0)"
+fi
+
+if [ -n "$GUIDEBOOK_ENV" ]; then
+    jobEnv="--set jobEnv=$GUIDEBOOK_ENV"
+    echo -n "$(tput setaf 4)Passing through job env=$(tput setaf 5)"
+    echo -n $(echo "$GUIDEBOOK_ENV" | base64 -d)
+    echo "$(tput sgr0)"
+fi
+
+if [ -n "$JOB_ID" ]; then
+    jobId="--set jobId=${JOB_ID}"
+fi
+
 cd $REPO/$SUBDIR && \
-    helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
+    helm ${HELM_DEBUG} ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
          ${CREATE_NAMESPACE} ${STARTUP_PROBE} ${OPERATOR_IMAGE} \
          ${HELM_EXTRA} \
@@ -99,6 +125,10 @@ cd $REPO/$SUBDIR && \
          --set podTypes.rayWorkerType.storage=${RAY_EPHEMERAL_STORAGE-5Gi} \
          --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-1} \
          --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-1} \
+         ${jobId} \
+         ${jobEnv} \
+         ${dashdash} \
+         ${workdir} \
          --set operatorResources.cpu=${NUM_CPUS-1} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
@@ -107,7 +137,7 @@ cd $REPO/$SUBDIR && \
          ${storageSecret} \
          --set namespacedOperator=true \
          --set operatorNamespace=${KUBE_NS} \
-         --set rbac.enabled=${KUBERNETES_RBAC_ENABLED-true} \
+         --set rbac.enabled=${KUBERNETES_RBAC_ENABLED-false} \
          ${startupProbe} \
          --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
          --set image=${RAY_IMAGE} \

@@ -1,0 +1,8 @@
+{{- if .Values.workdir }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "ray.workdir" . }}
+data:
+  RAY_WORKDIR_ENCODED: {{ .Values.workdir }}
+{{ end }}
