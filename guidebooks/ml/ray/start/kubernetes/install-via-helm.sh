@@ -1,6 +1,8 @@
 set -e
 set -o pipefail
 
+if [ -z "$TERM" ]; then export TERM=xterm-256color; fi
+
 # A staging directory for the clone of the Ray Helm chart.
 WORKDIR=$(mktemp -d) && cd $WORKDIR
 
@@ -122,7 +124,7 @@ else
 fi
 
 cd $REPO/$SUBDIR && \
-    helm ${HELM_DEBUG} ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
+    helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
          ${CREATE_NAMESPACE} ${STARTUP_PROBE} ${OPERATOR_IMAGE} \
          ${HELM_EXTRA} \
