@@ -1,5 +1,12 @@
 
 
+## [5.4.3](https://github.com/guidebooks/store/compare/5.4.2...5.4.3) (2023-03-03)
+
+
+### Bug Fixes
+
+* hmm, some of the tputs cause problems in github actions ([615946a](https://github.com/guidebooks/store/commit/615946ad80ac70690ee9498c3233b58eea281c95))
+
 ## [5.4.2](https://github.com/guidebooks/store/compare/5.4.1...5.4.2) (2023-03-03)
 
 
