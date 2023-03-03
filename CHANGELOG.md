@@ -1,5 +1,12 @@
 
 
+## [5.4.2](https://github.com/guidebooks/store/compare/5.4.1...5.4.2) (2023-03-03)
+
+
+### Bug Fixes
+
+* improved error handling in helm install for lack of cluster name ([94e2720](https://github.com/guidebooks/store/commit/94e27203ea34de0c3965f636333dde222c67da5d))
+
 ## [5.4.1](https://github.com/guidebooks/store/compare/5.4.0...5.4.1) (2023-03-03)
 
 
