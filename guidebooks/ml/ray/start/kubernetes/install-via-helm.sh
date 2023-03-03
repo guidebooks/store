@@ -87,9 +87,13 @@ fi
 
 if [ -n "$CUSTOM_WORKING_DIR" ]; then
     if [ -d "$CUSTOM_WORKING_DIR" ]; then
-        workdirEnc=$(tar -jcf - --no-xattrs --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' -C "$CUSTOM_WORKING_DIR" . | base64)
-        workdir="--set workdir=${workdirEnc}"
-        echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)${#workdir} bytes$(tput sgr0)"
+        workdirEnc=$(mktemp)
+        tar -jcf - --no-xattrs \
+            --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' \
+            -C "$CUSTOM_WORKING_DIR" . \
+            | base64 > $workdirEnc
+        workdir="--set-file workdir=${workdirEnc}"
+        echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)$(cat $workdirEnc | wc -c | awk '{print $1}') bytes$(tput sgr0)"
     elif [ ! -e "$CUSTOM_WORKING_DIR" ]; then
         echo "$(tput setaf 1)[Helm] Error: custom working directory specified, but path to directory not found $CUSTOM_WORKING_DIR$(tput sgr0)"
         exit 1
