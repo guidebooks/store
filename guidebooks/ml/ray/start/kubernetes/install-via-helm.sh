@@ -110,9 +110,11 @@ if [ -n "$GUIDEBOOK_DASHDASH" ]; then
 fi
 
 if [ -n "$GUIDEBOOK_ENV" ]; then
-    jobEnv="--set jobEnv=$GUIDEBOOK_ENV"
+    jobEnvFile=$(mktemp)
+    echo "$GUIDEBOOK_ENV" > $jobEnvFile
+    jobEnv="--set-file jobEnv=$jobEnvFile"
     echo -n "$(tput setaf 4)[Helm] Passing through job env=$(tput setaf 5)"
-    echo -n $(echo "$GUIDEBOOK_ENV" | base64 -d)
+    echo -n $(cat "$jobEnvFile" | base64 -d)
     echo "$(tput sgr0)"
 fi
 
