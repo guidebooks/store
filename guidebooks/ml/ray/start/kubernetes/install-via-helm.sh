@@ -40,11 +40,9 @@ fi
 # sparse clone
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
 echo "$(tput setaf 4)[Helm] $(tput setaf 5)Cloning https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}$(tput sgr0)"
-tput setaf 3
 (git clone -q --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
     cd $REPO && \
     git sparse-checkout set --cone $SUBDIR && git checkout ${BRANCH-main})
-tput sgr0
 
 if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml
@@ -123,7 +121,6 @@ else
     echo "$(tput setaf 4)[Helm] Using ray cluster name=$(tput setaf 5)${RAY_KUBE_CLUSTER_NAME}$(tput sgr0)"
 fi
 
-tput setaf 3
 cd $REPO/$SUBDIR && \
     helm ${HELM_DEBUG} ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
@@ -160,7 +157,6 @@ cd $REPO/$SUBDIR && \
          --set image=${RAY_IMAGE} \
          ${imagePullSecret} \
          ${imagePullPolicy} | tee ${OUTPUT}
-tput sgr0
 
 if [ -n "$HELM_DRYRUN" ]; then
     # early exit
