@@ -7,7 +7,6 @@ imports:
     - ml/ray/storage/s3/maybe
     - ml/ray/run/logs/init.md
     - ml/ray/start
-    - ./submit
 ---
 
 # Bring Your Own Code

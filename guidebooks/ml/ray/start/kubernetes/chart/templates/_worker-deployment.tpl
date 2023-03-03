@@ -1,15 +1,12 @@
 {{- define "worker-deployment" -}}
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: {{ include "ray.workers" . }}
   namespace: {{ .Values.clusterNamespace }}
 spec:
-  replicas: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
-  selector:
-    matchLabels:
-      component: ray-worker
-      type: ray
+  ttlSecondsAfterFinished: 100
+  completions: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
   template:
     metadata:
       labels:
@@ -33,7 +30,7 @@ spec:
       {{ end }}
       {{ end }}
 
-      restartPolicy: Always
+      restartPolicy: OnFailure
       volumes:
       - name: dshm
         emptyDir:
@@ -57,7 +54,7 @@ spec:
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         command: ["/bin/bash", "-c", "--"]
         args:
-          - {{ print "ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPUInteger " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block" }}
+          - {{ print "ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPUInteger " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block; exit 0" }}
 
         # make openshift local happy
         securityContext:
@@ -78,7 +75,12 @@ spec:
         {{- end }}
         {{- end }}
         {{- end }}
+
+        {{ if .Values.jobEnv }}
         env:
+          {{ .Values.jobEnv | b64dec | indent 10 }}
+        {{- end }}
+
         resources:
           requests:
             cpu: {{ .Values.podTypes.rayWorkerType.CPU }}

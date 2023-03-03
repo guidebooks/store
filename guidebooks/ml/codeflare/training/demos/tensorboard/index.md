@@ -2,9 +2,8 @@
 imports:
     - util/jobid
     - ml/codeflare/job/log/init/s3.md
-    - ml/ray/start
     - ./setup
-    - ./submit
+    - ml/ray/start
 finally:
     - ./cleanup
     - ml/ray/stop/kubernetes/with-known-cluster-name
