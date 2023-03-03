@@ -85,6 +85,8 @@ if [ -n "$KUBE_POD_SCHEDULING_PRIO" ]; then
     jobPriority="--set priority=${KUBE_POD_SCHEDULING_PRIO}"
 fi
 
+# Here we bundle the working directory up into a base64-encoded
+# string, so that we can stash it into a configmap (see workdir.yaml)
 if [ -n "$CUSTOM_WORKING_DIR" ]; then
     if [ -d "$CUSTOM_WORKING_DIR" ]; then
         # Notes: some base64 (e.g. those with gnu utils) wrap at 76
@@ -92,11 +94,24 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
         # BSD-based base64) do not, and also do not provide the
         # `--wrap 0` option that gnu's base64 does. sigh. so we
         # instead use tr to smash any newlines
+
+        # Allow the working directory to specify an exclusion list via
+        # a .rayignore at the top level. This file is a
+        # newline-separated list of exclusion globs. See the tar
+        # manual for more detail on exclusion patterns.
+        excludeFile=$(mktemp)
+        if [ -f "$CUSTOM_WORKING_DIR"/.rayignore ]; then
+            cp "$CUSTOM_WORKING_DIR"/.rayignore $excludeFile
+        fi
+
         workdirEnc=$(mktemp)
         tar -jcf - --no-xattrs \
-            --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' \
+            --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' --exclude '.rayignore' \
+            --exclude-vcs \
+            --exclude-from $excludeFile \
             -C "$CUSTOM_WORKING_DIR" . \
             | base64 | tr -d '\n' > $workdirEnc
+
         workdir="--set-file workdir=${workdirEnc}"
         echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)$(cat $workdirEnc | wc -c | awk '{print $1}') bytes$(tput sgr0)"
     elif [ ! -e "$CUSTOM_WORKING_DIR" ]; then
