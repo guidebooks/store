@@ -1,5 +1,13 @@
 
 
+## [5.4.5](https://github.com/guidebooks/store/compare/5.4.4...5.4.5) (2023-03-03)
+
+
+### Bug Fixes
+
+* use set-file for job env in helm install ([550778e](https://github.com/guidebooks/store/commit/550778e74f75fba2cdf33173e82e750b440b299c))
+* use set-file for the base64-encoded workdir ([18d5b48](https://github.com/guidebooks/store/commit/18d5b484d474eb7436fc15b521fd6a2d8b45dec1))
+
 ## [5.4.4](https://github.com/guidebooks/store/compare/5.4.3...5.4.4) (2023-03-03)
 
 
