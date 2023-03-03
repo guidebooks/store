@@ -1,5 +1,12 @@
 
 
+## [5.4.6](https://github.com/guidebooks/store/compare/5.4.5...5.4.6) (2023-03-03)
+
+
+### Bug Fixes
+
+* linux base64 creates newlines ([946fb9e](https://github.com/guidebooks/store/commit/946fb9e183c8923477d532929ebb7d77ab4a8cb5))
+
 ## [5.4.5](https://github.com/guidebooks/store/compare/5.4.4...5.4.5) (2023-03-03)
 
 
