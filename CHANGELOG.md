@@ -1,5 +1,15 @@
 
 
+## [5.4.7](https://github.com/guidebooks/store/compare/5.4.6...5.4.7) (2023-03-03)
+
+
+### Bug Fixes
+
+* allow workdirs to specify exclusion rules via .rayignore ([f2a7fc3](https://github.com/guidebooks/store/commit/f2a7fc3f5087a4717423f91fc30550062af3d9bf))
+* decrease the frequency of nvidia-smi from 2s to 10s ([19bf7df](https://github.com/guidebooks/store/commit/19bf7df2939c665c3ace71fb9cf5077d1a8c7689))
+* improve messaging after ray job submit ([58a6f76](https://github.com/guidebooks/store/commit/58a6f762ecd288fcef586e702e1f385d0c5670c3))
+* ml/ray/run/*vmstat* may try to exec into Successful pod ([37e7b8e](https://github.com/guidebooks/store/commit/37e7b8ea3cc874a34de22fb7e12746c2813a50f5))
+
 ## [5.4.6](https://github.com/guidebooks/store/compare/5.4.5...5.4.6) (2023-03-03)
 
 
