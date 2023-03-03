@@ -1,5 +1,13 @@
 
 
+## [5.4.8](https://github.com/guidebooks/store/compare/5.4.7...5.4.8) (2023-03-03)
+
+
+### Bug Fixes
+
+* sed invalid reference errors ([e6ae764](https://github.com/guidebooks/store/commit/e6ae764941b57ace346934685b654755df6f8978))
+* simplify ray logs to focus on websocat ([e81009c](https://github.com/guidebooks/store/commit/e81009ccf32820cd74412e1996744df7f0749749))
+
 ## [5.4.7](https://github.com/guidebooks/store/compare/5.4.6...5.4.7) (2023-03-03)
 
 
