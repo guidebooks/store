@@ -87,11 +87,16 @@ fi
 
 if [ -n "$CUSTOM_WORKING_DIR" ]; then
     if [ -d "$CUSTOM_WORKING_DIR" ]; then
+        # Notes: some base64 (e.g. those with gnu utils) wrap at 76
+        # columns by default; other systems (e.g. macOS or those with
+        # BSD-based base64) do not, and also do not provide the
+        # `--wrap 0` option that gnu's base64 does. sigh. so we
+        # instead use tr to smash any newlines
         workdirEnc=$(mktemp)
         tar -jcf - --no-xattrs \
             --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' \
             -C "$CUSTOM_WORKING_DIR" . \
-            | base64 > $workdirEnc
+            | base64 | tr -d '\n' > $workdirEnc
         workdir="--set-file workdir=${workdirEnc}"
         echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)$(cat $workdirEnc | wc -c | awk '{print $1}') bytes$(tput sgr0)"
     elif [ ! -e "$CUSTOM_WORKING_DIR" ]; then
@@ -104,7 +109,7 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
 fi
 
 if [ -n "$GUIDEBOOK_DASHDASH" ]; then
-    dashdashEnc=$(echo "$GUIDEBOOK_DASHDASH" | base64)
+    dashdashEnc=$(echo -n "$GUIDEBOOK_DASHDASH" | base64)
     dashdash="--set dashdash=${dashdashEnc}"
     echo "$(tput setaf 4)[Helm] Using dashdash=$(tput setaf 5)${GUIDEBOOK_DASHDASH}$(tput sgr0)"
 fi
