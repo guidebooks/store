@@ -1,5 +1,12 @@
 
 
+## [5.4.4](https://github.com/guidebooks/store/compare/5.4.3...5.4.4) (2023-03-03)
+
+
+### Bug Fixes
+
+* remove unused HELM_DEBUG in helm install script ([185a892](https://github.com/guidebooks/store/commit/185a892d160b30abc301ff6b0cb3746f196148f7))
+
 ## [5.4.3](https://github.com/guidebooks/store/compare/5.4.2...5.4.3) (2023-03-03)
 
 
