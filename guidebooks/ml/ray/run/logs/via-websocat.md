@@ -1,8 +1,3 @@
----
-imports:
-    - util/websocat
----
-
 Using `websocat` is the easiest way @starpit can see to stream out the
 logs in a way that is compatible with `tee` or `>` or any other UNIX
 pipeline operators. See
