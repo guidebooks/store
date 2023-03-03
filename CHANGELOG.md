@@ -1,5 +1,12 @@
 
 
+## [5.4.1](https://github.com/guidebooks/store/compare/5.4.0...5.4.1) (2023-03-03)
+
+
+### Bug Fixes
+
+* improved error handling when custom workdir not found ([e850fce](https://github.com/guidebooks/store/commit/e850fce2543bb807a74dd2ac6c231e43594f2df3))
+
 # [5.4.0](https://github.com/guidebooks/store/compare/5.3.4...5.4.0) (2023-03-03)
 
 
