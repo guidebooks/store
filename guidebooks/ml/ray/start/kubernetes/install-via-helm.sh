@@ -84,10 +84,18 @@ if [ -n "$KUBE_POD_SCHEDULING_PRIO" ]; then
     jobPriority="--set priority=${KUBE_POD_SCHEDULING_PRIO}"
 fi
 
-if [ -d "$CUSTOM_WORKING_DIR" ]; then
-    workdirEnc=$(tar -jcf - --no-xattrs --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' -C "$CUSTOM_WORKING_DIR" . | base64)
-    workdir="--set workdir=${workdirEnc}"
-    echo "$(tput setaf 4)Using workdir via configmap=$(tput setaf 5)${#workdir}$(tput sgr0)"
+if [ -n "$CUSTOM_WORKING_DIR" ]; then
+    if [ -d "$CUSTOM_WORKING_DIR" ]; then
+        workdirEnc=$(tar -jcf - --no-xattrs --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' -C "$CUSTOM_WORKING_DIR" . | base64)
+        workdir="--set workdir=${workdirEnc}"
+        echo "$(tput setaf 4)Using workdir via configmap=$(tput setaf 5)${#workdir} bytes$(tput sgr0)"
+    elif [ ! -e "$CUSTOM_WORKING_DIR" ]; then
+        echo "$(tput setaf 1)Error: custom working directory specified, but path to directory not found $CUSTOM_WORKING_DIR$(tput sgr0)"
+        exit 1
+    else
+        echo "$(tput setaf 1)Error: custom working directory specified, but path does not point to a directory $CUSTOM_WORKING_DIR$(tput sgr0)"
+        exit 1
+    fi
 fi
 
 if [ -n "$GUIDEBOOK_DASHDASH" ]; then
