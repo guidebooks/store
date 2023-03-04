@@ -1,5 +1,12 @@
 
 
+## [5.4.9](https://github.com/guidebooks/store/compare/5.4.8...5.4.9) (2023-03-04)
+
+
+### Bug Fixes
+
+* kube events lines are way too wide ([8ce7175](https://github.com/guidebooks/store/commit/8ce71758353deaaa32700afef1fc37defeec4c1e))
+
 ## [5.4.8](https://github.com/guidebooks/store/compare/5.4.7...5.4.8) (2023-03-03)
 
 
