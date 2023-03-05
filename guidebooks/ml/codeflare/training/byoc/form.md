@@ -4,3 +4,4 @@ Specify the location of your source code and the base image you would like to us
 
 --8<-- "./working-directory"
 --8<-- "./base-ray-image"
+--8<-- "./command-line"
