@@ -1,5 +1,12 @@
 
 
+## [5.4.10](https://github.com/guidebooks/store/compare/5.4.9...5.4.10) (2023-03-05)
+
+
+### Bug Fixes
+
+* avoid use of grep in pod-vmstat and kube events to improve streaming on linux ([9660ec1](https://github.com/guidebooks/store/commit/9660ec11717ca53f22629ea61651a63759bb9457))
+
 ## [5.4.9](https://github.com/guidebooks/store/compare/5.4.8...5.4.9) (2023-03-04)
 
 
