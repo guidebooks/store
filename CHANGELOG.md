@@ -1,5 +1,12 @@
 
 
+# [5.5.0](https://github.com/guidebooks/store/compare/5.4.10...5.5.0) (2023-03-05)
+
+
+### Features
+
+* allow BYOC to specify command line prefix ([99d67d7](https://github.com/guidebooks/store/commit/99d67d761ef306dfd1bf14672408745dd935fb31))
+
 ## [5.4.10](https://github.com/guidebooks/store/compare/5.4.9...5.4.10) (2023-03-05)
 
 
