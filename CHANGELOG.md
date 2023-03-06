@@ -1,5 +1,12 @@
 
 
+## [5.5.2](https://github.com/guidebooks/store/compare/5.5.1...5.5.2) (2023-03-06)
+
+
+### Bug Fixes
+
+* helm install command line may be too long ([3a03b7a](https://github.com/guidebooks/store/commit/3a03b7a2dd34686103ba4ed021a044d8dfe65e46))
+
 ## [5.5.1](https://github.com/guidebooks/store/compare/5.5.0...5.5.1) (2023-03-06)
 
 
