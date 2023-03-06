@@ -39,5 +39,5 @@ while true; do
     N=$((N + 1))
 done
 
-echo "Ray API is active with RAY_ADDRESS=http://localhost:${RAY_KUBE_PORT}"
+echo "🔗 $(tput setaf 3)Ray API is active with $(tput bold)RAY_ADDRESS=http://localhost:${RAY_KUBE_PORT}$(tput sgr 0)"
 ```
