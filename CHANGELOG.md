@@ -1,5 +1,13 @@
 
 
+## [5.5.3](https://github.com/guidebooks/store/compare/5.5.2...5.5.3) (2023-03-06)
+
+
+### Bug Fixes
+
+* correct base64 decoding from prior commit ([035d604](https://github.com/guidebooks/store/commit/035d6046060fd759e5f782aa924fab2082e14991))
+* eliminate newlines from base64-encoded strings ([56bf44e](https://github.com/guidebooks/store/commit/56bf44e5f74f0412b876902cdd39d4cd4f4da2e5))
+
 ## [5.5.2](https://github.com/guidebooks/store/compare/5.5.1...5.5.2) (2023-03-06)
 
 
