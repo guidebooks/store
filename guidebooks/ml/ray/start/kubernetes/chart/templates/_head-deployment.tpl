@@ -53,6 +53,15 @@ spec:
       - name: dshm
         emptyDir:
           medium: Memory
+
+      # `volumes` entry for workdir
+      {{ if .Values.workdir }}
+      - name: workdir-volume
+        configMap:
+          name: {{ include "ray.workdir" . }}
+      {{- end }}
+
+      # `volumes` entries for Persistent Volume Claims
       {{- if .Values.pvcs }}
       {{- if .Values.pvcs.claims }}
       {{- range $key, $val := .Values.pvcs.claims }}
@@ -66,6 +75,7 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.imagePullSecret }}
       {{- end }}
+
       containers:
         - name: ray-head
           image: {{ .Values.image }}
@@ -79,10 +89,6 @@ spec:
 
           {{ if or .Values.storage.secret .Values.workdir }}
           envFrom:
-          {{ if .Values.workdir }}
-            - configMapRef:
-                name: {{ include "ray.workdir" . }}
-          {{- end }}
           {{ if .Values.storage.secret }}
             - secretRef:
                 name: {{ .Values.storage.secret }}
@@ -91,7 +97,7 @@ spec:
 
           args:
           {{ if .Values.workdir }}
-            - {{ print "set -e; set -o pipefail; " (include "ray.head.args" .) "; mkdir /tmp/workdir; echo $RAY_WORKDIR_ENCODED | base64 -d | tar -C /tmp/workdir -jxf -; if [ ! -f /tmp/workdir/runtime-env.yaml ]; then touch /tmp/workdir/runtime-env.yaml; if [ -f /tmp/workdir/requirements.txt ]; then echo 'Splicing in requirements.txt'; awk 'BEGIN { print \"pip:\" } NF > 0 { print \"  - \" $0 }' /tmp/workdir/requirements.txt >> /tmp/workdir/runtime-env.yaml; fi; fi ; ls -l /tmp/workdir ; ray job submit --job-id " (.Values.jobId) " --address http://localhost:8265 --working-dir=/tmp/workdir --runtime-env=/tmp/workdir/runtime-env.yaml -- " (.Values.commandLinePrefix | default "python3 main.py") " " (.Values.dashdash | default "" | b64dec) "; echo 'Job complete, shutting down ray...'; ray stop" }}
+            - {{ print "set -e; set -o pipefail; " (include "ray.head.args" .) "; mkdir /tmp/workdir; tar -C /tmp/workdir -jxf /tmp/configmap/workdir/workdir.tar.bz2; if [ ! -f /tmp/workdir/runtime-env.yaml ]; then touch /tmp/workdir/runtime-env.yaml; if [ -f /tmp/workdir/requirements.txt ]; then echo 'Splicing in requirements.txt'; awk 'BEGIN { print \"pip:\" } NF > 0 { print \"  - \" $0 }' /tmp/workdir/requirements.txt >> /tmp/workdir/runtime-env.yaml; fi; fi ; ls -l /tmp/workdir ; ray job submit --job-id " (.Values.jobId) " --address http://localhost:8265 --working-dir=/tmp/workdir --runtime-env=/tmp/workdir/runtime-env.yaml -- " (.Values.commandLinePrefix | default "python3 main.py") " " (.Values.dashdash | default "" | b64dec) "; echo 'Job complete, shutting down ray...'; ray stop" }}
           {{ else }}
             - {{ print (include "ray.head.args" .) " --block" }}
           {{ end }}
@@ -121,6 +127,15 @@ spec:
           volumeMounts:
             - mountPath: /dev/shm
               name: dshm
+
+          # `volumeMounts` entries for workdir
+          {{ if .Values.workdir }}
+            - name: workdir-volume
+              mountPath: /tmp/configmap/workdir
+              readOnly: true
+          {{- end }}
+              
+          # `volumeMounts` entries for PersistentVolumeClaims
           {{- if .Values.pvcs }}
           {{- if .Values.pvcs.claims }}
           {{- range $key, $val := .Values.pvcs.claims }}
