@@ -141,7 +141,7 @@ if [ -n "$GUIDEBOOK_ENV" ]; then
     echo "$GUIDEBOOK_ENV" > $jobEnvFile
     jobEnv="--set-file jobEnv=$jobEnvFile"
     echo -ne "$(tput setaf 4)[Helm] Passing through job env=\x1b[2m"
-    echo -n $(cat "$jobEnvFile" | base64 | tr -d '\n') # see above for discussion of tr
+    echo -n $(cat "$jobEnvFile" | base64 -d) # see above for discussion of tr
     echo "$(tput sgr0)"
 fi
 
