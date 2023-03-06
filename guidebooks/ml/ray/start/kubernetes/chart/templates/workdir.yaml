@@ -3,6 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ include "ray.workdir" . }}
-data:
-  RAY_WORKDIR_ENCODED: {{ .Values.workdir }}
+immutable: true
+binaryData:
+  workdir.tar.bz2: {{ .Values.workdir | b64enc }}
 {{ end }}
