@@ -1,5 +1,13 @@
 
 
+## [5.5.1](https://github.com/guidebooks/store/compare/5.5.0...5.5.1) (2023-03-06)
+
+
+### Bug Fixes
+
+* further improvements to streaming output of vmstat on linux ([2a975ec](https://github.com/guidebooks/store/commit/2a975ecc59dbe44fec89a3c1b38ddd9c7855bdc5))
+* improve visibility of RAY_ADDRESS port forward announcement ([ec045a4](https://github.com/guidebooks/store/commit/ec045a4813bfd4d8dc2619343179cec17fac0798))
+
 # [5.5.0](https://github.com/guidebooks/store/compare/5.4.10...5.5.0) (2023-03-05)
 
 
