@@ -1,5 +1,12 @@
 
 
+## [5.5.4](https://github.com/guidebooks/store/compare/5.5.3...5.5.4) (2023-03-06)
+
+
+### Bug Fixes
+
+* avoid use of env vars for workdir tarball ([6dd6c4b](https://github.com/guidebooks/store/commit/6dd6c4b863642814067e6cfe63101aa455358484))
+
 ## [5.5.3](https://github.com/guidebooks/store/compare/5.5.2...5.5.3) (2023-03-06)
 
 
