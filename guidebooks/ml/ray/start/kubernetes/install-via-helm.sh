@@ -26,10 +26,6 @@ if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
     fi
 fi
 
-if [ "$KUBE_POD_MANAGER" = ray ]; then
-    OPERATOR_IMAGE="--set operatorImage=${RAY_OPERATOR_IMAGE}"
-fi
-
 if [ -n "$KUBE_POD_MANAGER_NON_ROOT" ]; then
     # user does not have root access to their kubernetes cluster
     CLUSTER_ONLY=true
@@ -50,7 +46,7 @@ if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml
 fi
 
-echo "$(tput setaf 4)[Helm] Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)minWorkers=$(tput setaf 5)${MIN_WORKERS-2} $(tput setaf 4)maxWorkers=$(tput setaf 5)${MAX_WORKERS-3} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4)operatorImage=$(tput setaf 5)${RAY_OPERATOR_IMAGE} $(tput setaf 4)context="$(tput setaf 5)${KUBE_CONTEXT_ARG_HELM}" $(tput setaf 4)namespace="$(tput setaf 5)${KUBE_NS_ARG}$(tput sgr0)" $(tput setaf 4)clusterOnly=$(tput setaf 5)${CLUSTER_ONLY}$(tput sgr0)"
+echo "$(tput setaf 4)[Helm] Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)minWorkers=$(tput setaf 5)${MIN_WORKERS-2} $(tput setaf 4)maxWorkers=$(tput setaf 5)${MAX_WORKERS-3} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4) $(tput setaf 4)context=$(tput setaf 5)${KUBE_CONTEXT_ARG_HELM} $(tput setaf 4)namespace=$(tput setaf 5)${KUBE_NS_ARG}$(tput sgr0)$(tput sgr0)"
 
 # sigh, ray's --num-cpus flag does not understand millicores, such as 250m, nor fractional cores at all
 # this maps 250m => 1 and 2500m => 3 and 4 => 4
@@ -58,31 +54,27 @@ NUM_CPUS_INTEGER=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); re
 
 if [ -n "$RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS" ]; then
     STARTUP_PROBE="--set startupProbe.initialDelaySeconds=${RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS}"
+    echo "$(tput setaf 4)[Helm] Using startupProbe=$(tput setaf 5)$STARTUP_PROBE$(tput sgr0)"
 fi
 
 if [ -n "$ML_RAY_STORAGE_S3_KUBERNETES_SECRET" ]; then
     storageSecret="--set storage.secret=$ML_RAY_STORAGE_S3_KUBERNETES_SECRET"
+    echo "$(tput setaf 4)[Helm] Using storageSecret=$(tput setaf 5)$ML_RAY_STORAGE_S3_KUBERNETES_SECRET$(tput sgr0)"
 fi
 
 if [ -n "$IMAGE_PULL_SECRET" ]; then
     imagePullSecret="--set imagePullSecret=${IMAGE_PULL_SECRET}"
+    echo "$(tput setaf 4)[Helm] Using imagePullSecret=$(tput setaf 5)$IMAGE_PULL_SECRET$(tput sgr0)"
 fi
 
 if [ -n "$IMAGE_PULL_POLICY" ]; then
     imagePullPolicy="--set imagePullPolicy=${IMAGE_PULL_POLICY}"
-fi
-
-OUTPUT=/tmp/helm.yml
-if [ -n "$HELM_DRYRUN" ]; then
-    INSTALL="install --dry-run"
-    echo "$(tput setaf 4)[Helm] $(tput setaf 5)Performing dry run$(tput sgr0)"
-else
-    INSTALL="upgrade --install"
+    echo "$(tput setaf 4)[Helm] Using imagePullPolicy=$(tput setaf 5)$IMAGE_PULL_POLICY$(tput sgr0)"
 fi
 
 if [ -n "$KUBE_POD_SCHEDULING_PRIO" ]; then
-    echo "$(tput setaf 4)[Helm] Using job priority=$(tput setaf 5)$KUBE_POD_SCHEDULING_PRIO$(tput sgr0)"
     jobPriority="--set priority=${KUBE_POD_SCHEDULING_PRIO}"
+    echo "$(tput setaf 4)[Helm] Using job priority=$(tput setaf 5)$KUBE_POD_SCHEDULING_PRIO$(tput sgr0)"
 fi
 
 # Here we bundle the working directory up into a base64-encoded
@@ -124,22 +116,15 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
 fi
 
 if [ -n "$GUIDEBOOK_DASHDASH" ]; then
-    dashdashEnc=$(echo -n "$GUIDEBOOK_DASHDASH" | base64)
-    dashdash="--set dashdash=${dashdashEnc}"
+    dashdashEnc=$(mktemp)
+    echo -n "$GUIDEBOOK_DASHDASH" | base64 > $dashdashEnc
+    dashdash="--set-file dashdash=${dashdashEnc}"
     echo "$(tput setaf 4)[Helm] Using dashdash=$(tput setaf 5)${GUIDEBOOK_DASHDASH}$(tput sgr0)"
-fi
-
-if [ -n "$GUIDEBOOK_ENV" ]; then
-    jobEnvFile=$(mktemp)
-    echo "$GUIDEBOOK_ENV" > $jobEnvFile
-    jobEnv="--set-file jobEnv=$jobEnvFile"
-    echo -n "$(tput setaf 4)[Helm] Passing through job env=$(tput setaf 5)"
-    echo -n $(cat "$jobEnvFile" | base64 -d)
-    echo "$(tput sgr0)"
 fi
 
 if [ -n "$JOB_ID" ]; then
     jobId="--set jobId=${JOB_ID}"
+    echo "$(tput setaf 4)[Helm] Using jobId=$(tput setaf 5)${JOB_ID}$(tput sgr0)"
 fi
 
 if [ -z "$RAY_KUBE_CLUSTER_NAME" ]; then
@@ -149,10 +134,30 @@ else
     echo "$(tput setaf 4)[Helm] Using ray cluster name=$(tput setaf 5)${RAY_KUBE_CLUSTER_NAME}$(tput sgr0)"
 fi
 
+if [ -n "$GUIDEBOOK_ENV" ]; then
+    jobEnvFile=$(mktemp)
+    echo "$GUIDEBOOK_ENV" > $jobEnvFile
+    jobEnv="--set-file jobEnv=$jobEnvFile"
+    echo -ne "$(tput setaf 4)[Helm] Passing through job env=\x1b[2m"
+    echo -n $(cat "$jobEnvFile" | base64 -d)
+    echo "$(tput sgr0)"
+fi
+
+if [ -n "$HELM_DRYRUN" ]; then
+    TEE="cat" # we don't want to tee the dryrun output to the console
+    SETUP="set -x" # echo the helm command line
+    INSTALL="install --dry-run ${HELM_DEBUG}"
+    echo "$(tput setaf 4)[Helm] $(tput setaf 5)Performing dry run$(tput sgr0)"
+else
+    TEE="tee" # stream the output of helm install to the console
+    INSTALL="upgrade --install"
+fi
+
+${SETUP}
 cd $REPO/$SUBDIR && \
     helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
-         ${CREATE_NAMESPACE} ${STARTUP_PROBE} ${OPERATOR_IMAGE} \
+         ${CREATE_NAMESPACE} ${STARTUP_PROBE} \
          ${HELM_EXTRA} \
          --set clusterName=${RAY_KUBE_CLUSTER_NAME} \
          --set clusterNamespace=${KUBE_NS_FOR_REAL-${KUBE_NS}} \
@@ -171,23 +176,21 @@ cd $REPO/$SUBDIR && \
          ${jobEnv} \
          ${dashdash} \
          ${workdir} \
-         --set operatorResources.cpu=${NUM_CPUS-1} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
          ${jobPriority} \
          --set storage.path=${RAY_STORAGE_PATH-/dev/shm} \
          ${storageSecret} \
-         --set namespacedOperator=true \
-         --set operatorNamespace=${KUBE_NS} \
          --set rbac.enabled=${KUBERNETES_RBAC_ENABLED-false} \
          ${startupProbe} \
-         --set clusterOnly=${CLUSTER_ONLY-false} ${SKIP_CRDS} \
          --set image=${RAY_IMAGE} \
          ${imagePullSecret} \
-         ${imagePullPolicy} | tee ${OUTPUT}
+         ${imagePullPolicy} \
+         | ${TEE} > ${HELM_OUTPUT-/tmp/helm.yml}
+set +x
 
 if [ -n "$HELM_DRYRUN" ]; then
     # early exit
-    echo "[Helm] yaml spec should be in ${OUTPUT}"
+    echo "[Helm] yaml spec should be in ${HELM_OUTPUT-/tmp/helm.yml}"
     exit 90
 fi
