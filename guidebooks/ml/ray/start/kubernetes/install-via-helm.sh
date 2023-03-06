@@ -77,16 +77,18 @@ if [ -n "$KUBE_POD_SCHEDULING_PRIO" ]; then
     echo "$(tput setaf 4)[Helm] Using job priority=$(tput setaf 5)$KUBE_POD_SCHEDULING_PRIO$(tput sgr0)"
 fi
 
+#
+# Notes on use of tr -d below: some base64 (e.g. those with gnu utils)
+# wrap at 76 columns by default; other systems (e.g. macOS or those
+# with BSD-based base64) do not, and also do not provide the `--wrap
+# 0` option that gnu's base64 does. sigh. so we instead use `tr -d
+# '\n'` to eliminate any newlines in the base64-encoded string
+#
+
 # Here we bundle the working directory up into a base64-encoded
 # string, so that we can stash it into a configmap (see workdir.yaml)
 if [ -n "$CUSTOM_WORKING_DIR" ]; then
     if [ -d "$CUSTOM_WORKING_DIR" ]; then
-        # Notes: some base64 (e.g. those with gnu utils) wrap at 76
-        # columns by default; other systems (e.g. macOS or those with
-        # BSD-based base64) do not, and also do not provide the
-        # `--wrap 0` option that gnu's base64 does. sigh. so we
-        # instead use tr to smash any newlines
-
         # Allow the working directory to specify an exclusion list via
         # a .rayignore at the top level. This file is a
         # newline-separated list of exclusion globs. See the tar
@@ -102,7 +104,7 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
             --exclude-vcs \
             --exclude-from $excludeFile \
             -C "$CUSTOM_WORKING_DIR" . \
-            | base64 | tr -d '\n' > $workdirEnc
+            | base64 | tr -d '\n' > $workdirEnc # see above for discussion of tr
 
         workdir="--set-file workdir=${workdirEnc}"
         echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)$(cat $workdirEnc | wc -c | awk '{print $1}') bytes$(tput sgr0)"
@@ -117,7 +119,7 @@ fi
 
 if [ -n "$GUIDEBOOK_DASHDASH" ]; then
     dashdashEnc=$(mktemp)
-    echo -n "$GUIDEBOOK_DASHDASH" | base64 > $dashdashEnc
+    echo -n "$GUIDEBOOK_DASHDASH" | base64 | tr -d '\n' > $dashdashEnc # see above for discussion of tr
     dashdash="--set-file dashdash=${dashdashEnc}"
     echo "$(tput setaf 4)[Helm] Using dashdash=$(tput setaf 5)${GUIDEBOOK_DASHDASH}$(tput sgr0)"
 fi
@@ -139,21 +141,21 @@ if [ -n "$GUIDEBOOK_ENV" ]; then
     echo "$GUIDEBOOK_ENV" > $jobEnvFile
     jobEnv="--set-file jobEnv=$jobEnvFile"
     echo -ne "$(tput setaf 4)[Helm] Passing through job env=\x1b[2m"
-    echo -n $(cat "$jobEnvFile" | base64 -d)
+    echo -n $(cat "$jobEnvFile" | base64 | tr -d '\n') # see above for discussion of tr
     echo "$(tput sgr0)"
 fi
 
 if [ -n "$HELM_DRYRUN" ]; then
     TEE="cat" # we don't want to tee the dryrun output to the console
-    SETUP="set -x" # echo the helm command line
     INSTALL="install --dry-run ${HELM_DEBUG}"
     echo "$(tput setaf 4)[Helm] $(tput setaf 5)Performing dry run$(tput sgr0)"
+
+    set -x # echo the helm command line
 else
     TEE="tee" # stream the output of helm install to the console
     INSTALL="upgrade --install"
 fi
 
-${SETUP}
 cd $REPO/$SUBDIR && \
     helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
