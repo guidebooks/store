@@ -1,5 +1,12 @@
 
 
+## [5.5.6](https://github.com/guidebooks/store/compare/5.5.5...5.5.6) (2023-03-07)
+
+
+### Bug Fixes
+
+* vmstats were using `sed -l` in a way that only made sense on BSD sed ([c30da29](https://github.com/guidebooks/store/commit/c30da2950d7b6bd181d44de98ee1e3ff436e7ade))
+
 ## [5.5.5](https://github.com/guidebooks/store/compare/5.5.4...5.5.5) (2023-03-07)
 
 
