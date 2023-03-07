@@ -1,5 +1,12 @@
 
 
+# [5.6.0](https://github.com/guidebooks/store/compare/5.5.6...5.6.0) (2023-03-07)
+
+
+### Features
+
+* move cpu and memory utilization to be first column ([ca00dc4](https://github.com/guidebooks/store/commit/ca00dc4cc25ea79940435eb253c89ded03448f63))
+
 ## [5.5.6](https://github.com/guidebooks/store/compare/5.5.5...5.5.6) (2023-03-07)
 
 
