@@ -1,5 +1,12 @@
 
 
+## [5.5.5](https://github.com/guidebooks/store/compare/5.5.4...5.5.5) (2023-03-07)
+
+
+### Bug Fixes
+
+* helm install was not passing through desired command line prefix ([75026f1](https://github.com/guidebooks/store/commit/75026f14aff475f34e34fa16b651692bdae96c60))
+
 ## [5.5.4](https://github.com/guidebooks/store/compare/5.5.3...5.5.4) (2023-03-06)
 
 
