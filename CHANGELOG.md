@@ -1,5 +1,12 @@
 
 
+## [5.6.1](https://github.com/guidebooks/store/compare/5.6.0...5.6.1) (2023-03-07)
+
+
+### Bug Fixes
+
+* ugh, restore awk -Winteractive ([3057937](https://github.com/guidebooks/store/commit/3057937412cb212a446bacdf1b32d46b7f31fd5b))
+
 # [5.6.0](https://github.com/guidebooks/store/compare/5.5.6...5.6.0) (2023-03-07)
 
 
