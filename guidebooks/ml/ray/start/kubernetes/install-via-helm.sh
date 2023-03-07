@@ -116,6 +116,13 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
     fi
 fi
 
+if [ -n "$CUSTOM_COMMAND_LINE_PREFIX" ]; then
+    commandLinePrefixEnc=$(mktemp)
+    echo -n "$CUSTOM_COMMAND_LINE_PREFIX" | tr -d '\n' > $commandLinePrefixEnc
+    commandLinePrefix="--set-file commandLinePrefix=$commandLinePrefixEnc"
+    echo "$(tput setaf 4)[Helm] Using commandLinePrefix=$(tput setaf 5)${CUSTOM_COMMAND_LINE_PREFIX}$(tput sgr0)"
+fi
+
 if [ -n "$GUIDEBOOK_DASHDASH" ]; then
     dashdashEnc=$(mktemp)
     echo -n "$GUIDEBOOK_DASHDASH" | base64 | tr -d '\n' > $dashdashEnc # see above for discussion of tr
@@ -175,6 +182,7 @@ cd $REPO/$SUBDIR && \
          --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-1} \
          ${jobId} \
          ${jobEnv} \
+         ${commandLinePrefix} \
          ${dashdash} \
          ${workdir} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
