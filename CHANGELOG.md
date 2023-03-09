@@ -1,5 +1,12 @@
 
 
+## [5.6.2](https://github.com/guidebooks/store/compare/5.6.1...5.6.2) (2023-03-09)
+
+
+### Bug Fixes
+
+* ray would fail if workdir had no runtime-env.yaml nor requirements.txt ([a985e0e](https://github.com/guidebooks/store/commit/a985e0ef7b59c8f7f7d01f436116cc4a51d84a26))
+
 ## [5.6.1](https://github.com/guidebooks/store/compare/5.6.0...5.6.1) (2023-03-07)
 
 
