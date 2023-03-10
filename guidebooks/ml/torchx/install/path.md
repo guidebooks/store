@@ -1,0 +1,3 @@
+```shell
+export TORCHX_VENV_PATH=${GUIDEBOOK_GLOBAL_DATA_PATH}/venvs/torchx/${TORCHX_PIP_VERSION-0.5.0dev}
+```
