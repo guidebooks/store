@@ -151,6 +151,14 @@ if [ -n "$GUIDEBOOK_ENV" ]; then
     echo "$(tput sgr0)"
 fi
 
+if [ -f "$HELM_ROLL_YOUR_OWN" ]; then
+    rollYourOwn="--set-file rollYourOwn=$HELM_ROLL_YOUR_OWN"
+    echo "$(tput setaf 4)[Helm] Using custom resources from $(tput setaf 5)$HELM_ROLL_YOUR_OWN$(tput sgr0)"
+elif [ -n "$HELM_ROLL_YOUR_OWN" ]; then
+    echo "$(tput setaf 1)[Helm] Error: roll your own invalid, expected a filepath: $HELM_ROLL_YOUR_OWN$(tput sgr0)"
+    exit 1
+fi
+
 if [ -n "$HELM_DRYRUN" ]; then
     TEE="cat" # we don't want to tee the dryrun output to the console
     INSTALL="install --dry-run ${HELM_DEBUG}"
@@ -180,6 +188,7 @@ cd $REPO/$SUBDIR && \
          --set podTypes.rayWorkerType.storage=${RAY_EPHEMERAL_STORAGE-5Gi} \
          --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-1} \
          --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-1} \
+         ${rollYourOwn} \
          ${jobId} \
          ${jobEnv} \
          ${commandLinePrefix} \

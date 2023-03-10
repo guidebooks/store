@@ -27,7 +27,7 @@
 {{- end }}
 
 {{- define "ray.workdir" -}}
-{{- trunc 63 (print "ray-workdir-" .Values.clusterName) -}}
+{{- trunc 63 (print "workdir-" .Values.clusterName) -}}
 {{- end }}
 
 {{- define "ray.head.args" -}}
