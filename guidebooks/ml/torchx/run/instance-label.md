@@ -1,3 +1,11 @@
 ```shell
 export TORCHX_INSTANCE_LABEL=appwrapper.mcad.ibm.com=${TORCHX_INSTANCE}
 ```
+
+```shell
+export KUBE_PODFULL_LABEL_SELECTOR=$TORCHX_INSTANCE_LABEL
+```
+
+```shell
+export KUBE_POD_LABEL_SELECTOR=$TORCHX_INSTANCE_LABEL
+```
