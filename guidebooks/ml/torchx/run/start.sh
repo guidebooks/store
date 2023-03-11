@@ -36,7 +36,8 @@ cd $CUSTOM_WORKING_DIR && \
            --script=$script \
         2>&1 \
         | awk '$0=="=== SCHEDULER REQUEST ===" {on=1} on==2 { print $0 } on==1{on=2}' \
-        | sed -E "s/main-[a-zA-Z0-9]+/$TORCHX_INSTANCE/" \
+        | sed "s/main-pg/pg/" \
+        | sed -E "s/main-[a-zA-Z0-9]+/$TORCHX_INSTANCE/g" \
         | sed -E 's#(python -m torch.distributed.run)#if [ -f /tmp/configmap/workdir/workdir.tar.bz2 ]; then export PYTHONPATH="${PYTHONPATH}:/tmp/workdir"; echo "Unpacking workspace with PYTHONPATH=$PYTHONPATH"; mkdir /tmp/workdir; tar -C /tmp/workdir -jxvf /tmp/configmap/workdir/workdir.tar.bz2; fi; cd /tmp/workdir; \1#' \
         | awk '{ idx=index($0, "volumeMounts:"); print $0; if (idx > 0) { for (i=1; i<idx; i++) printf " "; print "- name: workdir-volume"; for (i=1; i<idx+2; i++) printf " "; print "mountPath: /tmp/configmap/workdir"; for (i=1; i<idx+2; i++) printf " "; print "readOnly: true"} }' \
         | awk -v clusterName=$TORCHX_INSTANCE '{ idx=index($0, "volumes:"); print $0; if (idx > 0) { for (i=1; i<idx; i++) printf " "; print "- name: workdir-volume"; for (i=1; i<idx+2; i++) printf " "; print "configMap:"; for (i=1; i<idx+4; i++) printf " "; print "name: workdir-" clusterName} }' \
