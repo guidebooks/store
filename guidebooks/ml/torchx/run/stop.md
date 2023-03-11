@@ -5,7 +5,7 @@ imports:
     - ./instance-id
 ---
 
-# Tear down the Torchx Job
+# Tear down Torchx Job
 
 ```shell
 helm delete ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} ${TORCHX_INSTANCE}
