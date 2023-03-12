@@ -1,5 +1,12 @@
 
 
+## [6.0.1](https://github.com/guidebooks/store/compare/6.0.0...6.0.1) (2023-03-12)
+
+
+### Bug Fixes
+
+* use 0.5.0dev0 has the name for the torchx venv ([b1b760b](https://github.com/guidebooks/store/commit/b1b760b93bae1cc7ad7f4603f757c2b34c3a5b97))
+
 # [6.0.0](https://github.com/guidebooks/store/compare/5.7.0...6.0.0) (2023-03-12)
 
 
