@@ -46,7 +46,7 @@ if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml
 fi
 
-echo "$(tput setaf 4)[Helm] Creating ray cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)minWorkers=$(tput setaf 5)${MIN_WORKERS-2} $(tput setaf 4)maxWorkers=$(tput setaf 5)${MAX_WORKERS-3} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4) $(tput setaf 4)context=$(tput setaf 5)${KUBE_CONTEXT_ARG_HELM} $(tput setaf 4)namespace=$(tput setaf 5)${KUBE_NS_ARG}$(tput sgr0)$(tput sgr0)"
+echo "$(tput setaf 4)[Helm] Creating cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)numWorkers=$(tput setaf 5)${MAX_WORKERS} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4) $(tput setaf 4)context=$(tput setaf 5)${KUBE_CONTEXT_ARG_HELM} $(tput setaf 4)namespace=$(tput setaf 5)${KUBE_NS_ARG}$(tput sgr0)$(tput sgr0)"
 
 # sigh, ray's --num-cpus flag does not understand millicores, such as 250m, nor fractional cores at all
 # this maps 250m => 1 and 2500m => 3 and 4 => 4
@@ -139,7 +139,7 @@ if [ -z "$RAY_KUBE_CLUSTER_NAME" ]; then
     echo "$(tput setaf 1)[Helm] Error: ray cluster name not defined$(tput sgr0)"
     exit 1
 else
-    echo "$(tput setaf 4)[Helm] Using ray cluster name=$(tput setaf 5)${RAY_KUBE_CLUSTER_NAME}$(tput sgr0)"
+    echo "$(tput setaf 4)[Helm] Using cluster name=$(tput setaf 5)${RAY_KUBE_CLUSTER_NAME}$(tput sgr0)"
 fi
 
 if [ -n "$GUIDEBOOK_ENV" ]; then
