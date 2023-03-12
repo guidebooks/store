@@ -44,6 +44,7 @@ cd $CUSTOM_WORKING_DIR && \
            --script=$script \
         2>&1 \
         | awk '$0=="=== SCHEDULER REQUEST ===" {on=1} on==2 { print $0 } on==1{on=2}' \
+        | sed "s#$script#$script -- $GUIDEBOOK_DASHDASH#" \
         | sed "s/main-pg/pg/" \
         | sed -E "s/main-[a-zA-Z0-9]+/$TORCHX_INSTANCE/g" \
         | sed -E 's#(python -m torch.distributed.run)#if [ -f /tmp/configmap/workdir/workdir.tar.bz2 ]; then export PYTHONPATH="${PYTHONPATH}:/tmp/workdir"; echo "Unpacking workspace with PYTHONPATH=$PYTHONPATH"; mkdir /tmp/workdir; tar -C /tmp/workdir -jxvf /tmp/configmap/workdir/workdir.tar.bz2; fi; cd /tmp/workdir; \1#' \
