@@ -1,5 +1,18 @@
 
 
+# [6.0.0](https://github.com/guidebooks/store/compare/5.7.0...6.0.0) (2023-03-12)
+
+
+### Features
+
+* add torchx/run to ml/codeflare/run ([92470f7](https://github.com/guidebooks/store/commit/92470f79cde4cd4ab2beb44987958b66be45c85c))
+
+
+### BREAKING CHANGES
+
+* this changes the menu structure for ml/codeflare/run, which may require test updates.
+* this also removes the old "codeflare model architecture" option from ml/codeflare/run
+
 # [5.7.0](https://github.com/guidebooks/store/compare/5.6.2...5.7.0) (2023-03-11)
 
 
