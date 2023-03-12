@@ -1,5 +1,22 @@
 
 
+# [5.7.0](https://github.com/guidebooks/store/compare/5.6.2...5.7.0) (2023-03-11)
+
+
+### Bug Fixes
+
+* add worker index to log output ([6d8b12a](https://github.com/guidebooks/store/commit/6d8b12a383df7bf5c6a9652b2722aac5d5692f8c))
+* ml/torchx/run fails with nWorkers>1 ([377d183](https://github.com/guidebooks/store/commit/377d183f0cf19392f9da98dedffd08baad073da6))
+* shorten prefix of log lines ([250f486](https://github.com/guidebooks/store/commit/250f486af211d1bcf150cadd5f1e567a12b0d019))
+* small wordsmithing to title of ml/torchx/run/stop ([ef16c61](https://github.com/guidebooks/store/commit/ef16c610a4b7562d86f9762fcb06ddd387f5954b))
+
+
+### Features
+
+* add cpu/gpu/mem utilization to ml/torchx/run/logs ([8a23455](https://github.com/guidebooks/store/commit/8a2345550b9e6bd7e29b2236f809851c06403a2a))
+* ml/torchx/run ([9ed5a10](https://github.com/guidebooks/store/commit/9ed5a100027a391ed3131c1873ac61de45fbe3c2))
+* restore torchx cli install ([53d6ba5](https://github.com/guidebooks/store/commit/53d6ba5f1ecb7cb64951467bc75be0fdac59e2f9))
+
 ## [5.6.2](https://github.com/guidebooks/store/compare/5.6.1...5.6.2) (2023-03-09)
 
 
