@@ -1,5 +1,14 @@
 
 
+## [6.0.2](https://github.com/guidebooks/store/compare/6.0.1...6.0.2) (2023-03-12)
+
+
+### Bug Fixes
+
+* allow ml/torchx/run to choose pod scheduler ([f3394d4](https://github.com/guidebooks/store/commit/f3394d4f05a3f8141fbc28c75723c988df29a847))
+* ml/torchx/run misinterprets Mi memory units ([00b2c77](https://github.com/guidebooks/store/commit/00b2c77070efdf4dcf1575ef9c3901ce09a3e95c))
+* remove unnecessary mention of 'ray' in helm install output ([a6925c9](https://github.com/guidebooks/store/commit/a6925c9f149bfef6de08438980ce3c3858da52a9))
+
 ## [6.0.1](https://github.com/guidebooks/store/compare/6.0.0...6.0.1) (2023-03-12)
 
 
