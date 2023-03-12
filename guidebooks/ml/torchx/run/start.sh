@@ -13,25 +13,30 @@ NUMERIC_PART=$(echo $WORKER_MEMORY | sed -E 's/[MGTP]i?//i')
 SCALE_PART=$(echo $WORKER_MEMORY | sed -E 's/^.+Mi$/1/i' | sed -E 's/^.+Gi$/1024/i' | sed -E 's/^.+Ti$/1024 * 1024/i' | sed -E 's/^.+Pi$/1024 * 1024 * 1024/i')
 WORKER_MEMORY_MB=$(($NUMERIC_PART * $SCALE_PART))
 
-ns="namespace=${KUBE_NS}"
-imagePullSecret="image_secret=all-icr-io"
+# TorchX Command Line Options
 image="--image ${RAY_IMAGE}"
-volumes="--mounts type=volume,src=$S3_S3FS_CLAIM,dst=$S3_DATAPATH"
 script="$(echo $CUSTOM_COMMAND_LINE_PREFIX | sed -E 's/^python[[:digit:]]+[ ]+//')"
+if [ -n "$S3_S3FS_CLAIM" ] && [ -n "$S3_DATAPATH" ]; then
+    volumes="--mounts type=volume,src=$S3_S3FS_CLAIM,dst=$S3_DATAPATH"
+fi
 
+# kubernetes_mcad scheduler Options
+ns="namespace=${KUBE_NS}"
+if [ -n "$IMAGE_PULL_SECRET" ]; then
+    imagePullSecret=",image_secret=$IMAGE_PULL_SECRET"
+fi
 if [ "$KUBE_POD_SCHEDULER" = "coscheduler" ]; then
     coscheduler=",coscheduler_name=scheduler-plugins-scheduler"
 fi
-
 if [ -n "$RAY_IMAGE" ]; then
-    repo="image_repo=$(dirname $RAY_IMAGE)"
+    repo=",image_repo=$(dirname $RAY_IMAGE)"
 fi
 
 cd $CUSTOM_WORKING_DIR && \
     torchx run --workspace="" \
            --dryrun \
            --scheduler $scheduler \
-           --scheduler_args $ns,$repo,$imagePullSecret$coscheduler \
+           --scheduler_args $ns$repo$imagePullSecret$coscheduler \
            $component \
            -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_INTEGER} --memMB ${WORKER_MEMORY_MB} \
            $volumes \
