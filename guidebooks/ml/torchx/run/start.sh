@@ -10,7 +10,7 @@ NUM_CPUS_INTEGER=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); re
 
 # sigh, torchx does not handle Mi units
 NUMERIC_PART=$(echo $WORKER_MEMORY | sed -E 's/[MGTP]i?//')
-SCALE_PART=$(echo $WORKER_MEMORY | sed 's/Mi/1/' | sed -E 's/^.+Gi$/1024/' | sed -E 's/^.+Ti$/1024 * 1024/' | sed -E 's/^.+Pi$/1024 * 1024 * 1024/')
+SCALE_PART=$(echo $WORKER_MEMORY | sed 's/^.+Mi$/1/' | sed -E 's/^.+Gi$/1024/' | sed -E 's/^.+Ti$/1024 * 1024/' | sed -E 's/^.+Pi$/1024 * 1024 * 1024/')
 WORKER_MEMORY_MB=$(($NUMERIC_PART * $SCALE_PART))
 
 ns="namespace=${KUBE_NS}"
@@ -45,6 +45,5 @@ cd $CUSTOM_WORKING_DIR && \
         | awk '{ idx=index($0, "volumeMounts:"); print $0; if (idx > 0) { for (i=1; i<idx; i++) printf " "; print "- name: workdir-volume"; for (i=1; i<idx+2; i++) printf " "; print "mountPath: /tmp/configmap/workdir"; for (i=1; i<idx+2; i++) printf " "; print "readOnly: true"} }' \
         | awk -v clusterName=$TORCHX_INSTANCE '{ idx=index($0, "volumes:"); print $0; if (idx > 0) { for (i=1; i<idx; i++) printf " "; print "- name: workdir-volume"; for (i=1; i<idx+2; i++) printf " "; print "configMap:"; for (i=1; i<idx+4; i++) printf " "; print "name: workdir-" clusterName} }' \
         > $HELM_ROLL_YOUR_OWN
-set +x
 
 echo "Torchx resources have been staged in $HELM_ROLL_YOUR_OWN"
