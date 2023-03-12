@@ -1,5 +1,12 @@
 
 
+## [6.0.3](https://github.com/guidebooks/store/compare/6.0.2...6.0.3) (2023-03-12)
+
+
+### Bug Fixes
+
+* missing -E for torchx memMB; also add case-insensitivity ([9fddc45](https://github.com/guidebooks/store/commit/9fddc459c71379d68c44572505beb5de7baa1834))
+
 ## [6.0.2](https://github.com/guidebooks/store/compare/6.0.1...6.0.2) (2023-03-12)
 
 
