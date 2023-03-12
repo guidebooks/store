@@ -1,5 +1,12 @@
 
 
+## [6.0.4](https://github.com/guidebooks/store/compare/6.0.3...6.0.4) (2023-03-12)
+
+
+### Bug Fixes
+
+* don't pass through volumes and image pull secret if not provided ([9bf76d6](https://github.com/guidebooks/store/commit/9bf76d69377d803247b2b5b9ba271b6b53b60e44))
+
 ## [6.0.3](https://github.com/guidebooks/store/compare/6.0.2...6.0.3) (2023-03-12)
 
 
