@@ -1,7 +1,7 @@
 ---
 imports:
     - ./resources
-    - ml/torchx/install/path
+    - ml/torchx/install/cli
 ---
 
 ```shell
