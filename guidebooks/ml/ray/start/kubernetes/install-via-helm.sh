@@ -46,7 +46,7 @@ if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml
 fi
 
-echo "$(tput setaf 4)[Helm] Creating cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)numWorkers=$(tput setaf 5)${MAX_WORKERS} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4) $(tput setaf 4)context=$(tput setaf 5)${KUBE_CONTEXT_ARG_HELM} $(tput setaf 4)namespace=$(tput setaf 5)${KUBE_NS_ARG}$(tput sgr0)$(tput sgr0)"
+echo "$(tput setaf 4)[Helm] Creating cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)numWorkers=$(tput setaf 5)${MAX_WORKERS} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4)context=$(tput setaf 5)${KUBE_CONTEXT_ARG_HELM} $(tput setaf 4)namespace=$(tput setaf 5)${KUBE_NS_ARG}$(tput sgr0)$(tput sgr0)"
 
 # sigh, ray's --num-cpus flag does not understand millicores, such as 250m, nor fractional cores at all
 # this maps 250m => 1 and 2500m => 3 and 4 => 4
