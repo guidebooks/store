@@ -2,11 +2,11 @@
 
 I would like to configure and fire off a run.
 
-=== "Run with CodeFlare Model Architecture"
-    :import{./run-with-codeflare.md}
+=== "Bring Your Own Ray Code"
+    :import{./training/byoc}
 
-=== "Bring Your Own Code"
-    :import{./training/byoc/index.md}
+=== "Bring Your Own Torch Native Code"
+    :import{ml/torchx/run}
 
 === "Demos"
-    :import{./training/demos/index.md}
+    :import{./training/demos}
