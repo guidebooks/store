@@ -9,8 +9,8 @@ component=dist.ddp
 NUM_CPUS_INTEGER=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); return(x>y?y+1:y)} /[^m]$/ { print $1 } /m$/ { sub("m",""); print ceil($1/1000) }')
 
 # sigh, torchx does not handle Mi units
-NUMERIC_PART=$(echo $WORKER_MEMORY | sed -E 's/[MGTP]i?//')
-SCALE_PART=$(echo $WORKER_MEMORY | sed 's/^.+Mi$/1/' | sed -E 's/^.+Gi$/1024/' | sed -E 's/^.+Ti$/1024 * 1024/' | sed -E 's/^.+Pi$/1024 * 1024 * 1024/')
+NUMERIC_PART=$(echo $WORKER_MEMORY | sed -E 's/[MGTP]i?//i')
+SCALE_PART=$(echo $WORKER_MEMORY | sed -E 's/^.+Mi$/1/i' | sed -E 's/^.+Gi$/1024/i' | sed -E 's/^.+Ti$/1024 * 1024/i' | sed -E 's/^.+Pi$/1024 * 1024 * 1024/i')
 WORKER_MEMORY_MB=$(($NUMERIC_PART * $SCALE_PART))
 
 ns="namespace=${KUBE_NS}"
