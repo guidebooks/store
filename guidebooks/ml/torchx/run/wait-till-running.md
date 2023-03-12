@@ -18,7 +18,6 @@ while true; do
 done
 
 echo "Waiting for Torchx workers to be running"
-set -x
 kubectl wait pod \
     --timeout=-1s \
     --for=condition=Ready \
