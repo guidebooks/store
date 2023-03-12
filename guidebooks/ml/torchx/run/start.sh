@@ -17,8 +17,11 @@ ns="namespace=${KUBE_NS}"
 imagePullSecret="image_secret=all-icr-io"
 image="--image ${RAY_IMAGE}"
 volumes="--mounts type=volume,src=$S3_S3FS_CLAIM,dst=$S3_DATAPATH"
-coscheduler="coscheduler_name=scheduler-plugins-scheduler"
 script="$(echo $CUSTOM_COMMAND_LINE_PREFIX | sed -E 's/^python[[:digit:]]+[ ]+//')"
+
+if [ "$KUBE_POD_SCHEDULER" = "coscheduler" ]; then
+    coscheduler=",coscheduler_name=scheduler-plugins-scheduler"
+fi
 
 if [ -n "$RAY_IMAGE" ]; then
     repo="image_repo=$(dirname $RAY_IMAGE)"
@@ -28,7 +31,7 @@ cd $CUSTOM_WORKING_DIR && \
     torchx run --workspace="" \
            --dryrun \
            --scheduler $scheduler \
-           --scheduler_args $ns,$repo,$imagePullSecret,$coscheduler \
+           --scheduler_args $ns,$repo,$imagePullSecret$coscheduler \
            $component \
            -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_INTEGER} --memMB ${WORKER_MEMORY_MB} \
            $volumes \

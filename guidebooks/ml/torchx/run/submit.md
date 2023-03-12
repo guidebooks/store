@@ -5,6 +5,7 @@ imports:
     - kubernetes/choose/secret/image-pull
     - s3/choose/bucket/maybe
     - ml/ray/storage/s3/maybe
+    - ml/ray/cluster/kubernetes/choose-pod-scheduler
     - ml/ray/run/logs/init.md
     - ./create-yaml
     - ./invoke-helm
