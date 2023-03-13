@@ -1,5 +1,12 @@
 
 
+## [6.0.11](https://github.com/guidebooks/store/compare/6.0.10...6.0.11) (2023-03-13)
+
+
+### Bug Fixes
+
+* another fix for absent runtime-env ([7797638](https://github.com/guidebooks/store/commit/7797638e0e80eef55572de0743f3b1a63d816714))
+
 ## [6.0.10](https://github.com/guidebooks/store/compare/6.0.9...6.0.10) (2023-03-13)
 
 
