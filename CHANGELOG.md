@@ -1,5 +1,12 @@
 
 
+## [6.0.7](https://github.com/guidebooks/store/compare/6.0.6...6.0.7) (2023-03-13)
+
+
+### Bug Fixes
+
+* kube event streamer should retry on 404 ([b76dbb7](https://github.com/guidebooks/store/commit/b76dbb7a07273b6076d07caa6d1350c78111b173))
+
 ## [6.0.6](https://github.com/guidebooks/store/compare/6.0.5...6.0.6) (2023-03-13)
 
 
