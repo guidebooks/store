@@ -1,5 +1,12 @@
 
 
+## [6.0.9](https://github.com/guidebooks/store/compare/6.0.8...6.0.9) (2023-03-13)
+
+
+### Bug Fixes
+
+* specify parallelism for ray worker Job ([6a8e89d](https://github.com/guidebooks/store/commit/6a8e89df3b6945c9f79536897a62724774ded9c0))
+
 ## [6.0.8](https://github.com/guidebooks/store/compare/6.0.7...6.0.8) (2023-03-13)
 
 
