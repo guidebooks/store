@@ -1,5 +1,14 @@
 
 
+## [6.0.5](https://github.com/guidebooks/store/compare/6.0.4...6.0.5) (2023-03-13)
+
+
+### Bug Fixes
+
+* add dashdash support to ml/torchx/run ([ebf0a7e](https://github.com/guidebooks/store/commit/ebf0a7eab39d570ada91e58b2c8271d29b2464f8))
+* remove extra space in helm install output ([f9133c2](https://github.com/guidebooks/store/commit/f9133c2b415cc8f458cc2acacf1d90abe1cb1c4e))
+* remove set -x ([cb677f1](https://github.com/guidebooks/store/commit/cb677f14d4c56f41d7be1ec6fff77bc1eaf0f969))
+
 ## [6.0.4](https://github.com/guidebooks/store/compare/6.0.3...6.0.4) (2023-03-12)
 
 
