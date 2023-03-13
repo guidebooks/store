@@ -1,5 +1,12 @@
 
 
+## [6.0.10](https://github.com/guidebooks/store/compare/6.0.9...6.0.10) (2023-03-13)
+
+
+### Bug Fixes
+
+* update to new torchx use of `torchrun` ([cdf9e01](https://github.com/guidebooks/store/commit/cdf9e01661a49763f945e51d5743d7bc894b9265))
+
 ## [6.0.9](https://github.com/guidebooks/store/compare/6.0.8...6.0.9) (2023-03-13)
 
 
