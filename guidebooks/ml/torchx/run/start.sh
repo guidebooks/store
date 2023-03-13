@@ -1,14 +1,15 @@
 set -e
 set -o pipefail
 
-scheduler=kubernetes_mcad
-component=dist.ddp
+scheduler=${TORCHX_SCHEDULER-kubernetes_mcad}
+component=${TORCHX_COMPONENT-dist.ddp}
 
-# sigh, torchx's --num-cpus flag does not understand millicores, such as 250m, nor fractional cores at all
-# this maps 250m => 1 and 2500m => 3 and 4 => 4
-NUM_CPUS_INTEGER=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); return(x>y?y+1:y)} /[^m]$/ { print $1 } /m$/ { sub("m",""); print ceil($1/1000) }')
+# !!Workaround!! torchx's --num-cpus flag does not understand
+# millicores, such as 250m. Below, look for the sed lines where we
+# hack in the desired value.
+NUM_CPUS_PLACEHOLDER=99999
 
-# sigh, torchx does not handle Mi units
+# !!Workaround!! torchx does not handle Mi units
 NUMERIC_PART=$(echo $WORKER_MEMORY | sed -E 's/[MGTP]i?//i')
 SCALE_PART=$(echo $WORKER_MEMORY | sed -E 's/^.+Mi$/1/i' | sed -E 's/^.+Gi$/1024/i' | sed -E 's/^.+Ti$/1024 * 1024/i' | sed -E 's/^.+Pi$/1024 * 1024 * 1024/i')
 WORKER_MEMORY_MB=$(($NUMERIC_PART * $SCALE_PART))
@@ -38,12 +39,15 @@ cd $CUSTOM_WORKING_DIR && \
            --scheduler $scheduler \
            --scheduler_args $ns$repo$imagePullSecret$coscheduler \
            $component \
-           -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_INTEGER} --memMB ${WORKER_MEMORY_MB} \
+           -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_PLACEHOLDER} --memMB ${WORKER_MEMORY_MB} \
            $volumes \
            $image \
            --script=$script \
         2>&1 \
         | awk '$0=="=== SCHEDULER REQUEST ===" {on=1} on==2 { print $0 } on==1{on=2}' \
+        | sed "s/: $((NUM_CPUS_PLACEHOLDER * 1000))m/: ${NUM_CPUS}/g" \
+        | sed "s/: $((NUM_CPUS_PLACEHOLDER * 1000 - 100))m/: ${NUM_CPUS}/g" \
+        | sed "s/: ${NUM_CPUS_PLACEHOLDER}/: ${NUM_CPUS}/g" \
         | sed "s#$script#$script -- $GUIDEBOOK_DASHDASH#" \
         | sed "s/main-pg/pg/" \
         | sed -E "s/main-[a-zA-Z0-9]+/$TORCHX_INSTANCE/g" \
