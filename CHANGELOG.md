@@ -1,5 +1,12 @@
 
 
+## [6.0.8](https://github.com/guidebooks/store/compare/6.0.7...6.0.8) (2023-03-13)
+
+
+### Bug Fixes
+
+* improve support for milli cpus in ml/torchx/run ([3469edc](https://github.com/guidebooks/store/commit/3469edc6b23382077ba87af10c3cdcf8f38eb45e))
+
 ## [6.0.7](https://github.com/guidebooks/store/compare/6.0.6...6.0.7) (2023-03-13)
 
 
