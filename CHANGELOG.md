@@ -1,5 +1,12 @@
 
 
+## [6.0.6](https://github.com/guidebooks/store/compare/6.0.5...6.0.6) (2023-03-13)
+
+
+### Bug Fixes
+
+* add kube event stream to ml/torchx/run ([b78a035](https://github.com/guidebooks/store/commit/b78a03509216ff55a3775d35f2ef752c8a842267))
+
 ## [6.0.5](https://github.com/guidebooks/store/compare/6.0.4...6.0.5) (2023-03-13)
 
 
