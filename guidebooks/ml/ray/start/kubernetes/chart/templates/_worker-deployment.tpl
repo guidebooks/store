@@ -6,6 +6,7 @@ metadata:
   namespace: {{ .Values.clusterNamespace }}
 spec:
   ttlSecondsAfterFinished: 100
+  parallelism: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
   completions: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
   template:
     metadata:
