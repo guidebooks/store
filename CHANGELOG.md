@@ -1,5 +1,13 @@
 
 
+## [6.1.2](https://github.com/guidebooks/store/compare/6.1.1...6.1.2) (2023-03-14)
+
+
+### Bug Fixes
+
+* helm workdir fails for relative paths ([1350e49](https://github.com/guidebooks/store/commit/1350e49674d38cc50e75522978e6bda643e768c6))
+* we were looking for ERROR instead of FAILED for failed ray jobs ([8a4d332](https://github.com/guidebooks/store/commit/8a4d33268e15ec6cdd4c7cf1e6e3463facde9e3c))
+
 ## [6.1.1](https://github.com/guidebooks/store/compare/6.1.0...6.1.1) (2023-03-14)
 
 
