@@ -1,5 +1,17 @@
 
 
+# [6.1.0](https://github.com/guidebooks/store/compare/6.0.11...6.1.0) (2023-03-14)
+
+
+### Bug Fixes
+
+* also give ray head a gpu ([3a9536b](https://github.com/guidebooks/store/commit/3a9536b84a74e76f8bbdb4431742b8f2b3e5e3f3))
+
+
+### Features
+
+* aws/init to guide the creation of an aws profile ([9ab2c47](https://github.com/guidebooks/store/commit/9ab2c47dc4597b9e949d0b3a406a375a8c669603))
+
 ## [6.0.11](https://github.com/guidebooks/store/compare/6.0.10...6.0.11) (2023-03-13)
 
 
