@@ -179,6 +179,7 @@ cd $REPO/$SUBDIR && \
          --set clusterNamespace=${KUBE_NS_FOR_REAL-${KUBE_NS}} \
          --set podTypes.rayHeadType.CPU=${NUM_CPUS-1} \
          --set podTypes.rayHeadType.CPUInteger=${NUM_CPUS_INTEGER-1} \
+         --set podTypes.rayHeadType.GPU=${NUM_GPUS-0} \
          --set podTypes.rayHeadType.memory=${HEAD_MEMORY-1Gi} \
          --set podTypes.rayHeadType.storage=${RAY_EPHEMERAL_STORAGE-5Gi} \
          --set podTypes.rayWorkerType.CPU=${NUM_CPUS-1} \
