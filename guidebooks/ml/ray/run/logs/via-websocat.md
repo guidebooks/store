@@ -36,16 +36,16 @@ if [ -n "${STREAMCONSUMER_LOGS}" ]; then
             echo "TODO" 1>&2
         else
             jobstatus="$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)"
-            if [[ "SUCCEEDED" != $jobstatus ]] && [[ "ERROR" != $jobstatus ]]; then
+            if [[ "SUCCEEDED" != $jobstatus ]] && [[ "FAILED" != $jobstatus ]]; then
                 echo "Waiting (again) for ray job to finish: ${JOB_ID} $jobstatus" 1>&2
                 websocat --text --exit-on-eof --no-line ${WS_ADDRESS}/api/jobs/${JOB_ID}/logs/tail $WEBSOCAT_OPTS > /dev/null
                 jobstatus="$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)"
-                if [[ "SUCCEEDED" != $jobstatus ]] && [[ "ERROR" != $jobstatus ]]; then
+                if [[ "SUCCEEDED" != $jobstatus ]] && [[ "FAILED" != $jobstatus ]]; then
                     echo "Polling for ray job to finish: ${JOB_ID} $jobstatus" 1>&2
                     while true; do
                         sleep 1
                         jobstatus="$(curl -s ${RAY_ADDRESS}/api/jobs/${JOB_ID} | jq -r .status)"
-                        if [[ "SUCCEEDED" = $jobstatus ]] || [[ "ERROR" = $jobstatus ]]; then
+                        if [[ "SUCCEEDED" = $jobstatus ]] || [[ "FAILED" = $jobstatus ]]; then
                             break
                         fi
                     done
