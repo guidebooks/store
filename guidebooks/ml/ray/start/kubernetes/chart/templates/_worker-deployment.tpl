@@ -87,6 +87,9 @@ spec:
             cpu: {{ .Values.podTypes.rayWorkerType.CPU }}
             memory: {{ .Values.podTypes.rayWorkerType.memory }}
             ephemeral-storage: {{ .Values.podTypes.rayWorkerType.storage }}
+            {{- if .Values.podTypes.rayWorkerType.GPU }}
+            nvidia.com/gpu: {{ .Values.podTypes.rayWorkerType.GPU }}
+            {{- end }}
           limits:
             cpu: {{ .Values.podTypes.rayWorkerType.CPU }}
             # The maximum memory that this pod is allowed to use. The

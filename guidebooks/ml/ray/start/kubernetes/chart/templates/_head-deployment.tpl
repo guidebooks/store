@@ -149,6 +149,9 @@ spec:
               cpu: {{ .Values.podTypes.rayHeadType.CPU }}
               memory: {{ .Values.podTypes.rayHeadType.memory }}
               ephemeral-storage: {{ .Values.podTypes.rayHeadType.storage }}
+              {{- if .Values.podTypes.rayHeadType.GPU }}
+              nvidia.com/gpu: {{ .Values.podTypes.rayHeadType.GPU }}
+              {{- end }}
             limits:
               cpu: {{ .Values.podTypes.rayHeadType.CPU }}
               # The maximum memory that this pod is allowed to use. The
