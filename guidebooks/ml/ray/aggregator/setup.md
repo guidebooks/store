@@ -41,5 +41,5 @@ export JOB_ENV=$(
 ```
 
 ```shell
-export NUM_GPUS=$(echo "$JOB_ENV" | jq -cr '.runtime_env.env_vars.NUM_GPUS')
+export NUM_GPUS=${NUM_GPUS-$(echo "$JOB_ENV" | jq -cr '.runtime_env.env_vars.NUM_GPUS')}
 ```
