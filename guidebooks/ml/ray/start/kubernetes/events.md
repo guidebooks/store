@@ -4,8 +4,9 @@ Kubernetes doesn't give us a great way to filter out events that are
 not associated with our job. We pipe to grep here to work around that. 
 
 ```shell.async
+if [[ $(uname) = "Linux" ]] then INT="-Winteractive"; fi
 while true; do
-    kubectl get events --ignore-not-found ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --watch | awk -Winteractive -v id=$JOB_ID 'index($4, id)>0 {sub(/^[0-9]+s[ ]+/, ""); print "\x1b[1;2;36m[Cluster Event] \x1b[0;2m" $0 "\x1b[0m"; fflush()}' | sed -uE 's/-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}//g'
+    kubectl get events --ignore-not-found ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} --watch | awk $INT -v id=$JOB_ID 'index($4, id)>0 {sub(/^[0-9]+s[ ]+/, ""); print "\x1b[1;2;36m[Cluster Event] \x1b[0;2m" $0 "\x1b[0m"; fflush()}' | sed -uE 's/-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}//g'
     sleep 2
 done
 ```
