@@ -1,5 +1,14 @@
 
 
+## [6.1.4](https://github.com/guidebooks/store/compare/6.1.3...6.1.4) (2023-03-14)
+
+
+### Bug Fixes
+
+* avoid use of -Winteractive on macos ([6a89cad](https://github.com/guidebooks/store/commit/6a89cad80665c0cafc314dbd7212914f64366209))
+* gpu utilization may not be streamed out ([9925290](https://github.com/guidebooks/store/commit/9925290882ece9bbd7870d8e07046bcbfeb3d048))
+* when looping kubectl events, use watch-only after first iter ([25a6511](https://github.com/guidebooks/store/commit/25a6511024e253bb3b955e2466fb4a9b508cb3ab))
+
 ## [6.1.3](https://github.com/guidebooks/store/compare/6.1.2...6.1.3) (2023-03-14)
 
 
