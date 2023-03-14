@@ -1,5 +1,14 @@
 
 
+## [6.1.1](https://github.com/guidebooks/store/compare/6.1.0...6.1.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* if ray process errors out, ray stop is never called ([70cb403](https://github.com/guidebooks/store/commit/70cb403dec49b0d018a3752539ffe5e69b6ec7d6))
+* ray self-destruct may fail due to permissions ([e0f41ab](https://github.com/guidebooks/store/commit/e0f41ab9914828908c1b6a69987c2df5ef523e5c))
+* user may be prompted for run id, when it is already known ([6a290e4](https://github.com/guidebooks/store/commit/6a290e49e2225245b76f7134e3d977ebd0a05386))
+
 # [6.1.0](https://github.com/guidebooks/store/compare/6.0.11...6.1.0) (2023-03-14)
 
 
