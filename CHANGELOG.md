@@ -1,5 +1,12 @@
 
 
+## [6.1.3](https://github.com/guidebooks/store/compare/6.1.2...6.1.3) (2023-03-14)
+
+
+### Bug Fixes
+
+* ray self-destruct should establish security context ([d6ed018](https://github.com/guidebooks/store/commit/d6ed01833b3c8ada8bb1be27abf6d36c3a74ae0a))
+
 ## [6.1.2](https://github.com/guidebooks/store/compare/6.1.1...6.1.2) (2023-03-14)
 
 
