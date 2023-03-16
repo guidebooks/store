@@ -33,11 +33,17 @@ if [ -n "$RAY_IMAGE" ]; then
     repo=",image_repo=$(dirname $RAY_IMAGE)"
 fi
 
+if [[ "$KUBE_POD_SCHEDULING_PRIO" = "high-priority" ]]; then
+    prio=",priority=10,priority_class_name=$KUBE_POD_SCHEDULING_PRIO"
+elif [[ "$KUBE_POD_SCHEDULING_PRIO" = "low-priority" ]]; then
+    prio=",priority=1,priority_class_name=$KUBE_POD_SCHEDULING_PRIO"
+fi
+
 cd $CUSTOM_WORKING_DIR && \
     torchx run --workspace="" \
            --dryrun \
            --scheduler $scheduler \
-           --scheduler_args $ns$repo$imagePullSecret$coscheduler \
+           --scheduler_args $ns$repo$imagePullSecret$coscheduler$prio \
            $component \
            -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_PLACEHOLDER} --memMB ${WORKER_MEMORY_MB} \
            $volumes \
