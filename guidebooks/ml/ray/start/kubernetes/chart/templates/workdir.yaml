@@ -5,5 +5,5 @@ metadata:
   name: {{ include "ray.workdir" . }}
 immutable: true
 binaryData:
-  workdir.tar.bz2: {{ .Values.workdir | b64enc }}
+  workdir.tar.gz: {{ .Values.workdir | b64enc }}
 {{ end }}
