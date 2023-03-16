@@ -7,10 +7,6 @@ imports:
 
 # Wait till Torchx Pods are Running
 
-```shell.async
-
-```
-
 ```shell
 while true; do
     kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${TORCHX_INSTANCE_LABEL} | grep Running > /dev/null && break || echo "Waiting for Torchx workers to be deployed"
