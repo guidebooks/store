@@ -1,5 +1,12 @@
 
 
+## [6.1.6](https://github.com/guidebooks/store/compare/6.1.5...6.1.6) (2023-03-16)
+
+
+### Bug Fixes
+
+* after switch from bzip2 to gzip, we need to rename workdir.tar.bz2 ([19d6ae0](https://github.com/guidebooks/store/commit/19d6ae094003d31764345220d7615dd2dfc7be53))
+
 ## [6.1.5](https://github.com/guidebooks/store/compare/6.1.4...6.1.5) (2023-03-16)
 
 
