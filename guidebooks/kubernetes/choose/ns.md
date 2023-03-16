@@ -4,6 +4,6 @@ imports:
     - ../context
 ---
 
-# Target Kubernetes Namespace for Ray Cluster
+# Target Kubernetes Namespace
 
 --8<-- "./ns-with-context"
