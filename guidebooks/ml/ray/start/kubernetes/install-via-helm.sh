@@ -103,7 +103,7 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
 
         workdirTarball=$(mktemp)
         (cd "$CURDIR" && \
-             tar -jcf $workdirTarball --no-xattrs \
+             tar -zcf $workdirTarball --no-xattrs \
                  --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' --exclude '.rayignore' \
                  --exclude-vcs \
                  --exclude-from $excludeFile \
