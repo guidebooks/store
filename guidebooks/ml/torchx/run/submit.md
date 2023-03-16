@@ -10,7 +10,6 @@ imports:
     - ml/ray/start/kubernetes/events
     - ./create-yaml
     - ./invoke-helm
-    - ./logs
 ---
 
 # Submit a TorchX Job
