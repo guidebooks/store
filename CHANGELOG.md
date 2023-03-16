@@ -1,5 +1,12 @@
 
 
+## [6.1.5](https://github.com/guidebooks/store/compare/6.1.4...6.1.5) (2023-03-16)
+
+
+### Bug Fixes
+
+* avoid use of bunzip2, in favor of gzip ([cf25a2b](https://github.com/guidebooks/store/commit/cf25a2ba62de1c8e82a8447a27d6f1ef0a2a0f68))
+
 ## [6.1.4](https://github.com/guidebooks/store/compare/6.1.3...6.1.4) (2023-03-14)
 
 

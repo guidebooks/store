@@ -21,7 +21,7 @@ if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
     GITHUB=github.com
     ORG=${RAY_CHART_ORG-guidebooks}
     REPO=${RAY_CHART_REPO-store}
-    BRANCH=${RAY_CHART_BRANCH-6.1.4} # <-- will get updated by @release-it/bumper; see top-level package.json
+    BRANCH=${RAY_CHART_BRANCH-6.1.5} # <-- will get updated by @release-it/bumper; see top-level package.json
     SUBDIR=${RAY_CHART_SUBDIR-guidebooks/ml/ray/start/kubernetes/chart}
 
     if [ "$KUBE_POD_MANAGER" = mcad ]
