@@ -1,5 +1,14 @@
 
 
+## [6.1.8](https://github.com/guidebooks/store/compare/6.1.7...6.1.8) (2023-03-16)
+
+
+### Bug Fixes
+
+* ml/torchx/stop incorrectly attempted in dryrun ([26f55e6](https://github.com/guidebooks/store/commit/26f55e63403cb135e85ebe73f5e89c243e1b22cd))
+* pass through job priority to torchx run ([5455f9c](https://github.com/guidebooks/store/commit/5455f9c6eb7511dc935d6ce0a6301e3989e3ec57))
+* remove incorrect "Ray" in kubernetes/choose/ns title ([16c39c9](https://github.com/guidebooks/store/commit/16c39c90185eecb5e7359c722b264c359565b9a3))
+
 ## [6.1.7](https://github.com/guidebooks/store/compare/6.1.6...6.1.7) (2023-03-16)
 
 
