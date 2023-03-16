@@ -1,5 +1,12 @@
 
 
+## [6.1.9](https://github.com/guidebooks/store/compare/6.1.8...6.1.9) (2023-03-16)
+
+
+### Bug Fixes
+
+* ml/torchx/run/stop fails to delete helm ([1b68b35](https://github.com/guidebooks/store/commit/1b68b35809b91fdf1c510e6e3085cdc1e08ca87b))
+
 ## [6.1.8](https://github.com/guidebooks/store/compare/6.1.7...6.1.8) (2023-03-16)
 
 
