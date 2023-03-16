@@ -1,5 +1,12 @@
 
 
+## [6.1.7](https://github.com/guidebooks/store/compare/6.1.6...6.1.7) (2023-03-16)
+
+
+### Bug Fixes
+
+* simplify ray by avoiding ray workflows question for now ([ba44bea](https://github.com/guidebooks/store/commit/ba44bea170e30927fba607528890951a107644b8))
+
 ## [6.1.6](https://github.com/guidebooks/store/compare/6.1.5...6.1.6) (2023-03-16)
 
 
