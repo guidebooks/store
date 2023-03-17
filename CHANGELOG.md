@@ -1,5 +1,12 @@
 
 
+## [6.1.10](https://github.com/guidebooks/store/compare/6.1.9...6.1.10) (2023-03-17)
+
+
+### Bug Fixes
+
+* gpu utilization does not stream out when late-attaching ([be0559f](https://github.com/guidebooks/store/commit/be0559f2842dc88b6d98abf42d5c06a0896b1957))
+
 ## [6.1.9](https://github.com/guidebooks/store/compare/6.1.8...6.1.9) (2023-03-16)
 
 
