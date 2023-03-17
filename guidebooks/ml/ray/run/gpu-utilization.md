@@ -1,6 +1,7 @@
 ---
 imports:
     - kubernetes/choose/ns
+    - ml/ray/start/resources
     - ml/ray/start/kubernetes/label-selectors.md
 ---
 
