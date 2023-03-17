@@ -1,36 +1,34 @@
-# Configure your Ray Resource Requirements
+# Configure your Resource Requirements
 
-=== "Number of CPUs [default: 500m]"
-    ```shell
-    export NUM_CPUS=${choice}
-    ```
-    
-=== "Number of GPUs [default: 0]"
-    ```shell
-    export NUM_GPUS=${choice}
-    ```
-
-=== "Minimum Workers [default: 1]"
+=== "Number of Workers [default: 1]"
     ```shell
     export MIN_WORKERS=${choice}
     ```
 
-=== "Maximum Workers [default: 1]"
     ```shell
     export MAX_WORKERS=${choice}
     ```
 
-=== "Worker Memory [default: 500Mi]"
+=== "CPUs per worker [default: 500m]"
+    ```shell
+    export NUM_CPUS=${choice}
+    ```
+    
+=== "GPUs per worker [default: 0]"
+    ```shell
+    export NUM_GPUS=${choice}
+    ```
+
+=== "Memory per worker [default: 500Mi]"
     ```shell
     export WORKER_MEMORY=${choice}
     ```
 
-=== "Head Memory [default: 4Gi]"
     ```shell
-    export HEAD_MEMORY=${choice}
+    export HEAD_MEMORY=${HEAD_MEMORY-${choice}}
     ```
 
-=== "Ephemeral Storage [default: 5Gi]"
+=== "Ephemeral Storage per worker [default: 5Gi]"
     ```shell
     export RAY_EPHEMERAL_STORAGE=${choice}
     ```

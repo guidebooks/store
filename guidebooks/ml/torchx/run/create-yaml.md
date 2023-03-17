@@ -1,6 +1,6 @@
 ---
 imports:
-    - ./resources
+    - ml/ray/start/resources
     - ml/torchx/install/cli
 ---
 
