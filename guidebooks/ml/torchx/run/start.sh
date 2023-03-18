@@ -12,7 +12,8 @@ NUM_CPUS_PLACEHOLDER=99999
 # !!Workaround!! torchx does not handle Mi units
 NUMERIC_PART=$(echo $WORKER_MEMORY | sed -E 's/[MGTP]i?//i')
 SCALE_PART=$(echo $WORKER_MEMORY | sed -E 's/^.+Mi$/1/i' | sed -E 's/^.+Gi$/1024/i' | sed -E 's/^.+Ti$/1024 * 1024/i' | sed -E 's/^.+Pi$/1024 * 1024 * 1024/i')
-WORKER_MEMORY_MB=$(($NUMERIC_PART * $SCALE_PART))
+# the /1 bit gets bc to truncate to an integer
+WORKER_MEMORY_MB=$(echo "($NUMERIC_PART * $SCALE_PART)/1" | bc)
 
 # TorchX Command Line Options
 image="--image ${RAY_IMAGE}"
