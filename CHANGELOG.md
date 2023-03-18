@@ -1,5 +1,12 @@
 
 
+# [6.2.0](https://github.com/guidebooks/store/compare/6.1.10...6.2.0) (2023-03-18)
+
+
+### Features
+
+* consolidate ml/torchx resources and ml/ray resources ([081d19e](https://github.com/guidebooks/store/commit/081d19eda724e2fdde4c85d95c27e0b04dcdbf82))
+
 ## [6.1.10](https://github.com/guidebooks/store/compare/6.1.9...6.1.10) (2023-03-17)
 
 
