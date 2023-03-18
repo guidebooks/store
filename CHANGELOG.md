@@ -1,5 +1,12 @@
 
 
+## [6.2.1](https://github.com/guidebooks/store/compare/6.2.0...6.2.1) (2023-03-18)
+
+
+### Bug Fixes
+
+* ml/torchx/run fails with fractional mem e.g. 1.5Gi ([2f03999](https://github.com/guidebooks/store/commit/2f039991cb23d5ac1e811e1ef9db55473c55a060))
+
 # [6.2.0](https://github.com/guidebooks/store/compare/6.1.10...6.2.0) (2023-03-18)
 
 
