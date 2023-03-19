@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/guidebooks/store#readme",
   "devDependencies": {
-    "madwizard-cli-core": "^4.5.0"
+    "madwizard-cli-core": "^6.5.3"
   },
   "publishConfig": {
     "access": "public"

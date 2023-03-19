@@ -20,6 +20,7 @@ spec:
         requests:
             storage: 100Gi
     storageClassName: {{ $val.storageClass }}
+---
 {{- end }}
 {{- end }}
 {{- end }}

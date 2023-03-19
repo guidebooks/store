@@ -1,9 +1,9 @@
 ---
 imports:
-    - ./init
     - s3/choose/_bucket
     - kubernetes/choose/ns
     - ./storage-class
+    - ./init
     - ./folder
     - ./configure
 ---

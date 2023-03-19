@@ -17,9 +17,6 @@ WORKER_MEMORY_MB=$(($NUMERIC_PART * $SCALE_PART))
 # TorchX Command Line Options
 image="--image ${RAY_IMAGE}"
 script="$(echo $CUSTOM_COMMAND_LINE_PREFIX | sed -E 's/^python[[:digit:]]+[ ]+//')"
-if [ -n "$S3_S3FS_CLAIM" ] && [ -n "$S3_DATAPATH" ]; then
-    volumes="--mounts type=volume,src=$S3_S3FS_CLAIM,dst=$S3_DATAPATH"
-fi
 
 # kubernetes_mcad scheduler Options
 ns="namespace=${KUBE_NS}"
@@ -39,6 +36,11 @@ elif [[ "$KUBE_POD_SCHEDULING_PRIO" = "low-priority" ]]; then
     prio=",priority=1,priority_class_name=$KUBE_POD_SCHEDULING_PRIO"
 fi
 
+if [[ -n "$TORCHX_MOUNTS" ]]; then
+    mounts="--mounts $(echo "$TORCHX_MOUNTS" | sed 's/,$//')"
+fi
+
+set -x
 cd $CUSTOM_WORKING_DIR && \
     torchx run --workspace="" \
            --dryrun \
@@ -46,7 +48,7 @@ cd $CUSTOM_WORKING_DIR && \
            --scheduler_args $ns$repo$imagePullSecret$coscheduler$prio \
            $component \
            -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_PLACEHOLDER} --memMB ${WORKER_MEMORY_MB} \
-           $volumes \
+           $mounts \
            $image \
            --script=$script \
         2>&1 \
