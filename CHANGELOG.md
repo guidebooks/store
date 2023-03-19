@@ -1,5 +1,17 @@
 
 
+# [7.0.0](https://github.com/guidebooks/store/compare/6.2.1...7.0.0) (2023-03-19)
+
+
+### Features
+
+* support for selecting multiple s3 buckets ([9ec8528](https://github.com/guidebooks/store/commit/9ec85284758dadfcf250bf962407c1f607cf5a02))
+
+
+### BREAKING CHANGES
+
+* this updates s3/choose/bucket from single-select to multi-select, which may require re-selecting this choice
+
 ## [6.2.1](https://github.com/guidebooks/store/compare/6.2.0...6.2.1) (2023-03-18)
 
 
