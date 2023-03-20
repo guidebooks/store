@@ -1,5 +1,12 @@
 
 
+## [7.0.1](https://github.com/guidebooks/store/compare/7.0.0...7.0.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* ml/torchx/run always calls set -x even when not dry-running ([a0491cc](https://github.com/guidebooks/store/commit/a0491cccfdf3f82a05d021fc997584a5c069b778))
+
 # [7.0.0](https://github.com/guidebooks/store/compare/6.2.1...7.0.0) (2023-03-19)
 
 
