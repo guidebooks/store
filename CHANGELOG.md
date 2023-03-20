@@ -1,5 +1,12 @@
 
 
+# [7.1.0](https://github.com/guidebooks/store/compare/7.0.1...7.1.0) (2023-03-20)
+
+
+### Features
+
+* remove old roberta, bert, and glue logic ([180a1ea](https://github.com/guidebooks/store/commit/180a1ea43ee43763e395a0da1992d7c871c5713d))
+
 ## [7.0.1](https://github.com/guidebooks/store/compare/7.0.0...7.0.1) (2023-03-20)
 
 
