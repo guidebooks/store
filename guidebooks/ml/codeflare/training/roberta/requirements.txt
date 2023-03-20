@@ -1,2 +1,0 @@
-transformers==4.21.2
-pyarrow==6.0.1
