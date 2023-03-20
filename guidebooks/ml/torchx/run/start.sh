@@ -41,7 +41,10 @@ if [[ -n "$TORCHX_MOUNTS" ]]; then
     mounts="--mounts $(echo "$TORCHX_MOUNTS" | sed 's/,$//')"
 fi
 
-set -x
+if [[ -n "$HELM_DRYRUN" ]]; then
+    set -x
+fi
+
 cd $CUSTOM_WORKING_DIR && \
     torchx run --workspace="" \
            --dryrun \
