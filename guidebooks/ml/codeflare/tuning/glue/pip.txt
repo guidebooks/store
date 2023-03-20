@@ -1,6 +1,0 @@
-boto3
-ray[default]==1.13
-ray_lightning
-pytorch_lightning
-torchvision
-transformers==3.0.2
