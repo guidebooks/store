@@ -1,5 +1,12 @@
 
 
+## [7.1.1](https://github.com/guidebooks/store/compare/7.1.0...7.1.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* if .aws/config does not define endpoint_url, bucket expansion fails ([05140f0](https://github.com/guidebooks/store/commit/05140f017c01f839b762dbe828561b9d4f67b37e))
+
 # [7.1.0](https://github.com/guidebooks/store/compare/7.0.1...7.1.0) (2023-03-20)
 
 
