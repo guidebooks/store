@@ -11,7 +11,7 @@ if [ ! -f ~/.aws/config ]; then echo "[default]" > ~/.aws/config; fi
 > any CLI tools or libraries that application code may use. This is
 > just for our internal consumption; e.g. aws/auth
 
-=== "expand(cat ~/.aws/config | grep -E '^\\[' | tr -d '[]')"
+=== "expand(cat ~/.aws/credentials | grep -E '^\\[' | tr -d '[]')"
     ```shell
     export _AWS_PROFILE="${choice}"
     ```
