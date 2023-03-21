@@ -6,7 +6,14 @@ imports:
 
 # Choose an S3 Bucket
 
-=== "multi([ -n "$MC_CONFIG_DIR" ] && mc -q --config-dir ${MC_CONFIG_DIR} ls s3 | awk '{print substr($NF, 1, length($NF) - 1)}', S3 Buckets)"
+=== "multi([ -n "$MC_CONFIG_DIR" ] && mc -q --config-dir ${MC_CONFIG_DIR} ls s3 | awk '{print substr($NF, 1, length($NF) - 1)}' || echo 'No buckets found', S3 Buckets)"
+    ```shell
+    # No buckets found
+    if [[ "${choice}" = "No buckets found" ]]; then
+        exit 1
+    fi
+    ```
+
     ```shell
     export S3_BUCKET${S3_BUCKET_SUFFIX}="${choice}"
     ```
