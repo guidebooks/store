@@ -13,7 +13,7 @@ export S3_ENDPOINT_FROM_CONFIG=$(cat ~/.aws/config | awk -v AWS_PROFILE=${_AWS_P
 ```
 
 ```shell
-export S3_ENDPOINT=${S3_ENDPOINT_FROM_CONFIG-https://s3.amazonaws.com}
+export S3_ENDPOINT=${S3_ENDPOINT_FROM_CONFIG:=https://s3.amazonaws.com}
 ```
 
 ```shell
