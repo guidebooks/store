@@ -1,5 +1,13 @@
 
 
+## [7.1.2](https://github.com/guidebooks/store/compare/7.1.1...7.1.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* improve handling of no aws profiles/no buckets situations ([30be07b](https://github.com/guidebooks/store/commit/30be07bf6fe3a86295cfd5b7ed0ebde76a91f08e))
+* ml/codeflare/training/demos/getting-started/submit should offer submit-only ([e2da046](https://github.com/guidebooks/store/commit/e2da046492f908aef516daa2257a20bf01b63d80))
+
 ## [7.1.1](https://github.com/guidebooks/store/compare/7.1.0...7.1.1) (2023-03-21)
 
 
