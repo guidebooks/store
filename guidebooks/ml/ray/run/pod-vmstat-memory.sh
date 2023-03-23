@@ -13,12 +13,8 @@ fi
 
 if [ -z "$STREAMCONSUMER_RESOURCES" ]; then STREAMCONSUMER_RESOURCES="/tmp/"; fi
 
-# Use the user's timezone, to help with readability
-TZ=$(date +%Z)
-
 kubectl get pod -l ${KUBE_PODFULL_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -o name \
         --field-selector=status.phase==Running \
     | xargs ${REPLSIZE} -P128 -I {} -n1 \
-            sh -c "kubectl exec --pod-running-timeout=1h ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- sh -c \"while true; do echo \\\"\\\$(hostname | sed -E 's/-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}//') \\\$(cat /sys/fs/cgroup/memory/memory.usage_in_bytes 2> /dev/null || cat /sys/fs/cgroup/memory.current) \\\$(cat /sys/fs/cgroup/memory/memory.limit_in_bytes 2> /dev/null || cat /sys/fs/cgroup/memory.max)\\\" | awk -Winteractive -v now=\\\"\\\$(TZ=$TZ date +'%Y-%m-%d %H:%M:%S %Z')\\\" '{printf(\\\"\\\x1b[1;34m[Mem Utilization %5.1f%%] \\\x1b[0;34m%-30s \\\x1b[2m%13s %13s %s\\\x1b[0m\\\n\\\", 100*\\\$2/\\\$3, \\\$1, \\\$2, \\\$3, now)}'; sleep 5; done\"" \
-    | tee -a "${STREAMCONSUMER_RESOURCES}pod-memory.txt" \
-    1>&2
+            sh -c "kubectl exec --pod-running-timeout=1h ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- sh -c \"while true; do echo \\\"\\\$(hostname) \\\$(cat /sys/fs/cgroup/memory/memory.usage_in_bytes 2> /dev/null || cat /sys/fs/cgroup/memory.current) \\\$(cat /sys/fs/cgroup/memory/memory.limit_in_bytes 2> /dev/null || cat /sys/fs/cgroup/memory.max)\\\" | awk -Winteractive -v now=\\\"\\\$(date -u +'%Y-%m-%dT%H:%M:%SZ')\\\" '{printf(\\\"\\\x1b[1;34m[Mem Utilization %4.1f%%] \\\x1b[0;34m%-30s \\\x1b[2m%13s %13s %s\\\x1b[0m\\\n\\\", 100*\\\$2/\\\$3, \\\$1, \\\$2, \\\$3, now)}'; sleep 5; done\"" \
+    >> "${STREAMCONSUMER_RESOURCES}pod-memory.txt"

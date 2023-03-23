@@ -1,8 +1,3 @@
----
-imports:
-    - util/jq
----
-
 # Log Aggregator Setup
 
 Set up some variables that are dependently on the selected run.
@@ -15,5 +10,5 @@ fi
 ```
 
 ```shell
-export NUM_GPUS=${NUM_GPUS-$(echo "$JOB_ENV" | jq -cr '.runtime_env.env_vars.NUM_GPUS')}
+export NUM_GPUS=${NUM_GPUS-0}
 ```

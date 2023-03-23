@@ -12,9 +12,13 @@ We will stream out a suite of data, including resource utilization metrics and j
 --8<-- "./pod-stats.md"
 --8<-- "./gpu-utilization.md"
 
-## Capture Job Definition
+## Stream Ray Runtime Env Setup
 
---8<-- "./job-definition.md"
+--8<-- "./runtime-env-setup.md"
+
+## Stream Ray Job Status
+
+--8<-- "./status-poller.md"
 
 ## Stream Ray Job Logs
 
@@ -24,7 +28,7 @@ Wait for the job to be active.
 if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
     echo "Client-side aggregator Ray job log collection about to commence"
 else
-    while true; do if [ "$(curl -s -I $RAY_ADDRESS/api/jobs/$JOB_ID | head -n 1 | cut -d$' ' -f2)" = "200" ]; then break; sleep 1; fi; done
+    while true; do if [[ $(curl -s -I $RAY_ADDRESS/api/jobs/$JOB_ID 2> /dev/null | head -n 1 | cut -d$' ' -f2) = 200 ]]; then break; sleep 1; fi; done
 fi
 ```
 
