@@ -1,3 +1,5 @@
+# Prepare and submit cluster to Kubernetes
+
 set -e
 set -o pipefail
 

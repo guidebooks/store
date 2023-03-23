@@ -1,8 +1,17 @@
-# Stream out Events from the Ray Head Node
+---
+imports:
+    - ./label-selectors
+---
 
-Kubernetes doesn't give us a great way to filter out events that are
-not associated with our job. We pipe to grep here to work around that. 
+# Stream out Worker Lifecycle Events
+
+Collect information pertaining to the status and behavior of the
+workers in a Kubernetes cluster.
 
 ```shell.async
 --8<-- "./events.sh"
+```
+
+```shell.async
+--8<-- "./pods.sh"
 ```
