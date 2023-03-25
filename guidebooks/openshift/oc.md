@@ -11,7 +11,7 @@ The `oc` CLI gives you command line access to your
 cluster.
 
 ```shell
-export OPENSHIFT_CLI_VERSION=4.10.33
+export OPENSHIFT_CLI_VERSION=4.12.9
 ```
 
 === "MacOS"
