@@ -37,8 +37,8 @@ export OPENSHIFT_CLI_VERSION=4.12.9
 
 === "Win32"
     ```shell
-    curl -s --retry 10 -L https://mirror.openshift.com/pub/openshift-v4/clients/ocp/$OPENSHIFT_CLI_VERSION/openshift-client-windows.zip
-    unzip openshift-client-windows.zip oc
+    echo "Download and install this on your path: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/$OPENSHIFT_CLI_VERSION/openshift-client-windows.zip"
+    exit 1
     ```
 
     <!-- TODO here, where do we install oc on windows? -->

@@ -23,7 +23,8 @@ Runs commands against Kubernetes clusters. You can use `kubectl` to deploy appli
     Download the latest release:
 
     ```bash
-    curl -LO "https://dl.k8s.io/release/v1.23.0/bin/windows/amd64/kubectl.exe"
+    echo "Download and install on your PATH: "https://dl.k8s.io/release/v1.23.0/bin/windows/amd64/kubectl.exe"
+    exit 1
     ```
 
     ??? note
