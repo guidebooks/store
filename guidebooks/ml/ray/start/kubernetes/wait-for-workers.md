@@ -9,7 +9,7 @@ imports:
 if [[ "$MAX_WORKERS" -gt "0" ]]; then
     ITER=0
     while true; do
-      if kubectl wait pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${KUBE_POD_LABEL_SELECTOR} --for=condition=Ready --timeout=-1s
+      if kubectl wait pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${KUBE_POD_LABEL_SELECTOR} --for=condition=Ready --timeout=-1s 2> /dev/null
       then break
       fi
 
