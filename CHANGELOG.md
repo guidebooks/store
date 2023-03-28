@@ -1,5 +1,20 @@
 
 
+# [7.2.0](https://github.com/guidebooks/store/compare/7.1.2...7.2.0) (2023-03-28)
+
+
+### Bug Fixes
+
+* assign gpus to ray head, if we are assigning them to workers ([9fa3307](https://github.com/guidebooks/store/commit/9fa330744abd138c1c626b867dee31fcd8695f67))
+* bump openshift/oc to 4.12.9 ([55d0ff1](https://github.com/guidebooks/store/commit/55d0ff14f18d6ba293c4ca0e5a3f876031ab86e7))
+* kubernetes/choose/ns validator syntax fix ([3373061](https://github.com/guidebooks/store/commit/33730615a511a7b547e7413a08e2a657f5b1eeff))
+* log setup ends up waiting for job to be running ([d6eaa49](https://github.com/guidebooks/store/commit/d6eaa49ebc2304f53ed314ab9773f892f8094403))
+* major cleanups to job log streaming ([83771c6](https://github.com/guidebooks/store/commit/83771c61dc013dfc36a2ce789e43d111959c2ee5))
+* ml/raay/start/kubernetes/wait-for-head/workers cpu spin ([0f85741](https://github.com/guidebooks/store/commit/0f85741fceeba0a93f3ad5e8510fe68fa05ce862))
+* ml/ray/stop/kubernetes may wait unnecessarily ([289a749](https://github.com/guidebooks/store/commit/289a7495d3d9cce23631af302e894242ccbdd403))
+* squash irrelevant errors in vmstat, etc. tracking ([9c92291](https://github.com/guidebooks/store/commit/9c9229158ed8a8b959c51840251a425ac1521df7))
+* try to be more helpful on windows for kubectl and oc installation ([cb6b9ac](https://github.com/guidebooks/store/commit/cb6b9aca9f60e17dbc320d44c253ce777fa31362))
+
 ## [7.1.2](https://github.com/guidebooks/store/compare/7.1.1...7.1.2) (2023-03-21)
 
 
