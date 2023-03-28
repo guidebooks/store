@@ -7,7 +7,7 @@ fi
 if [ -z "$STREAMCONSUMER_RESOURCES" ]; then STREAMCONSUMER_RESOURCES="/tmp/"; fi
 
 while true; do
-    sleep 10
+    sleep 10 2> /dev/null
 
     echo -e "Sample $(date -Iseconds)" >> "${STREAMCONSUMER_RESOURCES}pod-stats.txt"
     kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} \
