@@ -1,7 +1,8 @@
 ---
 imports:
     - kubernetes/choose/ns
-validate: [ -n "$RAY_KUBE_CLUSTER_NAME" ]
+validate: |
+  [[ -n "$RAY_KUBE_CLUSTER_NAME" ]]
 ---
 
 # Select an Active Ray Cluster Running in Kubernetes
