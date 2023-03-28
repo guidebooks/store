@@ -149,8 +149,8 @@ spec:
               cpu: {{ .Values.podTypes.rayHeadType.CPU }}
               memory: {{ .Values.podTypes.rayHeadType.memory }}
               ephemeral-storage: {{ .Values.podTypes.rayHeadType.storage }}
-              {{- if .Values.podTypes.rayHeadType.GPU }}
-              nvidia.com/gpu: {{ .Values.podTypes.rayHeadType.GPU }}
+              {{- if .Values.podTypes.rayWorkerType.GPU }}
+              nvidia.com/gpu: {{ .Values.podTypes.rayWorkerType.GPU }}
               {{- end }}
             limits:
               cpu: {{ .Values.podTypes.rayHeadType.CPU }}
@@ -163,7 +163,7 @@ spec:
               # cause problems for other pods.
               memory: {{ .Values.podTypes.rayHeadType.memory }}
               ephemeral-storage: {{ .Values.podTypes.rayHeadType.storage }}
-              {{- if .Values.podTypes.rayHeadType.GPU }}
-              nvidia.com/gpu: {{ .Values.podTypes.rayHeadType.GPU }}
+              {{- if .Values.podTypes.rayWorkerType.GPU }}
+              nvidia.com/gpu: {{ .Values.podTypes.rayWorkerType.GPU }}
               {{- end }}
 {{- end }}
