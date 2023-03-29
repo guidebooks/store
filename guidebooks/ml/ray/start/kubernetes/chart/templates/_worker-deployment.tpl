@@ -55,7 +55,7 @@ spec:
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         command: ["/bin/bash", "-c", "--"]
         args:
-          - {{ print "ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPUInteger " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block; exit 0" }}
+          - {{ print "ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPUInteger " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block; echo \"Ray worker exited with $?\"; exit 0" }}
 
         # make openshift local happy
         securityContext:
