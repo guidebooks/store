@@ -45,6 +45,11 @@ if [[ -n "$HELM_DRYRUN" ]]; then
     set -x
 fi
 
+
+# We need to set this, for `--dryrun` to work. See
+# https://github.com/pytorch/torchx/issues/713
+export LOGLEVEL=INFO
+
 cd $CUSTOM_WORKING_DIR && \
     torchx run --workspace="" \
            --dryrun \
