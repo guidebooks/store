@@ -1,5 +1,12 @@
 
 
+## [7.2.3](https://github.com/guidebooks/store/compare/7.2.2...7.2.3) (2023-03-29)
+
+
+### Bug Fixes
+
+* ml/ray/start/kubernetes/events uses incorrect awk comment character ([b2352c4](https://github.com/guidebooks/store/commit/b2352c437fc28e23cb8b522f253307d611b995cf))
+
 ## [7.2.2](https://github.com/guidebooks/store/compare/7.2.1...7.2.2) (2023-03-29)
 
 
