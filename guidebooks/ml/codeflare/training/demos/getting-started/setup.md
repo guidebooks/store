@@ -1,3 +1,8 @@
+---
+imports:
+    - kubernetes/choose/ns
+---
+
 ```shell
 export JOB_NAME=GettingStartedDemo
 ```
@@ -6,6 +11,16 @@ export JOB_NAME=GettingStartedDemo
 
 ```shell
 export CUSTOM_WORKING_DIR=$(mktemp -d)
+```
+
+## Base image
+
+```shell
+export RAY_VERSION=2.3.0
+```
+
+```shell
+export RAY_TAG_SUFFIX=$(if [[ $KUBE_CONTEXT =~ kind ]] && [[ $(uname -m) = arm64 ]]; then echo '-aarch64'; fi)
 ```
 
 ## Set up the PIP requirements
