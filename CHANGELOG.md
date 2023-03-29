@@ -1,5 +1,13 @@
 
 
+## [7.2.2](https://github.com/guidebooks/store/compare/7.2.1...7.2.2) (2023-03-29)
+
+
+### Bug Fixes
+
+* add workaround for torchx dryrun regression ([24d04dd](https://github.com/guidebooks/store/commit/24d04dde32f9b3951c3437f6df5727501f061c77))
+* improvements in error handling in ml/torchx/run/stop ([2bfe483](https://github.com/guidebooks/store/commit/2bfe483b89e89e0b7a9181d37862162fa1090143))
+
 ## [7.2.1](https://github.com/guidebooks/store/compare/7.2.0...7.2.1) (2023-03-29)
 
 
