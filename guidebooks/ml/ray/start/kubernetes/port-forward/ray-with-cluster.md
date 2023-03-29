@@ -16,9 +16,9 @@ N=1
 SLEEP=1
 while true; do
     svc=${RAY_KUBE_CLUSTER_HEAD_SERVICE-ray-head-${RAY_KUBE_CLUSTER_NAME-mycluster}}
-    kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} port-forward --pod-running-timeout=24h service/$svc ${RAY_KUBE_PORT-8266}:8265 > /tmp/port-forward-ray-${RAY_KUBE_CLUSTER_NAME-mycluster}
+    (kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} port-forward --pod-running-timeout=24h service/$svc ${RAY_KUBE_PORT-8266}:8265 > /tmp/port-forward-ray-${RAY_KUBE_CLUSTER_NAME-mycluster} || exit 0)
     
-    state=$(kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} --no-headers -o custom-columns=STATUS:.status.phase)
+    state=$(kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} --no-headers -o custom-columns=STATUS:.status.phase || echo "Error")
     if [[ "$state" != "Running" ]] && [[ "$state" != "Pending" ]]; then
       # the underlying pod is no longer running, we can give up
       break
@@ -47,7 +47,7 @@ while true; do
       sleep $SLEEP
     fi
 
-    state=$(kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} --no-headers -o custom-columns=STATUS:.status.phase)
+    state=$(kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} --no-headers -o custom-columns=STATUS:.status.phase || echo "Error")
     if [[ "$state" != "Running" ]] && [[ "$state" != "Pending" ]]; then
       # the underlying pod is no longer running, we can give up
       break
