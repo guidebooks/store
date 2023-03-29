@@ -1,5 +1,13 @@
 
 
+## [7.2.1](https://github.com/guidebooks/store/compare/7.2.0...7.2.1) (2023-03-29)
+
+
+### Bug Fixes
+
+* ray port-forward may spin loop ([1eada2e](https://github.com/guidebooks/store/commit/1eada2e87fd4568641f8e158229100aaaf0e95d3))
+* set TERM in head ([ccc6bf6](https://github.com/guidebooks/store/commit/ccc6bf6ec539dc6ebaed34214791be1ae0b6b6d6))
+
 # [7.2.0](https://github.com/guidebooks/store/compare/7.1.2...7.2.0) (2023-03-28)
 
 
