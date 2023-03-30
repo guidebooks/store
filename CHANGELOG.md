@@ -1,5 +1,12 @@
 
 
+## [7.2.10](https://github.com/guidebooks/store/compare/7.2.9...7.2.10) (2023-03-30)
+
+
+### Bug Fixes
+
+* dial down mcad resources for CI a bit more ([0bbc31b](https://github.com/guidebooks/store/commit/0bbc31bdb448cb8b90ad7a5b367c091ba61b0a71))
+
 ## [7.2.9](https://github.com/guidebooks/store/compare/7.2.8...7.2.9) (2023-03-30)
 
 
