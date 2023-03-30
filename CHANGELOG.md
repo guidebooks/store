@@ -1,5 +1,15 @@
 
 
+## [7.2.6](https://github.com/guidebooks/store/compare/7.2.5...7.2.6) (2023-03-30)
+
+
+### Bug Fixes
+
+* bucket enumeration fails if access keys have trailing whitespace ([f7b271d](https://github.com/guidebooks/store/commit/f7b271dbd62352d0bcb70d58c666141737dadada))
+* improve debuggability of ray head crashes ([ff02be7](https://github.com/guidebooks/store/commit/ff02be797988e0237299312934c31697d5dc7df5))
+* kubernetes/kubectl support for linux/arm ([2b9a8ee](https://github.com/guidebooks/store/commit/2b9a8eedd2ad4eb90c9d01602bdb8363c2c29eb8))
+* worker should retry a few times on failure ([0ee8f0c](https://github.com/guidebooks/store/commit/0ee8f0c739fac3aa10d204a4a7e690c5c19050dc))
+
 ## [7.2.5](https://github.com/guidebooks/store/compare/7.2.4...7.2.5) (2023-03-30)
 
 
