@@ -1,5 +1,12 @@
 
 
+## [7.2.9](https://github.com/guidebooks/store/compare/7.2.8...7.2.9) (2023-03-30)
+
+
+### Bug Fixes
+
+* disable securityContext for ray ([f3e0fe5](https://github.com/guidebooks/store/commit/f3e0fe5483ac84fa93bb3b1dc8f5c83783ac95bc))
+
 ## [7.2.8](https://github.com/guidebooks/store/compare/7.2.7...7.2.8) (2023-03-30)
 
 
