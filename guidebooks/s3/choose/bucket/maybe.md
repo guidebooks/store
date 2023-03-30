@@ -1,6 +1,5 @@
 --8<-- "../instance"
 
-    :import{s3/choose/_bucket}
     :import{s3/choose/s3fs}
 
 === "My data is not stored in S3"
