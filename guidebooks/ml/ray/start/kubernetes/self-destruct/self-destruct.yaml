@@ -12,21 +12,21 @@ spec:
       serviceAccountName: ray-self-destruct-v1-sa-${USER-genericuser}
       imagePullSecrets:
         - name: ${IMAGE_PULL_SECRET-none}
-      securityContext:
-        seccompProfile:
-          type: RuntimeDefault
+      # securityContext:
+      #   seccompProfile:
+      #     type: RuntimeDefault
       containers:
       - name: self-destruct
         image: $RAY_IMAGE
         env:
           - name: RAY_ADDRESS
             value: ray-head-$RAY_KUBE_CLUSTER_NAME:6379
-        securityContext:
-          runAsNonRoot: true
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
+        # securityContext:
+        #   runAsNonRoot: true
+        #   allowPrivilegeEscalation: false
+        #   capabilities:
+        #     drop:
+        #       - ALL
         resources:
           limits:
             cpu: 50m
