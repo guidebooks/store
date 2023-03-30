@@ -1,5 +1,12 @@
 
 
+## [7.2.8](https://github.com/guidebooks/store/compare/7.2.7...7.2.8) (2023-03-30)
+
+
+### Bug Fixes
+
+* avoid the use of dim blue, as many terminal themes aren't happy with it ([f7ccc58](https://github.com/guidebooks/store/commit/f7ccc58dfa019b50bae74157ad8ccce833e28efb))
+
 ## [7.2.7](https://github.com/guidebooks/store/compare/7.2.6...7.2.7) (2023-03-30)
 
 
