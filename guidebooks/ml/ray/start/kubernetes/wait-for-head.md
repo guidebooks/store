@@ -19,3 +19,10 @@ done
 
 echo "🚀 Ray Head is ready"
 ```
+
+```shell.async
+if [[ -n "$DEBUG_KUBERNETES" ]]; then
+    kubectl logs ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${KUBE_POD_RAY_HEAD_LABEL_SELECTOR} \
+        | while read line ; do echo -e "$(tput bold)$(tput dim)$(tput setaf 2)[Debug $(tput sgr0)$(tput setaf 2)Ray.Head$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)* $line $(tput sgr0)$(tput dim)$(tput setaf 2)$(date -u +'%Y-%m-%dT%H:%M:%SZ')$(tput sgr0)" ; done
+fi
+```
