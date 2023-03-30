@@ -1,5 +1,12 @@
 
 
+## [7.2.7](https://github.com/guidebooks/store/compare/7.2.6...7.2.7) (2023-03-30)
+
+
+### Bug Fixes
+
+* use red for debug output from ray head and workers ([5685108](https://github.com/guidebooks/store/commit/5685108cdb3220ab98b3571c74e4e09aa121f15e))
+
 ## [7.2.6](https://github.com/guidebooks/store/compare/7.2.5...7.2.6) (2023-03-30)
 
 
