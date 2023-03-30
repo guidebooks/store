@@ -9,14 +9,26 @@ Runs commands against Kubernetes clusters. You can use `kubectl` to deploy appli
 
     Download the latest release with the command:
 
-    ```bash
-    ---
-    validate: which kubectl
-    ---
-    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-    chmod +x kubectl
-    sudo mv kubectl /usr/local/bin
-    ```
+    === "Intel"
+
+        ```bash
+        ---
+        validate: which kubectl
+        ---
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        chmod +x kubectl
+        sudo mv kubectl /usr/local/bin
+        ```
+
+    === "ARM"
+        ```shell
+        ---
+        validate: which kubectl
+        ---
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm/kubectl"
+        chmod +x kubectl
+        sudo mv kubectl /usr/local/bin
+        ```
 
 === "Windows"
 
