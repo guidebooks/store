@@ -58,9 +58,9 @@ spec:
           - {{ print "function start() { sleep $1 ; ray start --num-cpus=" .Values.podTypes.rayWorkerType.CPUInteger " --num-gpus=" .Values.podTypes.rayWorkerType.GPU " --address=" (include "ray.headService" .) ":6379 --object-manager-port=22345 --node-manager-port=22346 --block; } ; start 0 || start 5 || start 10 ; echo \"Ray worker exited with $?\"; exit 0" }}
 
         # make openshift local happy
-        securityContext:
-          runAsNonRoot: true
-          allowPrivilegeEscalation: false
+        # securityContext:
+        #   runAsNonRoot: true
+        #   allowPrivilegeEscalation: false
 
         # This volume allocates shared memory for Ray to use for its plasma
         # object store. If you do not provide this, Ray will fall back to
