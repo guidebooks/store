@@ -1,5 +1,13 @@
 
 
+## [7.2.4](https://github.com/guidebooks/store/compare/7.2.3...7.2.4) (2023-03-30)
+
+
+### Bug Fixes
+
+* improve stability oƒ ray port forward ([8c9b8b6](https://github.com/guidebooks/store/commit/8c9b8b6a09d75200404c37b4601fa2f8725e339f))
+* improve support for running locally on arm ([b42d718](https://github.com/guidebooks/store/commit/b42d718cce04dec0d77afdbcdec6a04d86bedeef))
+
 ## [7.2.3](https://github.com/guidebooks/store/compare/7.2.2...7.2.3) (2023-03-29)
 
 
