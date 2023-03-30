@@ -1,5 +1,12 @@
 
 
+## [7.2.5](https://github.com/guidebooks/store/compare/7.2.4...7.2.5) (2023-03-30)
+
+
+### Bug Fixes
+
+* don't ask for bucket name for s3fs-only ([7b4aff6](https://github.com/guidebooks/store/commit/7b4aff6b05089e1c51807f789617d199e33fea36))
+
 ## [7.2.4](https://github.com/guidebooks/store/compare/7.2.3...7.2.4) (2023-03-30)
 
 
