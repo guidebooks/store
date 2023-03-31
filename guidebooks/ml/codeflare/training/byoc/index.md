@@ -2,8 +2,6 @@
 imports:
     - ./submitonly
     - ml/ray/aggregator/with-jobid
-finally:
-    - ml/ray/stop/kubernetes/with-known-cluster-name
 ---
 
 # Bring Your Own Code
