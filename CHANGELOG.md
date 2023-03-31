@@ -1,5 +1,12 @@
 
 
+# [7.4.0](https://github.com/guidebooks/store/compare/7.3.1...7.4.0) (2023-03-31)
+
+
+### Bug Fixes
+
+* bump to madwizard@8 to adopt shell.stdin convention ([e500089](https://github.com/guidebooks/store/commit/e5000894d3372b118c5df6a0b2cd0799695e84eb))
+
 ## [7.3.1](https://github.com/guidebooks/store/compare/7.3.0...7.3.1) (2023-03-31)
 
 
