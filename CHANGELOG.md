@@ -1,5 +1,12 @@
 
 
+## [7.4.2](https://github.com/guidebooks/store/compare/7.4.1...7.4.2) (2023-03-31)
+
+
+### Bug Fixes
+
+* update gpu utilization stream to conform to vmstat and events log structure ([cb11acc](https://github.com/guidebooks/store/commit/cb11acc9e9d3430ea873e339d394211302918f3f))
+
 ## [7.4.1](https://github.com/guidebooks/store/compare/7.4.0...7.4.1) (2023-03-31)
 
 
