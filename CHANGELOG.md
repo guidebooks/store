@@ -1,5 +1,12 @@
 
 
+## [7.4.1](https://github.com/guidebooks/store/compare/7.4.0...7.4.1) (2023-03-31)
+
+
+### Bug Fixes
+
+* kubectl linux-arm64 installs arm32 binary ([0889389](https://github.com/guidebooks/store/commit/088938911583afef55c31deba82b58eb0b2149f5))
+
 # [7.4.0](https://github.com/guidebooks/store/compare/7.3.1...7.4.0) (2023-03-31)
 
 
