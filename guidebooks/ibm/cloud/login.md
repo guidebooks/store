@@ -12,18 +12,18 @@ Cloud](https://www.ibm.com/cloud). Select your authentication method.
 
 === "Single Sign-on/OTP"
     You may use your browser to acquire a one-time password.
-    ```shell
+    ```shell.stdin
     ibmcloud login --sso
     ```
     
 === "Username and Password"
     Normal accounts can be authenticated using a username and password.
-    ```shell
+    ```shell.stdin
     ibmcloud login
     ```
 
 === "Authenticate with apikey"
     If you have a acquired an [IBM Cloud apikey](https://www.ibm.com/docs/en/app-connect/containers_cd?topic=servers-creating-cloud-api-key), you can avoid having to periodically re-authenticate.
-    ```shell
+    ```shell.stdin
     ibmcloud login --apikey=@~/.config/ibm/apikey
     ```
