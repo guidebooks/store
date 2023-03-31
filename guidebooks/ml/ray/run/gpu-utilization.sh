@@ -1,25 +1,11 @@
-if [ -n "$LOG_AGGREGATOR_POD_NAME" ] && [ -n "$LOG_AGGREGATOR_LOGDIR" ]; then
-    kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${LOG_AGGREGATOR_POD_NAME} -- \
-            wait-for-and-tailf "$LOG_AGGREGATOR_LOGDIR"/resources/gpu.txt > "${STREAMCONSUMER_RESOURCES}gpu.txt"
-    exit
-fi
-
-
 if [ $(uname) = "Darwin" ]; then export REPLSIZE="-S5000"; fi
 
 if [ -z "$STREAMCONSUMER_RESOURCES" ]; then STREAMCONSUMER_RESOURCES="/tmp/"; fi
 
-if [ -z "$QUIET_CONSOLE" ]; then
-    kubectl get pod -l ${KUBE_POD_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -o name \
-            --field-selector=status.phase==Running \
-        | xargs ${REPLSIZE} -P128 -I {} -n1 \
-            sh -c "sleep 0.\$(shuf -i 100-2000 -n1); kubectl exec --pod-running-timeout=1h ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- sh -c \"nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.total,temperature.gpu,name --format=csv,noheader -l 10 | awk -Winteractive -v pod=\\\$(hostname | sed -E 's/-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}//') -F, '{printf \\\"\n\033[31;1m%s \033[0;31mGPUType\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$6, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mUtilization.GPU\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$2, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mUtilization.Memory\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$3, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mMemory.Total\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$4, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mTemperature.GPU\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$5, pod, \\\$1; }'\"" \
-            | tee "${STREAMCONSUMER_RESOURCES}gpu.txt" \
-            1>&2
-else
-    kubectl get pod -l ${KUBE_POD_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -o name \
-            --field-selector=status.phase==Running \
-        | xargs ${REPLSIZE} -P128 -I {} -n1 \
-            sh -c "sleep 0.\$(shuf -i 100-2000 -n1); kubectl exec --pod-running-timeout=1h ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- sh -c \"nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.total,temperature.gpu,name --format=csv,noheader -l 10 | awk -Winteractive -v pod=\\\$(hostname | sed -E 's/-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}//') -F, '{printf \\\"\n\033[31;1m%s \033[0;31mGPUType\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$6, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mUtilization.GPU\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$2, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mUtilization.Memory\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$3, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mMemory.Total\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$4, pod, \\\$1; printf \\\"\033[31;1m%s \033[0;31mTemperature.GPU\t\t\t\033[0;2m%s %s\033[0m\n\\\", \\\$5, pod, \\\$1; }'\"" \
-            > "${STREAMCONSUMER_RESOURCES}gpu.txt"
-fi
+set -x
+
+kubectl get pod -l ${KUBE_PODFULL_LABEL_SELECTOR} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -o name \
+        --field-selector=status.phase==Running \
+    | xargs ${REPLSIZE} -P128 -I {} -n1 \
+            sh -c "sleep 0.\$(shuf -i 100-2000 -n1); kubectl exec --pod-running-timeout=1h ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- sh -c \"nvidia-smi --query-gpu=timestamp,utilization.gpu,utilization.memory,memory.total,temperature.gpu,name --format=csv,noheader -l 10 | awk -Winteractive -v pod=\\\$(hostname) -F, '{sub(/ /, \\\"T\\\", \\\$1); printf \\\"\\\x1b[1;31m[GPU %4.1f%%] \\\x1b[0;31m%s \\\x1b[0;2;31m%s \\\x1b[0;31m%s\\\n\\\", \\\$2, pod, \\\$6, \\\$1; printf \\\"\\\x1b[1;31m[Mem %4.1f%%] \\\x1b[0;31m%s \\\x1b[0;2;31m%s \\\x1b[0;31m%s\\\n\\\", \\\$3, pod, \\\$4, \\\$1; printf \\\"\\\x1b[1;31m[Tmp %4.1f%%] \\\x1b[0;31m%s \\\x1b[0;31m%s\\\n\\\", \\\$5, pod, \\\$1; fflush(); }'\"" \
+        > "${STREAMCONSUMER_RESOURCES}gpu.txt"
