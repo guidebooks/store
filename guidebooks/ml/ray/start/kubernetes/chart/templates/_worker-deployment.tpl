@@ -1,4 +1,5 @@
 {{- define "worker-deployment" -}}
+{{ if gt .Values.podTypes.rayWorkerType.maxWorkers 0 }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -104,4 +105,5 @@ spec:
             {{- if .Values.podTypes.rayWorkerType.GPU }}
             nvidia.com/gpu: {{ .Values.podTypes.rayWorkerType.GPU }}
             {{- end }}
+{{end}}
 {{end}}
