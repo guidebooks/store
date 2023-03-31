@@ -1,5 +1,12 @@
 
 
+## [7.4.4](https://github.com/guidebooks/store/compare/7.4.3...7.4.4) (2023-03-31)
+
+
+### Bug Fixes
+
+* another fix to improve syntactic conformance of gpu utilization stream ([501b0d8](https://github.com/guidebooks/store/commit/501b0d82d5bff871fe0c4b2f95971aedeef1d1e8))
+
 ## [7.4.3](https://github.com/guidebooks/store/compare/7.4.2...7.4.3) (2023-03-31)
 
 
