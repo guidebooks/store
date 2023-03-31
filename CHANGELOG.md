@@ -1,5 +1,17 @@
 
 
+# [7.3.0](https://github.com/guidebooks/store/compare/7.2.10...7.3.0) (2023-03-31)
+
+
+### Bug Fixes
+
+* with MAX_WORKERS=0 ray worker job still starts with completions=1 ([1ba6c3e](https://github.com/guidebooks/store/commit/1ba6c3e3454e715e0fe4cccfe6757cfd9687abc3))
+
+
+### Features
+
+* ml/codeflare/training/byoc and ml/torchx/run should not kill on ctrl+c ([e5d95a3](https://github.com/guidebooks/store/commit/e5d95a35dc0ee5520045cb9aa1868590febd11c9))
+
 ## [7.2.10](https://github.com/guidebooks/store/compare/7.2.9...7.2.10) (2023-03-30)
 
 
