@@ -1,5 +1,12 @@
 
 
+## [7.4.3](https://github.com/guidebooks/store/compare/7.4.2...7.4.3) (2023-03-31)
+
+
+### Bug Fixes
+
+* gpu stream displays temps with % unit ([cf877d8](https://github.com/guidebooks/store/commit/cf877d8b3586800aab30de6da42d56c3ebb91d4a))
+
 ## [7.4.2](https://github.com/guidebooks/store/compare/7.4.1...7.4.2) (2023-03-31)
 
 
