@@ -7,6 +7,16 @@ imports:
 
 We will stream out a suite of data, including resource utilization metrics and job logs.
 
+
+## Capture Environment Variables
+
+```shell
+if [[ -n "$GUIDEBOOK_ENV" ]]; then
+    jobEnvFile="${LOGDIR_STAGE}/env.json"
+    echo -n "$GUIDEBOOK_ENV" | base64 -d > "$jobEnvFile"
+fi
+```
+
 ## Stream Resource Metrics
 
 --8<-- "./pod-stats.md"
