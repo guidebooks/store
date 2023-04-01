@@ -1,5 +1,12 @@
 
 
+## [7.4.5](https://github.com/guidebooks/store/compare/7.4.4...7.4.5) (2023-04-01)
+
+
+### Bug Fixes
+
+* capture env.json in log aggregation ([7045053](https://github.com/guidebooks/store/commit/70450531fc0c1ed0a39d9452a9a686388eb44d70))
+
 ## [7.4.4](https://github.com/guidebooks/store/compare/7.4.3...7.4.4) (2023-03-31)
 
 
