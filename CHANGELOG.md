@@ -1,5 +1,17 @@
 
 
+# [7.5.0](https://github.com/guidebooks/store/compare/7.4.8...7.5.0) (2023-04-03)
+
+
+### Bug Fixes
+
+* ml/torchx/run fails if main python file is not 'main.py' ([b36de03](https://github.com/guidebooks/store/commit/b36de034dfc0a766d9bae29ffe6adb25ca775ce5))
+
+
+### Features
+
+* add support for workdir being a github https:// url ([e835081](https://github.com/guidebooks/store/commit/e8350815fc3c7848710b365ad7104c5be5525fe1))
+
 ## [7.4.8](https://github.com/guidebooks/store/compare/7.4.7...7.4.8) (2023-04-03)
 
 
