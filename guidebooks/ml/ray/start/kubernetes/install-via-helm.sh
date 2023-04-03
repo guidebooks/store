@@ -110,13 +110,11 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
         fi
 
         workdirTarball=$(mktemp)
-        (cd "$CURDIR" && \
-             tar -zcf $workdirTarball --no-xattrs \
-                 --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' --exclude '.rayignore' \
-                 --exclude-vcs \
-                 --exclude-from $excludeFile \
-                 -C "$CUSTOM_WORKING_DIR" .\
-            )
+        tar -zcf $workdirTarball --no-xattrs \
+            --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' --exclude '.rayignore' \
+            --exclude-vcs \
+            --exclude-from $excludeFile \
+            -C "$CUSTOM_WORKING_DIR" .\
 
         workdir="--set-file workdir=${workdirTarball}"
         echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)$(cat $workdirTarball | wc -c | awk '{print $1}') bytes$(tput sgr0)"
