@@ -56,6 +56,7 @@ cd $CUSTOM_WORKING_DIR && \
            --scheduler $scheduler \
            --scheduler_args $ns$repo$imagePullSecret$coscheduler$prio \
            $component \
+           --name main \
            -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_PLACEHOLDER} --memMB ${WORKER_MEMORY_MB} \
            $mounts \
            $image \
