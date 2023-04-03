@@ -92,7 +92,13 @@ fi
 
 # Here we bundle the working directory up into a base64-encoded
 # string, so that we can stash it into a configmap (see workdir.yaml)
+
 if [ -n "$CUSTOM_WORKING_DIR" ]; then
+    if [ ! -e "$CUSTOM_WORKING_DIR" ] && [ -e "$CURDIR/$CUSTOM_WORKING_DIR" ]; then
+        # the specified path may be relative to the current working directory
+        CUSTOM_WORKING_DIR="$CURDIR/$CUSTOM_WORKING_DIR"
+    fi
+
     if [ -d "$CUSTOM_WORKING_DIR" ]; then
         # Allow the working directory to specify an exclusion list via
         # a .rayignore at the top level. This file is a
@@ -115,7 +121,7 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
         workdir="--set-file workdir=${workdirTarball}"
         echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)$(cat $workdirTarball | wc -c | awk '{print $1}') bytes$(tput sgr0)"
     elif [ ! -e "$CUSTOM_WORKING_DIR" ]; then
-        echo "$(tput setaf 1)[Helm] Error: custom working directory specified, but path to directory not found $CUSTOM_WORKING_DIR$(tput sgr0)"
+        echo "$(tput setaf 1)[Helm] Error: custom working directory specified, but path to directory not found $CUSTOM_WORKING_DIR in cwd=$CURDIR$(tput sgr0)"
         exit 1
     else
         echo "$(tput setaf 1)[Helm] Error: custom working directory specified, but path does not point to a directory $CUSTOM_WORKING_DIR$(tput sgr0)"
