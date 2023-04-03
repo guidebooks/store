@@ -1,5 +1,12 @@
 
 
+## [7.4.8](https://github.com/guidebooks/store/compare/7.4.7...7.4.8) (2023-04-03)
+
+
+### Bug Fixes
+
+* another fix for relative workdir ([3a8782f](https://github.com/guidebooks/store/commit/3a8782f55dee3c855471eb0c96ad9836fe8b2957))
+
 ## [7.4.7](https://github.com/guidebooks/store/compare/7.4.6...7.4.7) (2023-04-03)
 
 
