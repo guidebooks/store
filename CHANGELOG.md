@@ -1,5 +1,12 @@
 
 
+## [7.4.6](https://github.com/guidebooks/store/compare/7.4.5...7.4.6) (2023-04-03)
+
+
+### Bug Fixes
+
+* force vmstat timestamps to use UTC timezone ([6393448](https://github.com/guidebooks/store/commit/639344859cfde651ba7e42ca8ae27fec9ed7fcf9))
+
 ## [7.4.5](https://github.com/guidebooks/store/compare/7.4.4...7.4.5) (2023-04-01)
 
 
