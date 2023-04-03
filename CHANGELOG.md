@@ -1,5 +1,13 @@
 
 
+## [7.4.7](https://github.com/guidebooks/store/compare/7.4.6...7.4.7) (2023-04-03)
+
+
+### Bug Fixes
+
+* further improvements to helm install with relative workdir ([79bd176](https://github.com/guidebooks/store/commit/79bd176484267bc4f9e54818f7101b5e0beaa3ae))
+* improved support for installing and running torchx on 3.9.6 on macOS ([1bea28f](https://github.com/guidebooks/store/commit/1bea28f020b8d4b0aedbdebadc78d031438172e5))
+
 ## [7.4.6](https://github.com/guidebooks/store/compare/7.4.5...7.4.6) (2023-04-03)
 
 
