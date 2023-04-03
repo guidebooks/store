@@ -17,10 +17,20 @@ pipelines when you’re ready.
 validate: |
   [ -n "${TORCHX_VENV_PATH}" ] && [ -e "${TORCHX_VENV_PATH}/bin/torchx" ]
 ---
+# Install torchx
 if [ ! -d "${TORCHX_VENV_PATH}" ]; then
     echo "Creating python venv ${TORCHX_VENV_PATH}"
     python3 -m venv "${TORCHX_VENV_PATH}"
 fi
+if which python3.10; then
+    echo "Using python@3.10"
+    alias python3=python3.10
+fi
+if which pip3.10; then
+    echo "Using pip@3.10"
+    alias pip3=python3.10
+fi
 --8<-- "./activate.sh"
+pip3 --version
 pip3 install -e git+https://github.com/pytorch/torchx.git#egg="torchx[dev]"
 ```
