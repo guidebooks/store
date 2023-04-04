@@ -6,7 +6,6 @@ imports:
     - ./instance-label
     - ml/ray/run/pod-stats
     - ml/ray/run/gpu-utilization
-    
 ---
 
 # Stream out Torchx Job Logs
