@@ -1,5 +1,14 @@
 
 
+## [7.5.2](https://github.com/guidebooks/store/compare/7.5.1...7.5.2) (2023-04-04)
+
+
+### Bug Fixes
+
+* don't fail if we can't hack uid-range ([d45caaf](https://github.com/guidebooks/store/commit/d45caaf0a338f1e778cdcb63cc497a38d1b67213))
+* torchx log streamer would fail if lines contained control chars ([2292c03](https://github.com/guidebooks/store/commit/2292c0353352610fdd85968ce4e9a78a9651971c))
+* update to official torchx 0.5.0 release ([7be9130](https://github.com/guidebooks/store/commit/7be9130c2d618f249df5346b90d51c9299a3887e))
+
 ## [7.5.1](https://github.com/guidebooks/store/compare/7.5.0...7.5.1) (2023-04-04)
 
 
