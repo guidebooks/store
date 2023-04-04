@@ -17,7 +17,14 @@
         
         cd "$CUSTOM_WORKING_DIR"
 
-        _WORKDIR_URL=$(echo "$_CUSTOM_WORKING_DIR_ORIG" | sed -E 's#https://([^/]+)/.+$#git@\1:#')
+        if [[ -n "$CI" ]]; then
+          # use plain http
+          _WORKDIR_URL=$(echo "$_CUSTOM_WORKING_DIR_ORIG" | sed -E 's#(https://[^/]+)/.+$#\1/#')
+        else
+          # use ssh
+          _WORKDIR_URL=$(echo "$_CUSTOM_WORKING_DIR_ORIG" | sed -E 's#https://([^/]+)/.+$#git@\1:#')
+        fi
+
         _WORKDIR_ORG=$(echo "$_CUSTOM_WORKING_DIR_ORIG" | sed -E 's#https://[^/]+/([^/]+)/.+$#\1#')
         _WORKDIR_REPO=$(echo "$_CUSTOM_WORKING_DIR_ORIG" | sed -E 's#https://[^/]+/[^/]+/([^/]+)/.+$#\1#')
         _WORKDIR_BRANCH=$(echo "$_CUSTOM_WORKING_DIR_ORIG" | sed -E 's#https://[^/]+/[^/]+/[^/]+/tree/([^/]+)/.+$#\1#')
