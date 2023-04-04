@@ -1,5 +1,12 @@
 
 
+## [7.5.3](https://github.com/guidebooks/store/compare/7.5.2...7.5.3) (2023-04-04)
+
+
+### Bug Fixes
+
+* ml/torchx/run may fail for users with long user names ([a56b623](https://github.com/guidebooks/store/commit/a56b62337ffd4e0a8067815cc8c21d0ecd350230))
+
 ## [7.5.2](https://github.com/guidebooks/store/compare/7.5.1...7.5.2) (2023-04-04)
 
 
