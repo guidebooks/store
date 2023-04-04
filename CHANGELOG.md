@@ -1,5 +1,12 @@
 
 
+## [7.5.1](https://github.com/guidebooks/store/compare/7.5.0...7.5.1) (2023-04-04)
+
+
+### Bug Fixes
+
+* in CI, don't try to use ssh git cloning for workdir ([b0a69f8](https://github.com/guidebooks/store/commit/b0a69f8de0ccc6ab523f07eea3b14969a7a3d839))
+
 # [7.5.0](https://github.com/guidebooks/store/compare/7.4.8...7.5.0) (2023-04-03)
 
 
