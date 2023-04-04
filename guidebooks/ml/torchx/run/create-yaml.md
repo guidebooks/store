@@ -9,6 +9,8 @@ export HELM_ROLL_YOUR_OWN=$(mktemp)
 ```
 
 ```shell
+# Create deployment description using torchx
+
 --8<-- "ml/torchx/install/activate.sh"
 --8<-- "./start.sh"
 ```

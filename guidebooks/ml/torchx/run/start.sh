@@ -50,7 +50,7 @@ fi
 # https://github.com/pytorch/torchx/issues/713
 export LOGLEVEL=INFO
 
-cd $CUSTOM_WORKING_DIR && \
+cd "$CUSTOM_WORKING_DIR" && \
     torchx run --workspace="" \
            --dryrun \
            --scheduler $scheduler \
