@@ -1,5 +1,5 @@
 ```shell
-export TORCHX_PIP_VERSION=${TORCHX_PIP_VERSION-0.5.0dev0}
+export TORCHX_PIP_VERSION=${TORCHX_PIP_VERSION-0.5.0}
 ```
 
 python 3.9.6 on macOS does not handle spaces in the venv path, and on
