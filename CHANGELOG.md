@@ -1,5 +1,12 @@
 
 
+## [7.5.6](https://github.com/guidebooks/store/compare/7.5.5...7.5.6) (2023-04-05)
+
+
+### Bug Fixes
+
+* torchx cli install fails on zsh ([c027765](https://github.com/guidebooks/store/commit/c027765959b2f2a81ef5e040a540f474c7e1799e))
+
 ## [7.5.5](https://github.com/guidebooks/store/compare/7.5.4...7.5.5) (2023-04-05)
 
 
