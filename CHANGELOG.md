@@ -1,5 +1,12 @@
 
 
+## [7.5.4](https://github.com/guidebooks/store/compare/7.5.3...7.5.4) (2023-04-05)
+
+
+### Bug Fixes
+
+* pass through guidebook env vars to torchx ([780dc56](https://github.com/guidebooks/store/commit/780dc5627f0480daa9c97f4d51f4ca1389a80c6f))
+
 ## [7.5.3](https://github.com/guidebooks/store/compare/7.5.2...7.5.3) (2023-04-04)
 
 
