@@ -50,12 +50,17 @@ fi
 # https://github.com/pytorch/torchx/issues/713
 export LOGLEVEL=INFO
 
+if [[ -n "$GUIDEBOOK_ENV_COMMAS" ]]; then
+    env="--env $GUIDEBOOK_ENV_COMMAS"
+fi
+
 cd "$CUSTOM_WORKING_DIR" && \
     torchx run --workspace="" \
            --dryrun \
            --scheduler $scheduler \
            --scheduler_args $ns$repo$imagePullSecret$coscheduler$prio \
            $component \
+           $env \
            --name main \
            -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_PLACEHOLDER} --memMB ${WORKER_MEMORY_MB} \
            $mounts \
