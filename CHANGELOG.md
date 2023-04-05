@@ -1,5 +1,12 @@
 
 
+## [7.5.7](https://github.com/guidebooks/store/compare/7.5.6...7.5.7) (2023-04-05)
+
+
+### Bug Fixes
+
+* clean up content and coloring of helm install output ([6b1b13d](https://github.com/guidebooks/store/commit/6b1b13d9dd45ec9d78f6152565f634d5589780c4))
+
 ## [7.5.6](https://github.com/guidebooks/store/compare/7.5.5...7.5.6) (2023-04-05)
 
 
