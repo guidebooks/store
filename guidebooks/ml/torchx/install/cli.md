@@ -32,5 +32,5 @@ if which pip3.10; then
 fi
 --8<-- "./activate.sh"
 pip3 --version
-pip3 install torchx[dev]==${TORCHX_PIP_VERSION}
+pip3 install "torchx[dev]==${TORCHX_PIP_VERSION}"
 ```
