@@ -1,5 +1,12 @@
 
 
+## [7.5.5](https://github.com/guidebooks/store/compare/7.5.4...7.5.5) (2023-04-05)
+
+
+### Bug Fixes
+
+* sed RE error can occur in torchx log streamer ([fd9983d](https://github.com/guidebooks/store/commit/fd9983da97b6e9edb67997eafd003e6dfab25b4c))
+
 ## [7.5.4](https://github.com/guidebooks/store/compare/7.5.3...7.5.4) (2023-04-05)
 
 
