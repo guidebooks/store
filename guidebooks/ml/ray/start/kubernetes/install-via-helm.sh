@@ -42,16 +42,27 @@ fi
 
 # sparse clone
 if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
-echo "$(tput setaf 4)[Helm] $(tput setaf 5)Cloning https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}$(tput sgr0)"
-(git clone -q --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} > /dev/null && \
+echo "$(tput setaf 3)[Setup]$(tput sgr0) Fetching templates https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}$(tput sgr0)"
+LOG=$(mktemp)
+set +e
+(git clone --quiet --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} 2>> $LOG > /dev/null && \
     cd $REPO && \
-    git sparse-checkout set --cone $SUBDIR && git checkout ${BRANCH-main})
+    git sparse-checkout set --cone $SUBDIR  2>> $LOG > /dev/null && git checkout -q ${BRANCH-main}  2>> $LOG > /dev/null)
+if [ $? != 0 ]; then cat $LOG; exit $?; fi
+set -e
 
 if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml
 fi
 
-echo "$(tput setaf 4)[Helm] Creating cluster num_cpus=$(tput setaf 5)${NUM_CPUS-1} $(tput setaf 4)num_gpus=$(tput setaf 5)${NUM_GPUS-1} $(tput setaf 4)head_memory=$(tput setaf 5)${HEAD_MEMORY-1Gi} $(tput setaf 4)worker_memory=$(tput setaf 5)${WORKER_MEMORY-1Gi} $(tput setaf 4)numWorkers=$(tput setaf 5)${MAX_WORKERS} $(tput setaf 4)image=$(tput setaf 5)${RAY_IMAGE} $(tput setaf 4)context=$(tput setaf 5)${KUBE_CONTEXT_ARG_HELM} $(tput setaf 4)namespace=$(tput setaf 5)${KUBE_NS_ARG}$(tput sgr0)$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)num_cpus$(tput sgr0) $(tput setaf 6)${NUM_CPUS-1}$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)num_gpus$(tput sgr0) $(tput setaf 6)${NUM_GPUS-1}$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)head_memory$(tput sgr0) $(tput setaf 6)${HEAD_MEMORY-1Gi}$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)worker_memory$(tput sgr0) $(tput setaf 6)${WORKER_MEMORY-1Gi}$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)numWorkers$(tput sgr0) $(tput setaf 6)${MAX_WORKERS}$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)image$(tput sgr0) $(tput setaf 6)${RAY_IMAGE}$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)context$(tput sgr0) $(tput setaf 6)${KUBE_CONTEXT}$(tput sgr0)"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)namespace$(tput sgr0) $(tput setaf 6)${KUBE_NS}$(tput sgr0)"
 
 # sigh, ray's --num-cpus flag does not understand millicores, such as 250m, nor fractional cores at all
 # this maps 250m => 1 and 2500m => 3 and 4 => 4
@@ -59,27 +70,27 @@ NUM_CPUS_INTEGER=$(echo ${NUM_CPUS-250m} | awk 'function ceil(x, y){y=int(x); re
 
 if [ -n "$RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS" ]; then
     STARTUP_PROBE="--set startupProbe.initialDelaySeconds=${RAY_STARTUP_PROBE_INITIAL_DELAY_SECONDS}"
-    echo "$(tput setaf 4)[Helm] Using startupProbe=$(tput setaf 5)$STARTUP_PROBE$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) startupProbe=$(tput setaf 6)$STARTUP_PROBE$(tput sgr0)"
 fi
 
 if [ -n "$ML_RAY_STORAGE_S3_KUBERNETES_SECRET" ]; then
     storageSecret="--set storage.secret=$ML_RAY_STORAGE_S3_KUBERNETES_SECRET"
-    echo "$(tput setaf 4)[Helm] Using storageSecret=$(tput setaf 5)$ML_RAY_STORAGE_S3_KUBERNETES_SECRET$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) storageSecret=$(tput setaf 6)$ML_RAY_STORAGE_S3_KUBERNETES_SECRET$(tput sgr0)"
 fi
 
 if [ -n "$IMAGE_PULL_SECRET" ]; then
     imagePullSecret="--set imagePullSecret=${IMAGE_PULL_SECRET}"
-    echo "$(tput setaf 4)[Helm] Using imagePullSecret=$(tput setaf 5)$IMAGE_PULL_SECRET$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) imagePullSecret=$(tput setaf 6)$IMAGE_PULL_SECRET$(tput sgr0)"
 fi
 
 if [ -n "$IMAGE_PULL_POLICY" ]; then
     imagePullPolicy="--set imagePullPolicy=${IMAGE_PULL_POLICY}"
-    echo "$(tput setaf 4)[Helm] Using imagePullPolicy=$(tput setaf 5)$IMAGE_PULL_POLICY$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) imagePullPolicy=$(tput setaf 6)$IMAGE_PULL_POLICY$(tput sgr0)"
 fi
 
 if [ -n "$KUBE_POD_SCHEDULING_PRIO" ]; then
     jobPriority="--set priority=${KUBE_POD_SCHEDULING_PRIO}"
-    echo "$(tput setaf 4)[Helm] Using job priority=$(tput setaf 5)$KUBE_POD_SCHEDULING_PRIO$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) job priority=$(tput setaf 6)$KUBE_POD_SCHEDULING_PRIO$(tput sgr0)"
 fi
 
 #
@@ -117,12 +128,12 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
             -C "$CUSTOM_WORKING_DIR" .\
 
         workdir="--set-file workdir=${workdirTarball}"
-        echo "$(tput setaf 4)[Helm] Using workdir via configmap=$(tput setaf 5)$(cat $workdirTarball | wc -c | awk '{print $1}') bytes$(tput sgr0)"
+        echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)sizeof.workDir$(tput sgr0) $(tput setaf 6)$(cat $workdirTarball | wc -c | awk '{print $1}') bytes$(tput sgr0)"
     elif [ ! -e "$CUSTOM_WORKING_DIR" ]; then
-        echo "$(tput setaf 1)[Helm] Error: custom working directory specified, but path to directory not found $CUSTOM_WORKING_DIR in cwd=$CURDIR$(tput sgr0)"
+        echo "$(tput setaf 1)[Setup]$(tput sgr0) Error: custom working directory specified, but path to directory not found $CUSTOM_WORKING_DIR in cwd=$CURDIR$(tput sgr0)"
         exit 1
     else
-        echo "$(tput setaf 1)[Helm] Error: custom working directory specified, but path does not point to a directory $CUSTOM_WORKING_DIR$(tput sgr0)"
+        echo "$(tput setaf 1)[Setup]$(tput sgr0) Error: custom working directory specified, but path does not point to a directory $CUSTOM_WORKING_DIR$(tput sgr0)"
         exit 1
     fi
 fi
@@ -131,49 +142,55 @@ if [ -n "$CUSTOM_COMMAND_LINE_PREFIX" ]; then
     commandLinePrefixEnc=$(mktemp)
     echo -n "$CUSTOM_COMMAND_LINE_PREFIX" | tr -d '\n' > $commandLinePrefixEnc
     commandLinePrefix="--set-file commandLinePrefix=$commandLinePrefixEnc"
-    echo "$(tput setaf 4)[Helm] Using commandLinePrefix=$(tput setaf 5)${CUSTOM_COMMAND_LINE_PREFIX}$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)commandLinePrefix$(tput sgr0) $(tput setaf 6)${CUSTOM_COMMAND_LINE_PREFIX}$(tput sgr0)"
 fi
 
 if [ -n "$GUIDEBOOK_DASHDASH" ]; then
     dashdashEnc=$(mktemp)
     echo -n "$GUIDEBOOK_DASHDASH" | base64 | tr -d '\n' > $dashdashEnc # see above for discussion of tr
     dashdash="--set-file dashdash=${dashdashEnc}"
-    echo "$(tput setaf 4)[Helm] Using dashdash=$(tput setaf 5)${GUIDEBOOK_DASHDASH}$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) dashdash=$(tput setaf 6)${GUIDEBOOK_DASHDASH}$(tput sgr0)"
 fi
 
 if [ -n "$JOB_ID" ]; then
     jobId="--set jobId=${JOB_ID}"
-    echo "$(tput setaf 4)[Helm] Using jobId=$(tput setaf 5)${JOB_ID}$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)jobId$(tput sgr0) $(tput setaf 6)${JOB_ID}$(tput sgr0)"
 fi
 
 if [ -z "$RAY_KUBE_CLUSTER_NAME" ]; then
-    echo "$(tput setaf 1)[Helm] Error: ray cluster name not defined$(tput sgr0)"
+    echo "$(tput setaf 1)[Setup]$(tput sgr0) Error: ray cluster name not defined$(tput sgr0)"
     exit 1
 else
-    echo "$(tput setaf 4)[Helm] Using cluster name=$(tput setaf 5)${RAY_KUBE_CLUSTER_NAME}$(tput sgr0)"
+    echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)clusterName$(tput sgr0) $(tput setaf 6)${RAY_KUBE_CLUSTER_NAME}$(tput sgr0)"
 fi
 
 if [ -n "$GUIDEBOOK_ENV" ]; then
     jobEnvFile=$(mktemp)
     echo "$GUIDEBOOK_ENV" > $jobEnvFile
     jobEnv="--set-file jobEnv=$jobEnvFile"
-    echo -ne "$(tput setaf 4)[Helm] Passing through job env="
-    echo -n $(cat "$jobEnvFile" | base64 -d) # see above for discussion of tr
-    echo "$(tput sgr0)"
+
+    if [[ -n "$GUIDEBOOK_VERBOSE" ]]; then
+        echo -ne "$(tput setaf 3)[Config]$(tput sgr0) Passing through job env="
+        echo -n $(cat "$jobEnvFile" | base64 -d) # see above for discussion of tr
+        echo "$(tput sgr0)"
+    fi
 fi
 
 if [ -f "$HELM_ROLL_YOUR_OWN" ]; then
     rollYourOwn="--set-file rollYourOwn=$HELM_ROLL_YOUR_OWN"
-    echo "$(tput setaf 4)[Helm] Using custom resources from $(tput setaf 5)$HELM_ROLL_YOUR_OWN$(tput sgr0)"
+
+    if [[ -n "$GUIDEBOOK_VERBOSE" ]]; then
+        echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)customResources $(tput setaf 6)$HELM_ROLL_YOUR_OWN$(tput sgr0)"
+    fi
 elif [ -n "$HELM_ROLL_YOUR_OWN" ]; then
-    echo "$(tput setaf 1)[Helm] Error: roll your own invalid, expected a filepath: $HELM_ROLL_YOUR_OWN$(tput sgr0)"
+    echo "$(tput setaf 1)[Setup]$(tput sgr0) Error: roll your own invalid, expected a filepath: $HELM_ROLL_YOUR_OWN$(tput sgr0)"
     exit 1
 fi
 
 if [ -n "$HELM_DRYRUN" ]; then
     TEE="cat" # we don't want to tee the dryrun output to the console
     INSTALL="install --dry-run ${HELM_DEBUG}"
-    echo "$(tput setaf 4)[Helm] $(tput setaf 5)Performing dry run$(tput sgr0)"
+    echo "$(tput setaf 3)[Setup]$(tput sgr0) $(tput setaf 6)Performing dry run$(tput sgr0)"
 
     set -x # echo the helm command line
 else
@@ -220,6 +237,6 @@ set +x
 
 if [ -n "$HELM_DRYRUN" ]; then
     # early exit
-    echo "[Helm] yaml spec should be in ${HELM_OUTPUT-/tmp/helm.yml}"
+    echo "$(tput setaf 3)[Setup]$(tput sgr0) yaml spec should be in ${HELM_OUTPUT-/tmp/helm.yml}$(tput sgr0)"
     exit 90
 fi
