@@ -7,10 +7,7 @@ imports:
     - ./status-poller
     - ml/ray/run/pod-stats
     - ml/ray/run/gpu-utilization
+    - ./job-logs
 ---
 
-# Stream out Torchx Job Logs
-
-```shell
---8<-- "./logs.sh"
-```
+# Aggregate Torchx Job Information

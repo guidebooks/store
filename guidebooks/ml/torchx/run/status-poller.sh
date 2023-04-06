@@ -7,5 +7,5 @@ fi
 kubectl get pods ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -l ${TORCHX_INSTANCE_LABEL} -o name \
         --field-selector=status.phase==Running \
     | xargs ${REPLSIZE} -P128 -I {} -n1 \
-            sh -c "kubectl exec --pod-running-timeout=1h ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- tail -F /tmp/status.txt" \
+            sh -c "kubectl exec --pod-running-timeout=1h ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} {} -- tail -F /tmp/status.txt 2> /dev/null" \
             >> "${STREAMCONSUMER_EVENTS}job-status.txt"
