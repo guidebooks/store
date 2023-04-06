@@ -1,5 +1,13 @@
 
 
+## [7.5.10](https://github.com/guidebooks/store/compare/7.5.9...7.5.10) (2023-04-06)
+
+
+### Bug Fixes
+
+* improve torchx status events to show Job status ([e74480c](https://github.com/guidebooks/store/commit/e74480cd9e08be9c80373104f2b5d88bfc108ff5))
+* improved event handling for torchx exit ([fa75d8a](https://github.com/guidebooks/store/commit/fa75d8a18b34864156979b733ef85ff513792025))
+
 ## [7.5.9](https://github.com/guidebooks/store/compare/7.5.8...7.5.9) (2023-04-06)
 
 
