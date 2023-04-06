@@ -7,9 +7,9 @@ imports:
     - s3/choose/bucket/maybe
     - ml/ray/storage/s3/maybe
     - ml/ray/cluster/kubernetes/choose-pod-scheduler
-    - ml/ray/run/logs/init.md
-    - ml/ray/start/kubernetes/events
+    - ml/ray/run/logs/init
     - ./create-yaml
+    - ml/ray/start/kubernetes/events
     - ./invoke-helm
 ---
 
