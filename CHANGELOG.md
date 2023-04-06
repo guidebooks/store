@@ -1,5 +1,14 @@
 
 
+## [7.5.11](https://github.com/guidebooks/store/compare/7.5.10...7.5.11) (2023-04-06)
+
+
+### Bug Fixes
+
+* remove leftover 'set -x' from debugging ([953d67c](https://github.com/guidebooks/store/commit/953d67c8a6f80d923c98a43bfc5832544cb8c46f))
+* small refinements to torchx logs ([3a21b49](https://github.com/guidebooks/store/commit/3a21b492cd5bd70515a2d52017e47a935049d9b8))
+* torchx job status file needs to use tee -a to append ([b56decc](https://github.com/guidebooks/store/commit/b56deccea28f6d507cbf4821ad7a36fe867839b4))
+
 ## [7.5.10](https://github.com/guidebooks/store/compare/7.5.9...7.5.10) (2023-04-06)
 
 
