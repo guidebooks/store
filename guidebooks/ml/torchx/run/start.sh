@@ -17,7 +17,8 @@ WORKER_MEMORY_MB=$(echo "($NUMERIC_PART * $SCALE_PART)/1" | bc)
 
 # TorchX Command Line Options
 image="--image ${RAY_IMAGE}"
-script="$(echo $CUSTOM_COMMAND_LINE_PREFIX | sed -E 's/^python[[:digit:]]+[ ]+//')"
+script="$(echo $CUSTOM_COMMAND_LINE_PREFIX | sed -E 's/^python[[:digit:]]*[ ]+//')"
+echo "$(tput setaf 3)[Config]$(tput sgr0) $(tput bold)script$(tput sgr0) $(tput setaf 6)${script}$(tput sgr0)"
 
 # kubernetes_mcad scheduler Options
 ns="namespace=${KUBE_NS}"
@@ -74,9 +75,11 @@ cd "$CUSTOM_WORKING_DIR" && \
         | sed "s#$script#$script -- $GUIDEBOOK_DASHDASH#" \
         | sed "s/main-pg/pg/" \
         | sed -E "s/main-[a-zA-Z0-9]+/$TORCHX_INSTANCE/g" \
-        | sed -E 's#(python -m torch.distributed.run|torchrun)#if [ -f /tmp/configmap/workdir/workdir.tar.gz ]; then export PYTHONPATH="${PYTHONPATH}:/tmp/workdir"; echo "Unpacking workspace with PYTHONPATH=$PYTHONPATH"; mkdir /tmp/workdir; tar -C /tmp/workdir -zxvf /tmp/configmap/workdir/workdir.tar.gz; fi; cd /tmp/workdir; \1#' \
+        | sed -E 's#(python -m torch.distributed.run|torchrun)#if [ -f /tmp/configmap/workdir/workdir.tar.gz ]; then echo "Unpacking workspace with PYTHONPATH=$PYTHONPATH"; mkdir /tmp/workdir; tar -C /tmp/workdir -zxvf /tmp/configmap/workdir/workdir.tar.gz; fi; cd /tmp/workdir; \1#' \
         | awk '{ idx=index($0, "volumeMounts:"); print $0; if (idx > 0) { for (i=1; i<idx; i++) printf " "; print "- name: workdir-volume"; for (i=1; i<idx+2; i++) printf " "; print "mountPath: /tmp/configmap/workdir"; for (i=1; i<idx+2; i++) printf " "; print "readOnly: true"} }' \
         | awk -v clusterName=$TORCHX_INSTANCE '{ idx=index($0, "volumes:"); print $0; if (idx > 0) { for (i=1; i<idx; i++) printf " "; print "- name: workdir-volume"; for (i=1; i<idx+2; i++) printf " "; print "configMap:"; for (i=1; i<idx+4; i++) printf " "; print "name: workdir-" clusterName} }' \
         > $HELM_ROLL_YOUR_OWN
 
-echo "Torchx resources have been staged in $HELM_ROLL_YOUR_OWN"
+if [[ -n "$GUIDEBOOK_VERBOSE" ]]; then
+    echo "Torchx resources have been staged in $HELM_ROLL_YOUR_OWN"
+fi
