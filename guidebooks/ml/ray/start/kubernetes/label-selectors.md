@@ -7,7 +7,7 @@ export KUBE_POD_RAY_HEAD_LABEL_SELECTOR=${KUBE_POD_LABEL_SELECTOR-ray-user-node-
 
 A Kubernetes label selector that can be used to query for both workers and the head node.
 ```shell
-export KUBE_PODFULL_LABEL_SELECTOR=${KUBE_POD_LABEL_SELECTOR-app.kubernetes.io/name=${RAY_KUBE_CLUSTER_NAME},ray-node-type}
+export KUBE_PODFULL_LABEL_SELECTOR=${KUBE_PODFULL_LABEL_SELECTOR-app.kubernetes.io/instance=${RAY_KUBE_CLUSTER_NAME}}
 ```
 
 A Kubernetes label selector that can be used to query for workers.
