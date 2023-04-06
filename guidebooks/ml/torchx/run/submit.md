@@ -1,7 +1,7 @@
 ---
 imports:
     - ./instance-id
-    - kubernetes/choose/ns
+    - ml/ray/start/resources
     - ml/codeflare/training/byoc/form
     - kubernetes/choose/secret/image-pull
     - s3/choose/bucket/maybe
