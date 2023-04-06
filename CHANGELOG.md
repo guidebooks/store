@@ -1,5 +1,12 @@
 
 
+## [7.5.9](https://github.com/guidebooks/store/compare/7.5.8...7.5.9) (2023-04-06)
+
+
+### Bug Fixes
+
+* torchx jobs lacked kube event stream ([7000d3b](https://github.com/guidebooks/store/commit/7000d3b4b2e6a41cc2d05f79364f5852cde561a9))
+
 ## [7.5.8](https://github.com/guidebooks/store/compare/7.5.7...7.5.8) (2023-04-06)
 
 
