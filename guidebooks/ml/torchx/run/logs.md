@@ -4,6 +4,7 @@ imports:
     - kubernetes/choose/ns
     - ./wait-till-running
     - ./instance-label
+    - ./status-poller
     - ml/ray/run/pod-stats
     - ml/ray/run/gpu-utilization
 ---

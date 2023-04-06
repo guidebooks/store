@@ -16,6 +16,7 @@ spec:
         type: ray
         appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
         app.kubernetes.io/name: {{ .Values.clusterName }}
+        app.kubernetes.io/instance: {{ .Values.clusterName }}
         ray-node-type: worker
         ray-cluster-name: {{ .Values.clusterName }}
         ray-user-node-type: rayWorkerType
