@@ -1,5 +1,12 @@
 
 
+## [7.5.8](https://github.com/guidebooks/store/compare/7.5.7...7.5.8) (2023-04-06)
+
+
+### Bug Fixes
+
+* torchx script logic fails if python prefix is not python3 ([942304f](https://github.com/guidebooks/store/commit/942304fc0c0ce646778de0e6b23fa5ab44c19d47))
+
 ## [7.5.7](https://github.com/guidebooks/store/compare/7.5.6...7.5.7) (2023-04-05)
 
 
