@@ -10,8 +10,8 @@ while true; do
     fi
 
     kubectl get events -o custom-columns=KIND:.involvedObject.kind,NAME:.involvedObject.name,TIMESTAMP:.metadata.creationTimestamp,TYPE:.type,REASON:.reason,MESSAGE:.message --ignore-not-found ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} $WATCH \
-        | awk $INT -v id=$JOB_ID '
-index($2, id) > 0 {
+        | awk $INT -v id=$JOB_ID -v key=${KUBERNETES_EVENT_KEY-xxxnotfoundxxx} '
+index($2, id) > 0 || $2 ~ key {
   printf "\x1b[1;2;35m[Workers \x1b[0;35m%s\x1b[1;2;35m]\x1b[0;2;35m", $5;
   printf " \x1b[0;2;35m%s/%s %s", tolower($1), $2, $4; # name and reason
   for (i=6;i<=NF;i++) printf " %s", $i; # message
