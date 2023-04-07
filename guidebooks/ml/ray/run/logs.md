@@ -10,12 +10,7 @@ We will stream out a suite of data, including resource utilization metrics and j
 
 ## Capture Environment Variables
 
-```shell
-if [[ -n "$GUIDEBOOK_ENV" ]]; then
-    jobEnvFile="${LOGDIR_STAGE}/env.json"
-    echo -n "$GUIDEBOOK_ENV" | base64 -d > "$jobEnvFile"
-fi
-```
+--8<-- "./job-env.md"
 
 ## Stream Resource Metrics
 

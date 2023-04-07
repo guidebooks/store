@@ -7,6 +7,7 @@ imports:
     - ./status-poller
     - ml/ray/run/pod-stats
     - ml/ray/run/gpu-utilization
+    - ml/ray/run/job-env
     - ./job-logs
 ---
 
