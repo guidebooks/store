@@ -1,5 +1,14 @@
 
 
+## [7.5.16](https://github.com/guidebooks/store/compare/7.5.15...7.5.16) (2023-04-07)
+
+
+### Bug Fixes
+
+* improve messaging of torchx wait-till-running ([864d45c](https://github.com/guidebooks/store/commit/864d45cf82191bba48eb53bab0c9400c79eb4b6a))
+* pod-memory stream lacked pod/ prefix for hostname ([384058e](https://github.com/guidebooks/store/commit/384058e86f00910f031130e25295de5d3b92f738))
+* torchx wait-till-running was not waiting till *all* workers were running ([4b43524](https://github.com/guidebooks/store/commit/4b435241b513d25fa6557b08291f317fdbd54f40))
+
 ## [7.5.15](https://github.com/guidebooks/store/compare/7.5.14...7.5.15) (2023-04-07)
 
 
