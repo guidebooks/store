@@ -1,5 +1,12 @@
 
 
+## [7.5.15](https://github.com/guidebooks/store/compare/7.5.14...7.5.15) (2023-04-07)
+
+
+### Bug Fixes
+
+* torchx env isn't written out till the job is already running ([3263606](https://github.com/guidebooks/store/commit/3263606b406e4e6806ee725231d041e69ee12939))
+
 ## [7.5.14](https://github.com/guidebooks/store/compare/7.5.13...7.5.14) (2023-04-07)
 
 
