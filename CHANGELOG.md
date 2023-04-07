@@ -1,5 +1,13 @@
 
 
+## [7.5.12](https://github.com/guidebooks/store/compare/7.5.11...7.5.12) (2023-04-07)
+
+
+### Bug Fixes
+
+* syntax error in code block in torchx status poller ([02093d0](https://github.com/guidebooks/store/commit/02093d06183cedc02c098d6dfd3fb32e8cd0eca9))
+* torchx exit handlers were not right ([559d2df](https://github.com/guidebooks/store/commit/559d2df7433abb339e4d3e2e9bc5a5b27ce1ad94))
+
 ## [7.5.11](https://github.com/guidebooks/store/compare/7.5.10...7.5.11) (2023-04-06)
 
 
