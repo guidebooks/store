@@ -1,5 +1,12 @@
 
 
+## [7.5.13](https://github.com/guidebooks/store/compare/7.5.12...7.5.13) (2023-04-07)
+
+
+### Bug Fixes
+
+* torchx captured logs may not include Succeeded/Failed events ([e52abad](https://github.com/guidebooks/store/commit/e52abad0e3b882cb19f42f6717ae94295f3ffc79))
+
 ## [7.5.12](https://github.com/guidebooks/store/compare/7.5.11...7.5.12) (2023-04-07)
 
 
