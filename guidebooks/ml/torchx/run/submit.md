@@ -9,6 +9,7 @@ imports:
     - ml/ray/cluster/kubernetes/choose-pod-scheduler
     - ml/ray/run/logs/init
     - ./create-yaml
+    - ml/ray/run/job-env
     - ml/ray/start/kubernetes/events
     - ./invoke-helm
 ---
