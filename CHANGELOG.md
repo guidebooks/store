@@ -1,5 +1,12 @@
 
 
+## [7.5.14](https://github.com/guidebooks/store/compare/7.5.13...7.5.14) (2023-04-07)
+
+
+### Bug Fixes
+
+* capture job env vars for torchx runs ([0cbe657](https://github.com/guidebooks/store/commit/0cbe657873595e35bcdf8a2650bf36fa2abacaaf))
+
 ## [7.5.13](https://github.com/guidebooks/store/compare/7.5.12...7.5.13) (2023-04-07)
 
 
