@@ -6,6 +6,7 @@ imports:
     - kubernetes/choose/ns
     - ./kubernetes/name
     - ./kubernetes/events
+    - ml/ray/run/job-env
     - ./kubernetes/install-via-helm
     - ml/ray/start/kubernetes/self-destruct
 ---

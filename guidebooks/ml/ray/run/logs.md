@@ -8,10 +8,6 @@ imports:
 We will stream out a suite of data, including resource utilization metrics and job logs.
 
 
-## Capture Environment Variables
-
---8<-- "./job-env.md"
-
 ## Stream Resource Metrics
 
 --8<-- "./pod-stats.md"
