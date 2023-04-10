@@ -1,5 +1,12 @@
 
 
+## [7.5.18](https://github.com/guidebooks/store/compare/7.5.17...7.5.18) (2023-04-10)
+
+
+### Bug Fixes
+
+* vmstat data lacks pod/ prefix on pod name ([c9a3350](https://github.com/guidebooks/store/commit/c9a3350ba268aea6bdf594f268c2aabf8c7f8324))
+
 ## [7.5.17](https://github.com/guidebooks/store/compare/7.5.16...7.5.17) (2023-04-09)
 
 
