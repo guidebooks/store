@@ -1,5 +1,14 @@
 
 
+## [7.5.19](https://github.com/guidebooks/store/compare/7.5.18...7.5.19) (2023-04-12)
+
+
+### Bug Fixes
+
+* decrease epochs from 5 to 2 for getting started ray example ([6c4ba16](https://github.com/guidebooks/store/commit/6c4ba163b64658fffca9a98c28b0917454a80b3f))
+* ray labels were using /name should use /instance ([d7b7651](https://github.com/guidebooks/store/commit/d7b7651d699e3bb89c9a4db784579b3778ce3f5e))
+* websocat ray log streaming can be simplified ([81349f7](https://github.com/guidebooks/store/commit/81349f73a5b2dd9282d7ad6c270ce2bc769562da))
+
 ## [7.5.18](https://github.com/guidebooks/store/compare/7.5.17...7.5.18) (2023-04-10)
 
 
