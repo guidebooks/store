@@ -1,6 +1,8 @@
 ---
 imports:
-    - util/websocat
+    - kubernetes/kubectl
+    - kubernetes/choose/ns
+    - ml/ray/cluster/head
 ---
 
 # Stream out Ray Job Logs
@@ -66,4 +68,4 @@ need for an additional tool. Sigh.
 
 ### Logs to a file (and possibly the console, too)
 
---8<-- "./logs/via-websocat.md"
+--8<-- "./logs/via-exec.md"
