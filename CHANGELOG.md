@@ -1,5 +1,12 @@
 
 
+# [7.6.0](https://github.com/guidebooks/store/compare/7.5.19...7.6.0) (2023-04-12)
+
+
+### Features
+
+* avoid websocat in ml/ray/run/logs ([7c6bbb1](https://github.com/guidebooks/store/commit/7c6bbb1c56cc7eb19b046ef2b25e380d79fcb783))
+
 ## [7.5.19](https://github.com/guidebooks/store/compare/7.5.18...7.5.19) (2023-04-12)
 
 
