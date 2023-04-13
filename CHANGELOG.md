@@ -1,5 +1,12 @@
 
 
+## [7.6.2](https://github.com/guidebooks/store/compare/7.6.1...7.6.2) (2023-04-13)
+
+
+### Bug Fixes
+
+* further improvements to ray log streaming ([11a7359](https://github.com/guidebooks/store/commit/11a7359c9d0544259861a54dc317c3f3567f2479))
+
 ## [7.6.1](https://github.com/guidebooks/store/compare/7.6.0...7.6.1) (2023-04-13)
 
 
