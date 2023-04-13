@@ -1,5 +1,12 @@
 
 
+## [7.6.1](https://github.com/guidebooks/store/compare/7.6.0...7.6.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* ray logs not smooth ([82acb7e](https://github.com/guidebooks/store/commit/82acb7e1e05b70898ad1581765c70c45aa8144f3))
+
 # [7.6.0](https://github.com/guidebooks/store/compare/7.5.19...7.6.0) (2023-04-12)
 
 
