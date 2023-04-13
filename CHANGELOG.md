@@ -1,5 +1,12 @@
 
 
+## [7.6.3](https://github.com/guidebooks/store/compare/7.6.2...7.6.3) (2023-04-13)
+
+
+### Bug Fixes
+
+* final Succeeded message not shown in ray jobs ([f2280b8](https://github.com/guidebooks/store/commit/f2280b825f515807ed2d011f3ca5d6789ab1175a))
+
 ## [7.6.2](https://github.com/guidebooks/store/compare/7.6.1...7.6.2) (2023-04-13)
 
 
