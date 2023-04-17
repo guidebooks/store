@@ -1,5 +1,12 @@
 
 
+# [7.7.0](https://github.com/guidebooks/store/compare/7.6.3...7.7.0) (2023-04-17)
+
+
+### Features
+
+* rename self-destruct to logs; and increase ttl timeout on its job ([595014f](https://github.com/guidebooks/store/commit/595014fa2f570accd56ac843a0da355090fbf642))
+
 ## [7.6.3](https://github.com/guidebooks/store/compare/7.6.2...7.6.3) (2023-04-13)
 
 
