@@ -20,7 +20,7 @@ spec:
       #     type: RuntimeDefault
       containers:
       - name: custodian
-        image: $RAY_IMAGE
+        image: $CUSTODIAN_IMAGE
         env:
           - name: RAY_ADDRESS
             value: ray-head-$RAY_KUBE_CLUSTER_NAME:6379
@@ -36,7 +36,7 @@ spec:
             memory: 128Mi
         command: [ "/bin/bash", "-c", "--" ]
         args:
-          - "(echo 'Installing Helm'; cd /tmp; mkdir -p /tmp/captured/logs; mkdir /tmp/bin; wget -q -O get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3; chmod 700 get_helm.sh; HELM_INSTALL_DIR=/tmp/bin PATH=/tmp/bin:$PATH ./get_helm.sh --no-sudo) & kubectl logs -f -l $KUBE_JOB_LOGS_LABEL_SELECTOR | tee /tmp/captured/logs/job.txt; sleep ${RAY_CUSTODIAN_DELAY-10}; echo 'Job run is complete'; wait ; echo 'Tearing down cluster, if needed'; /tmp/bin/helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 | grep -v 'Release not loaded' || exit 0"
+          - "mkdir -p /tmp/captured/logs; mkdir -p /tmp/captured/events; mkdir -p /tmp/captured/resources; kubectl logs -f -l $KUBE_JOB_LOGS_LABEL_SELECTOR | tee /tmp/captured/logs/job.txt; sleep ${RAY_CUSTODIAN_DELAY-10}; echo 'Job run is complete'; wait ; echo 'Tearing down cluster, if needed'; helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 | grep -v 'Release not loaded' || exit 0"
 ---
 apiVersion: v1
 kind: ServiceAccount
