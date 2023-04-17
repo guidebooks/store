@@ -23,5 +23,3 @@ helm ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} uninstall ${RAY_KUBE_CLUSTER_NAME} 
     || (sleep 1 && helm ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} uninstall ${RAY_KUBE_CLUSTER_NAME} 2> /dev/null) \
     || exit 0
 ```
-
---8<-- "ml/ray/start/kubernetes/self-destruct/cleanup"
