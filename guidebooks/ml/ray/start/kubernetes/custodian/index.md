@@ -1,6 +1,7 @@
 ---
 imports:
     - kubernetes/choose/ns
+    - ./image
     - ../label-selectors
 ---
 
