@@ -1,6 +1,7 @@
 ---
 imports:
     - kubernetes/choose/ns
+    - ../label-selectors
 ---
 
 # Provision a Custodian for our Helm Chart

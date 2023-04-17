@@ -36,7 +36,7 @@ spec:
             memory: 128Mi
         command: [ "/bin/bash", "-c", "--" ]
         args:
-          - "echo 'Installing Helm'; cd /tmp; mkdir -p /tmp/captured/logs; mkdir /tmp/bin; wget -q -O get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3; chmod 700 get_helm.sh; HELM_INSTALL_DIR=/tmp/bin PATH=/tmp/bin:$PATH ./get_helm.sh --no-sudo; until ray job status $JOB_ID | grep -iE running\\\|succeeded\\\|failed\\\|stopped; do if /tmp/bin/helm status -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME > /dev/null ; then echo 'Helm chart is still valid'; else echo 'Exiting, as it seems there is nothing to do'; exit; fi; echo 'Waiting for job to start'; sleep 1; done; ray job logs -f $JOB_ID | tee /tmp/captured/logs/job.txt; sleep ${RAY_SELFDESTRUCT_DELAY-10}; /tmp/bin/helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 | grep -v 'Release not loaded' || exit 0"
+          - "(echo 'Installing Helm'; cd /tmp; mkdir -p /tmp/captured/logs; mkdir /tmp/bin; wget -q -O get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3; chmod 700 get_helm.sh; HELM_INSTALL_DIR=/tmp/bin PATH=/tmp/bin:$PATH ./get_helm.sh --no-sudo) & kubectl logs -f -l $KUBE_JOB_LOGS_LABEL_SELECTOR | tee /tmp/captured/logs/job.txt; sleep ${RAY_CUSTODIAN_DELAY-10}; echo 'Job run is complete'; wait ; echo 'Tearing down cluster, if needed'; /tmp/bin/helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 | grep -v 'Release not loaded' || exit 0"
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -51,6 +51,9 @@ rules:
 - apiGroups: [""]
   resources: ["pods", "pods/exec", "serviceaccounts", "services", "configmaps"]
   verbs: ["get", "list", "delete"]
+- apiGroups: [""]
+  resources: ["pods/log"]
+  verbs: ["get"]
 - apiGroups: ["batch"]
   resources: ["jobs"]
   verbs: ["get", "list", "delete"]
