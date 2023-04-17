@@ -1,5 +1,12 @@
 
 
+# [7.8.0](https://github.com/guidebooks/store/compare/7.7.1...7.8.0) (2023-04-17)
+
+
+### Features
+
+* improve custodian support for torchx, use smaller base image ([6bd38ef](https://github.com/guidebooks/store/commit/6bd38eff5dcd9223339c91722ed72b532c71f314))
+
 ## [7.7.1](https://github.com/guidebooks/store/compare/7.7.0...7.7.1) (2023-04-17)
 
 
