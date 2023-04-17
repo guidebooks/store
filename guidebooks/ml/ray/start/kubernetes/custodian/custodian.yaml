@@ -8,8 +8,9 @@ spec:
     metadata:
       name: logs-$RAY_KUBE_CLUSTER_NAME
       labels:
-        app.kubernetes.io/part-of: $RAY_KUBE_CLUSTER_NAME
         app.kubernetes.io/component: logs
+        app.kubernetes.io/managed-by: codeflare
+        app.kubernetes.io/part-of: $RAY_KUBE_CLUSTER_NAME
     spec:
       restartPolicy: Never
       serviceAccountName: ray-self-destruct-v1-sa-${USER-genericuser}
