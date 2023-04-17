@@ -1,5 +1,13 @@
 
 
+## [7.7.1](https://github.com/guidebooks/store/compare/7.7.0...7.7.1) (2023-04-17)
+
+
+### Bug Fixes
+
+* logs custodian has errors with tee'ing to file ([202a5a1](https://github.com/guidebooks/store/commit/202a5a175a589190c4d50c622860a3c590aac133))
+* logs custodian should pull from kubectl logs, not ray job logs ([d866d45](https://github.com/guidebooks/store/commit/d866d454f6554b0573aab51c86fadf66456daf75))
+
 # [7.7.0](https://github.com/guidebooks/store/compare/7.6.3...7.7.0) (2023-04-17)
 
 
