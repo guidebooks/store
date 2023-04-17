@@ -1,5 +1,12 @@
 
 
+## [7.8.1](https://github.com/guidebooks/store/compare/7.8.0...7.8.1) (2023-04-17)
+
+
+### Bug Fixes
+
+* add 'app.kubernetes.io/managed-by: codeflare' label to custodian ([701b8ab](https://github.com/guidebooks/store/commit/701b8ab85c369504843b0f9872544859d8855082))
+
 # [7.8.0](https://github.com/guidebooks/store/compare/7.7.1...7.8.0) (2023-04-17)
 
 
