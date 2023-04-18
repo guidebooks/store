@@ -23,6 +23,7 @@ spec:
         appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
         app.kubernetes.io/name: {{ .Values.clusterName }}
         app.kubernetes.io/instance: {{ .Values.clusterName }}
+        app.kubernetes.io/owner: {{ .Values.userName | default unknown }}
         ray-node-type: head
         ray-cluster-name: {{ .Values.clusterName }}
         ray-user-node-type: rayHeadType
