@@ -203,6 +203,7 @@ cd $REPO/$SUBDIR && \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
          ${CREATE_NAMESPACE} ${STARTUP_PROBE} \
          ${HELM_EXTRA} \
+         --set userName=${USER-unknown} \
          --set clusterName=${RAY_KUBE_CLUSTER_NAME} \
          --set clusterNamespace=${KUBE_NS_FOR_REAL-${KUBE_NS}} \
          --set podTypes.rayHeadType.CPU=${NUM_CPUS-1} \
