@@ -1,5 +1,12 @@
 
 
+## [7.8.4](https://github.com/guidebooks/store/compare/7.8.3...7.8.4) (2023-04-18)
+
+
+### Bug Fixes
+
+* torchx cluster name may end with a dash ([351df63](https://github.com/guidebooks/store/commit/351df639dae17008465f77f70913e21a170d454c))
+
 ## [7.8.3](https://github.com/guidebooks/store/compare/7.8.2...7.8.3) (2023-04-18)
 
 
