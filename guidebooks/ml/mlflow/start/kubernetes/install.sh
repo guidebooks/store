@@ -1,4 +1,4 @@
-BRANCH=7.8.1 # <-- will get updated by @release-it/bumper; see top-level package.json
+BRANCH=7.8.2 # <-- will get updated by @release-it/bumper; see top-level package.json
 CHART_DIR=guidebooks/ml/mlflow/start/kubernetes/chart
 
 MLFLOW_CLONE_TEMPDIR=$(mktemp -d)

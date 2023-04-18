@@ -1,5 +1,12 @@
 
 
+## [7.8.2](https://github.com/guidebooks/store/compare/7.8.1...7.8.2) (2023-04-18)
+
+
+### Bug Fixes
+
+* add app.kubernetes.io/owner label to pods ([2872b1d](https://github.com/guidebooks/store/commit/2872b1df0b837b6ac2784e25afbf5ff6034fc855))
+
 ## [7.8.1](https://github.com/guidebooks/store/compare/7.8.0...7.8.1) (2023-04-17)
 
 
