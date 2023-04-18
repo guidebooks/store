@@ -1,5 +1,12 @@
 
 
+## [7.8.3](https://github.com/guidebooks/store/compare/7.8.2...7.8.3) (2023-04-18)
+
+
+### Bug Fixes
+
+* owner label default needs to be quoted ([16b13d5](https://github.com/guidebooks/store/commit/16b13d57fbad5463795e5f2060be0ab2d223a303))
+
 ## [7.8.2](https://github.com/guidebooks/store/compare/7.8.1...7.8.2) (2023-04-18)
 
 
