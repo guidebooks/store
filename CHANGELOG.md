@@ -1,5 +1,12 @@
 
 
+## [7.8.5](https://github.com/guidebooks/store/compare/7.8.4...7.8.5) (2023-04-19)
+
+
+### Bug Fixes
+
+* clean up custodian command, and rename container 'logs' ([cb81a51](https://github.com/guidebooks/store/commit/cb81a5117e300fa35cfd8dde9a3a80770c8f119f))
+
 ## [7.8.4](https://github.com/guidebooks/store/compare/7.8.3...7.8.4) (2023-04-18)
 
 
