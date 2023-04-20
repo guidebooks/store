@@ -37,6 +37,20 @@ spec:
             echo 'Tearing down cluster, if needed'
             helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 | grep -v 'Release not loaded' || exit 0
 
+      # stream out worker status
+      - name: worker-status
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 96Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $WORKER_STATUS_B64 | base64 -d > /tmp/worker-status.sh
+            chmod +x /tmp/worker-status.sh
+            /tmp/worker-status.sh
+
       # stream out cpu utilization metrics
       - name: cpu
         image: $CUSTODIAN_IMAGE
