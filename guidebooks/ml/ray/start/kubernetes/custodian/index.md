@@ -38,6 +38,20 @@ EOF
 export MEMORY_B64=$(cat $SHELLFILE)
 rm -f $SHELLFILE
 
+# GPU FILES
+AWKFILE=$(mktemp)
+cat << 'EOF' | base64 > $AWKFILE
+--8<-- "./resources/gpu.awk"
+EOF
+export GPU_AWK_B64=$(cat $AWKFILE)
+rm -f $AWKFILE
+SHELLFILE=$(mktemp)
+cat << EOF | base64 > $SHELLFILE
+--8<-- "./resources/gpu.sh"
+EOF
+export GPU_B64=$(cat $SHELLFILE)
+rm -f $SHELLFILE
+
 cat << EOF | kubectl apply $KUBE_CONTEXT_ARG $KUBE_NS_ARG -f -
 --8<-- "./custodian.yaml"
 EOF
