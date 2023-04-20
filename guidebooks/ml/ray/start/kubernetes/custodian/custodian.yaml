@@ -43,7 +43,7 @@ spec:
         resources:
           limits:
             cpu: 50m
-            memory: 32Mi
+            memory: 96Mi
         command: [ "/bin/bash", "-c", "--" ]
         args:
           - |
@@ -58,7 +58,7 @@ spec:
         resources:
           limits:
             cpu: 50m
-            memory: 32Mi
+            memory: 96Mi
         command: [ "/bin/bash", "-c", "--" ]
         args:
           - |
@@ -67,6 +67,21 @@ spec:
             chmod +x /tmp/memory.sh
             /tmp/memory.sh
 
+      # stream out gpu utilization metrics
+      - name: gpu
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 96Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $GPU_AWK_B64 | base64 -d > /tmp/gpu.awk
+            echo -n $GPU_B64 | base64 -d > /tmp/gpu.sh
+            chmod +x /tmp/gpu.sh
+            if [[ "${NUM_GPUS-0}" != "0" ]]; then /tmp/gpu.sh; else echo "# No GPUs for this run"; fi
+            
 ---
 apiVersion: v1
 kind: ServiceAccount
