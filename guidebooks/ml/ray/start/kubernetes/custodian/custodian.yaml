@@ -47,10 +47,25 @@ spec:
         command: [ "/bin/bash", "-c", "--" ]
         args:
           - |
-            echo -n $POD_VMSTAT_AWK_B64 | base64 -d > /tmp/cpu.awk
-            echo -n $POD_VMSTAT_B64 | base64 -d > /tmp/cpu.sh
+            echo -n $CPU_AWK_B64 | base64 -d > /tmp/cpu.awk
+            echo -n $CPU_B64 | base64 -d > /tmp/cpu.sh
             chmod +x /tmp/cpu.sh
             /tmp/cpu.sh
+
+      # stream out memory utilization metrics
+      - name: memory
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 32Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $MEMORY_AWK_B64 | base64 -d > /tmp/memory.awk
+            echo -n $MEMORY_B64 | base64 -d > /tmp/memory.sh
+            chmod +x /tmp/memory.sh
+            /tmp/memory.sh
 
 ---
 apiVersion: v1
