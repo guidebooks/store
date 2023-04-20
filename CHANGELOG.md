@@ -1,5 +1,12 @@
 
 
+## [7.9.1](https://github.com/guidebooks/store/compare/7.9.0...7.9.1) (2023-04-20)
+
+
+### Bug Fixes
+
+* eliminate newlines from base64 ([697b558](https://github.com/guidebooks/store/commit/697b5587677b962e523cb5165262746c2cf13325))
+
 # [7.9.0](https://github.com/guidebooks/store/compare/7.8.5...7.9.0) (2023-04-20)
 
 
