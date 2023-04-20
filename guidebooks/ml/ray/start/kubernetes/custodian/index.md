@@ -12,6 +12,12 @@ imports:
 
 TMPFILE=$(mktemp)
 
+# WORKER STATUS
+cat << EOF | base64 | tr -d '\n' > $TMPFILE
+--8<-- "./resources/worker-status.sh"
+EOF
+export WORKER_STATUS_B64=$(cat $TMPFILE)
+
 # CPU FILES
 cat << 'EOF' | base64 | tr -d '\n' > $TMPFILE
 --8<-- "./resources/cpu.awk"
