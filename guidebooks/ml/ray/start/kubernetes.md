@@ -8,7 +8,7 @@ imports:
     - ./kubernetes/events
     - ml/ray/run/job-env
     - ./kubernetes/install-via-helm
-    - ml/ray/start/kubernetes/custodian
+    - ml/codeflare/custodian
 ---
 
 # Install Ray on a Kubernetes Cluster
