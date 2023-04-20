@@ -21,7 +21,7 @@ mycluster-ray-worker-type-np2vr   1        1        32Gi
 ```shell.async
 # CPU Utilization
 
---8<-- "./pod-vmstat.sh"
+--8<-- "./pod-vmstat-clientside.sh"
 ```
 
 ```shell.async
