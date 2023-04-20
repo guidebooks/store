@@ -1,5 +1,20 @@
 
 
+# [7.9.0](https://github.com/guidebooks/store/compare/7.8.5...7.9.0) (2023-04-20)
+
+
+### Bug Fixes
+
+* lower custodian logs container 100m/128Mi -> 50m/32Mi ([18698ee](https://github.com/guidebooks/store/commit/18698ee1b5c85d6c046c26620af139d782eda5b7))
+* use multi-line yaml to improve formatting of logs args ([0a8de4b](https://github.com/guidebooks/store/commit/0a8de4b6e53adea6fbaae7bfec1ae626feb34999))
+
+
+### Features
+
+* add cpu utilization pod to custodian ([be3f788](https://github.com/guidebooks/store/commit/be3f788db768d6acf3eb36dc2cf76a116e3988c5))
+* add gpu utilization pod to custodian ([5f4f74b](https://github.com/guidebooks/store/commit/5f4f74b79fd35e2f9a9ef8a32a4a14579bfec0f5))
+* add memory utilization pod to custodian ([e0127d7](https://github.com/guidebooks/store/commit/e0127d7d14a947d3db1c0f15a2abda3c63f896cc))
+
 ## [7.8.5](https://github.com/guidebooks/store/compare/7.8.4...7.8.5) (2023-04-19)
 
 
