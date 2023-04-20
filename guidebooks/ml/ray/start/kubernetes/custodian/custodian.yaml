@@ -20,6 +20,8 @@ spec:
       imagePullSecrets:
         - name: ${IMAGE_PULL_SECRET-none}
       containers:
+
+      # collect logs and also manage helm delete upon job completion
       - name: logs
         image: $CUSTODIAN_IMAGE
         resources:
@@ -33,8 +35,23 @@ spec:
             echo 'Job run is complete'
             sleep ${CUSTODIAN_DELETE_DELAY-10}
             echo 'Tearing down cluster, if needed'
-            helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 \
-              | grep -v 'Release not loaded' || exit 0
+            helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 | grep -v 'Release not loaded' || exit 0
+
+      # stream out cpu utilization metrics
+      - name: cpu
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 32Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $POD_VMSTAT_AWK_B64 | base64 -d > /tmp/cpu.awk
+            echo -n $POD_VMSTAT_B64 | base64 -d > /tmp/cpu.sh
+            chmod +x /tmp/cpu.sh
+            /tmp/cpu.sh
+
 ---
 apiVersion: v1
 kind: ServiceAccount
