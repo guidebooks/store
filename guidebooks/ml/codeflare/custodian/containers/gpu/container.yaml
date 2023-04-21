@@ -1,0 +1,14 @@
+      # stream out gpu utilization metrics
+      - name: gpu
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 96Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $GPU_AWK_B64 | base64 -d > /tmp/gpu.awk
+            echo -n $GPU_B64 | base64 -d > /tmp/gpu.sh
+            chmod +x /tmp/gpu.sh
+            /tmp/gpu.sh
