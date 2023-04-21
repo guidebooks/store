@@ -1,5 +1,15 @@
 
 
+## [7.9.2](https://github.com/guidebooks/store/compare/7.9.1...7.9.2) (2023-04-21)
+
+
+### Bug Fixes
+
+* add runtime-env-setup to custodian ([ab0135a](https://github.com/guidebooks/store/commit/ab0135aa0b2db66801c08e2c34370fa218c19af6))
+* add worker-status to custodian ([be2db0e](https://github.com/guidebooks/store/commit/be2db0e42b8ff68c54dc66d252e1ae94868e1cd8))
+* do not create gpu custodian container for non-gpu runs ([a753d8a](https://github.com/guidebooks/store/commit/a753d8aef24c17d1ecbb1c4960ff034407b0bda1))
+* lower memory requests for some of the custodian pods ([48560f8](https://github.com/guidebooks/store/commit/48560f81a88f10ffaffb9074f96d2d9fd3d39372))
+
 ## [7.9.1](https://github.com/guidebooks/store/compare/7.9.0...7.9.1) (2023-04-20)
 
 
