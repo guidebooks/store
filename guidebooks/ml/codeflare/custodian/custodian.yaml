@@ -43,7 +43,7 @@ spec:
         resources:
           limits:
             cpu: 50m
-            memory: 96Mi
+            memory: 32Mi
         command: [ "/bin/bash", "-c", "--" ]
         args:
           - |
@@ -102,7 +102,7 @@ spec:
         resources:
           limits:
             cpu: 50m
-            memory: 96Mi
+            memory: 32Mi
         command: [ "/bin/bash", "-c", "--" ]
         args:
           - |
