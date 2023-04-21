@@ -1,0 +1,14 @@
+      # stream out cpu utilization metrics
+      - name: cpu
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 96Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $CPU_AWK_B64 | base64 -d > /tmp/cpu.awk
+            echo -n $CPU_B64 | base64 -d > /tmp/cpu.sh
+            chmod +x /tmp/cpu.sh
+            /tmp/cpu.sh

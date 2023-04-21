@@ -1,0 +1,13 @@
+      # stream out worker status
+      - name: worker-status
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 32Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $WORKER_STATUS_B64 | base64 -d > /tmp/worker-status.sh
+            chmod +x /tmp/worker-status.sh
+            /tmp/worker-status.sh

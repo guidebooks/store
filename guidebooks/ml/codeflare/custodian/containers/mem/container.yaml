@@ -1,0 +1,14 @@
+      # stream out memory utilization metrics
+      - name: memory
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 96Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $MEMORY_AWK_B64 | base64 -d > /tmp/memory.awk
+            echo -n $MEMORY_B64 | base64 -d > /tmp/memory.sh
+            chmod +x /tmp/memory.sh
+            /tmp/memory.sh

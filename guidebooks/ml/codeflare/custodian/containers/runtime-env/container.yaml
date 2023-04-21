@@ -1,0 +1,13 @@
+      # stream out pip installs
+      - name: runtime-env
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 32Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            echo -n $RUNTIME_ENV_B64 | base64 -d > /tmp/runtime-env.sh
+            chmod +x /tmp/runtime-env.sh
+            /tmp/runtime-env.sh

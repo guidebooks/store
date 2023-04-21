@@ -1,0 +1,15 @@
+      # collect logs and also manage helm delete upon job completion
+      - name: logs
+        image: $CUSTODIAN_IMAGE
+        resources:
+          limits:
+            cpu: 50m
+            memory: 32Mi
+        command: [ "/bin/bash", "-c", "--" ]
+        args:
+          - |
+            kubectl logs -f -l $KUBE_JOB_LOGS_LABEL_SELECTOR
+            echo 'Job run is complete'
+            sleep ${CUSTODIAN_DELETE_DELAY-10}
+            echo 'Tearing down cluster, if needed'
+            helm delete -n ${KUBE_NS_FOR_REAL-${KUBE_NS}} $RAY_KUBE_CLUSTER_NAME 2>&1 | grep -v 'Release not loaded' || exit 0
