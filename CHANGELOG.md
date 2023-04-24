@@ -1,5 +1,12 @@
 
 
+## [7.9.3](https://github.com/guidebooks/store/compare/7.9.2...7.9.3) (2023-04-24)
+
+
+### Bug Fixes
+
+* improve support for pytorch lightning's fsspec[s3] support ([91d2f11](https://github.com/guidebooks/store/commit/91d2f113269b0abd1c4cc62e4e81a4ebfb792514))
+
 ## [7.9.2](https://github.com/guidebooks/store/compare/7.9.1...7.9.2) (2023-04-21)
 
 
