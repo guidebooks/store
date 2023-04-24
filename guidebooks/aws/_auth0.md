@@ -12,12 +12,21 @@ aws_secret_access_key = yyy
 export S3_ENDPOINT_FROM_CONFIG=$(cat ~/.aws/config | awk -v AWS_PROFILE=${_AWS_PROFILE-default} '$1 == "[" AWS_PROFILE "]" {on=1} $1 ~ "]" && $1 != "[" AWS_PROFILE "]" {on=0} on==1 && $0 ~ "endpoint_url" {sub(/endpoint_url *= */,""); print $0}')
 ```
 
+This seems to be the de facto standard way to communicate the endpoint
+url to libraries.
 ```shell
 export S3_ENDPOINT=${S3_ENDPOINT_FROM_CONFIG:=https://s3.amazonaws.com}
 ```
 
+Some libraries seem to use this minor variant.
 ```shell
 export S3_ENDPOINT_URL=${S3_ENDPOINT}
+```
+
+PyTorch Lightning doesn't currently (as of 20230424) support the de
+facto standard `S3_ENDPOINT` environment variable.
+```shell
+export LIGHTNING_BUCKET_ENDPOINT_URL=${S3_ENDPOINT}
 ```
 
 ```shell
