@@ -122,6 +122,7 @@ if [ -n "$CUSTOM_WORKING_DIR" ]; then
 
         workdirTarball=$(mktemp)
         tar -zcf $workdirTarball --no-xattrs \
+            --exclude '*__pycache__*' \
             --exclude '*~' --exclude '*.out' --exclude '*.log' --exclude '*.err' --exclude '.rayignore' \
             --exclude-vcs \
             --exclude-from $excludeFile \
