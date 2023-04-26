@@ -99,7 +99,7 @@ spec:
 
           args:
           {{ if .Values.workdir }}
-            - {{ print "set -e; set -o pipefail; export TERM=xterm-256color; " (include "ray.head.args" .) "; mkdir /tmp/workdir; tar -C /tmp/workdir -zxf /tmp/configmap/workdir/workdir.tar.gz; if [ ! -f /tmp/workdir/runtime-env.yaml ]; then touch /tmp/workdir/runtime-env.yaml; if [ -f /tmp/workdir/requirements.txt ]; then echo 'Splicing in requirements.txt'; awk 'BEGIN { print \"pip:\" } NF > 0 { print \"  - \" $0 }' /tmp/workdir/requirements.txt >> /tmp/workdir/runtime-env.yaml; fi; fi ; if [ -s /tmp/workdir/runtime-env.yaml ]; then echo 'Using runtime-env.yaml'; RUNTIME_ENV=\"--runtime-env=/tmp/workdir/runtime-env.yaml\"; fi; ls -l /tmp/workdir ; set +e; echo -e \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)Submitted$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Submitting job to ray$(tput sgr0)\"; ray job submit --job-id " (.Values.jobId) " --address http://localhost:8265 --working-dir=/tmp/workdir $RUNTIME_ENV -- " (.Values.commandLinePrefix | default "python3 main.py") " " (.Values.dashdash | default "" | b64dec) " > /tmp/jobout.txt & sumbit=$!; wget -q -O /tmp/websocat https://github.com/vi/websocat/releases/download/v1.11.0/websocat.$(uname -m)-unknown-linux-musl ; chmod +x /tmp/websocat ; (while true; do /tmp/websocat --text --no-line ws://127.0.0.1:8265/api/jobs/" (.Values.jobId) "/logs/tail 2> /dev/null && break ; sleep 1; done) & socat=$! ; echo 'Waiting for job completion' ; wait $submit; if [[ $? = 0 ]]; then jobstatus=Success; else jobstatus=Failed; fi; echo \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)${jobstatus-Unknown}$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Job has completed$(tput sgr0)\"; tail /tmp/jobout.txt | grep -E 'Job|---' 2> /dev/null; kill $socat 2> /dev/null ; ray stop > /tmp/stop.out 2> /tmp/stop.err" }}
+            - {{ print "set -e; set -o pipefail; export TERM=xterm-256color; " (include "ray.head.args" .) "; mkdir /tmp/workdir; tar -C /tmp/workdir -zxf /tmp/configmap/workdir/workdir.tar.gz; if [ ! -f /tmp/workdir/runtime-env.yaml ]; then touch /tmp/workdir/runtime-env.yaml; if [ -f /tmp/workdir/requirements.txt ]; then echo 'Splicing in requirements.txt'; awk 'BEGIN { print \"pip:\" } NF > 0 { print \"  - \" $0 }' /tmp/workdir/requirements.txt >> /tmp/workdir/runtime-env.yaml; fi; fi ; if [ -s /tmp/workdir/runtime-env.yaml ]; then echo 'Using runtime-env.yaml'; RUNTIME_ENV=\"--runtime-env=/tmp/workdir/runtime-env.yaml\"; fi; ls -l /tmp/workdir ; set +e; echo -e \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)Submitted$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Submitting job to ray$(tput sgr0)\"; ray job submit --job-id " (.Values.jobId) " --address http://localhost:8265 --working-dir=/tmp/workdir $RUNTIME_ENV -- " (.Values.commandLinePrefix | default "python3 main.py") " " (.Values.dashdash | default "" | b64dec) " > /tmp/jobout.txt ; if [[ $? = 0 ]]; then jobstatus=Success; else jobstatus=Failed; fi; echo \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)${jobstatus-Unknown}$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Job has completed$(tput sgr0)\"; tail /tmp/jobout.txt | grep -E 'Job|---' 2> /dev/null; kill $socat 2> /dev/null ; ray stop > /tmp/stop.out 2> /tmp/stop.err" }}
           {{ else }}
             - {{ print (include "ray.head.args" .) " --block" }}
           {{ end }}
@@ -168,4 +168,15 @@ spec:
               {{- if .Values.podTypes.rayWorkerType.GPU }}
               nvidia.com/gpu: {{ .Values.podTypes.rayWorkerType.GPU }}
               {{- end }}
+
+        - name: logs
+          image: ghcr.io/project-codeflare/custodian:0.0.1
+          resources:
+           limits:
+             cpu: 50m
+             memory: 32Mi
+          command: [ "/bin/bash", "-c", "--" ]
+          args:
+            - |
+              {{ print "wget -q -O /tmp/websocat https://github.com/vi/websocat/releases/download/v1.11.0/websocat.$(uname -m)-unknown-linux-musl ; chmod +x /tmp/websocat ; while true; do /tmp/websocat --text --no-line ws://" (include "ray.headService" .) ":8265/api/jobs/" (.Values.jobId) "/logs/tail 2> /dev/null && break ; sleep 1; done" }}
 {{- end }}
