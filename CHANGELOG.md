@@ -1,5 +1,13 @@
 
 
+## [7.9.4](https://github.com/guidebooks/store/compare/7.9.3...7.9.4) (2023-04-26)
+
+
+### Bug Fixes
+
+* ignore __pycache__ when bundling up workdir ([5e03801](https://github.com/guidebooks/store/commit/5e03801de5670dcfcf789498460e43c5309e1bd8))
+* improve custodian memory requests for larger jobs ([80d952d](https://github.com/guidebooks/store/commit/80d952d4bd4ef83ef5c51516336e4188051a4f57))
+
 ## [7.9.3](https://github.com/guidebooks/store/compare/7.9.2...7.9.3) (2023-04-24)
 
 
