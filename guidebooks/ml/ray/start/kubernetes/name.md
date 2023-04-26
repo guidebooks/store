@@ -1,6 +1,10 @@
 The name of the Ray Kubernetes Service.
 
 ```shell
+export APP_API=ray
+```
+
+```shell
 export RAY_KUBE_CLUSTER_NAME=$(echo ${RAY_KUBE_CLUSTER_NAME-${APP_NAME-${USER-myapp}}-${JOB_ID}} | cut -c1-50 | tr '[:upper:]' '[:lower:]')
 ```
 

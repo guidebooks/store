@@ -8,7 +8,7 @@
         command: [ "/bin/bash", "-c", "--" ]
         args:
           - |
-            kubectl logs -f -l $KUBE_JOB_LOGS_LABEL_SELECTOR
+            kubectl logs --max-log-requests=${MAX_WORKERS-5} --tail=10000 -f -l $KUBE_JOB_LOGS_LABEL_SELECTOR
             echo 'Job run is complete'
             sleep ${CUSTODIAN_DELETE_DELAY-10}
             echo 'Tearing down cluster, if needed'
