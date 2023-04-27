@@ -1,5 +1,12 @@
 
 
+## [7.9.9](https://github.com/guidebooks/store/compare/7.9.8...7.9.9) (2023-04-27)
+
+
+### Bug Fixes
+
+* avoid use of all-containers in ray log streamer ([9639e25](https://github.com/guidebooks/store/commit/9639e25910535dacae3e92ff6f130a1e148331b6))
+
 ## [7.9.8](https://github.com/guidebooks/store/compare/7.9.7...7.9.8) (2023-04-27)
 
 
