@@ -1,5 +1,12 @@
 
 
+## [7.9.8](https://github.com/guidebooks/store/compare/7.9.7...7.9.8) (2023-04-27)
+
+
+### Bug Fixes
+
+* increase memory for runtime-env custodian pod ([1c0996c](https://github.com/guidebooks/store/commit/1c0996c76b4fc5c4393f10098c910cc5f85edd8b))
+
 ## [7.9.7](https://github.com/guidebooks/store/compare/7.9.6...7.9.7) (2023-04-27)
 
 
