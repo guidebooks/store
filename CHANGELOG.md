@@ -1,5 +1,17 @@
 
 
+## [7.9.10](https://github.com/guidebooks/store/compare/7.9.9...7.9.10) (2023-04-27)
+
+
+### Bug Fixes
+
+* avoid helm delete in custodian for now ([d13558b](https://github.com/guidebooks/store/commit/d13558b021b03191d911edece51156415d508c87))
+
+
+### Reverts
+
+* Revert "fix: avoid use of all-containers in ray log streamer" ([4c9f176](https://github.com/guidebooks/store/commit/4c9f176c26fade5c65120325bd2fc561a143f593))
+
 ## [7.9.9](https://github.com/guidebooks/store/compare/7.9.8...7.9.9) (2023-04-27)
 
 
