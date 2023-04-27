@@ -8,15 +8,15 @@ Here, we use `kubectl exec` to stream out Ray job logs.
 > `kubectl` version.
 
 ```shell.async
-# Stream out Ray Head Setup Logs
+# Stream out Ray Logs
 
-kubectl logs ${RAY_HEAD_POD} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -f -c ray-head \
+kubectl logs ${RAY_HEAD_POD} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -f -c logs \
     | tee -a "${STREAMCONSUMER_LOGS}job.txt"
 ```
 
 ```shell
-# Stream out Ray Logs
+# Stream out Ray Head Setup Logs
 
-kubectl logs ${RAY_HEAD_POD} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -f -c logs \
+kubectl logs ${RAY_HEAD_POD} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -f -c ray-head \
     | tee -a "${STREAMCONSUMER_LOGS}job.txt"
 ```
