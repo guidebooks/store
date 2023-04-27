@@ -1,5 +1,12 @@
 
 
+## [7.9.6](https://github.com/guidebooks/store/compare/7.9.5...7.9.6) (2023-04-27)
+
+
+### Bug Fixes
+
+* torchx volume mount paths have extra quotes ([ac301ba](https://github.com/guidebooks/store/commit/ac301baf600315b42fad82111c3b2c8ec5ddc283))
+
 ## [7.9.5](https://github.com/guidebooks/store/compare/7.9.4...7.9.5) (2023-04-27)
 
 
