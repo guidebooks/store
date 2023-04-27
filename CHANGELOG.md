@@ -1,5 +1,12 @@
 
 
+## [7.9.7](https://github.com/guidebooks/store/compare/7.9.6...7.9.7) (2023-04-27)
+
+
+### Bug Fixes
+
+* increase memory for ray head logs container ([87ae9cf](https://github.com/guidebooks/store/commit/87ae9cf1147fdeff325c2b4c81b2dc0448893e9b))
+
 ## [7.9.6](https://github.com/guidebooks/store/compare/7.9.5...7.9.6) (2023-04-27)
 
 
