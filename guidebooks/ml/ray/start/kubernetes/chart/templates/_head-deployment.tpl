@@ -174,7 +174,7 @@ spec:
           resources:
            limits:
              cpu: 50m
-             memory: 32Mi
+             memory: 128Mi
           command: [ "/bin/bash", "-c", "--" ]
           args:
             - |
