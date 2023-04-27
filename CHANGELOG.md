@@ -1,5 +1,12 @@
 
 
+## [7.9.5](https://github.com/guidebooks/store/compare/7.9.4...7.9.5) (2023-04-27)
+
+
+### Bug Fixes
+
+* remove reliance on wget in ray head container ([880acd9](https://github.com/guidebooks/store/commit/880acd9367c656fbcc65000fbb6b582d8775350c))
+
 ## [7.9.4](https://github.com/guidebooks/store/compare/7.9.3...7.9.4) (2023-04-26)
 
 
