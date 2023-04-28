@@ -1,5 +1,8 @@
 if [ -z "$STREAMCONSUMER_EVENTS" ]; then STREAMCONSUMER_EVENTS="/tmp/"; fi
 
+set +e
+set +o pipefail
+
 kubectl exec ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} -c ray-head -- \
         sh -c "tail -F /tmp/ray/session_latest/logs/runtime_env_agent.log 2> /dev/null | grep -v 'raylet\|Unused\|deleted'" \
     | sed -uE 's/[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}//' \

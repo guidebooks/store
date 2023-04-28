@@ -12,11 +12,12 @@ port-forward to a selected Ray cluster.
 
 ```shell.async
 # Ray port-forward
+
 N=1
 SLEEP=1
 while true; do
     svc=${RAY_KUBE_CLUSTER_HEAD_SERVICE-ray-head-${RAY_KUBE_CLUSTER_NAME-mycluster}}
-    (kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} port-forward --pod-running-timeout=24h service/$svc ${RAY_KUBE_PORT-8266}:8265 > /tmp/port-forward-ray-${RAY_KUBE_CLUSTER_NAME-mycluster} || exit 0)
+    (kubectl ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} port-forward --pod-running-timeout=24h service/$svc ${RAY_KUBE_PORT-8266}:8265 > /tmp/port-forward-ray-${RAY_KUBE_CLUSTER_NAME-mycluster} || exit 0) 2> /dev/null
     
     state=$(kubectl get pod ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} ${RAY_HEAD_POD} --no-headers -o custom-columns=STATUS:.status.phase || echo "Error")
     if [[ "$state" != "Running" ]] && [[ "$state" != "Pending" ]]; then
@@ -36,8 +37,9 @@ done
 
 ### Wait for the ray port forwarder to become active
 
-```shell
+```shell.async
 # Wait for Ray port-forward to become active
+
 N=1
 SLEEP=1
 while true; do 
