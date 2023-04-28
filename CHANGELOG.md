@@ -1,5 +1,12 @@
 
 
+## [7.9.11](https://github.com/guidebooks/store/compare/7.9.10...7.9.11) (2023-04-28)
+
+
+### Bug Fixes
+
+* restore helm delete and increase resilience to network disconnects ([c2513e6](https://github.com/guidebooks/store/commit/c2513e6722bce5a46e4a5d143aede5eb60492e2b))
+
 ## [7.9.10](https://github.com/guidebooks/store/compare/7.9.9...7.9.10) (2023-04-27)
 
 
