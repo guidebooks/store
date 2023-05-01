@@ -1,10 +1,14 @@
+# Stream out Torch Logs
+
 echo "👉 $(tput setaf 6)Logs will be stored in this local staging directory: $(tput bold)${LOGDIR_STAGE}$(tput sgr0)"
 
+set +e
+
+TAIL=10000
 while true; do
     kubectl logs -f \
             --prefix \
-            --tail=10000 \
-            --ignore-errors \
+            --tail=$TAIL \
             --pod-running-timeout=3h \
             --max-log-requests=128 \
             ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} \
@@ -12,6 +16,7 @@ while true; do
         | sed -uE "s|(\[)pod/$TORCHX_INSTANCE-([0-9]+)/$TORCHX_INSTANCE-[0-9]+(\])|\x1b[33;1m\1W\2]\x1b[0m|" \
         | tee "${STREAMCONSUMER_LOGS}job.txt" && break
 
+    TAIL=0
     sleep 1
 done
 
