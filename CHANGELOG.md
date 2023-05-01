@@ -1,5 +1,12 @@
 
 
+## [7.9.12](https://github.com/guidebooks/store/compare/7.9.11...7.9.12) (2023-05-01)
+
+
+### Bug Fixes
+
+* wait for ray workers prior to server-side job submit ([6f12b20](https://github.com/guidebooks/store/commit/6f12b20fa244354ceb2c31ebf4f6784f91ad7f47))
+
 ## [7.9.11](https://github.com/guidebooks/store/compare/7.9.10...7.9.11) (2023-04-28)
 
 
