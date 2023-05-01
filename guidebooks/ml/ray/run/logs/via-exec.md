@@ -5,6 +5,8 @@ Here, we use `kubectl exec` to stream out Ray job logs.
 ```shell
 # Stream out Ray Logs
 
+set +e
+
 TAIL=-1
 while true; do
     kubectl logs ${RAY_HEAD_POD} ${KUBE_CONTEXT_ARG} ${KUBE_NS_ARG} -f --all-containers --tail=$TAIL \
