@@ -1,5 +1,12 @@
 
 
+## [7.9.15](https://github.com/guidebooks/store/compare/7.9.14...7.9.15) (2023-05-01)
+
+
+### Bug Fixes
+
+* increase ray gcs rpc timeout to 30s ([42ebe6e](https://github.com/guidebooks/store/commit/42ebe6e1f284e07d7e3da2824a7337b620513ba9))
+
 ## [7.9.14](https://github.com/guidebooks/store/compare/7.9.13...7.9.14) (2023-05-01)
 
 
