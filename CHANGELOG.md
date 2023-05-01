@@ -1,5 +1,12 @@
 
 
+## [7.9.13](https://github.com/guidebooks/store/compare/7.9.12...7.9.13) (2023-05-01)
+
+
+### Bug Fixes
+
+* increase torchx log streaming resilience to network disconnects ([3d0b0f3](https://github.com/guidebooks/store/commit/3d0b0f36042cc08aa33093cca62aa833c026287e))
+
 ## [7.9.12](https://github.com/guidebooks/store/compare/7.9.11...7.9.12) (2023-05-01)
 
 
