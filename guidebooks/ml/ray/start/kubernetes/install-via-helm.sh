@@ -218,6 +218,7 @@ cd $REPO/$SUBDIR && \
          --set podTypes.rayWorkerType.storage=${RAY_EPHEMERAL_STORAGE-5Gi} \
          --set podTypes.rayWorkerType.minWorkers=${MIN_WORKERS-1} \
          --set podTypes.rayWorkerType.maxWorkers=${MAX_WORKERS-1} \
+         --set podTypes.rayWorkerType.selector=${KUBE_POD_LABEL_SELECTOR} \
          ${rollYourOwn} \
          ${jobId} \
          ${jobEnv} \
@@ -229,7 +230,7 @@ cd $REPO/$SUBDIR && \
          ${jobPriority} \
          --set storage.path=${RAY_STORAGE_PATH-/dev/shm} \
          ${storageSecret} \
-         --set rbac.enabled=${KUBERNETES_RBAC_ENABLED-false} \
+         --set rbac.enabled=${KUBERNETES_RBAC_ENABLED-truee} \
          ${startupProbe} \
          --set image=${RAY_IMAGE} \
          ${imagePullSecret} \
