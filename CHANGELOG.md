@@ -1,5 +1,12 @@
 
 
+## [7.9.14](https://github.com/guidebooks/store/compare/7.9.13...7.9.14) (2023-05-01)
+
+
+### Bug Fixes
+
+* more EOF resiliency fixes for ray and torchx ([0c104cd](https://github.com/guidebooks/store/commit/0c104cd559bdfb110fa1bbebf96f21614e21bd20))
+
 ## [7.9.13](https://github.com/guidebooks/store/compare/7.9.12...7.9.13) (2023-05-01)
 
 
