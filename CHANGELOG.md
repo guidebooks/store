@@ -1,5 +1,18 @@
 
 
+# [7.10.0](https://github.com/guidebooks/store/compare/7.9.17...7.10.0) (2023-05-02)
+
+
+### Bug Fixes
+
+* syntax error in multinic for torchx ([010b5f6](https://github.com/guidebooks/store/commit/010b5f6e044a8fe8cc0a5aa6896270db164e03d0))
+
+
+### Features
+
+* add multinic support ([9fff45f](https://github.com/guidebooks/store/commit/9fff45ff9e46a09077b69dc2ee9dd9be3111c9c8))
+* add some NCCL tweaks ([92233b5](https://github.com/guidebooks/store/commit/92233b5af3e9688c94fd6eb28565eb20f617ac2d))
+
 ## [7.9.17](https://github.com/guidebooks/store/compare/7.9.16...7.9.17) (2023-05-02)
 
 
