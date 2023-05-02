@@ -81,13 +81,15 @@ spec:
         - name: {{ .Values.imagePullSecret }}
       {{- end }}
 
+      {{ if gt .Values.podTypes.rayWorkerType.maxWorkers 0 }}
       initContainers:
         - name: wait-for-workers
           image: bitnami/kubectl
           command: ["/bin/sh", "-c", "--"]
           args:
             - {{ print "echo 'Waiting for workers'; kubectl wait pod -l " (.Values.podTypes.rayWorkerType.selector) " --for=condition=Ready --timeout=-1s" }}
-        
+      {{- end }}
+
       containers:
         - name: ray-head
           image: {{ .Values.image }}
