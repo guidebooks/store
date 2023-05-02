@@ -11,6 +11,10 @@ spec:
   completions: {{ .Values.podTypes.rayWorkerType.maxWorkers | default 1 }}
   template:
     metadata:
+      annotations:
+        {{- if .Values.multinic }}
+        k8s.v1.cni.cncf.io/networks: multi-nic-network
+        {{- end }}
       labels:
         component: ray-worker
         type: ray

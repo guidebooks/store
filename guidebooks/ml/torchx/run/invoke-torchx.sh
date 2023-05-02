@@ -38,6 +38,10 @@ elif [[ "$KUBE_POD_SCHEDULING_PRIO" = "low-priority" ]]; then
     prio=",priority=1,priority_class_name=$KUBE_POD_SCHEDULING_PRIO"
 fi
 
+if kubectl ${KUBE_CONTEXT_ARG} api-resources | grep multinicnetworks >& /dev/null
+   multinic=",network=multi-nic-network"
+fi
+
 if [[ -n "$TORCHX_MOUNTS" ]]; then
     mounts="--mounts $(echo "$TORCHX_MOUNTS" | sed 's/,$//')"
 fi
@@ -59,7 +63,7 @@ cd "$CUSTOM_WORKING_DIR" && \
     torchx run --workspace="" \
            --dryrun \
            --scheduler $scheduler \
-           --scheduler_args $ns$repo$imagePullSecret$coscheduler$prio \
+           --scheduler_args $ns$repo$imagePullSecret$coscheduler$prio$multinic \
            $component \
            $env \
            --name main \
