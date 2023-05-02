@@ -20,6 +20,10 @@ spec:
     metadata:
       name: {{ include "ray.head" . }}
       namespace: {{ .Values.clusterNamespace }}
+      annotations:
+        {{- if .Values.multinic }}
+        k8s.v1.cni.cncf.io/networks: multi-nic-network
+        {{- end }}
       labels:
         component: ray-head
         type: ray

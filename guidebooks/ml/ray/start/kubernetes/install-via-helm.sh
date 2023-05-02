@@ -18,6 +18,8 @@ REPO=ray
 BRANCH=operator-cpu # ""
 SUBDIR=deploy/charts/ray
 
+kubectl ${KUBE_CONTEXT_ARG} api-resources | grep multinicnetworks >& /dev/null &
+
 if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
     # MCAD-enabled helm chart; this chart also allows mcad-free operation, hence the ||
     GITHUB=github.com
@@ -199,6 +201,11 @@ else
     INSTALL="upgrade --install"
 fi
 
+wait # for the api-resources multinicnetworks check above
+if [[ $? = 0 ]]; then
+    multinic="--set multinic=true"
+fi
+
 cd $REPO/$SUBDIR && \
     helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
@@ -225,6 +232,7 @@ cd $REPO/$SUBDIR && \
          ${commandLinePrefix} \
          ${dashdash} \
          ${workdir} \
+         ${multinic} \
          --set mcad.enabled=${MCAD_ENABLED-false} \
          --set mcad.scheduler=${KUBE_POD_SCHEDULER-default} \
          ${jobPriority} \
