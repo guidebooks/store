@@ -81,6 +81,13 @@ spec:
         - name: {{ .Values.imagePullSecret }}
       {{- end }}
 
+      initContainers:
+        - name: wait-for-workers
+          image: bitnami/kubectl
+          command: ["/bin/sh", "-c", "--"]
+          args:
+            - {{ print "echo 'Waiting for workers'; kubectl wait pod -l " (.Values.podTypes.rayWorkerType.selector) " --for=condition=Ready --timeout=-1s" }}
+        
       containers:
         - name: ray-head
           image: {{ .Values.image }}
@@ -102,7 +109,7 @@ spec:
 
           args:
           {{ if .Values.workdir }}
-            - {{ print "set -e; set -o pipefail; export TERM=xterm-256color; " (include "ray.head.args" .) "; mkdir /tmp/workdir; tar -C /tmp/workdir -zxf /tmp/configmap/workdir/workdir.tar.gz; if [ ! -f /tmp/workdir/runtime-env.yaml ]; then touch /tmp/workdir/runtime-env.yaml; if [ -f /tmp/workdir/requirements.txt ]; then echo 'Splicing in requirements.txt'; awk 'BEGIN { print \"pip:\" } NF > 0 { print \"  - \" $0 }' /tmp/workdir/requirements.txt >> /tmp/workdir/runtime-env.yaml; fi; fi ; if [ -s /tmp/workdir/runtime-env.yaml ]; then echo 'Using runtime-env.yaml'; RUNTIME_ENV=\"--runtime-env=/tmp/workdir/runtime-env.yaml\"; fi; ls -l /tmp/workdir ; set +e; echo -e \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)Submitted$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Submitting job to ray$(tput sgr0)\"; echo 'Waiting for workers'; kubectl wait pod -l " (.Values.podTypes.rayWorkerType.selector) " --for=condition=Ready --timeout=-1s; ray job submit --job-id " (.Values.jobId) " --address http://localhost:8265 --working-dir=/tmp/workdir $RUNTIME_ENV -- " (.Values.commandLinePrefix | default "python3 main.py") " " (.Values.dashdash | default "" | b64dec) " > /tmp/jobout.txt ; if [[ $? = 0 ]]; then jobstatus=Success; else jobstatus=Failed; fi; echo \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)${jobstatus-Unknown}$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Job has completed$(tput sgr0)\"; tail /tmp/jobout.txt | grep -E 'Job|---' 2> /dev/null; echo \"Shutting down Ray\"; ray stop > /tmp/stop.out 2> /tmp/stop.err" }}
+            - {{ print "set -e; set -o pipefail; export TERM=xterm-256color; " (include "ray.head.args" .) "; mkdir /tmp/workdir; tar -C /tmp/workdir -zxf /tmp/configmap/workdir/workdir.tar.gz; if [ ! -f /tmp/workdir/runtime-env.yaml ]; then touch /tmp/workdir/runtime-env.yaml; if [ -f /tmp/workdir/requirements.txt ]; then echo 'Splicing in requirements.txt'; awk 'BEGIN { print \"pip:\" } NF > 0 { print \"  - \" $0 }' /tmp/workdir/requirements.txt >> /tmp/workdir/runtime-env.yaml; fi; fi ; if [ -s /tmp/workdir/runtime-env.yaml ]; then echo 'Using runtime-env.yaml'; RUNTIME_ENV=\"--runtime-env=/tmp/workdir/runtime-env.yaml\"; fi; ls -l /tmp/workdir ; set +e; echo -e \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)Submitted$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Submitting job to ray$(tput sgr0)\"; ray job submit --job-id " (.Values.jobId) " --address http://localhost:8265 --working-dir=/tmp/workdir $RUNTIME_ENV -- " (.Values.commandLinePrefix | default "python3 main.py") " " (.Values.dashdash | default "" | b64dec) " > /tmp/jobout.txt ; if [[ $? = 0 ]]; then jobstatus=Success; else jobstatus=Failed; fi; echo \"$(tput bold)$(tput dim)$(tput setaf 2)[Job $(tput sgr0)$(tput setaf 2)${jobstatus-Unknown}$(tput bold)$(tput dim)$(tput setaf 2)] $(tput sgr0)$(tput dim)$(tput setaf 2)Job has completed$(tput sgr0)\"; tail /tmp/jobout.txt | grep -E 'Job|---' 2> /dev/null; echo \"Shutting down Ray\"; ray stop > /tmp/stop.out 2> /tmp/stop.err" }}
           {{ else }}
             - {{ print (include "ray.head.args" .) " --block" }}
           {{ end }}
