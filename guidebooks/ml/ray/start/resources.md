@@ -32,3 +32,14 @@
     ```shell
     export RAY_EPHEMERAL_STORAGE=${choice}
     ```
+
+Some NCCL settings that are harmless if GPUs are not in use.
+```shell
+export NCCL_SOCKET_NTHREADS=2
+```
+```shell
+export NCCL_IGNORE_CPU_AFFINITY=1
+```
+```shell
+export NCCL_ALGO=Ring
+```
