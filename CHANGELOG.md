@@ -1,5 +1,12 @@
 
 
+## [7.9.16](https://github.com/guidebooks/store/compare/7.9.15...7.9.16) (2023-05-02)
+
+
+### Bug Fixes
+
+* use initContainer to wait for ray workers ([905af3b](https://github.com/guidebooks/store/commit/905af3b9fd0b1bfff2cd10d5adaf1d049da5f908))
+
 ## [7.9.15](https://github.com/guidebooks/store/compare/7.9.14...7.9.15) (2023-05-01)
 
 
