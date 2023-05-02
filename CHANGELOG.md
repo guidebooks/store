@@ -1,5 +1,12 @@
 
 
+## [7.9.17](https://github.com/guidebooks/store/compare/7.9.16...7.9.17) (2023-05-02)
+
+
+### Bug Fixes
+
+* ray wait for workers initContainer not needed with 0 workers ([4c3683b](https://github.com/guidebooks/store/commit/4c3683b24468eaa9618e53579a36949d733e9b14))
+
 ## [7.9.16](https://github.com/guidebooks/store/compare/7.9.15...7.9.16) (2023-05-02)
 
 
