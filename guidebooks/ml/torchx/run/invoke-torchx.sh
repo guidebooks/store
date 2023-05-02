@@ -38,7 +38,7 @@ elif [[ "$KUBE_POD_SCHEDULING_PRIO" = "low-priority" ]]; then
     prio=",priority=1,priority_class_name=$KUBE_POD_SCHEDULING_PRIO"
 fi
 
-if kubectl ${KUBE_CONTEXT_ARG} api-resources | grep multinicnetworks >& /dev/null
+if kubectl ${KUBE_CONTEXT_ARG} api-resources | grep multinicnetworks >& /dev/null; then
    multinic=",network=multi-nic-network"
 fi
 
