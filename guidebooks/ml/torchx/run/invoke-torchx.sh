@@ -59,6 +59,14 @@ if [[ -n "$GUIDEBOOK_ENV_COMMAS" ]]; then
     env="--env $GUIDEBOOK_ENV_COMMAS"
 fi
 
+# dist.ddp -j settings, i.e. -j $nnodes:nproc_per_node
+nnodes=$MAX_WORKERS
+if [[ ${NUM_GPUS-0} = 0 ]]; then
+    nproc_per_node=1
+else
+    nproc_per_node=${TORCHX_NPROC_PER_NODE-$NUM_GPUS} # despite the env var name, this is num gpus per node
+fi
+
 cd "$CUSTOM_WORKING_DIR" && \
     torchx run --workspace="" \
            --dryrun \
@@ -67,7 +75,7 @@ cd "$CUSTOM_WORKING_DIR" && \
            $component \
            $env \
            --name main \
-           -j ${MAX_WORKERS}x1 --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_PLACEHOLDER} --memMB ${WORKER_MEMORY_MB} \
+           -j ${nnodes}x${nproc_per_node} --gpu ${NUM_GPUS} --cpu ${NUM_CPUS_PLACEHOLDER} --memMB ${WORKER_MEMORY_MB} \
            $mounts \
            $image \
            --script=$script \
