@@ -1,5 +1,12 @@
 
 
+## [7.10.1](https://github.com/guidebooks/store/compare/7.10.0...7.10.1) (2023-05-03)
+
+
+### Bug Fixes
+
+* improve torchx support for running multiple gpus per pod ([4ab703a](https://github.com/guidebooks/store/commit/4ab703a48583c6590523136d2a9630f0af031fe4))
+
 # [7.10.0](https://github.com/guidebooks/store/compare/7.9.17...7.10.0) (2023-05-02)
 
 
