@@ -1,5 +1,12 @@
 
 
+## [7.10.2](https://github.com/guidebooks/store/compare/7.10.1...7.10.2) (2023-05-03)
+
+
+### Bug Fixes
+
+* cache ray/torchx helm chart ([eca853d](https://github.com/guidebooks/store/commit/eca853de1ee6ee5d4f3ab248f03756067b689581))
+
 ## [7.10.1](https://github.com/guidebooks/store/compare/7.10.0...7.10.1) (2023-05-03)
 
 
