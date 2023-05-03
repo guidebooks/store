@@ -8,9 +8,6 @@ CURDIR=$(pwd)
 
 if [ -z "$TERM" ]; then export TERM=xterm-256color; fi
 
-# A staging directory for the clone of the Ray Helm chart.
-WORKDIR=$(mktemp -d) && cd $WORKDIR
-
 # base ray chart
 GITHUB=github.com
 ORG=starpit # ray-project
@@ -42,16 +39,36 @@ else
     CREATE_NAMESPACE="--create-namespace"
 fi
 
-# sparse clone
-if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
-echo "$(tput setaf 3)[Setup]$(tput sgr0) Fetching templates https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}$(tput sgr0)"
-LOG=$(mktemp)
-set +e
-(git clone --quiet --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} 2>> $LOG > /dev/null && \
-    cd $REPO && \
-    git sparse-checkout set --cone $SUBDIR  2>> $LOG > /dev/null && git checkout -q ${BRANCH-main}  2>> $LOG > /dev/null)
-if [ $? != 0 ]; then cat $LOG; exit $?; fi
-set -e
+# sparse clone, but only if we haven't yet cached it in the $GUIDEBOOK_GLOBAL_DATA_PATH
+CACHEPATH="$GUIDEBOOK_GLOBAL_DATA_PATH/install-via-helm/$BRANCH"
+if [[ -n "$RAY_CHART_BRANCH" ]] || [[ -n "$RAY_CHART_ORG" ]] || [[ -n "$RAY_CHART_REPO" ]] || [[ ! -d "$CACHEPATH" ]]; then
+    # A staging directory for the clone of the Ray Helm chart.
+    WORKDIR=$(mktemp -d) && pushd $WORKDIR
+
+    if [ -n "$BRANCH" ]; then BRANCHOPT="-b $BRANCH"; fi
+    echo "$(tput setaf 3)[Setup]$(tput sgr0) Fetching templates https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT}$(tput sgr0)"
+    LOG=$(mktemp)
+    set +e
+    (git clone --quiet --no-checkout --filter=blob:none https://${GITHUB}/${ORG}/${REPO}.git ${BRANCHOPT} 2>> $LOG > /dev/null && \
+         cd $REPO && \
+         git sparse-checkout set --cone $SUBDIR  2>> $LOG > /dev/null && git checkout -q ${BRANCH-main}  2>> $LOG > /dev/null)
+    if [ $? != 0 ]; then cat $LOG; exit $?; fi
+    set -e
+
+    popd
+
+    if [[ -z "$RAY_CHART_BRANCH" ]] || [[ -z "$RAY_CHART_ORG" ]] || [[ -z "$RAY_CHART_REPO" ]]; then
+        # cache it
+        mkdir -p "$CACHEPATH"
+        mv $WORKDIR/$REPO "$CACHEPATH"
+        WORKDIR="$CACHEPATH"
+    else
+        echo "$(tput setaf 3)[Setup]$(tput sgr0) Not using cached helm chart"
+    fi
+else
+    # we've already cached it
+    WORKDIR="$CACHEPATH"
+fi
 
 if [ "$KUBE_POD_MANAGER" = ray ]; then
     sed -i '' -e 's/imagePullPolicy: Always/imagePullPolicy: IfNotPresent/g' $REPO/$SUBDIR/templates/*.yaml
@@ -206,7 +223,7 @@ if [[ $? = 0 ]]; then
     multinic="--set multinic=true"
 fi
 
-cd $REPO/$SUBDIR && \
+cd "$WORKDIR/$REPO/$SUBDIR" && \
     helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \
          ${KUBE_CONTEXT_ARG_HELM} ${KUBE_NS_ARG} \
          ${CREATE_NAMESPACE} ${STARTUP_PROBE} \
