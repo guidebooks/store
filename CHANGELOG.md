@@ -1,5 +1,12 @@
 
 
+## [7.10.3](https://github.com/guidebooks/store/compare/7.10.2...7.10.3) (2023-05-05)
+
+
+### Bug Fixes
+
+* custodian logs container fails due to unescaped $ in $TAIL ([844de41](https://github.com/guidebooks/store/commit/844de41cbb3940346672be1d2bcabff59e404f33))
+
 ## [7.10.2](https://github.com/guidebooks/store/compare/7.10.1...7.10.2) (2023-05-03)
 
 
