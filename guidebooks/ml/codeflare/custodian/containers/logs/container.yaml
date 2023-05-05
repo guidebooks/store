@@ -5,12 +5,14 @@
           limits:
             cpu: 50m
             memory: 32Mi
+        env:
+          - name: TAIL
+            value: "-1"
         command: [ "/bin/bash", "-c", "--" ]
         args:
           - |
-            TAIL=-1
             while true; do
-              kubectl logs --max-log-requests=$((1 + ${MAX_WORKERS-5})) --tail=$TAIL -f $KUBE_JOB_LOGS_LABEL_SELECTOR --all-containers && break
+              kubectl logs --max-log-requests=$((1 + ${MAX_WORKERS-5})) --tail=\$TAIL -f $KUBE_JOB_LOGS_LABEL_SELECTOR --all-containers && break
               TAIL=0
               sleep 1
             done
