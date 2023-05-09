@@ -15,8 +15,6 @@ REPO=ray
 BRANCH=operator-cpu # ""
 SUBDIR=deploy/charts/ray
 
-kubectl ${KUBE_CONTEXT_ARG} api-resources | grep multinicnetworks >& /dev/null &
-
 if [ "$KUBE_POD_MANAGER" = mcad ] || [ "$KUBE_POD_MANAGER" = kubernetes ]; then
     # MCAD-enabled helm chart; this chart also allows mcad-free operation, hence the ||
     GITHUB=github.com
@@ -218,10 +216,12 @@ else
     INSTALL="upgrade --install"
 fi
 
-wait # for the api-resources multinicnetworks check above
-if [[ $? = 0 ]]; then
-    multinic="--set multinic=true"
+set +e
+multinicName=$(kubectl ${KUBE_CONTEXT_ARG} get --no-headers network-attachment-definitions.k8s.cni.cncf.io -o custom-columns=NAME:.metadata.name 2> /dev/null | head -1)
+if [[ -n "$multinicName" ]]; then
+    multinic="--set multinic=$multinicName"
 fi
+set -e
 
 cd "$WORKDIR/$REPO/$SUBDIR" && \
     helm ${INSTALL} --wait --timeout 30m ${RAY_KUBE_CLUSTER_NAME} . \

@@ -13,7 +13,7 @@ spec:
     metadata:
       annotations:
         {{- if .Values.multinic }}
-        k8s.v1.cni.cncf.io/networks: multi-nic-network
+        k8s.v1.cni.cncf.io/networks: {{ .Values.multinic }}
         {{- end }}
       labels:
         component: ray-worker
