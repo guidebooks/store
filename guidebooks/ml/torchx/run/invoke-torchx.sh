@@ -38,9 +38,12 @@ elif [[ "$KUBE_POD_SCHEDULING_PRIO" = "low-priority" ]]; then
     prio=",priority=1,priority_class_name=$KUBE_POD_SCHEDULING_PRIO"
 fi
 
-if kubectl ${KUBE_CONTEXT_ARG} api-resources | grep multinicnetworks >& /dev/null; then
-   multinic=",network=multi-nic-network"
+set +e
+multinicName=$(kubectl ${KUBE_CONTEXT_ARG} get --no-headers network-attachment-definitions.k8s.cni.cncf.io -o custom-columns=NAME:.metadata.name 2> /dev/null | head -1)
+if [[ $? = 0 ]]; then
+   multinic=",network=$multinicName"
 fi
+set -e
 
 if [[ -n "$TORCHX_MOUNTS" ]]; then
     mounts="--mounts $(echo "$TORCHX_MOUNTS" | sed 's/,$//')"
