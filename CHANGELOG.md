@@ -1,5 +1,12 @@
 
 
+## [7.10.4](https://github.com/guidebooks/store/compare/7.10.3...7.10.4) (2023-05-09)
+
+
+### Bug Fixes
+
+* multinic detection was broken; also was hard-wiring name of resource ([84aacd6](https://github.com/guidebooks/store/commit/84aacd697f833a3a0c23b86c56c25d6cfad41642))
+
 ## [7.10.3](https://github.com/guidebooks/store/compare/7.10.2...7.10.3) (2023-05-05)
 
 
