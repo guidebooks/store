@@ -12,7 +12,7 @@
         args:
           - |
             while true; do
-              kubectl logs --max-log-requests=$((1 + ${MAX_WORKERS-5})) --tail=\$TAIL -f $KUBE_JOB_LOGS_LABEL_SELECTOR --all-containers && break
+              kubectl logs --max-log-requests=$((5 + ${MAX_WORKERS-5})) --tail=\$TAIL -f $KUBE_JOB_LOGS_LABEL_SELECTOR --all-containers && break
               TAIL=0
               sleep 1
             done
