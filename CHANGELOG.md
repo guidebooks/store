@@ -1,5 +1,14 @@
 
 
+## [7.10.5](https://github.com/guidebooks/store/compare/7.10.4...7.10.5) (2023-05-11)
+
+
+### Bug Fixes
+
+* cpu utilization information may be bogus; switch to cgroup-based stats ([a409a7e](https://github.com/guidebooks/store/commit/a409a7ed556aed5265a95d7a1f7150da21030bbd))
+* increase max log requests for app logs ([3d5ca5c](https://github.com/guidebooks/store/commit/3d5ca5cf46a849745c92d6bd5c07f8f0a49112f8))
+* ray head wait-for-workers initContainer should retry if wait fails ([2ab27b6](https://github.com/guidebooks/store/commit/2ab27b6c8c27a6d567fd954aa3c0eb8a1b49abf4))
+
 ## [7.10.4](https://github.com/guidebooks/store/compare/7.10.3...7.10.4) (2023-05-09)
 
 
