@@ -91,7 +91,7 @@ spec:
           image: bitnami/kubectl
           command: ["/bin/sh", "-c", "--"]
           args:
-            - {{ print "echo 'Waiting for workers'; kubectl wait pod -l " (.Values.podTypes.rayWorkerType.selector) " --for=condition=Ready --timeout=-1s" }}
+            - {{ print "echo 'Waiting for workers'; while true; do kubectl wait pod -l " (.Values.podTypes.rayWorkerType.selector) " --for=condition=Ready --timeout=-1s && break; sleep 1; done" }}
       {{- end }}
 
       containers:
