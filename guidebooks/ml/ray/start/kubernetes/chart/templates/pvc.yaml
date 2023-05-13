@@ -13,6 +13,7 @@ metadata:
         ibm.io/secret-name: {{ $val.secret }}
         ibm.io/endpoint: {{ $val.endpoint }}
         ibm.io/tls-cipher-suite: "default" # https://github.com/IBM/ibmcloud-object-storage-plugin/issues/110
+        ibm.io/add-mount-param: 'ensure_diskfree=20000'
 spec:
     accessModes:
         - ReadWriteMany
