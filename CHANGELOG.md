@@ -1,5 +1,12 @@
 
 
+## [7.10.6](https://github.com/guidebooks/store/compare/7.10.5...7.10.6) (2023-05-13)
+
+
+### Bug Fixes
+
+* ray head init container should print a message when it is done waiting for workers ([9e5b79b](https://github.com/guidebooks/store/commit/9e5b79b0c8b944188e29009bce45bc06d1f8fd7e))
+
 ## [7.10.5](https://github.com/guidebooks/store/compare/7.10.4...7.10.5) (2023-05-11)
 
 
