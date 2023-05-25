@@ -1,5 +1,12 @@
 
 
+## [7.10.7](https://github.com/guidebooks/store/compare/7.10.6...7.10.7) (2023-05-25)
+
+
+### Bug Fixes
+
+* more EOF protection fixes ([8ad9bef](https://github.com/guidebooks/store/commit/8ad9bef0877ea5af8384434c0576306560a6fafb))
+
 ## [7.10.6](https://github.com/guidebooks/store/compare/7.10.5...7.10.6) (2023-05-13)
 
 
