@@ -8,7 +8,7 @@ metadata:
     component: ray-head
     type: ray
     ray-cluster-name: {{ .Values.clusterName }}
-    appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
+    appwrapper.workload.codeflare.dev: {{ .Values.clusterName }}
     app.kubernetes.io/name: {{ .Values.clusterName }}
     app.kubernetes.io/instance: {{ .Values.clusterName }}
     app.kubernetes.io/owner: {{ .Values.userName | default "unknown" }}
@@ -27,7 +27,7 @@ spec:
       labels:
         component: ray-head
         type: ray
-        appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
+        appwrapper.workload.codeflare.dev: {{ .Values.clusterName }}
         app.kubernetes.io/name: {{ .Values.clusterName }}
         app.kubernetes.io/instance: {{ .Values.clusterName }}
         app.kubernetes.io/owner: {{ .Values.userName | default "unknown" }}

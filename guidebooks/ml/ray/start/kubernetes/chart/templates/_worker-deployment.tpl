@@ -18,7 +18,7 @@ spec:
       labels:
         component: ray-worker
         type: ray
-        appwrapper.mcad.ibm.com: {{ .Values.clusterName }}
+        appwrapper.workload.codeflare.dev: {{ .Values.clusterName }}
         app.kubernetes.io/name: {{ .Values.clusterName }}
         app.kubernetes.io/instance: {{ .Values.clusterName }}
         app.kubernetes.io/owner: {{ .Values.userName | default "unknown" }}

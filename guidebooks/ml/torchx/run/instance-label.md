@@ -1,5 +1,5 @@
 ```shell
-export TORCHX_INSTANCE_LABEL=appwrapper.mcad.ibm.com=${TORCHX_INSTANCE}
+export TORCHX_INSTANCE_LABEL=appwrapper.workload.codeflare.dev=${TORCHX_INSTANCE}
 ```
 
 ```shell
