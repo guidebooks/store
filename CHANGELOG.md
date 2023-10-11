@@ -1,5 +1,12 @@
 
 
+# [8.0.0](https://github.com/guidebooks/store/compare/7.10.7...8.0.0) (2023-10-11)
+
+
+### Features
+
+* Update to mcad v1.34.1 support and torchx 0.6.0 ([6e82995](https://github.com/guidebooks/store/commit/6e8299577ce327bc78dd5602aa1fdfb17e1844b8))
+
 ## [7.10.7](https://github.com/guidebooks/store/compare/7.10.6...7.10.7) (2023-05-25)
 
 
