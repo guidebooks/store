@@ -29,7 +29,6 @@ spec:
   {{ include "priority.slope" . }}
   {{ end }}
   resources:
-    Items: []
     GenericItems:
     - replicas: 1
       generictemplate:
