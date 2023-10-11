@@ -1,5 +1,12 @@
 
 
+## [8.0.1](https://github.com/guidebooks/store/compare/8.0.0...8.0.1) (2023-10-11)
+
+
+### Bug Fixes
+
+* remove Items field ([c5a4494](https://github.com/guidebooks/store/commit/c5a4494c12992807c47702210edb59657f252427))
+
 # [8.0.0](https://github.com/guidebooks/store/compare/7.10.7...8.0.0) (2023-10-11)
 
 
